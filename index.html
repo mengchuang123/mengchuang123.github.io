@@ -34,9 +34,9 @@
 
 
   
-<meta name="generator" content="Hexo 5.4.0"><link rel="alternate" href="/atom.xml" title="mengchuang" type="application/atom+xml">
-
+<meta name="generator" content="Hexo 5.4.0">
 <style>.github-emoji { position: relative; display: inline-block; width: 1.2em; min-height: 1.2em; overflow: hidden; vertical-align: top; color: transparent; }  .github-emoji > span { position: relative; z-index: 10; }  .github-emoji img, .github-emoji .fancybox { margin: 0 !important; padding: 0 !important; border: none !important; outline: none !important; text-decoration: none !important; user-select: none !important; cursor: auto !important; }  .github-emoji img { height: 1.2em !important; width: 1.2em !important; position: absolute !important; left: 50% !important; top: 50% !important; transform: translate(-50%, -50%) !important; user-select: none !important; cursor: auto !important; } .github-emoji-fallback { color: inherit; } .github-emoji-fallback img { opacity: 0 !important; }</style>
+<link rel="alternate" href="/atom.xml" title="mengchuang" type="application/atom+xml">
 </head>
 <body>
   <div id="container">
@@ -194,7 +194,44 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>[toc]</p>
+        <!--Table of Contents begin-->
+        <!-- 
+          <div id="toc" class="toc-article">
+            <strong class="toc-title">目录</strong>
+            <a class="js-toggle-toc" href="javascript:void(0)"></a>
+            <div class="toc-content">
+              <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#423-%E4%BB%8E%E8%8B%B1%E6%96%87%E4%B8%AD%E9%87%8D%E5%BB%BA%E6%95%B0%E5%AD%97"><span class="toc-text">423. 从英文中重建数字</span></a></li></ol>
+            </div>
+          </div>
+         -->
+          <!-- Table of Contents -->
+        
+          <div id="toc" class="toc-article">
+            <strong class="toc-title">目录</strong>
+            <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#423-%E4%BB%8E%E8%8B%B1%E6%96%87%E4%B8%AD%E9%87%8D%E5%BB%BA%E6%95%B0%E5%AD%97"><span class="toc-text">423. 从英文中重建数字</span></a></li></ol>
+          </div>
+        
+        <!--Table of Contents end -->
+        
+
+
+
+
+        <h1 id="423-从英文中重建数字"><a href="#423-从英文中重建数字" class="headerlink" title="423. 从英文中重建数字"></a>423. 从英文中重建数字</h1><p>给你一个字符串 <code>s</code> ，其中包含字母顺序打乱的用英文单词表示的若干数字（<code>0-9</code>）。按 <strong>升序</strong> 返回原始的数字。</p>
+<p><strong>示例一：</strong></p>
+<figure class="highlight java"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">输入：s = <span class="string">"owoztneoer"</span></span><br><span class="line">输出：<span class="string">"012"</span></span><br></pre></td></tr></tbody></table></figure>
+
+<p><strong>思路：</strong></p>
+<p>模拟<br>题目要求我们将打乱的英文单词重建为数字。</p>
+<p>我们可以先对 s 进行词频统计，然后根据「英文单词中的字符唯一性」确定构建的顺序，最后再对答案进行排序即可。</p>
+<p>具体的，zero 中的 z 在其余所有单词中都没出现过，我们可以先统计 zero 的出现次数，并构建 00；然后观察剩余数字，其中 eight 中的 g 具有唯一性，构建 88；再发现 six 中的 x 具有唯一性，构建 66；发现 three 中的 h 具有唯一性（利用在此之前 eight 已经被删除干净，词频中仅存在 three 对应的 h)，构建 33 …</p>
+<p>最终可以确定一个可行的构建序列为 0, 8, 6, 3, 2, 7, 5, 9, 4, 1</p>
+<p><strong>代码：</strong></p>
+<figure class="highlight c++"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> {</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> String <span class="title">originalDigits</span><span class="params">(String s)</span> </span>{</span><br><span class="line">        <span class="keyword">int</span> []priority={ <span class="number">0</span>, <span class="number">8</span>, <span class="number">6</span>, <span class="number">3</span>, <span class="number">2</span>, <span class="number">7</span>, <span class="number">5</span>, <span class="number">9</span>, <span class="number">4</span>, <span class="number">1</span>};</span><br><span class="line">        String[] number = {<span class="string">"zero"</span>,<span class="string">"one"</span>,<span class="string">"two"</span>,<span class="string">"three"</span>,<span class="string">"four"</span>,<span class="string">"five"</span>,<span class="string">"six"</span>,<span class="string">"seven"</span>,<span class="string">"eight"</span>,<span class="string">"nine"</span>};</span><br><span class="line">        <span class="keyword">int</span> []res = <span class="keyword">new</span> <span class="keyword">int</span>[<span class="number">10</span>];</span><br><span class="line">        <span class="keyword">int</span> []num = <span class="keyword">new</span> <span class="keyword">int</span>[<span class="number">27</span>];</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">0</span>;i&lt;s.<span class="built_in">length</span>();i++){</span><br><span class="line">            num[(<span class="keyword">int</span>)(s.<span class="built_in">charAt</span>(i)-<span class="string">'a'</span>)+<span class="number">1</span>] ++;</span><br><span class="line">        }</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> item:priority){</span><br><span class="line">            <span class="keyword">int</span> min = num[(<span class="keyword">int</span>)(number[item].<span class="built_in">charAt</span>(<span class="number">0</span>)-<span class="string">'a'</span>)+<span class="number">1</span>];</span><br><span class="line">            <span class="keyword">for</span>(<span class="keyword">char</span> op:number[item].<span class="built_in">toCharArray</span>()){</span><br><span class="line">                min = Math.<span class="built_in">min</span>(min,num[(<span class="keyword">int</span>)(op-<span class="string">'a'</span>)+<span class="number">1</span>]);</span><br><span class="line">            }</span><br><span class="line">            <span class="keyword">if</span>(min==<span class="number">0</span>) <span class="keyword">continue</span>;</span><br><span class="line">            res[item] = min;</span><br><span class="line">            <span class="keyword">for</span>(<span class="keyword">char</span> op:number[item].<span class="built_in">toCharArray</span>()){</span><br><span class="line">                num[(<span class="keyword">int</span>)(op-<span class="string">'a'</span>)+<span class="number">1</span>] -=min;</span><br><span class="line">            }</span><br><span class="line"></span><br><span class="line">        }</span><br><span class="line">        StringBuffer ans = <span class="keyword">new</span> <span class="built_in">StringBuffer</span>();</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">0</span>;i&lt;res.length;i++){</span><br><span class="line">            <span class="keyword">if</span>(res[i]!=<span class="number">0</span>){</span><br><span class="line">                <span class="keyword">while</span>(res[i]!=<span class="number">0</span>){</span><br><span class="line">                    ans.<span class="built_in">append</span>((<span class="keyword">char</span>)(<span class="string">'0'</span>+i));</span><br><span class="line">                    res[i]--;</span><br><span class="line">                }</span><br><span class="line">            }</span><br><span class="line">        }</span><br><span class="line">        <span class="keyword">return</span> ans.<span class="built_in">toString</span>();</span><br><span class="line">    }</span><br><span class="line">}</span><br></pre></td></tr></tbody></table></figure>
+
+
+
+
       
     </div>
     
@@ -210,10 +247,6 @@
       
       <div class="clearfix"></div>
     </div>
-      
-        <p class="article-more-link">
-          <a  href="/2021/11/24/%E6%AF%8F%E6%97%A5%E4%B8%80%E9%A2%98/#more">learn more >></a>
-        </p>
       
     
   </div>
@@ -256,7 +289,36 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>[toc]</p>
+        <!--Table of Contents begin-->
+        <!-- 
+          <div id="toc" class="toc-article">
+            <strong class="toc-title">目录</strong>
+            <a class="js-toggle-toc" href="javascript:void(0)"></a>
+            <div class="toc-content">
+              <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#%E6%A0%BC%E9%9B%B7%E7%A0%81%E7%AE%97%E6%B3%95"><span class="toc-text">格雷码算法</span></a></li></ol>
+            </div>
+          </div>
+         -->
+          <!-- Table of Contents -->
+        
+          <div id="toc" class="toc-article">
+            <strong class="toc-title">目录</strong>
+            <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#%E6%A0%BC%E9%9B%B7%E7%A0%81%E7%AE%97%E6%B3%95"><span class="toc-text">格雷码算法</span></a></li></ol>
+          </div>
+        
+        <!--Table of Contents end -->
+        
+
+
+
+
+        <h1 id="格雷码算法"><a href="#格雷码算法" class="headerlink" title="格雷码算法"></a>格雷码算法</h1><p>要求生成 $[1,n]$的所有格雷码。</p>
+<p>生成整数n的格雷码为：$n 异或 n/2$</p>
+<figure class="highlight java"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Solution</span> </span>{</span><br><span class="line">    <span class="function"><span class="keyword">public</span> ArrayList&lt;Integer&gt; <span class="title">grayCode</span><span class="params">(<span class="keyword">int</span> n)</span> </span>{</span><br><span class="line">        ArrayList&lt;Integer&gt; result = <span class="keyword">new</span> ArrayList&lt;Integer&gt;();</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; (<span class="number">1</span> &lt;&lt; n); i++)</span><br><span class="line">            result.add(i ^ (i &gt;&gt; <span class="number">1</span>));</span><br><span class="line">        <span class="keyword">return</span> result;</span><br><span class="line">    }</span><br><span class="line">}</span><br></pre></td></tr></tbody></table></figure>
+
+
+
+
       
     </div>
     
@@ -272,10 +334,6 @@
       
       <div class="clearfix"></div>
     </div>
-      
-        <p class="article-more-link">
-          <a  href="/2021/11/22/%E7%AE%97%E6%B3%95%E9%9B%86%E5%90%88/#more">learn more >></a>
-        </p>
       
     
   </div>
@@ -318,7 +376,39 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>[toc]</p>
+        <!--Table of Contents begin-->
+        <!-- 
+          <div id="toc" class="toc-article">
+            <strong class="toc-title">目录</strong>
+            <a class="js-toggle-toc" href="javascript:void(0)"></a>
+            <div class="toc-content">
+              <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#cache"><span class="toc-text">cache</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%B8%89%E7%A7%8Dmiss"><span class="toc-text">三种miss</span></a></li></ol></li></ol></li></ol>
+            </div>
+          </div>
+         -->
+          <!-- Table of Contents -->
+        
+          <div id="toc" class="toc-article">
+            <strong class="toc-title">目录</strong>
+            <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#cache"><span class="toc-text">cache</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%B8%89%E7%A7%8Dmiss"><span class="toc-text">三种miss</span></a></li></ol></li></ol></li></ol>
+          </div>
+        
+        <!--Table of Contents end -->
+        
+
+
+
+
+        <h1 id="cache"><a href="#cache" class="headerlink" title="cache"></a>cache</h1><p>什么是cache,主要思想</p>
+<h3 id="三种miss"><a href="#三种miss" class="headerlink" title="三种miss"></a>三种miss</h3><ul>
+<li><strong>强制性失效</strong>CPU第一次访问相应cache块，cache中肯定没有该cache块，引起的失效叫做强制性失效。这是不可避免的。</li>
+<li><strong>容量失效：</strong>有限的cache容量导致cache放不下而替换出cache块，被替换出去的cache块再被访问，引起的失效叫做容量失效。</li>
+<li><strong>冲突失效：</strong>在直接相联或组相联的cache中，不同的cache块由于index相同相互替换，引起的失效叫做冲突失效。</li>
+</ul>
+<p>web cache</p>
+<p>三种类型的cache</p>
+<p>如何解决读写冲突</p>
+
       
     </div>
     
@@ -334,10 +424,6 @@
       
       <div class="clearfix"></div>
     </div>
-      
-        <p class="article-more-link">
-          <a  href="/2021/11/18/cache/#more">learn more >></a>
-        </p>
       
     
   </div>
@@ -380,7 +466,30 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>[toc]</p>
+        <!--Table of Contents begin-->
+        <!-- 
+          <div id="toc" class="toc-article">
+            <strong class="toc-title">目录</strong>
+            <a class="js-toggle-toc" href="javascript:void(0)"></a>
+            <div class="toc-content">
+              <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#%E6%9C%80%E4%BC%98%E4%BA%8C%E5%8F%89%E6%9F%A5%E6%89%BE%E6%A0%91"><span class="toc-text">最优二叉查找树</span></a></li></ol>
+            </div>
+          </div>
+         -->
+          <!-- Table of Contents -->
+        
+          <div id="toc" class="toc-article">
+            <strong class="toc-title">目录</strong>
+            <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#%E6%9C%80%E4%BC%98%E4%BA%8C%E5%8F%89%E6%9F%A5%E6%89%BE%E6%A0%91"><span class="toc-text">最优二叉查找树</span></a></li></ol>
+          </div>
+        
+        <!--Table of Contents end -->
+        
+
+
+
+
+        <h1 id="最优二叉查找树"><a href="#最优二叉查找树" class="headerlink" title="最优二叉查找树"></a>最优二叉查找树</h1>
       
     </div>
     
@@ -396,10 +505,6 @@
       
       <div class="clearfix"></div>
     </div>
-      
-        <p class="article-more-link">
-          <a  href="/2021/11/18/%E6%9C%80%E4%BC%98%E4%BA%8C%E5%8F%89%E6%9F%A5%E6%89%BE%E6%A0%91/#more">learn more >></a>
-        </p>
       
     
   </div>
@@ -442,7 +547,97 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>[toc]</p>
+        <!--Table of Contents begin-->
+        <!-- 
+          <div id="toc" class="toc-article">
+            <strong class="toc-title">目录</strong>
+            <a class="js-toggle-toc" href="javascript:void(0)"></a>
+            <div class="toc-content">
+              <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#%E6%9C%80%E5%B0%8F%E7%94%9F%E6%88%90%E6%A0%91"><span class="toc-text">最小生成树</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#Prim"><span class="toc-text">Prim</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%BC%98%E5%85%88%E9%98%9F%E5%88%97%E4%BC%98%E5%8C%96%E7%9A%84Prim"><span class="toc-text">优先队列优化的Prim</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Kruskal"><span class="toc-text">Kruskal</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%AE%9E%E7%8E%B0"><span class="toc-text">实现</span></a></li></ol></li></ol></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E5%8D%95%E6%BA%90%E6%B1%87%E6%9C%80%E7%9F%AD%E8%B7%AF"><span class="toc-text">单源汇最短路</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#Dijkstra"><span class="toc-text">Dijkstra</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E5%93%88%E5%A4%AB%E6%9B%BC%E6%A0%91%E4%B8%8E%E7%BC%96%E7%A0%81"><span class="toc-text">哈夫曼树与编码</span></a></li></ol>
+            </div>
+          </div>
+         -->
+          <!-- Table of Contents -->
+        
+          <div id="toc" class="toc-article">
+            <strong class="toc-title">目录</strong>
+            <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#%E6%9C%80%E5%B0%8F%E7%94%9F%E6%88%90%E6%A0%91"><span class="toc-text">最小生成树</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#Prim"><span class="toc-text">Prim</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%BC%98%E5%85%88%E9%98%9F%E5%88%97%E4%BC%98%E5%8C%96%E7%9A%84Prim"><span class="toc-text">优先队列优化的Prim</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Kruskal"><span class="toc-text">Kruskal</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%AE%9E%E7%8E%B0"><span class="toc-text">实现</span></a></li></ol></li></ol></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E5%8D%95%E6%BA%90%E6%B1%87%E6%9C%80%E7%9F%AD%E8%B7%AF"><span class="toc-text">单源汇最短路</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#Dijkstra"><span class="toc-text">Dijkstra</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E5%93%88%E5%A4%AB%E6%9B%BC%E6%A0%91%E4%B8%8E%E7%BC%96%E7%A0%81"><span class="toc-text">哈夫曼树与编码</span></a></li></ol>
+          </div>
+        
+        <!--Table of Contents end -->
+        
+
+
+
+
+        <h1 id="最小生成树"><a href="#最小生成树" class="headerlink" title="最小生成树"></a>最小生成树</h1><ul>
+<li>连通无环子图</li>
+<li>树的总权重最小</li>
+</ul>
+<h2 id="Prim"><a href="#Prim" class="headerlink" title="Prim"></a>Prim</h2><ul>
+<li><p>选取一个顶点作为已选择的顶点，加入<strong>已选结点集合</strong></p>
+</li>
+<li><p>选出<strong>未选结点集合</strong>中选出一个<strong>和已选结点集合中的距离最小</strong>的结点</p>
+</li>
+<li><p>该结点加入<strong>已选结点集合</strong></p>
+</li>
+</ul>
+<p><strong>证明：</strong></p>
+<p>用归纳法（反证法）证明形成的MST</p>
+<ul>
+<li>假设一个最短，但是不是最优的结点，和另外一个最优但是不是最短的边，</li>
+<li>两个不可能同时存在，必然只能选择一个</li>
+<li>明显最短的那个就是最优的。</li>
+</ul>
+<p><strong>效率：</strong></p>
+<ul>
+<li><strong>权重矩阵表示：</strong> $O(|V|^2)$ </li>
+<li><strong>邻接链表表示：</strong> $(|V|-1+|E|)O(log|V|)=O(|E|log|V|)$   </li>
+</ul>
+<h3 id="优先队列优化的Prim"><a href="#优先队列优化的Prim" class="headerlink" title="优先队列优化的Prim"></a>优先队列优化的Prim</h3><blockquote>
+<p>0/1背包问题：分析是自顶向下，写程序是自底向上</p>
+</blockquote>
+<h2 id="Kruskal"><a href="#Kruskal" class="headerlink" title="Kruskal"></a>Kruskal</h2><p>思想：对边的操作</p>
+<ul>
+<li><p>将所有的边按照权重来进行排序</p>
+</li>
+<li><p>按照排序的顺序依次判断排序好的边是否可以加入结果中（是否构成回路）</p>
+</li>
+<li><p>难点：需要检查是否属于一个回路</p>
+</li>
+</ul>
+<blockquote>
+<p>用查并集来判断是否两个结点属于同一个树</p>
+</blockquote>
+<h4 id="实现"><a href="#实现" class="headerlink" title="实现"></a>实现</h4><figure class="highlight java"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//m是边的数量</span></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">Kruskal</span><span class="params">()</span></span>{</span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">0</span>;i&lt;m;i++){     <span class="comment">//遍历所有的边</span></span><br><span class="line">		<span class="keyword">int</span> e = r[i];         <span class="comment">//第i条边</span></span><br><span class="line">        <span class="keyword">if</span>(find(u(e))!=find(v(e))){</span><br><span class="line">			ans+=w(e);</span><br><span class="line">            union(u(e),v(e)); <span class="comment">//合并</span></span><br><span class="line">        }</span><br><span class="line">    }</span><br><span class="line">     <span class="keyword">return</span> ans;</span><br><span class="line">}</span><br></pre></td></tr></tbody></table></figure>
+
+
+
+<h1 id="单源汇最短路"><a href="#单源汇最短路" class="headerlink" title="单源汇最短路"></a>单源汇最短路</h1><h2 id="Dijkstra"><a href="#Dijkstra" class="headerlink" title="Dijkstra"></a>Dijkstra</h2><blockquote>
+<p>从一个结点出发到所有结点之间的最短路</p>
+</blockquote>
+<ul>
+<li>单源 dijkstra（优先队列优化）</li>
+<li>多源 floyd</li>
+</ul>
+<p><strong>注意：</strong></p>
+<ul>
+<li>不对负权重进行处理</li>
+<li>同时适用于优先图和无向图</li>
+<li>效率和Prim一样</li>
+<li>Dijkstra和Prim有一定的区别</li>
+</ul>
+<p><strong>实现：</strong></p>
+<figure class="highlight java"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">dijkstra</span><span class="params">()</span></span>{</span><br><span class="line">	<span class="keyword">int</span> []dis ;</span><br><span class="line">    v[];<span class="comment">//用来判断当前结点是否被遍历过了，e点被遍历过，v[e]=1;</span></span><br><span class="line">    v[<span class="number">1</span>]=<span class="number">1</span>;</span><br><span class="line">    dis[<span class="number">1</span>]=<span class="number">0</span>;</span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">1</span>;i&lt;=n;i++) {  <span class="comment">//遍历所有的结点</span></span><br><span class="line">        min = min(dis[k]); (v[k]==<span class="number">0</span>) <span class="comment">//找到最小值</span></span><br><span class="line">        v[min] = <span class="number">1</span>;<span class="comment">//加入路径</span></span><br><span class="line">        </span><br><span class="line">        <span class="comment">//松弛</span></span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> j=<span class="number">0</span>;j&lt;=n;j++){</span><br><span class="line">			<span class="keyword">if</span>(!v[j]&amp;&amp;dis[k]+a[k][j]&lt;dis[j])</span><br><span class="line">                dis[j]=dis[k]+a[k][j];			</span><br><span class="line">        }</span><br><span class="line">    }</span><br><span class="line">}</span><br></pre></td></tr></tbody></table></figure>
+
+<figure class="highlight java"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"><span class="comment">//定义一个存储节点和离起点相应距离的数据结构</span></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Node</span> <span class="keyword">implements</span> <span class="title">Comparator</span>&lt;<span class="title">Node</span>&gt; </span>{</span><br><span class="line">  </span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">compare</span><span class="params">(Node node1, Node node2)</span></span></span><br><span class="line"><span class="function">}</span></span><br></pre></td></tr></tbody></table></figure>
+
+<p><strong>java点</strong></p>
+<figure class="highlight java"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//visit初始为0，防止回溯</span></span><br><span class="line"><span class="keyword">int</span> visit[] = <span class="keyword">new</span> <span class="keyword">int</span>[n+<span class="number">1</span>];</span><br><span class="line"><span class="comment">//假设起点为src, 终点为dst, 图以二维矩阵的形式存储，若graph[i][j] == 0, 代表i,j不相连</span></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">Dijkstra</span><span class="params">(<span class="keyword">int</span> src, <span class="keyword">int</span> dst, <span class="keyword">int</span>[][] graph)</span></span>{</span><br><span class="line">    PriorityQueue&lt;Node&gt; pq = <span class="keyword">new</span> PriorityQueue&lt;Node&gt;();</span><br><span class="line">    <span class="comment">//将起点加入pq</span></span><br><span class="line">    pq.add(<span class="keyword">new</span> Node(src, <span class="number">0</span>));</span><br><span class="line">    <span class="keyword">while</span>(pq.size()){</span><br><span class="line">        Node t = pq.poll();</span><br><span class="line">        <span class="comment">//当前节点是终点，即可返回最短路径</span></span><br><span class="line">        <span class="keyword">if</span>(t.node == dst) <span class="keyword">return</span> t.cost;</span><br><span class="line">        <span class="comment">//若当前节点已遍历过，跳过当前节点</span></span><br><span class="line">        <span class="keyword">if</span>(visit[t.node]) <span class="keyword">continue</span>;</span><br><span class="line">        <span class="comment">//将当前节点标记成已遍历</span></span><br><span class="line">        visit[t.node] = <span class="number">1</span>;</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; n; i++){</span><br><span class="line">            <span class="keyword">if</span>(graph[t.node][i] &amp;&amp; !visited[i]){</span><br><span class="line">                pq.add(<span class="keyword">new</span> Node(i, t.cost + graph[t.node][i])); </span><br><span class="line">            }</span><br><span class="line">        }</span><br><span class="line">    }</span><br><span class="line">    <span class="keyword">return</span> -<span class="number">1</span></span><br><span class="line">}</span><br><span class="line"></span><br><span class="line"><span class="comment">//定义一个存储节点和离起点相应距离的数据结构</span></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Node</span> <span class="keyword">implements</span> <span class="title">Comparator</span>&lt;<span class="title">Node</span>&gt; </span>{</span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">int</span> node;</span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">int</span> cost;</span><br><span class="line">   </span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="title">Node</span><span class="params">()</span></span></span><br><span class="line"><span class="function">    </span>{</span><br><span class="line">    }</span><br><span class="line">   </span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="title">Node</span><span class="params">(<span class="keyword">int</span> node, <span class="keyword">int</span> cost)</span></span></span><br><span class="line"><span class="function">    </span>{</span><br><span class="line">        <span class="keyword">this</span>.node = node;</span><br><span class="line">        <span class="keyword">this</span>.cost = cost;</span><br><span class="line">    }</span><br><span class="line">   </span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">compare</span><span class="params">(Node node1, Node node2)</span></span></span><br><span class="line"><span class="function">    </span>{</span><br><span class="line">        <span class="keyword">if</span> (node1.cost &lt; node2.cost)</span><br><span class="line">            <span class="keyword">return</span> -<span class="number">1</span>;</span><br><span class="line">        <span class="keyword">if</span> (node1.cost &gt; node2.cost)</span><br><span class="line">            <span class="keyword">return</span> <span class="number">1</span>;</span><br><span class="line">        <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">    }</span><br><span class="line">}</span><br></pre></td></tr></tbody></table></figure>
+
+
+
+<h1 id="哈夫曼树与编码"><a href="#哈夫曼树与编码" class="headerlink" title="哈夫曼树与编码"></a>哈夫曼树与编码</h1>
       
     </div>
     
@@ -458,10 +653,6 @@
       
       <div class="clearfix"></div>
     </div>
-      
-        <p class="article-more-link">
-          <a  href="/2021/11/18/%E8%B4%AA%E5%BF%83%E7%AE%97%E6%B3%95/#more">learn more >></a>
-        </p>
       
     
   </div>
@@ -504,7 +695,59 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>[toc]</p>
+        <!--Table of Contents begin-->
+        <!-- 
+          <div id="toc" class="toc-article">
+            <strong class="toc-title">目录</strong>
+            <a class="js-toggle-toc" href="javascript:void(0)"></a>
+            <div class="toc-content">
+              <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#ping%E5%B7%A5%E4%BD%9C%E5%8E%9F%E7%90%86"><span class="toc-text">ping工作原理</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#windows%E4%B8%AD%E7%9A%84tracert%E5%B7%A5%E4%BD%9C%E5%8E%9F%E7%90%86"><span class="toc-text">windows中的tracert工作原理</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E8%99%9A%E6%8B%9F%E5%B1%80%E5%9F%9F%E7%BD%91VLAN%E5%A6%82%E4%BD%95%E5%88%92%E5%88%86"><span class="toc-text">虚拟局域网VLAN如何划分</span></a></li></ol>
+            </div>
+          </div>
+         -->
+          <!-- Table of Contents -->
+        
+          <div id="toc" class="toc-article">
+            <strong class="toc-title">目录</strong>
+            <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#ping%E5%B7%A5%E4%BD%9C%E5%8E%9F%E7%90%86"><span class="toc-text">ping工作原理</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#windows%E4%B8%AD%E7%9A%84tracert%E5%B7%A5%E4%BD%9C%E5%8E%9F%E7%90%86"><span class="toc-text">windows中的tracert工作原理</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E8%99%9A%E6%8B%9F%E5%B1%80%E5%9F%9F%E7%BD%91VLAN%E5%A6%82%E4%BD%95%E5%88%92%E5%88%86"><span class="toc-text">虚拟局域网VLAN如何划分</span></a></li></ol>
+          </div>
+        
+        <!--Table of Contents end -->
+        
+
+
+
+
+        <h1 id="ping工作原理"><a href="#ping工作原理" class="headerlink" title="ping工作原理"></a>ping工作原理</h1><p>ping本质是ICMP数据包的发送和解析过程。工作流程：</p>
+<blockquote>
+<p>构造ICMP数据包—&gt;构造IP包—&gt;构造以太网数据帧—&gt;物理传输到目标主机—&gt;获取以太网数据帧—&gt;解析出IP数据包—&gt;解析出ICMP数据包—&gt;发送应答报文</p>
+</blockquote>
+<p><strong>本地主机处理流程</strong>:</p>
+<ol>
+<li>本地ping命令构造一个ICMP数据包(网络层协议)</li>
+<li>ICMP数据与源主机地址+目的主机地址 构造成为IP数据包</li>
+<li>根据本地的ARP缓存查找目的地址IP对应的MAC地址,如果缓存中没有就通过ARP协议找到对应的IP的MAC地址,将MAC地址交给数据链路层构造frame</li>
+<li>经过物理层发送到目的主机</li>
+</ol>
+<p><strong>目的主机处理流程:</strong></p>
+<ol>
+<li>目的主机接收到数据包</li>
+<li>物理层接收到二进制数据流经数据链路层，按照以太网协议解析出数据帧，如果数据帧中的目标MAC地址与本机MAC地址相同，则接收该数据包，否则丢弃该数据包。</li>
+<li>接收到该数据包之后，经网络层解析出IP数据包，通过IP包头中的协议字段判断出是ICMP数据包。之后解析出ICMP数据包，发现是回送请求报文（ping request）后马上构建一个ICMP回送应答报文（ping reply）</li>
+<li>将封装好的ICMP数据包经网络层、数据链路层、物理层发送回源主机.</li>
+</ol>
+<blockquote>
+<p>ICMP仅仅在网络层中,没有涉及到TCP UDP等传输层协议</p>
+<p>当无法找到目的主机时,超时或者由路由器发送响应报文,主要是超时判定不可达.</p>
+</blockquote>
+<h1 id="windows中的tracert工作原理"><a href="#windows中的tracert工作原理" class="headerlink" title="windows中的tracert工作原理"></a>windows中的tracert工作原理</h1><h1 id="虚拟局域网VLAN如何划分"><a href="#虚拟局域网VLAN如何划分" class="headerlink" title="虚拟局域网VLAN如何划分"></a>虚拟局域网VLAN如何划分</h1><p><a target="_blank" rel="noopener" href="https://bbs.21ic.com/upfiles/img/20097/20097812048478.pdf">参考文件</a></p>
+<ul>
+<li>根据端口划分 VLAN,802.1Q就是这样划分的</li>
+<li>根据 MAC 地址划分 VLAN</li>
+<li>根据网络层划分 VLAN</li>
+<li>根据 IP 组播划分</li>
+</ul>
+
       
     </div>
     
@@ -520,10 +763,6 @@
       
       <div class="clearfix"></div>
     </div>
-      
-        <p class="article-more-link">
-          <a  href="/2021/11/16/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C%E9%9D%A2%E7%BB%8F%E6%80%BB%E7%BB%93/#more">learn more >></a>
-        </p>
       
     
   </div>
