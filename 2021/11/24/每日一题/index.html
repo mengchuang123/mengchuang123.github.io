@@ -16,11 +16,13 @@
 <meta property="og:site_name" content="mengchuang">
 <meta property="og:description" content="423. 从英文中重建数字 给你一个字符串 s ，其中包含字母顺序打乱的用英文单词表示的若干数字（0-9）。按 升序 返回原始的数字。 示例一： 12输入：s &#x3D; &quot;owoztneoer&quot;输出：&quot;012&quot;  思路： 模拟题目要求我们将打乱的英文单词重建为数字。 我们可以先对 s 进行词频统计，然后根据「英文单词中的字符唯一性」确定构建的顺序，最后再对答案进行排序即可。 具体的，zero 中的 z">
 <meta property="og:locale" content="en_US">
+<meta property="og:image" content="https://gitee.com/mymengchuang/blog_img/raw/master/image-20211125213943593.png">
 <meta property="article:published_time" content="2021-11-23T16:00:00.000Z">
-<meta property="article:modified_time" content="2021-11-25T06:39:47.243Z">
+<meta property="article:modified_time" content="2021-11-25T13:44:23.724Z">
 <meta property="article:author" content="mengchuang">
 <meta property="article:tag" content="算法">
 <meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://gitee.com/mymengchuang/blog_img/raw/master/image-20211125213943593.png">
   
   
     <link rel="icon" href="/img/favicon.ico">
@@ -213,7 +215,7 @@
             <strong class="toc-title">目录</strong>
             <a class="js-toggle-toc" href="javascript:void(0)"></a>
             <div class="toc-content">
-              <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#423-%E4%BB%8E%E8%8B%B1%E6%96%87%E4%B8%AD%E9%87%8D%E5%BB%BA%E6%95%B0%E5%AD%97"><span class="toc-text">423. 从英文中重建数字</span></a></li></ol>
+              <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#423-%E4%BB%8E%E8%8B%B1%E6%96%87%E4%B8%AD%E9%87%8D%E5%BB%BA%E6%95%B0%E5%AD%97"><span class="toc-text">423. 从英文中重建数字</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#458-%E5%8F%AF%E6%80%9C%E7%9A%84%E5%B0%8F%E7%8C%AA"><span class="toc-text">458. 可怜的小猪</span></a></li></ol>
             </div>
           </div>
          -->
@@ -221,7 +223,7 @@
         
           <div id="toc" class="toc-article">
             <strong class="toc-title">目录</strong>
-            <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#423-%E4%BB%8E%E8%8B%B1%E6%96%87%E4%B8%AD%E9%87%8D%E5%BB%BA%E6%95%B0%E5%AD%97"><span class="toc-text">423. 从英文中重建数字</span></a></li></ol>
+            <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#423-%E4%BB%8E%E8%8B%B1%E6%96%87%E4%B8%AD%E9%87%8D%E5%BB%BA%E6%95%B0%E5%AD%97"><span class="toc-text">423. 从英文中重建数字</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#458-%E5%8F%AF%E6%80%9C%E7%9A%84%E5%B0%8F%E7%8C%AA"><span class="toc-text">458. 可怜的小猪</span></a></li></ol>
           </div>
         
         <!--Table of Contents end -->
@@ -244,6 +246,60 @@
 <figure class="highlight c++"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> {</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> String <span class="title">originalDigits</span><span class="params">(String s)</span> </span>{</span><br><span class="line">        <span class="keyword">int</span> []priority={ <span class="number">0</span>, <span class="number">8</span>, <span class="number">6</span>, <span class="number">3</span>, <span class="number">2</span>, <span class="number">7</span>, <span class="number">5</span>, <span class="number">9</span>, <span class="number">4</span>, <span class="number">1</span>};</span><br><span class="line">        String[] number = {<span class="string">"zero"</span>,<span class="string">"one"</span>,<span class="string">"two"</span>,<span class="string">"three"</span>,<span class="string">"four"</span>,<span class="string">"five"</span>,<span class="string">"six"</span>,<span class="string">"seven"</span>,<span class="string">"eight"</span>,<span class="string">"nine"</span>};</span><br><span class="line">        <span class="keyword">int</span> []res = <span class="keyword">new</span> <span class="keyword">int</span>[<span class="number">10</span>];</span><br><span class="line">        <span class="keyword">int</span> []num = <span class="keyword">new</span> <span class="keyword">int</span>[<span class="number">27</span>];</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">0</span>;i&lt;s.<span class="built_in">length</span>();i++){</span><br><span class="line">            num[(<span class="keyword">int</span>)(s.<span class="built_in">charAt</span>(i)-<span class="string">'a'</span>)+<span class="number">1</span>] ++;</span><br><span class="line">        }</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> item:priority){</span><br><span class="line">            <span class="keyword">int</span> min = num[(<span class="keyword">int</span>)(number[item].<span class="built_in">charAt</span>(<span class="number">0</span>)-<span class="string">'a'</span>)+<span class="number">1</span>];</span><br><span class="line">            <span class="keyword">for</span>(<span class="keyword">char</span> op:number[item].<span class="built_in">toCharArray</span>()){</span><br><span class="line">                min = Math.<span class="built_in">min</span>(min,num[(<span class="keyword">int</span>)(op-<span class="string">'a'</span>)+<span class="number">1</span>]);</span><br><span class="line">            }</span><br><span class="line">            <span class="keyword">if</span>(min==<span class="number">0</span>) <span class="keyword">continue</span>;</span><br><span class="line">            res[item] = min;</span><br><span class="line">            <span class="keyword">for</span>(<span class="keyword">char</span> op:number[item].<span class="built_in">toCharArray</span>()){</span><br><span class="line">                num[(<span class="keyword">int</span>)(op-<span class="string">'a'</span>)+<span class="number">1</span>] -=min;</span><br><span class="line">            }</span><br><span class="line"></span><br><span class="line">        }</span><br><span class="line">        StringBuffer ans = <span class="keyword">new</span> <span class="built_in">StringBuffer</span>();</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">0</span>;i&lt;res.length;i++){</span><br><span class="line">            <span class="keyword">if</span>(res[i]!=<span class="number">0</span>){</span><br><span class="line">                <span class="keyword">while</span>(res[i]!=<span class="number">0</span>){</span><br><span class="line">                    ans.<span class="built_in">append</span>((<span class="keyword">char</span>)(<span class="string">'0'</span>+i));</span><br><span class="line">                    res[i]--;</span><br><span class="line">                }</span><br><span class="line">            }</span><br><span class="line">        }</span><br><span class="line">        <span class="keyword">return</span> ans.<span class="built_in">toString</span>();</span><br><span class="line">    }</span><br><span class="line">}</span><br></pre></td></tr></tbody></table></figure>
 
 
+
+<h1 id="458-可怜的小猪"><a href="#458-可怜的小猪" class="headerlink" title="458. 可怜的小猪"></a>458. 可怜的小猪</h1><hr>
+<p>有 buckets 桶液体，其中 正好 有一桶含有毒药，其余装的都是水。它们从外观看起来都一样。为了弄清楚哪只水桶含有毒药，你可以喂一些猪喝，通过观察猪是否会死进行判断。不幸的是，你只有 minutesToTest 分钟时间来确定哪桶液体是有毒的。</p>
+<p>喂猪的规则如下：</p>
+<ul>
+<li><p>选择若干活猪进行喂养</p>
+</li>
+<li><p>可以允许小猪同时饮用任意数量的桶中的水，并且该过程不需要时间。</p>
+</li>
+<li><p>小猪喝完水后，必须有 minutesToDie 分钟的冷却时间。在这段时间里，你只能观察，而不允许继续喂猪。</p>
+</li>
+<li><p>过了 minutesToDie 分钟后，所有喝到毒药的猪都会死去，其他所有猪都会活下来。</p>
+</li>
+<li><p>重复这一过程，直到时间用完。</p>
+</li>
+</ul>
+<p>给你桶的数目 buckets ，minutesToDie 和 minutesToTest ，返回在规定时间内判断哪个桶有毒所需的 <strong>最小</strong> 猪数。</p>
+<p><strong>示例一：</strong></p>
+<figure class="highlight java"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">输入：buckets = <span class="number">1000</span>, minutesToDie = <span class="number">15</span>, minutesToTest = <span class="number">60</span></span><br><span class="line">输出：<span class="number">5</span></span><br></pre></td></tr></tbody></table></figure>
+
+<p><strong>示例二：</strong></p>
+<figure class="highlight java"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">输入：buckets = <span class="number">4</span>, minutesToDie = <span class="number">15</span>, minutesToTest = <span class="number">15</span></span><br><span class="line">输出：<span class="number">2</span></span><br></pre></td></tr></tbody></table></figure>
+
+<p><strong>示例二：</strong></p>
+<figure class="highlight java"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">输入：buckets = <span class="number">4</span>, minutesToDie = <span class="number">15</span>, minutesToTest = <span class="number">30</span></span><br><span class="line">输出：<span class="number">2</span></span><br></pre></td></tr></tbody></table></figure>
+
+<p><strong>思路：</strong></p>
+<ul>
+<li><p>我们用实验对象来代指题干的小动物。同时为了方便，我们使用 n代指有多少桶水，d 为实验对象的反应时间，t 为测试总时间。</p>
+<p>根据题意，最大测试次数为 <code>k  =t / d </code>.我们可以先考虑 k = 1<em>k</em>=1 的情况，最简单的情况是，我们使用与水同等数量的实验对象数量来进行测试.</p>
+</li>
+<li><p><strong>为减少实验对象数量，我们需要增大每个实验对象承载的信息量（让每个实验对象同时测试多桶水），然后从最终所有实验对象的状态（是否有所反应）来反推哪一桶水有问题。</strong></p>
+</li>
+<li><p>当 **只有一次测试机会<code>k=1</code>**，使用二进制的方式测试哪桶水有问题，我们至少需要 <code>m </code>个实验对象（其中 <code>m</code> 为 <code>n</code> 的二进制表示的长度），然后让编号为 <code>x</code> <code>（0 &lt;= x &lt;m）</code>的实验对象喝掉二进制表示中第 <code>x</code> 位为 1 的水。最终这 <code>m</code>个实验对象会对应一个结果序列</p>
+<ul>
+<li><p>如果编号 <code>x1</code> 的实验对象没有反应，说明有问题的水的二进制表示中第<code>x1 </code>位为0 </p>
+</li>
+<li><p>如果编号<code>x2</code>  的实验对象有反应，则说明有问题的水的二进制表示中第 <code>x2</code>位为1  。即根据最终每个实验对象的状态，我们可以完整地反推回有问题的水的编号是多少</p>
+</li>
+</ul>
+</li>
+<li><p>当 <strong><code>k&gt;1</code></strong> 时，相当于在原问题基础上，多考虑一层「轮数」维度，即不仅考虑某个实验对象是否有所反应，还需要考虑是在哪一轮有所反应。</p>
+</li>
+</ul>
+<p><strong>具体算法：</strong></p>
+<ul>
+<li><p>先使用 <code>k+1</code> 进制对所有水进行编号，此时每桶水都有唯一的进制表示编码。</p>
+</li>
+<li><p>计算所需的最小的位数<code>m</code></p>
+</li>
+</ul>
+<img src="https://gitee.com/mymengchuang/blog_img/raw/master/image-20211125213943593.png" alt="image-20211125213943593" style="zoom:80%;">
+
+<figure class="highlight java"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> </span>{</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">poorPigs</span><span class="params">(<span class="keyword">int</span> buckets, <span class="keyword">int</span> minutesToDie, <span class="keyword">int</span> minutesToTest)</span> </span>{</span><br><span class="line">        <span class="keyword">int</span> k = minutesToTest/minutesToDie;</span><br><span class="line">        <span class="keyword">return</span> (<span class="keyword">int</span>)Math.ceil(Math.log(buckets)/Math.log(k+<span class="number">1</span>));</span><br><span class="line">    }</span><br><span class="line">}</span><br></pre></td></tr></tbody></table></figure>
 
 
       
