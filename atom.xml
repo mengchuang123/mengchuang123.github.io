@@ -42,8 +42,8 @@
     <title>计算机组成cache</title>
     <link href="http://example.com/2021/11/18/cache/"/>
     <id>http://example.com/2021/11/18/cache/</id>
-    <published>2021-11-17T16:00:00.000Z</published>
-    <updated>2021-11-25T05:56:38.974Z</updated>
+    <published>2021-11-17T16:00:02.000Z</published>
+    <updated>2021-11-25T06:02:37.495Z</updated>
     
     <content type="html"><![CDATA[<h1 id="cache"><a href="#cache" class="headerlink" title="cache"></a>cache</h1><p>什么是cache,主要思想</p><h3 id="三种miss"><a href="#三种miss" class="headerlink" title="三种miss"></a>三种miss</h3><ul><li><strong>强制性失效</strong>CPU第一次访问相应cache块，cache中肯定没有该cache块，引起的失效叫做强制性失效。这是不可避免的。</li><li><strong>容量失效：</strong>有限的cache容量导致cache放不下而替换出cache块，被替换出去的cache块再被访问，引起的失效叫做容量失效。</li><li><strong>冲突失效：</strong>在直接相联或组相联的cache中，不同的cache块由于index相同相互替换，引起的失效叫做冲突失效。</li></ul><p>web cache</p><p>三种类型的cache</p><p>如何解决读写冲突</p>]]></content>
     
