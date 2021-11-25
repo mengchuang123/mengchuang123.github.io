@@ -217,7 +217,8 @@
 
 
 
-        <h1 id="423-从英文中重建数字"><a href="#423-从英文中重建数字" class="headerlink" title="423. 从英文中重建数字"></a>423. 从英文中重建数字</h1><p>给你一个字符串 <code>s</code> ，其中包含字母顺序打乱的用英文单词表示的若干数字（<code>0-9</code>）。按 <strong>升序</strong> 返回原始的数字。</p>
+        <h1 id="423-从英文中重建数字"><a href="#423-从英文中重建数字" class="headerlink" title="423. 从英文中重建数字"></a>423. 从英文中重建数字</h1><hr>
+<p>给你一个字符串 <code>s</code> ，其中包含字母顺序打乱的用英文单词表示的若干数字（<code>0-9</code>）。按 <strong>升序</strong> 返回原始的数字。</p>
 <p><strong>示例一：</strong></p>
 <figure class="highlight java"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">输入：s = <span class="string">"owoztneoer"</span></span><br><span class="line">输出：<span class="string">"012"</span></span><br></pre></td></tr></tbody></table></figure>
 
@@ -312,7 +313,8 @@
 
 
 
-        <h1 id="格雷码算法"><a href="#格雷码算法" class="headerlink" title="格雷码算法"></a>格雷码算法</h1><p>要求生成 $[1,n]$的所有格雷码。</p>
+        <h1 id="格雷码算法"><a href="#格雷码算法" class="headerlink" title="格雷码算法"></a>格雷码算法</h1><hr>
+<p>要求生成 $[1,n]$的所有格雷码。</p>
 <p>生成整数n的格雷码为：$n 异或 n/2$</p>
 <figure class="highlight java"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Solution</span> </span>{</span><br><span class="line">    <span class="function"><span class="keyword">public</span> ArrayList&lt;Integer&gt; <span class="title">grayCode</span><span class="params">(<span class="keyword">int</span> n)</span> </span>{</span><br><span class="line">        ArrayList&lt;Integer&gt; result = <span class="keyword">new</span> ArrayList&lt;Integer&gt;();</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; (<span class="number">1</span> &lt;&lt; n); i++)</span><br><span class="line">            result.add(i ^ (i &gt;&gt; <span class="number">1</span>));</span><br><span class="line">        <span class="keyword">return</span> result;</span><br><span class="line">    }</span><br><span class="line">}</span><br></pre></td></tr></tbody></table></figure>
 
@@ -399,7 +401,8 @@
 
 
 
-        <h1 id="cache"><a href="#cache" class="headerlink" title="cache"></a>cache</h1><p>什么是cache,主要思想</p>
+        <h1 id="cache"><a href="#cache" class="headerlink" title="cache"></a>cache</h1><hr>
+<p>什么是cache,主要思想</p>
 <h3 id="三种miss"><a href="#三种miss" class="headerlink" title="三种miss"></a>三种miss</h3><ul>
 <li><strong>强制性失效</strong>CPU第一次访问相应cache块，cache中肯定没有该cache块，引起的失效叫做强制性失效。这是不可避免的。</li>
 <li><strong>容量失效：</strong>有限的cache容量导致cache放不下而替换出cache块，被替换出去的cache块再被访问，引起的失效叫做容量失效。</li>
@@ -489,7 +492,8 @@
 
 
 
-        <h1 id="最优二叉查找树"><a href="#最优二叉查找树" class="headerlink" title="最优二叉查找树"></a>最优二叉查找树</h1>
+        <h1 id="最优二叉查找树"><a href="#最优二叉查找树" class="headerlink" title="最优二叉查找树"></a>最优二叉查找树</h1><hr>
+
       
     </div>
     
@@ -570,7 +574,8 @@
 
 
 
-        <h1 id="最小生成树"><a href="#最小生成树" class="headerlink" title="最小生成树"></a>最小生成树</h1><ul>
+        <h1 id="最小生成树"><a href="#最小生成树" class="headerlink" title="最小生成树"></a>最小生成树</h1><hr>
+<ul>
 <li>连通无环子图</li>
 <li>树的总权重最小</li>
 </ul>
@@ -614,7 +619,8 @@
 
 
 
-<h1 id="单源汇最短路"><a href="#单源汇最短路" class="headerlink" title="单源汇最短路"></a>单源汇最短路</h1><h2 id="Dijkstra"><a href="#Dijkstra" class="headerlink" title="Dijkstra"></a>Dijkstra</h2><blockquote>
+<h1 id="单源汇最短路"><a href="#单源汇最短路" class="headerlink" title="单源汇最短路"></a>单源汇最短路</h1><hr>
+<h2 id="Dijkstra"><a href="#Dijkstra" class="headerlink" title="Dijkstra"></a>Dijkstra</h2><blockquote>
 <p>从一个结点出发到所有结点之间的最短路</p>
 </blockquote>
 <ul>
@@ -638,7 +644,8 @@
 
 
 
-<h1 id="哈夫曼树与编码"><a href="#哈夫曼树与编码" class="headerlink" title="哈夫曼树与编码"></a>哈夫曼树与编码</h1>
+<h1 id="哈夫曼树与编码"><a href="#哈夫曼树与编码" class="headerlink" title="哈夫曼树与编码"></a>哈夫曼树与编码</h1><hr>
+
       
     </div>
     
@@ -719,7 +726,8 @@
 
 
 
-        <h1 id="ping工作原理"><a href="#ping工作原理" class="headerlink" title="ping工作原理"></a>ping工作原理</h1><p>ping本质是ICMP数据包的发送和解析过程。工作流程：</p>
+        <h1 id="ping工作原理"><a href="#ping工作原理" class="headerlink" title="ping工作原理"></a>ping工作原理</h1><hr>
+<p>ping本质是ICMP数据包的发送和解析过程。工作流程：</p>
 <blockquote>
 <p>构造ICMP数据包—&gt;构造IP包—&gt;构造以太网数据帧—&gt;物理传输到目标主机—&gt;获取以太网数据帧—&gt;解析出IP数据包—&gt;解析出ICMP数据包—&gt;发送应答报文</p>
 </blockquote>
@@ -741,7 +749,9 @@
 <p>ICMP仅仅在网络层中,没有涉及到TCP UDP等传输层协议</p>
 <p>当无法找到目的主机时,超时或者由路由器发送响应报文,主要是超时判定不可达.</p>
 </blockquote>
-<h1 id="windows中的tracert工作原理"><a href="#windows中的tracert工作原理" class="headerlink" title="windows中的tracert工作原理"></a>windows中的tracert工作原理</h1><h1 id="虚拟局域网VLAN如何划分"><a href="#虚拟局域网VLAN如何划分" class="headerlink" title="虚拟局域网VLAN如何划分"></a>虚拟局域网VLAN如何划分</h1><p><a target="_blank" rel="noopener" href="https://bbs.21ic.com/upfiles/img/20097/20097812048478.pdf">参考文件</a></p>
+<h1 id="windows中的tracert工作原理"><a href="#windows中的tracert工作原理" class="headerlink" title="windows中的tracert工作原理"></a>windows中的tracert工作原理</h1><hr>
+<h1 id="虚拟局域网VLAN如何划分"><a href="#虚拟局域网VLAN如何划分" class="headerlink" title="虚拟局域网VLAN如何划分"></a>虚拟局域网VLAN如何划分</h1><hr>
+<p><a target="_blank" rel="noopener" href="https://bbs.21ic.com/upfiles/img/20097/20097812048478.pdf">参考文件</a></p>
 <ul>
 <li>根据端口划分 VLAN,802.1Q就是这样划分的</li>
 <li>根据 MAC 地址划分 VLAN</li>
