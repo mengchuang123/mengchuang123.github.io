@@ -1,0 +1,452 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <title>最短路算法 | mengchuang</title>
+
+  <!-- keywords -->
+  
+
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="[toc] 无权最短路算法 最简单最短路算法图示：   用于判断记录的数组：   思路：  广度优先遍历，找到下一个续编check的结点 想办法更新dist数组 复杂度： T &#x3D; O( |V|^2 )    队列表示的无权最短路算法  复杂度：T &#x3D; O( |V| + |E| )  123456789101112131415161718192021222324void Unweighted(Tab">
+<meta property="og:type" content="article">
+<meta property="og:title" content="最短路算法">
+<meta property="og:url" content="http://example.com/2021/11/26/%E6%9C%80%E7%9F%AD%E8%B7%AF%E7%AE%97%E6%B3%95/index.html">
+<meta property="og:site_name" content="mengchuang">
+<meta property="og:description" content="[toc] 无权最短路算法 最简单最短路算法图示：   用于判断记录的数组：   思路：  广度优先遍历，找到下一个续编check的结点 想办法更新dist数组 复杂度： T &#x3D; O( |V|^2 )    队列表示的无权最短路算法  复杂度：T &#x3D; O( |V| + |E| )  123456789101112131415161718192021222324void Unweighted(Tab">
+<meta property="og:locale" content="en_US">
+<meta property="og:image" content="https://gitee.com/mymengchuang/blog_img/raw/master/image-20211126200020320.png">
+<meta property="og:image" content="https://gitee.com/mymengchuang/blog_img/raw/master/image-20211126200052873.png">
+<meta property="og:image" content="https://gitee.com/mymengchuang/blog_img/raw/master/image-20211126200323732.png">
+<meta property="og:image" content="https://gitee.com/mymengchuang/blog_img/raw/master/image-20211129081625589.png">
+<meta property="og:image" content="https://gitee.com/mymengchuang/blog_img/raw/master/image-20211126205707888.png">
+<meta property="og:image" content="https://gitee.com/mymengchuang/blog_img/raw/master/image-20211129081735650.png">
+<meta property="og:image" content="https://gitee.com/mymengchuang/blog_img/raw/master/image-20211126213231297.png">
+<meta property="og:image" content="https://gitee.com/mymengchuang/blog_img/raw/master/image-20211129082336833.png">
+<meta property="og:image" content="https://gitee.com/mymengchuang/blog_img/raw/master/image-20211129084414469.png">
+<meta property="og:image" content="https://gitee.com/mymengchuang/blog_img/raw/master/image-20211129084703677.png">
+<meta property="article:published_time" content="2021-11-26T11:00:00.000Z">
+<meta property="article:modified_time" content="2021-11-29T10:05:44.067Z">
+<meta property="article:author" content="mengchuang">
+<meta property="article:tag" content="算法">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://gitee.com/mymengchuang/blog_img/raw/master/image-20211126200020320.png">
+  
+  
+    <link rel="icon" href="/img/favicon.ico">
+  
+  
+<link rel="stylesheet" href="/css/style.css">
+
+  
+  
+
+  
+<script src="//cdn.bootcss.com/require.js/2.3.2/require.min.js"></script>
+
+  
+<script src="//cdn.bootcss.com/jquery/3.1.1/jquery.min.js"></script>
+
+
+  
+<meta name="generator" content="Hexo 5.4.0"><link rel="alternate" href="/atom.xml" title="mengchuang" type="application/atom+xml">
+
+<style>.github-emoji { position: relative; display: inline-block; width: 1.2em; min-height: 1.2em; overflow: hidden; vertical-align: top; color: transparent; }  .github-emoji > span { position: relative; z-index: 10; }  .github-emoji img, .github-emoji .fancybox { margin: 0 !important; padding: 0 !important; border: none !important; outline: none !important; text-decoration: none !important; user-select: none !important; cursor: auto !important; }  .github-emoji img { height: 1.2em !important; width: 1.2em !important; position: absolute !important; left: 50% !important; top: 50% !important; transform: translate(-50%, -50%) !important; user-select: none !important; cursor: auto !important; } .github-emoji-fallback { color: inherit; } .github-emoji-fallback img { opacity: 0 !important; }</style>
+</head>
+<body>
+  <div id="container">
+    <div id="particles-js"></div>
+    <div class="left-col">
+    <div class="overlay"></div>
+<div class="intrude-less">
+	<header id="header" class="inner">
+		<a href="/" class="profilepic">
+			
+				<img lazy-src="/img/touxiang2.png" class="js-avatar">
+			
+		</a>
+
+		<hgroup>
+			<h1 class="header-author"><a href="/">mengchuang</a></h1>
+		</hgroup>
+
+		
+
+		<div class="switch-area">
+			<div class="switch-wrap">
+				<section class="switch-part switch-part1">
+					<nav class="header-menu">
+						<ul>
+						
+							<li><a href="/">Home</a></li>
+				        
+							<li><a href="/archives">Archives</a></li>
+				        
+						</ul>
+					</nav>
+					<nav class="half-header-menu">
+						<a class="hide">Home</a>
+						<a>Tags</a>
+						<a>Links</a>
+						<a>About</a>
+					</nav>
+					<nav class="header-nav">
+						<div class="social">
+							
+								<a class="github" target="_blank" href="#" title="github">github</a>
+					        
+								<a class="mail" target="_blank" href="#" title="mail">mail</a>
+					        
+								<a class="rss" target="_blank" href="/atom.xml" title="rss">rss</a>
+					        
+								<a class="zhihu" target="_blank" href="#" title="zhihu">zhihu</a>
+					        
+						</div>
+						<!-- music -->
+						
+					</nav>
+				</section>
+				
+				
+				<section class="switch-part switch-part2">
+					<div class="widget tagcloud" id="js-tagcloud">
+						<a href="/tags/%E7%AE%97%E6%B3%95/" style="font-size: 20px;">算法</a> <a href="/tags/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BB%84%E6%88%90/" style="font-size: 10px;">计算机组成</a> <a href="/tags/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/" style="font-size: 15px;">计算机网络</a>
+					</div>
+				</section>
+				
+				
+				
+				<section class="switch-part switch-part3">
+					<div id="js-friends">
+					
+			          <a target="_blank" class="main-nav-link switch-friends-link" href="https://github.com/mengchuang123/">github</a>
+			        
+			        </div>
+				</section>
+				
+
+				
+				
+				<section class="switch-part switch-part4">
+				
+					<div id="js-aboutme">My study log.</div>
+				</section>
+				
+			</div>
+		</div>
+	</header>				
+</div>
+    </div>
+    <div class="mid-col">
+      <nav id="mobile-nav">
+  	<div class="overlay">
+  		<div class="slider-trigger"></div>
+  		<h1 class="header-author js-mobile-header hide"></h1>
+  	</div>
+	<div class="intrude-less">
+		<header id="header" class="inner">
+			<div class="profilepic">
+				<img lazy-src="/img/touxiang2.png" class="js-avatar">
+			</div>
+			<hgroup>
+			  <h1 class="header-author"></h1>
+			</hgroup>
+			
+			<nav class="header-menu">
+				<ul>
+				
+					<li><a href="/">Home</a></li>
+		        
+					<li><a href="/archives">Archives</a></li>
+		        
+		        <div class="clearfix"></div>
+				</ul>
+			</nav>
+			<nav class="header-nav">
+				<div class="social">
+					
+						<a class="github" target="_blank" href="#" title="github">github</a>
+			        
+						<a class="mail" target="_blank" href="#" title="mail">mail</a>
+			        
+						<a class="rss" target="_blank" href="/atom.xml" title="rss">rss</a>
+			        
+						<a class="zhihu" target="_blank" href="#" title="zhihu">zhihu</a>
+			        
+				</div>
+			</nav>
+		</header>				
+	</div>
+</nav>
+      <div class="body-wrap"><article id="post-最短路算法" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2021/11/26/%E6%9C%80%E7%9F%AD%E8%B7%AF%E7%AE%97%E6%B3%95/" class="article-date">
+  	<time datetime="2021-11-26T11:00:00.000Z" itemprop="datePublished">2021-11-26</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      最短路算法
+      
+    </h1>
+  
+
+      </header>
+      
+      <div class="article-info article-info-post">
+        
+	<div class="article-tag tagcloud">
+		<ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E7%AE%97%E6%B3%95/" rel="tag">算法</a></li></ul>
+	</div>
+
+        
+
+        
+        <div class="clearfix"></div>
+      </div>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <!--Table of Contents begin-->
+        <!-- 
+          <div id="toc" class="toc-article">
+            <strong class="toc-title">目录</strong>
+            <a class="js-toggle-toc" href="javascript:void(0)"></a>
+            <div class="toc-content">
+              <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#%E6%97%A0%E6%9D%83%E6%9C%80%E7%9F%AD%E8%B7%AF%E7%AE%97%E6%B3%95"><span class="toc-text">无权最短路算法</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E9%98%9F%E5%88%97%E8%A1%A8%E7%A4%BA%E7%9A%84%E6%97%A0%E6%9D%83%E6%9C%80%E7%9F%AD%E8%B7%AF%E7%AE%97%E6%B3%95"><span class="toc-text">队列表示的无权最短路算法</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#dijkstra%E7%AE%97%E6%B3%95"><span class="toc-text">dijkstra算法</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E5%A0%86%E4%BC%98%E5%8C%96%E7%9A%84dijkstra%E7%AE%97%E6%B3%95"><span class="toc-text">堆优化的dijkstra算法</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E8%B4%9F%E8%BE%B9%E6%9D%83%E9%87%8D%E5%9B%BE%E7%9A%84%E6%9C%80%E7%9F%AD%E8%B7%AF"><span class="toc-text">负边权重图的最短路</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E6%8B%93%E6%89%91%E6%8E%92%E5%BA%8F%E5%A4%84%E7%90%86%E6%97%A0%E7%8E%AF%E5%9B%BE"><span class="toc-text">拓扑排序处理无环图</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E6%9C%80%E6%97%A9%E5%AE%8C%E6%88%90%E6%97%B6%E9%97%B4%E5%92%8C%E6%9C%80%E8%BF%9F%E5%AE%8C%E6%88%90%E6%97%B6%E9%97%B4%E8%AE%A1%E7%AE%97"><span class="toc-text">最早完成时间和最迟完成时间计算</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E9%97%AE%E9%A2%98%E6%80%9D%E8%80%83"><span class="toc-text">问题思考</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#8-1%E5%A6%82%E4%BD%95%E6%B1%82source%E5%88%B0%E5%85%B6%E4%BB%96%E6%89%80%E6%9C%89%E7%82%B9%E7%9A%84%E6%9C%80%E7%9F%AD%E8%B7%9D%E7%A6%BB"><span class="toc-text">8.1如何求source到其他所有点的最短距离</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#8-2%E5%A6%82%E4%BD%95%E6%B1%82%E8%A7%A3%E5%85%B6%E4%BB%96%E6%89%80%E6%9C%89%E9%A1%B6%E7%82%B9%E5%88%B0dst%E7%9A%84%E6%9C%80%E7%9F%AD%E8%B7%9D%E7%A6%BB"><span class="toc-text">8.2如何求解其他所有顶点到dst的最短距离</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#8-3%E5%A6%82%E4%BD%95%E6%B1%82%E8%A7%A3%E5%88%B0%E8%BE%BE%E9%A1%B6%E7%82%B9V%E7%9A%84%E6%9C%80%E7%9F%AD%E8%B7%AF%E5%BE%84%E6%95%B0%E9%87%8F"><span class="toc-text">8.3如何求解到达顶点V的最短路径数量</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#8-4%E5%A6%82%E4%BD%95%E6%B1%82%E8%A7%A3k%E6%9C%80%E7%9F%AD%E8%B7%AF%EF%BC%88KSP%EF%BC%89"><span class="toc-text">8.4如何求解k最短路（KSP）</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#8-5%E5%A6%82%E4%BD%95%E8%8E%B7%E5%BE%97src%E5%88%B0dist%E7%9A%84%E6%89%80%E6%9C%89%E8%B7%AF%E5%BE%84"><span class="toc-text">8.5如何获得src到dist的所有路径</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#8-6%E4%B8%8D%E8%B6%85%E8%BF%87k%E6%9D%A1%E8%BE%B9%E7%9A%84%E8%B7%AF%E5%BE%84%E6%9C%80%E7%9F%AD%E8%B7%9D%E7%A6%BB"><span class="toc-text">8.6不超过k条边的路径最短距离</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E7%BB%83%E4%B9%A0"><span class="toc-text">练习</span></a></li></ol>
+            </div>
+          </div>
+         -->
+          <!-- Table of Contents -->
+        
+          <div id="toc" class="toc-article">
+            <strong class="toc-title">目录</strong>
+            <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#%E6%97%A0%E6%9D%83%E6%9C%80%E7%9F%AD%E8%B7%AF%E7%AE%97%E6%B3%95"><span class="toc-text">无权最短路算法</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E9%98%9F%E5%88%97%E8%A1%A8%E7%A4%BA%E7%9A%84%E6%97%A0%E6%9D%83%E6%9C%80%E7%9F%AD%E8%B7%AF%E7%AE%97%E6%B3%95"><span class="toc-text">队列表示的无权最短路算法</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#dijkstra%E7%AE%97%E6%B3%95"><span class="toc-text">dijkstra算法</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E5%A0%86%E4%BC%98%E5%8C%96%E7%9A%84dijkstra%E7%AE%97%E6%B3%95"><span class="toc-text">堆优化的dijkstra算法</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E8%B4%9F%E8%BE%B9%E6%9D%83%E9%87%8D%E5%9B%BE%E7%9A%84%E6%9C%80%E7%9F%AD%E8%B7%AF"><span class="toc-text">负边权重图的最短路</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E6%8B%93%E6%89%91%E6%8E%92%E5%BA%8F%E5%A4%84%E7%90%86%E6%97%A0%E7%8E%AF%E5%9B%BE"><span class="toc-text">拓扑排序处理无环图</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E6%9C%80%E6%97%A9%E5%AE%8C%E6%88%90%E6%97%B6%E9%97%B4%E5%92%8C%E6%9C%80%E8%BF%9F%E5%AE%8C%E6%88%90%E6%97%B6%E9%97%B4%E8%AE%A1%E7%AE%97"><span class="toc-text">最早完成时间和最迟完成时间计算</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E9%97%AE%E9%A2%98%E6%80%9D%E8%80%83"><span class="toc-text">问题思考</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#8-1%E5%A6%82%E4%BD%95%E6%B1%82source%E5%88%B0%E5%85%B6%E4%BB%96%E6%89%80%E6%9C%89%E7%82%B9%E7%9A%84%E6%9C%80%E7%9F%AD%E8%B7%9D%E7%A6%BB"><span class="toc-text">8.1如何求source到其他所有点的最短距离</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#8-2%E5%A6%82%E4%BD%95%E6%B1%82%E8%A7%A3%E5%85%B6%E4%BB%96%E6%89%80%E6%9C%89%E9%A1%B6%E7%82%B9%E5%88%B0dst%E7%9A%84%E6%9C%80%E7%9F%AD%E8%B7%9D%E7%A6%BB"><span class="toc-text">8.2如何求解其他所有顶点到dst的最短距离</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#8-3%E5%A6%82%E4%BD%95%E6%B1%82%E8%A7%A3%E5%88%B0%E8%BE%BE%E9%A1%B6%E7%82%B9V%E7%9A%84%E6%9C%80%E7%9F%AD%E8%B7%AF%E5%BE%84%E6%95%B0%E9%87%8F"><span class="toc-text">8.3如何求解到达顶点V的最短路径数量</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#8-4%E5%A6%82%E4%BD%95%E6%B1%82%E8%A7%A3k%E6%9C%80%E7%9F%AD%E8%B7%AF%EF%BC%88KSP%EF%BC%89"><span class="toc-text">8.4如何求解k最短路（KSP）</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#8-5%E5%A6%82%E4%BD%95%E8%8E%B7%E5%BE%97src%E5%88%B0dist%E7%9A%84%E6%89%80%E6%9C%89%E8%B7%AF%E5%BE%84"><span class="toc-text">8.5如何获得src到dist的所有路径</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#8-6%E4%B8%8D%E8%B6%85%E8%BF%87k%E6%9D%A1%E8%BE%B9%E7%9A%84%E8%B7%AF%E5%BE%84%E6%9C%80%E7%9F%AD%E8%B7%9D%E7%A6%BB"><span class="toc-text">8.6不超过k条边的路径最短距离</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E7%BB%83%E4%B9%A0"><span class="toc-text">练习</span></a></li></ol>
+          </div>
+        
+        <!--Table of Contents end -->
+        
+
+
+
+
+        <p>[toc]</p>
+<h1 id="无权最短路算法"><a href="#无权最短路算法" class="headerlink" title="无权最短路算法"></a>无权最短路算法</h1><hr>
+<p>最简单最短路算法图示：</p>
+<img src="https://gitee.com/mymengchuang/blog_img/raw/master/image-20211126200020320.png" alt="image-20211126200020320" style="zoom:80%;">
+
+<p>用于判断记录的数组：</p>
+<img src="https://gitee.com/mymengchuang/blog_img/raw/master/image-20211126200052873.png" alt="image-20211126200052873" style="zoom:80%;">
+
+<p><strong>思路：</strong></p>
+<ul>
+<li>广度优先遍历，找到下一个续编check的结点</li>
+<li>想办法更新dist数组</li>
+<li>复杂度： <code>T = O( |V|^2 )</code></li>
+</ul>
+<img src="https://gitee.com/mymengchuang/blog_img/raw/master/image-20211126200323732.png" alt="image-20211126200323732" style="zoom:80%;">
+
+<h1 id="队列表示的无权最短路算法"><a href="#队列表示的无权最短路算法" class="headerlink" title="队列表示的无权最短路算法"></a>队列表示的无权最短路算法</h1><hr>
+<ul>
+<li>复杂度：<code>T = O( |V| + |E| )</code></li>
+</ul>
+<figure class="highlight java"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">Unweighted</span><span class="params">(Table T)</span></span>{</span><br><span class="line">	Queue q;</span><br><span class="line">    <span class="keyword">int</span> []dist;</span><br><span class="line">    <span class="keyword">int</span> []konw;</span><br><span class="line">    <span class="keyword">int</span> []path;</span><br><span class="line">    <span class="comment">//source加入队列</span></span><br><span class="line">    q.offer(src);</span><br><span class="line">    dist[src] = <span class="number">0</span>;</span><br><span class="line">    <span class="keyword">while</span>(!q.isEmpty()){</span><br><span class="line">		<span class="comment">//取点，没有用贪心算法，意味着会遍历所有的路径</span></span><br><span class="line">        <span class="keyword">int</span> V = q.poll();</span><br><span class="line">        </span><br><span class="line">        <span class="comment">//更新dist</span></span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> W :the adjacent of V){  <span class="comment">//这样更新会符合负边存在的最短路算法</span></span><br><span class="line">			<span class="keyword">if</span>( dist[W]&gt;dist[V]+Cvw){</span><br><span class="line">				dist[W] = dist[V]+Cvw；</span><br><span class="line">                path[W] = V;</span><br><span class="line">				q。offer(w);</span><br><span class="line">            }</span><br><span class="line">        }</span><br><span class="line">    }</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">}</span><br></pre></td></tr></tbody></table></figure>
+
+<blockquote>
+<p>堆优化不需要使用konw来记录哪些点被访问</p>
+</blockquote>
+<img src="https://gitee.com/mymengchuang/blog_img/raw/master/image-20211129081625589.png" alt="image-20211129081625589" style="zoom:80%;">
+
+<h1 id="dijkstra算法"><a href="#dijkstra算法" class="headerlink" title="dijkstra算法"></a>dijkstra算法</h1><hr>
+<figure class="highlight java"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">dijkstra</span><span class="params">()</span></span>{</span><br><span class="line">	<span class="keyword">int</span> []dis ;</span><br><span class="line">    konw[];<span class="comment">//用来判断当前结点是否被遍历过了，e点被遍历过，v[e]=1;</span></span><br><span class="line">    konw[<span class="number">1</span>]=<span class="number">1</span>;</span><br><span class="line">    dist[<span class="number">1</span>]=<span class="number">0</span>;</span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">1</span>;i&lt;=n;i++) {  <span class="comment">//遍历所有的结点</span></span><br><span class="line">        <span class="comment">//取点</span></span><br><span class="line">        V = min(dist[k]); (konw[k]==<span class="number">0</span>) <span class="comment">//找到最小值</span></span><br><span class="line">        konw[V] = <span class="number">1</span>;<span class="comment">//加入路径</span></span><br><span class="line">        </span><br><span class="line">        <span class="comment">//松弛</span></span><br><span class="line">        <span class="keyword">for</span>(each W adjacent to V){</span><br><span class="line">			<span class="keyword">if</span>(!konw[W]&amp;&amp;dist[V]+C[V][W]&lt;dist[W])</span><br><span class="line">                dist[W] = dist[V]+C[V][W]	</span><br><span class="line">                path[W] = V;</span><br><span class="line">        }</span><br><span class="line">    }</span><br><span class="line">}</span><br></pre></td></tr></tbody></table></figure>
+
+
+
+<p><strong>实际题目用的算法：</strong></p>
+<figure class="highlight java"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">dijkstra</span><span class="params">()</span> </span>{</span><br><span class="line">    <span class="comment">// 起始先将所有的点标记为「未更新」和「距离为正无穷」</span></span><br><span class="line">    Arrays.fill(vis, <span class="keyword">false</span>);</span><br><span class="line">    Arrays.fill(dist, INF);</span><br><span class="line">    dist[k] = <span class="number">0</span>;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> p = <span class="number">1</span>; p &lt;= n; p++) {</span><br><span class="line">        <span class="comment">// 每次找到「最短距离最小」且「未被更新」的点 t</span></span><br><span class="line">        <span class="keyword">int</span> t = -<span class="number">1</span>;</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">1</span>; i &lt;= n; i++) {</span><br><span class="line">            <span class="keyword">if</span> (!vis[i] &amp;&amp; (t == -<span class="number">1</span> || dist[i] &lt; dist[t])) t = i;</span><br><span class="line">        }</span><br><span class="line">        vis[t] = <span class="keyword">true</span>;</span><br><span class="line"></span><br><span class="line">        <span class="comment">// 用点 t 的「最小距离」更新其他点</span></span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">1</span>; i &lt;= n; i++) {</span><br><span class="line">            dist[i] = Math.min(dist[i], dist[t] + w[t][i]);</span><br><span class="line">        }</span><br><span class="line"></span><br><span class="line">    }</span><br><span class="line">}</span><br><span class="line"></span><br></pre></td></tr></tbody></table></figure>
+
+
+
+<h1 id="堆优化的dijkstra算法"><a href="#堆优化的dijkstra算法" class="headerlink" title="堆优化的dijkstra算法"></a>堆优化的dijkstra算法</h1><hr>
+<figure class="highlight java"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">dijkstra</span><span class="params">()</span> </span>{</span><br><span class="line">    <span class="comment">// 起始先将所有的点标记为「未更新」和「距离为正无穷」</span></span><br><span class="line">    Arrays.fill(vis, <span class="keyword">false</span>);</span><br><span class="line">    Arrays.fill(dist, INF);</span><br><span class="line">    dist[k] = <span class="number">0</span>;</span><br><span class="line">    <span class="comment">// 使用「优先队列」存储所有可用于更新的点</span></span><br><span class="line">    <span class="comment">// 以 (点编号, 到起点的距离) 进行存储，优先弹出「最短距离」较小的点</span></span><br><span class="line">    PriorityQueue&lt;<span class="keyword">int</span>[]&gt; q = <span class="keyword">new</span> PriorityQueue&lt;&gt;((a,b)-&gt;a[<span class="number">1</span>]-b[<span class="number">1</span>]);</span><br><span class="line">    q.add(<span class="keyword">new</span> <span class="keyword">int</span>[]{k, <span class="number">0</span>});</span><br><span class="line">    </span><br><span class="line">    <span class="keyword">while</span> (!q.isEmpty()) {</span><br><span class="line">        <span class="comment">// 每次从「优先队列」中弹出</span></span><br><span class="line">        <span class="keyword">int</span>[] poll = q.poll();</span><br><span class="line">        <span class="keyword">int</span> V = poll[<span class="number">0</span>];</span><br><span class="line">        <span class="keyword">if</span> (vis[V]) <span class="keyword">continue</span>;<span class="comment">// 如果弹出的点被标记「已更新」，则跳过</span></span><br><span class="line">        vis[V] = <span class="keyword">true</span>;<span class="comment">// 标记该点「已更新」，并使用该点更新其他点的「最短距离」</span></span><br><span class="line">        </span><br><span class="line">        <span class="comment">//更新</span></span><br><span class="line">        <span class="keyword">for</span> (each W adjacent to V ) {</span><br><span class="line">            <span class="keyword">if</span> (dist[W] &gt; dist[V] + w[V][W]) {</span><br><span class="line">                dist[W] = dist[V] + w[V][W];</span><br><span class="line">                q.add(<span class="keyword">new</span> <span class="keyword">int</span>[]{W, dist[W]});</span><br><span class="line">            }</span><br><span class="line">        }</span><br><span class="line">    }</span><br><span class="line">}</span><br><span class="line"></span><br></pre></td></tr></tbody></table></figure>
+
+<img src="https://gitee.com/mymengchuang/blog_img/raw/master/image-20211126205707888.png" alt="image-20211126205707888" style="zoom:80%;">
+
+
+
+<h1 id="负边权重图的最短路"><a href="#负边权重图的最短路" class="headerlink" title="负边权重图的最短路"></a>负边权重图的最短路</h1><hr>
+<p><strong>问题：</strong></p>
+<ul>
+<li>由于负边的存在，在为访问的集合中选取最小的未知边是有问题的，也不是正数，没有办法满足贪心算法条件的</li>
+</ul>
+<p><strong>代码:</strong></p>
+<figure class="highlight java"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">Unweighted</span><span class="params">(Table T)</span></span>{</span><br><span class="line">	Queue q;</span><br><span class="line">    <span class="keyword">int</span> []dist;</span><br><span class="line">    <span class="keyword">int</span> []konw;</span><br><span class="line">    <span class="keyword">int</span> []path;</span><br><span class="line">    <span class="comment">//source加入队列</span></span><br><span class="line">    q.offer(src);</span><br><span class="line">    dist[src] = <span class="number">0</span>;</span><br><span class="line">    <span class="keyword">while</span>(!q.isEmpty()){</span><br><span class="line">		<span class="comment">//取点，没有用贪心算法，意味着会遍历所有的路径</span></span><br><span class="line">        <span class="keyword">int</span> V = q.poll();</span><br><span class="line">        </span><br><span class="line">        <span class="comment">//更新dist</span></span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> W :the adjacent of V){  <span class="comment">//这样更新会符合负边存在的最短路算法</span></span><br><span class="line">			<span class="keyword">if</span>( dist[W]&gt;dist[V]+Cvw){</span><br><span class="line">				dist[W] = dist[V]+Cvw；</span><br><span class="line">                path[W] = V;</span><br><span class="line">				q。offer(w);</span><br><span class="line">            }</span><br><span class="line">        }</span><br><span class="line">    }</span><br><span class="line">}</span><br></pre></td></tr></tbody></table></figure>
+
+<p><strong>算法流程：</strong></p>
+<img src="https://gitee.com/mymengchuang/blog_img/raw/master/image-20211129081735650.png" alt="image-20211129081735650" style="zoom:80%;">
+
+
+
+
+
+<blockquote>
+<p>负环判断：也就是每个点最多dequeue |V|次数，也就是距离每个顶点出队的次数，也就存在负环存在，是无解的。</p>
+</blockquote>
+<h1 id="拓扑排序处理无环图"><a href="#拓扑排序处理无环图" class="headerlink" title="拓扑排序处理无环图"></a>拓扑排序处理无环图</h1><img src="https://gitee.com/mymengchuang/blog_img/raw/master/image-20211126213231297.png" alt="image-20211126213231297" style="zoom: 67%;">
+
+<p><a target="_blank" rel="noopener" href="https://www.geeksforgeeks.org/shortest-path-for-directed-acyclic-graphs/">https://www.geeksforgeeks.org/shortest-path-for-directed-acyclic-graphs/</a></p>
+<img src="https://gitee.com/mymengchuang/blog_img/raw/master/image-20211129082336833.png" alt="image-20211129082336833" style="zoom: 67%;">
+
+<p><strong>应用：</strong></p>
+<ul>
+<li>AOE Network</li>
+</ul>
+<h1 id="最早完成时间和最迟完成时间计算"><a href="#最早完成时间和最迟完成时间计算" class="headerlink" title="最早完成时间和最迟完成时间计算"></a>最早完成时间和最迟完成时间计算</h1><ul>
+<li><p>每一个结点同时包含<code>index,EC,LC</code> </p>
+<ul>
+<li><code>EC</code>是工程到该节点最快的时间是多少</li>
+<li><code>LC</code>是工程到当前结点最迟应该在什么时间点完成，你规定整个工期以后反推的</li>
+</ul>
+</li>
+<li><p>边的<strong>Slack time</strong> <code>LC[w]-EC[v]-Cvw</code></p>
+</li>
+<li><p>关键路径问题：改路上不存在<code>Slack time</code></p>
+</li>
+</ul>
+<img src="https://gitee.com/mymengchuang/blog_img/raw/master/image-20211129084414469.png" alt="image-20211129084414469" style="zoom: 67%;">
+
+
+
+<img src="https://gitee.com/mymengchuang/blog_img/raw/master/image-20211129084703677.png" alt="image-20211129084703677" style="zoom:80%;">
+
+<h1 id="问题思考"><a href="#问题思考" class="headerlink" title="问题思考"></a>问题思考</h1><hr>
+<h2 id="8-1如何求source到其他所有点的最短距离"><a href="#8-1如何求source到其他所有点的最短距离" class="headerlink" title="8.1如何求source到其他所有点的最短距离"></a>8.1如何求source到其他所有点的最短距离</h2><ul>
+<li>用<code>dijkstra</code>将<code>dist</code>数组填满即可</li>
+</ul>
+<h2 id="8-2如何求解其他所有顶点到dst的最短距离"><a href="#8-2如何求解其他所有顶点到dst的最短距离" class="headerlink" title="8.2如何求解其他所有顶点到dst的最短距离"></a>8.2如何求解其他所有顶点到dst的最短距离</h2><ul>
+<li>.。。</li>
+</ul>
+<h2 id="8-3如何求解到达顶点V的最短路径数量"><a href="#8-3如何求解到达顶点V的最短路径数量" class="headerlink" title="8.3如何求解到达顶点V的最短路径数量"></a>8.3如何求解到达顶点V的最短路径数量</h2><ul>
+<li>add an array <code>count[]</code> so that <code>count[V]</code> records the number of different shortest paths from <code>S</code> to <code>V</code></li>
+<li><code>dijkatra</code>变体 <a target="_blank" rel="noopener" href="https://leetcode-cn.com/problems/number-of-ways-to-arrive-at-destination/">1976. 到达目的地的方案数</a></li>
+</ul>
+<p><strong>思路：</strong></p>
+<figure class="highlight java"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 记录最短路径的数组，初始为 INF</span></span><br><span class="line"><span class="keyword">int</span>[] dist = <span class="keyword">new</span> <span class="keyword">int</span>[n];</span><br><span class="line"><span class="comment">// 统计最短路径数量的数组</span></span><br><span class="line"><span class="keyword">int</span>[] cnt = <span class="keyword">new</span> <span class="keyword">int</span>[n];</span><br><span class="line"><span class="comment">// 从 0 -&gt; 0 的最短路径有 1 条</span></span><br><span class="line">cnt[<span class="number">0</span>] = <span class="number">1</span>;</span><br><span class="line"></span><br><span class="line"><span class="comment">// ... Dijkstra 松弛操作，从 u -&gt; v，走消耗为 w 的路 </span></span><br><span class="line"><span class="keyword">if</span> (dist[v] &gt; dist[u] + w) {</span><br><span class="line">    cnt[v] = cnt[u];</span><br><span class="line">    <span class="comment">// ... 更新最短距离，加入优先队列</span></span><br><span class="line">} <span class="keyword">else</span> <span class="keyword">if</span> (dist[v] == dist[u] + w) {</span><br><span class="line">    cnt[v] += cnt[u];</span><br><span class="line">}</span><br><span class="line"></span><br><span class="line"><span class="comment">// cnt[n - 1] 即为答案</span></span><br></pre></td></tr></tbody></table></figure>
+
+<blockquote>
+<p>注意：一定要添加  <code>know[j]==0</code>这个判断条件<code>if(g[V][j]!=Integer.MAX_VALUE/2&amp;&amp;know[j]==0)</code></p>
+</blockquote>
+<figure class="highlight java"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">for</span>(<span class="keyword">int</span> j=<span class="number">0</span>;j&lt;n;j++){</span><br><span class="line">    <span class="keyword">if</span>(g[V][j]!=Integer.MAX_VALUE/<span class="number">2</span>&amp;&amp;know[j]==<span class="number">0</span>){</span><br><span class="line">        <span class="keyword">if</span>(dist[j]&gt;dist[V]+g[V][j]){</span><br><span class="line">            dist[j]=dist[V]+g[V][j];</span><br><span class="line">            count[j] = count[V];</span><br><span class="line">        }</span><br><span class="line">        <span class="keyword">else</span> <span class="keyword">if</span>(dist[j]==dist[V]+g[V][j]){</span><br><span class="line">            count[j] +=count[V];</span><br><span class="line">        }</span><br><span class="line">    }</span><br><span class="line">}</span><br><span class="line"></span><br></pre></td></tr></tbody></table></figure>
+
+
+
+<h2 id="8-4如何求解k最短路（KSP）"><a href="#8-4如何求解k最短路（KSP）" class="headerlink" title="8.4如何求解k最短路（KSP）"></a>8.4如何求解k最短路（KSP）</h2><ul>
+<li><code>Yen算法</code></li>
+<li><code>A*算法</code></li>
+<li><code>dijkstra算法</code>:维护一个出来最短路外的另外一个数组<code>dist2</code></li>
+</ul>
+<blockquote>
+<p>具体见另外一篇博客</p>
+</blockquote>
+<h2 id="8-5如何获得src到dist的所有路径"><a href="#8-5如何获得src到dist的所有路径" class="headerlink" title="8.5如何获得src到dist的所有路径"></a>8.5如何获得<code>src</code>到<code>dist</code>的所有路径</h2><ul>
+<li>深度优先搜索</li>
+<li>广度优先搜索</li>
+</ul>
+<h2 id="8-6不超过k条边的路径最短距离"><a href="#8-6不超过k条边的路径最短距离" class="headerlink" title="8.6不超过k条边的路径最短距离"></a>8.6不超过k条边的路径最短距离</h2><ul>
+<li><a target="_blank" rel="noopener" href="https://www.bbsmax.com/A/Vx5MDOkmJN/">BF算法</a></li>
+</ul>
+<h1 id="练习"><a href="#练习" class="headerlink" title="练习"></a>练习</h1><hr>
+<p><strong>Dijkstra 增强练习</strong></p>
+<p> <a target="_blank" rel="noopener" href="https://leetcode-cn.com/problems/number-of-ways-to-arrive-at-destination/">到达目的地的方案数</a></p>
+<p><a target="_blank" rel="noopener" href="https://leetcode-cn.com/problems/path-with-maximum-probability">概率最大的路径</a></p>
+<p><a target="_blank" rel="noopener" href="https://leetcode-cn.com/problems/path-with-minimum-effort">最小体力消耗路径</a></p>
+<p><a target="_blank" rel="noopener" href="https://leetcode-cn.com/problems/cheapest-flights-within-k-stops">K 站中转内最便宜的航班</a></p>
+<p><a target="_blank" rel="noopener" href="https://leetcode-cn.com/problems/minimum-cost-to-reach-destination-in-time">规定时间内到达终点的最小花费</a></p>
+<p><a target="_blank" rel="noopener" href="https://leetcode-cn.com/problems/number-of-restricted-paths-from-first-to-last-node">从第一个节点出发到最后一个节点的受限路径数</a></p>
+
+      
+    </div>
+    
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/2021/11/26/%E6%AC%A1(k)%E6%9C%80%E7%9F%AD%E8%B7%AF/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">&lt;</strong>
+      <div class="article-nav-title">
+        
+          次(k)最短路算法
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2021/11/26/%E8%BF%AD%E4%BB%A3%E6%94%B9%E8%BF%9B/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">算法集合</div>
+      <strong class="article-nav-caption">&gt;</strong>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+
+
+
+
+
+</div>
+      <footer id="footer">
+  <div class="outer">
+    <div id="footer-info">
+      <div class="footer-left">
+        &copy; 2021 mengchuang
+      </div>
+        <div class="footer-right">
+          <a href="http://hexo.io/" target="_blank">Hexo</a>  Theme <a href="https://github.com/preccrep/hexo-theme-jelly" target="_blank">Jelly</a>
+        </div>
+    </div>
+  </div>
+</footer>
+    </div>
+    
+  
+<link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+
+
+
+<script>
+	var yiliaConfig = {
+		fancybox: true,
+		mathjax: false,
+		animate: true,
+		isHome: false,
+		isPost: true,
+		isArchive: false,
+		isTag: false,
+		isCategory: false,
+		open_in_new: false
+	}
+</script>
+
+<script src="/js/main.js"></script>
+
+
+
+
+  </div>
+</body>
+</html>

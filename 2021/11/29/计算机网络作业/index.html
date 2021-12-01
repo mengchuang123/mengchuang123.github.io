@@ -3,20 +3,23 @@
 <head>
   <meta charset="utf-8">
   
-  <title>categories | mengchuang</title>
+  <title>计算机网络作业 | mengchuang</title>
 
   <!-- keywords -->
   
 
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta property="og:type" content="website">
-<meta property="og:title" content="categories">
-<meta property="og:url" content="http://example.com/categories/index.html">
+  <meta name="description" content="Homework5 5.1 Are there any circumstances when connection-oriented service will (or at least should) deliver packets out oforder? 无连接和面向连接的区别：  无连接通信，例如由IP和UDP协议使用的数据报模式通信，其中数据可以无序地传送，因为不同的网络分组是独立路由的，">
+<meta property="og:type" content="article">
+<meta property="og:title" content="计算机网络作业">
+<meta property="og:url" content="http://example.com/2021/11/29/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C%E4%BD%9C%E4%B8%9A/index.html">
 <meta property="og:site_name" content="mengchuang">
+<meta property="og:description" content="Homework5 5.1 Are there any circumstances when connection-oriented service will (or at least should) deliver packets out oforder? 无连接和面向连接的区别：  无连接通信，例如由IP和UDP协议使用的数据报模式通信，其中数据可以无序地传送，因为不同的网络分组是独立路由的，">
 <meta property="og:locale" content="en_US">
-<meta property="article:published_time" content="2021-11-08T04:16:37.000Z">
-<meta property="article:modified_time" content="2021-11-08T04:18:01.439Z">
+<meta property="article:published_time" content="2021-11-29T05:00:00.000Z">
+<meta property="article:modified_time" content="2021-11-29T05:26:06.249Z">
 <meta property="article:author" content="mengchuang">
+<meta property="article:tag" content="计算机网络">
 <meta name="twitter:card" content="summary">
   
   
@@ -165,11 +168,11 @@
 		</header>				
 	</div>
 </nav>
-      <div class="body-wrap"><article id="categories-" class="article article-type-categories" itemscope itemprop="blogPost">
+      <div class="body-wrap"><article id="post-计算机网络作业" class="article article-type-post" itemscope itemprop="blogPost">
   
     <div class="article-meta">
-      <a href="/categories/index.html" class="article-date">
-  	<time datetime="2021-11-08T04:16:37.000Z" itemprop="datePublished">2021-11-08</time>
+      <a href="/2021/11/29/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C%E4%BD%9C%E4%B8%9A/" class="article-date">
+  	<time datetime="2021-11-29T05:00:00.000Z" itemprop="datePublished">2021-11-29</time>
 </a>
     </div>
   
@@ -182,7 +185,7 @@
         
   
     <h1 class="article-title" itemprop="name">
-      categories
+      计算机网络作业
       
     </h1>
   
@@ -191,6 +194,10 @@
       
       <div class="article-info article-info-post">
         
+	<div class="article-tag tagcloud">
+		<ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/" rel="tag">计算机网络</a></li></ul>
+	</div>
+
         
 
         
@@ -201,8 +208,21 @@
     <div class="article-entry" itemprop="articleBody">
       
         <!--Table of Contents begin-->
-        <!--  -->
+        <!-- 
+          <div id="toc" class="toc-article">
+            <strong class="toc-title">目录</strong>
+            <a class="js-toggle-toc" href="javascript:void(0)"></a>
+            <div class="toc-content">
+              <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#Homework5"><span class="toc-text">Homework5</span></a></li></ol>
+            </div>
+          </div>
+         -->
           <!-- Table of Contents -->
+        
+          <div id="toc" class="toc-article">
+            <strong class="toc-title">目录</strong>
+            <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#Homework5"><span class="toc-text">Homework5</span></a></li></ol>
+          </div>
         
         <!--Table of Contents end -->
         
@@ -210,13 +230,51 @@
 
 
 
-        
+        <h1 id="Homework5"><a href="#Homework5" class="headerlink" title="Homework5"></a>Homework5</h1><hr>
+<p>5.1 Are there any circumstances when connection-oriented service will (or at least should) deliver packets out of<br>order?</p>
+<p><strong>无连接和面向连接的区别：</strong></p>
+<ul>
+<li>无连接通信，例如由IP和UDP协议使用的数据报模式通信，其中<strong>数据可以无序地传送，因为不同的网络分组是独立路由的</strong>，并且可以通过不同的路径传送。</li>
+<li>面向连接的通信可以是<strong>电路交换连接</strong>或分<strong>组模式虚拟电路连接</strong>。在后一种情况下，<strong>它可以使用传输层虚拟电路协议</strong>，例如TCP协议，<strong>允许数据按顺序传送，尽管下层交换是无连接的</strong>，或者它可以是数据链路层或网络层交换模式，其中，属于同一业务流的所有数据包在同一路径上传送，业务流由某个连接标识符而不是完整的路由信息来标识，从而允许基于硬件的快速切换.<ul>
+<li>面向连接的协议服务通常（但并非总是）是可靠的网络服务，在成功交付后提供确认，并在数据丢失或检测到位错误时提供自动重复请求功能。</li>
+</ul>
+</li>
+</ul>
+<p><strong>面向连接的例子：</strong></p>
+<ul>
+<li>电路交换电路交换通信，例如公共交换电话网本质上是面向连接的通信系统。</li>
+<li>分组交换通信也可以是面向连接的，这被称为虚拟电路模式通信。面向连接的通信不一定是可靠的协议。<ul>
+<li>传输层：传输层连接模式通信面向连接的传输层协议通过无连接的通信系统提供面向连接的通信。面向连接的传输层协议，例如TCP，可以基于无连接的网络层协议（例如IP</li>
+<li>数据链路和网络层虚拟电路交换在面向连接的分组交换数据链路层或网络层协议中，所有数据在通信会话期间通过相同的路径发送。</li>
+</ul>
+</li>
+</ul>
+
       
     </div>
     
   </div>
   
     
+<nav id="article-nav">
+  
+    <a href="/2021/11/29/TCP%E5%8D%8F%E8%AE%AE/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">&lt;</strong>
+      <div class="article-nav-title">
+        
+          TCP协议
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2021/11/29/%E7%BD%91%E7%BB%9C%E6%B5%81%E9%97%AE%E9%A2%98/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">网络流算法</div>
+      <strong class="article-nav-caption">&gt;</strong>
+    </a>
+  
+</nav>
+
   
 </article>
 
@@ -251,7 +309,7 @@
 		mathjax: false,
 		animate: true,
 		isHome: false,
-		isPost: false,
+		isPost: true,
 		isArchive: false,
 		isTag: false,
 		isCategory: false,

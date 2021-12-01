@@ -1,0 +1,326 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <title>次(k)最短路算法 | mengchuang</title>
+
+  <!-- keywords -->
+  
+
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="[toc] KSP算法求解  Yen算法 A*算法 dijkstra算法:维护一个出来最短路外的另外一个数组dist2  dijkstra算法  维护一个出来最短路外的另外一个数组dist2    代码： 1234567891011121314151617181920212223242526272829303132333435363738394041424344454647484950515253">
+<meta property="og:type" content="article">
+<meta property="og:title" content="次(k)最短路算法">
+<meta property="og:url" content="http://example.com/2021/11/26/%E6%AC%A1(k)%E6%9C%80%E7%9F%AD%E8%B7%AF/index.html">
+<meta property="og:site_name" content="mengchuang">
+<meta property="og:description" content="[toc] KSP算法求解  Yen算法 A*算法 dijkstra算法:维护一个出来最短路外的另外一个数组dist2  dijkstra算法  维护一个出来最短路外的另外一个数组dist2    代码： 1234567891011121314151617181920212223242526272829303132333435363738394041424344454647484950515253">
+<meta property="og:locale" content="en_US">
+<meta property="og:image" content="https://gitee.com/mymengchuang/blog_img/raw/master/image-20211127153633194.png">
+<meta property="article:published_time" content="2021-11-26T15:00:00.000Z">
+<meta property="article:modified_time" content="2021-11-27T07:37:10.298Z">
+<meta property="article:author" content="mengchuang">
+<meta property="article:tag" content="算法">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://gitee.com/mymengchuang/blog_img/raw/master/image-20211127153633194.png">
+  
+  
+    <link rel="icon" href="/img/favicon.ico">
+  
+  
+<link rel="stylesheet" href="/css/style.css">
+
+  
+  
+
+  
+<script src="//cdn.bootcss.com/require.js/2.3.2/require.min.js"></script>
+
+  
+<script src="//cdn.bootcss.com/jquery/3.1.1/jquery.min.js"></script>
+
+
+  
+<meta name="generator" content="Hexo 5.4.0"><link rel="alternate" href="/atom.xml" title="mengchuang" type="application/atom+xml">
+
+<style>.github-emoji { position: relative; display: inline-block; width: 1.2em; min-height: 1.2em; overflow: hidden; vertical-align: top; color: transparent; }  .github-emoji > span { position: relative; z-index: 10; }  .github-emoji img, .github-emoji .fancybox { margin: 0 !important; padding: 0 !important; border: none !important; outline: none !important; text-decoration: none !important; user-select: none !important; cursor: auto !important; }  .github-emoji img { height: 1.2em !important; width: 1.2em !important; position: absolute !important; left: 50% !important; top: 50% !important; transform: translate(-50%, -50%) !important; user-select: none !important; cursor: auto !important; } .github-emoji-fallback { color: inherit; } .github-emoji-fallback img { opacity: 0 !important; }</style>
+</head>
+<body>
+  <div id="container">
+    <div id="particles-js"></div>
+    <div class="left-col">
+    <div class="overlay"></div>
+<div class="intrude-less">
+	<header id="header" class="inner">
+		<a href="/" class="profilepic">
+			
+				<img lazy-src="/img/touxiang2.png" class="js-avatar">
+			
+		</a>
+
+		<hgroup>
+			<h1 class="header-author"><a href="/">mengchuang</a></h1>
+		</hgroup>
+
+		
+
+		<div class="switch-area">
+			<div class="switch-wrap">
+				<section class="switch-part switch-part1">
+					<nav class="header-menu">
+						<ul>
+						
+							<li><a href="/">Home</a></li>
+				        
+							<li><a href="/archives">Archives</a></li>
+				        
+						</ul>
+					</nav>
+					<nav class="half-header-menu">
+						<a class="hide">Home</a>
+						<a>Tags</a>
+						<a>Links</a>
+						<a>About</a>
+					</nav>
+					<nav class="header-nav">
+						<div class="social">
+							
+								<a class="github" target="_blank" href="#" title="github">github</a>
+					        
+								<a class="mail" target="_blank" href="#" title="mail">mail</a>
+					        
+								<a class="rss" target="_blank" href="/atom.xml" title="rss">rss</a>
+					        
+								<a class="zhihu" target="_blank" href="#" title="zhihu">zhihu</a>
+					        
+						</div>
+						<!-- music -->
+						
+					</nav>
+				</section>
+				
+				
+				<section class="switch-part switch-part2">
+					<div class="widget tagcloud" id="js-tagcloud">
+						<a href="/tags/%E7%AE%97%E6%B3%95/" style="font-size: 20px;">算法</a> <a href="/tags/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BB%84%E6%88%90/" style="font-size: 10px;">计算机组成</a> <a href="/tags/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/" style="font-size: 15px;">计算机网络</a>
+					</div>
+				</section>
+				
+				
+				
+				<section class="switch-part switch-part3">
+					<div id="js-friends">
+					
+			          <a target="_blank" class="main-nav-link switch-friends-link" href="https://github.com/mengchuang123/">github</a>
+			        
+			        </div>
+				</section>
+				
+
+				
+				
+				<section class="switch-part switch-part4">
+				
+					<div id="js-aboutme">My study log.</div>
+				</section>
+				
+			</div>
+		</div>
+	</header>				
+</div>
+    </div>
+    <div class="mid-col">
+      <nav id="mobile-nav">
+  	<div class="overlay">
+  		<div class="slider-trigger"></div>
+  		<h1 class="header-author js-mobile-header hide"></h1>
+  	</div>
+	<div class="intrude-less">
+		<header id="header" class="inner">
+			<div class="profilepic">
+				<img lazy-src="/img/touxiang2.png" class="js-avatar">
+			</div>
+			<hgroup>
+			  <h1 class="header-author"></h1>
+			</hgroup>
+			
+			<nav class="header-menu">
+				<ul>
+				
+					<li><a href="/">Home</a></li>
+		        
+					<li><a href="/archives">Archives</a></li>
+		        
+		        <div class="clearfix"></div>
+				</ul>
+			</nav>
+			<nav class="header-nav">
+				<div class="social">
+					
+						<a class="github" target="_blank" href="#" title="github">github</a>
+			        
+						<a class="mail" target="_blank" href="#" title="mail">mail</a>
+			        
+						<a class="rss" target="_blank" href="/atom.xml" title="rss">rss</a>
+			        
+						<a class="zhihu" target="_blank" href="#" title="zhihu">zhihu</a>
+			        
+				</div>
+			</nav>
+		</header>				
+	</div>
+</nav>
+      <div class="body-wrap"><article id="post-次(k)最短路" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2021/11/26/%E6%AC%A1(k)%E6%9C%80%E7%9F%AD%E8%B7%AF/" class="article-date">
+  	<time datetime="2021-11-26T15:00:00.000Z" itemprop="datePublished">2021-11-26</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      次(k)最短路算法
+      
+    </h1>
+  
+
+      </header>
+      
+      <div class="article-info article-info-post">
+        
+	<div class="article-tag tagcloud">
+		<ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E7%AE%97%E6%B3%95/" rel="tag">算法</a></li></ul>
+	</div>
+
+        
+
+        
+        <div class="clearfix"></div>
+      </div>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <!--Table of Contents begin-->
+        <!-- 
+          <div id="toc" class="toc-article">
+            <strong class="toc-title">目录</strong>
+            <a class="js-toggle-toc" href="javascript:void(0)"></a>
+            <div class="toc-content">
+              <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#KSP%E7%AE%97%E6%B3%95%E6%B1%82%E8%A7%A3"><span class="toc-text">KSP算法求解</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#dijkstra%E7%AE%97%E6%B3%95"><span class="toc-text">dijkstra算法</span></a></li></ol>
+            </div>
+          </div>
+         -->
+          <!-- Table of Contents -->
+        
+          <div id="toc" class="toc-article">
+            <strong class="toc-title">目录</strong>
+            <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#KSP%E7%AE%97%E6%B3%95%E6%B1%82%E8%A7%A3"><span class="toc-text">KSP算法求解</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#dijkstra%E7%AE%97%E6%B3%95"><span class="toc-text">dijkstra算法</span></a></li></ol>
+          </div>
+        
+        <!--Table of Contents end -->
+        
+
+
+
+
+        <p>[toc]</p>
+<h1 id="KSP算法求解"><a href="#KSP算法求解" class="headerlink" title="KSP算法求解"></a>KSP算法求解</h1><hr>
+<ul>
+<li><code>Yen算法</code></li>
+<li><code>A*算法</code></li>
+<li><code>dijkstra算法</code>:维护一个出来最短路外的另外一个数组<code>dist2</code></li>
+</ul>
+<h1 id="dijkstra算法"><a href="#dijkstra算法" class="headerlink" title="dijkstra算法"></a>dijkstra算法</h1><hr>
+<blockquote>
+<p>维护一个出来最短路外的另外一个数组<code>dist2</code></p>
+</blockquote>
+<img src="https://gitee.com/mymengchuang/blog_img/raw/master/image-20211127153633194.png" alt="image-20211127153633194" style="zoom:80%;">
+
+<p><strong>代码：</strong></p>
+<figure class="highlight java"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br></pre></td><td class="code"><pre><span class="line">#include&lt;iostream&gt;</span><br><span class="line">#include&lt;cstdio&gt;</span><br><span class="line">#include&lt;algorithm&gt;</span><br><span class="line">#include&lt;cstring&gt;</span><br><span class="line">#include&lt;queue&gt;</span><br><span class="line">#define INF <span class="number">0x3f3f3f3f</span></span><br><span class="line">using namespace std;</span><br><span class="line"><span class="keyword">int</span> dis[<span class="number">5500</span>];</span><br><span class="line"><span class="keyword">int</span> dis2[<span class="number">5500</span>];</span><br><span class="line"><span class="keyword">int</span> vis[<span class="number">5500</span>];</span><br><span class="line"><span class="keyword">int</span> head[<span class="number">200100</span>],cnt;</span><br><span class="line">struct node</span><br><span class="line">{</span><br><span class="line">    <span class="keyword">int</span> v,w;</span><br><span class="line">    <span class="keyword">int</span> nxt;</span><br><span class="line">} edge[<span class="number">200100</span>];</span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">add</span><span class="params">(<span class="keyword">int</span> x,<span class="keyword">int</span> y,<span class="keyword">int</span> w)</span></span></span><br><span class="line"><span class="function"></span>{</span><br><span class="line">    edge[++cnt].nxt=head[x];</span><br><span class="line">    edge[cnt].v=y;</span><br><span class="line">    edge[cnt].w=w;</span><br><span class="line">    head[x]=cnt;</span><br><span class="line">}</span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">Dijkstra</span><span class="params">(<span class="keyword">int</span> x)</span></span></span><br><span class="line"><span class="function"></span>{</span><br><span class="line">    queue&lt;<span class="keyword">int</span>&gt;qu;</span><br><span class="line">    memset(vis,<span class="number">0</span>,sizeof(vis));</span><br><span class="line">    memset(dis,INF,sizeof(dis));</span><br><span class="line">    memset(dis2,INF,sizeof(dis2));</span><br><span class="line">    dis[x]=<span class="number">0</span>;</span><br><span class="line">    vis[x]=<span class="number">1</span>;</span><br><span class="line">    qu.push(x);</span><br><span class="line">    <span class="keyword">while</span>(!qu.empty( ))</span><br><span class="line">    {</span><br><span class="line">        <span class="keyword">int</span> u=qu.front( );</span><br><span class="line">        qu.pop( );</span><br><span class="line">        vis[u]=<span class="number">0</span>;</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> i=head[u]; i!=-<span class="number">1</span>; i=edge[i].nxt)</span><br><span class="line">        {</span><br><span class="line">            <span class="keyword">int</span> v=edge[i].v;</span><br><span class="line">            <span class="keyword">int</span> w=edge[i].w;</span><br><span class="line">            <span class="keyword">if</span>(dis[v]&gt;dis[u]+w)<span class="comment">//最短路更新，原来的最短路变成次短路</span></span><br><span class="line">            {</span><br><span class="line">                dis2[v]=dis[v];</span><br><span class="line">                dis[v]=dis[u]+w;</span><br><span class="line">                <span class="keyword">if</span>(!vis[v])</span><br><span class="line">                {</span><br><span class="line">                    qu.push(v);</span><br><span class="line">                    vis[v]=<span class="number">1</span>;</span><br><span class="line">                }</span><br><span class="line">            }</span><br><span class="line">            <span class="keyword">if</span>(dis2[v]&gt;dis2[u]+w)<span class="comment">//次短路直接更新(通常是最短路确定后才进行）</span></span><br><span class="line">            {</span><br><span class="line">                dis2[v]=dis2[u]+w;</span><br><span class="line">                <span class="keyword">if</span>(!vis[v])</span><br><span class="line">                {</span><br><span class="line">                    qu.push(v);</span><br><span class="line">                    vis[v]=<span class="number">1</span>;</span><br><span class="line">                }</span><br><span class="line">            }</span><br><span class="line">            <span class="keyword">if</span>(dis2[v]&gt;dis[u]+w&amp;&amp;dis[v]&lt;dis[u]+w)<span class="comment">//最短路不更新，但距离比次短路小</span></span><br><span class="line">            {</span><br><span class="line">                dis2[v]=dis[u]+w;</span><br><span class="line">                <span class="keyword">if</span>(!vis[v])</span><br><span class="line">                {</span><br><span class="line">                    qu.push(v);</span><br><span class="line">                    vis[v]=<span class="number">1</span>;</span><br><span class="line">                }</span><br><span class="line">            }</span><br><span class="line">        }</span><br><span class="line">    }</span><br><span class="line">}</span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">( )</span></span></span><br><span class="line"><span class="function"></span>{</span><br><span class="line">    <span class="keyword">int</span> n,r,x,y,w;</span><br><span class="line">    memset(head,-<span class="number">1</span>,sizeof(head));</span><br><span class="line">    cnt=<span class="number">0</span>;</span><br><span class="line">    scanf(<span class="string">"%d%d"</span>,&amp;n,&amp;r);</span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">1</span>; i&lt;=r; i++)</span><br><span class="line">    {</span><br><span class="line">        scanf(<span class="string">"%d%d%d"</span>,&amp;x,&amp;y,&amp;w);</span><br><span class="line">        add(x,y,w);</span><br><span class="line">        add(y,x,w);</span><br><span class="line">    }</span><br><span class="line">    Dijkstra(<span class="number">1</span>);</span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">1</span>;i&lt;=n;i++)</span><br><span class="line">    {</span><br><span class="line">        printf(<span class="string">"%d "</span>,dis[i]);</span><br><span class="line">    }</span><br><span class="line">    cout&lt;&lt;endl;</span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">1</span>;i&lt;=n;i++)</span><br><span class="line">    {</span><br><span class="line">        printf(<span class="string">"%d "</span>,dis2[i]);</span><br><span class="line">    }</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">}</span><br></pre></td></tr></tbody></table></figure>
+
+
+      
+    </div>
+    
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/2021/11/29/%E7%BD%91%E7%BB%9C%E6%B5%81%E9%97%AE%E9%A2%98/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">&lt;</strong>
+      <div class="article-nav-title">
+        
+          网络流算法
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2021/11/26/%E6%9C%80%E7%9F%AD%E8%B7%AF%E7%AE%97%E6%B3%95/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">最短路算法</div>
+      <strong class="article-nav-caption">&gt;</strong>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+
+
+
+
+
+</div>
+      <footer id="footer">
+  <div class="outer">
+    <div id="footer-info">
+      <div class="footer-left">
+        &copy; 2021 mengchuang
+      </div>
+        <div class="footer-right">
+          <a href="http://hexo.io/" target="_blank">Hexo</a>  Theme <a href="https://github.com/preccrep/hexo-theme-jelly" target="_blank">Jelly</a>
+        </div>
+    </div>
+  </div>
+</footer>
+    </div>
+    
+  
+<link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+
+
+
+<script>
+	var yiliaConfig = {
+		fancybox: true,
+		mathjax: false,
+		animate: true,
+		isHome: false,
+		isPost: true,
+		isArchive: false,
+		isTag: false,
+		isCategory: false,
+		open_in_new: false
+	}
+</script>
+
+<script src="/js/main.js"></script>
+
+
+
+
+  </div>
+</body>
+</html>
