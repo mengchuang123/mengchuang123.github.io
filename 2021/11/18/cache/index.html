@@ -9,18 +9,21 @@
   
 
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="层次存储具体？采用的原因？ 采用层次存储的原因  利用空间局部性和时间局部性 加快访问速度  层次存储  cache由SRAM实现， 主存由DRAM实现 存储器由硬盘实现  cache原理 从以下五个方面进行介绍  cache的目的  cache的结构  cache的访问  cache的缺失处理  cache的写操作   cache如何进行优化 虚拟存储原理 从以下五个方面进行介绍  虚拟存储的目">
+  <meta name="description" content="[toc] 层次存储具体？采用的原因？ 采用层次存储的原因  利用空间局部性和时间局部性 加快访问速度  层次存储  cache由SRAM实现， 主存由DRAM实现 存储器由硬盘实现  各层次结构是由谁来管理的  从寄存器—&gt;地址 :编译器 cache—&gt;主存：cache控制器，也就是硬件 主存到磁盘： 操作系统：虚拟内存 虚拟内存地址映射由快表来实现：硬件 或者由软件实现    ca">
 <meta property="og:type" content="article">
 <meta property="og:title" content="计算机组成cache">
 <meta property="og:url" content="http://example.com/2021/11/18/cache/index.html">
 <meta property="og:site_name" content="mengchuang">
-<meta property="og:description" content="层次存储具体？采用的原因？ 采用层次存储的原因  利用空间局部性和时间局部性 加快访问速度  层次存储  cache由SRAM实现， 主存由DRAM实现 存储器由硬盘实现  cache原理 从以下五个方面进行介绍  cache的目的  cache的结构  cache的访问  cache的缺失处理  cache的写操作   cache如何进行优化 虚拟存储原理 从以下五个方面进行介绍  虚拟存储的目">
+<meta property="og:description" content="[toc] 层次存储具体？采用的原因？ 采用层次存储的原因  利用空间局部性和时间局部性 加快访问速度  层次存储  cache由SRAM实现， 主存由DRAM实现 存储器由硬盘实现  各层次结构是由谁来管理的  从寄存器—&gt;地址 :编译器 cache—&gt;主存：cache控制器，也就是硬件 主存到磁盘： 操作系统：虚拟内存 虚拟内存地址映射由快表来实现：硬件 或者由软件实现    ca">
 <meta property="og:locale" content="en_US">
+<meta property="og:image" content="https://gitee.com/mymengchuang/blog_img/raw/master/image-20211201210532319.png">
+<meta property="og:image" content="https://gitee.com/mymengchuang/blog_img/raw/master/image-20211201214803219.png">
 <meta property="article:published_time" content="2021-11-17T16:00:02.000Z">
-<meta property="article:modified_time" content="2021-12-01T10:18:24.994Z">
+<meta property="article:modified_time" content="2021-12-02T02:23:38.120Z">
 <meta property="article:author" content="mengchuang">
 <meta property="article:tag" content="计算机组成">
 <meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://gitee.com/mymengchuang/blog_img/raw/master/image-20211201210532319.png">
   
   
     <link rel="icon" href="/img/favicon.ico">
@@ -39,9 +42,9 @@
 
 
   
-<meta name="generator" content="Hexo 5.4.0"><link rel="alternate" href="/atom.xml" title="mengchuang" type="application/atom+xml">
-
+<meta name="generator" content="Hexo 5.4.0">
 <style>.github-emoji { position: relative; display: inline-block; width: 1.2em; min-height: 1.2em; overflow: hidden; vertical-align: top; color: transparent; }  .github-emoji > span { position: relative; z-index: 10; }  .github-emoji img, .github-emoji .fancybox { margin: 0 !important; padding: 0 !important; border: none !important; outline: none !important; text-decoration: none !important; user-select: none !important; cursor: auto !important; }  .github-emoji img { height: 1.2em !important; width: 1.2em !important; position: absolute !important; left: 50% !important; top: 50% !important; transform: translate(-50%, -50%) !important; user-select: none !important; cursor: auto !important; } .github-emoji-fallback { color: inherit; } .github-emoji-fallback img { opacity: 0 !important; }</style>
+<link rel="alternate" href="/atom.xml" title="mengchuang" type="application/atom+xml">
 </head>
 <body>
   <div id="container">
@@ -100,7 +103,7 @@
 				
 				<section class="switch-part switch-part2">
 					<div class="widget tagcloud" id="js-tagcloud">
-						<a href="/tags/%E7%AE%97%E6%B3%95/" style="font-size: 20px;">算法</a> <a href="/tags/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BB%84%E6%88%90/" style="font-size: 10px;">计算机组成</a> <a href="/tags/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/" style="font-size: 15px;">计算机网络</a>
+						<a href="/tags/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F/" style="font-size: 10px;">操作系统</a> <a href="/tags/%E7%AE%97%E6%B3%95/" style="font-size: 20px;">算法</a> <a href="/tags/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BB%84%E6%88%90/" style="font-size: 13.33px;">计算机组成</a> <a href="/tags/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/" style="font-size: 16.67px;">计算机网络</a> <a href="/tags/%E9%9D%A2%E8%AF%95/" style="font-size: 10px;">面试</a>
 					</div>
 				</section>
 				
@@ -213,7 +216,7 @@
             <strong class="toc-title">目录</strong>
             <a class="js-toggle-toc" href="javascript:void(0)"></a>
             <div class="toc-content">
-              <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#%E5%B1%82%E6%AC%A1%E5%AD%98%E5%82%A8%E5%85%B7%E4%BD%93%EF%BC%9F%E9%87%87%E7%94%A8%E7%9A%84%E5%8E%9F%E5%9B%A0%EF%BC%9F"><span class="toc-text">层次存储具体？采用的原因？</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#cache%E5%8E%9F%E7%90%86"><span class="toc-text">cache原理</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#cache%E5%A6%82%E4%BD%95%E8%BF%9B%E8%A1%8C%E4%BC%98%E5%8C%96"><span class="toc-text">cache如何进行优化</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E8%99%9A%E6%8B%9F%E5%AD%98%E5%82%A8%E5%8E%9F%E7%90%86"><span class="toc-text">虚拟存储原理</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#cache"><span class="toc-text">cache</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%B8%89%E7%A7%8Dmiss"><span class="toc-text">三种miss</span></a></li></ol></li></ol></li></ol>
+              <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#%E5%B1%82%E6%AC%A1%E5%AD%98%E5%82%A8%E5%85%B7%E4%BD%93%EF%BC%9F%E9%87%87%E7%94%A8%E7%9A%84%E5%8E%9F%E5%9B%A0%EF%BC%9F"><span class="toc-text">层次存储具体？采用的原因？</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#cache%E5%8E%9F%E7%90%86"><span class="toc-text">cache原理</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#1-cache%E7%9A%84%E7%9B%AE%E7%9A%84"><span class="toc-text">1.cache的目的</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2-cache%E7%BB%93%E6%9E%84"><span class="toc-text">2.cache结构</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#3-cache%E7%9A%84%E5%86%99%E6%93%8D%E4%BD%9C"><span class="toc-text">3.cache的写操作</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#4-cache%E7%BC%BA%E5%A4%B1%E5%A4%84%E7%90%86"><span class="toc-text">4.cache缺失处理</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#cache%E5%A6%82%E4%BD%95%E8%BF%9B%E8%A1%8C%E4%BC%98%E5%8C%96"><span class="toc-text">cache如何进行优化</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#1-%E9%80%9A%E8%BF%87%E6%9B%B4%E5%8A%A0%E7%81%B5%E6%B4%BB%E6%94%BE%E7%BD%AE%E5%9D%97%EF%BC%8C%E6%9D%A5%E5%87%8F%E5%B0%91cache%E7%BC%BA%E5%A4%B1"><span class="toc-text">1.通过更加灵活放置块，来减少cache缺失</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2-%E6%9B%BF%E6%8D%A2%E7%AD%96%E7%95%A5"><span class="toc-text">2.替换策略</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#3-%E4%BD%BF%E7%94%A8%E5%A4%9A%E7%BA%A7cache%E5%87%8F%E5%B0%91%E7%BC%BA%E5%A4%B1%E4%BB%A3%E4%BB%B7"><span class="toc-text">3.使用多级cache减少缺失代价</span></a></li></ol></li></ol>
             </div>
           </div>
          -->
@@ -221,7 +224,7 @@
         
           <div id="toc" class="toc-article">
             <strong class="toc-title">目录</strong>
-            <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#%E5%B1%82%E6%AC%A1%E5%AD%98%E5%82%A8%E5%85%B7%E4%BD%93%EF%BC%9F%E9%87%87%E7%94%A8%E7%9A%84%E5%8E%9F%E5%9B%A0%EF%BC%9F"><span class="toc-text">层次存储具体？采用的原因？</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#cache%E5%8E%9F%E7%90%86"><span class="toc-text">cache原理</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#cache%E5%A6%82%E4%BD%95%E8%BF%9B%E8%A1%8C%E4%BC%98%E5%8C%96"><span class="toc-text">cache如何进行优化</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E8%99%9A%E6%8B%9F%E5%AD%98%E5%82%A8%E5%8E%9F%E7%90%86"><span class="toc-text">虚拟存储原理</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#cache"><span class="toc-text">cache</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%B8%89%E7%A7%8Dmiss"><span class="toc-text">三种miss</span></a></li></ol></li></ol></li></ol>
+            <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#%E5%B1%82%E6%AC%A1%E5%AD%98%E5%82%A8%E5%85%B7%E4%BD%93%EF%BC%9F%E9%87%87%E7%94%A8%E7%9A%84%E5%8E%9F%E5%9B%A0%EF%BC%9F"><span class="toc-text">层次存储具体？采用的原因？</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#cache%E5%8E%9F%E7%90%86"><span class="toc-text">cache原理</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#1-cache%E7%9A%84%E7%9B%AE%E7%9A%84"><span class="toc-text">1.cache的目的</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2-cache%E7%BB%93%E6%9E%84"><span class="toc-text">2.cache结构</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#3-cache%E7%9A%84%E5%86%99%E6%93%8D%E4%BD%9C"><span class="toc-text">3.cache的写操作</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#4-cache%E7%BC%BA%E5%A4%B1%E5%A4%84%E7%90%86"><span class="toc-text">4.cache缺失处理</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#cache%E5%A6%82%E4%BD%95%E8%BF%9B%E8%A1%8C%E4%BC%98%E5%8C%96"><span class="toc-text">cache如何进行优化</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#1-%E9%80%9A%E8%BF%87%E6%9B%B4%E5%8A%A0%E7%81%B5%E6%B4%BB%E6%94%BE%E7%BD%AE%E5%9D%97%EF%BC%8C%E6%9D%A5%E5%87%8F%E5%B0%91cache%E7%BC%BA%E5%A4%B1"><span class="toc-text">1.通过更加灵活放置块，来减少cache缺失</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2-%E6%9B%BF%E6%8D%A2%E7%AD%96%E7%95%A5"><span class="toc-text">2.替换策略</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#3-%E4%BD%BF%E7%94%A8%E5%A4%9A%E7%BA%A7cache%E5%87%8F%E5%B0%91%E7%BC%BA%E5%A4%B1%E4%BB%A3%E4%BB%B7"><span class="toc-text">3.使用多级cache减少缺失代价</span></a></li></ol></li></ol>
           </div>
         
         <!--Table of Contents end -->
@@ -230,7 +233,8 @@
 
 
 
-        <h1 id="层次存储具体？采用的原因？"><a href="#层次存储具体？采用的原因？" class="headerlink" title="层次存储具体？采用的原因？"></a>层次存储具体？采用的原因？</h1><hr>
+        <p>[toc]</p>
+<h1 id="层次存储具体？采用的原因？"><a href="#层次存储具体？采用的原因？" class="headerlink" title="层次存储具体？采用的原因？"></a>层次存储具体？采用的原因？</h1><hr>
 <p><strong>采用层次存储的原因</strong></p>
 <ul>
 <li>利用空间局部性和时间局部性</li>
@@ -241,6 +245,17 @@
 <li>cache由SRAM实现，</li>
 <li>主存由DRAM实现</li>
 <li>存储器由硬盘实现</li>
+</ul>
+<p><strong>各层次结构是由谁来管理的</strong></p>
+<ul>
+<li>从寄存器—&gt;地址 :编译器</li>
+<li>cache—&gt;主存：cache控制器，也就是硬件</li>
+<li>主存到磁盘：<ul>
+<li>操作系统：虚拟内存</li>
+<li>虚拟内存地址映射由快表来实现：硬件</li>
+<li>或者由软件实现</li>
+</ul>
+</li>
 </ul>
 <h1 id="cache原理"><a href="#cache原理" class="headerlink" title="cache原理"></a>cache原理</h1><hr>
 <p>从以下五个方面进行介绍</p>
@@ -256,31 +271,86 @@
 <li><p>cache的写操作</p>
 </li>
 </ul>
-<h1 id="cache如何进行优化"><a href="#cache如何进行优化" class="headerlink" title="cache如何进行优化"></a>cache如何进行优化</h1><hr>
-<h1 id="虚拟存储原理"><a href="#虚拟存储原理" class="headerlink" title="虚拟存储原理"></a>虚拟存储原理</h1><hr>
-<p>从以下五个方面进行介绍</p>
+<h2 id="1-cache的目的"><a href="#1-cache的目的" class="headerlink" title="1.cache的目的"></a>1.cache的目的</h2><ul>
+<li>提高速度</li>
+<li>cpu运行速度远远快于数据传输速度</li>
+</ul>
+<h2 id="2-cache结构"><a href="#2-cache结构" class="headerlink" title="2.cache结构"></a>2.cache结构</h2><p>我们将内存地址划分为三个部分：</p>
 <ul>
-<li><p>虚拟存储的目的</p>
+<li>Tag</li>
+<li>index</li>
+<li>offset(byte offset)</li>
+</ul>
+<p>cache的基本数据单元是块(block),长度为块数，用<code>index</code>来查找，块的宽度是<code>byte offset</code>,为了判断当前块是不是寄存器地址中的值，还需要再cache前面加上tag位，同时加上valid一位。</p>
+<img src="https://gitee.com/mymengchuang/blog_img/raw/master/image-20211201210532319.png" alt="image-20211201210532319" style="zoom:80%;">
+
+
+
+<h2 id="3-cache的写操作"><a href="#3-cache的写操作" class="headerlink" title="3.cache的写操作"></a>3.cache的写操作</h2><ul>
+<li><p>写直达：更新cache的同时，更新内存</p>
 </li>
-<li><p>虚拟存储的结构</p>
-</li>
-<li><p>虚拟存储的访问</p>
-</li>
-<li><p>虚拟存储的缺失处理</p>
-</li>
-<li><p>虚拟存储的写操作</p>
+<li><p>写回</p>
+<ul>
+<li>更新cache中的word</li>
+<li>允许先不更新主内数据</li>
+<li>在cache前面添加一个dirty位，来代表cache和主存内容的不一致性，当块被替换的时候，需要更新主存</li>
+<li>OS通过IO向外部读写数据的时候，会更新cache中的内容到主存中，也就是flush</li>
+</ul>
 </li>
 </ul>
-<h1 id="cache"><a href="#cache" class="headerlink" title="cache"></a>cache</h1><hr>
-<p>什么是cache,主要思想</p>
-<h3 id="三种miss"><a href="#三种miss" class="headerlink" title="三种miss"></a>三种miss</h3><ul>
-<li><strong>强制性失效</strong>CPU第一次访问相应cache块，cache中肯定没有该cache块，引起的失效叫做强制性失效。这是不可避免的。</li>
-<li><strong>容量失效：</strong>有限的cache容量导致cache放不下而替换出cache块，被替换出去的cache块再被访问，引起的失效叫做容量失效。</li>
-<li><strong>冲突失效：</strong>在直接相联或组相联的cache中，不同的cache块由于index相同相互替换，引起的失效叫做冲突失效。</li>
+<h2 id="4-cache缺失处理"><a href="#4-cache缺失处理" class="headerlink" title="4.cache缺失处理"></a>4.cache缺失处理</h2><p><strong>三种miss</strong></p>
+<ul>
+<li><p><strong>强制性失效</strong>CPU第一次访问相应cache块，cache中肯定没有该cache块，引起的失效叫做强制性失效。这是不可避免的。</p>
+<ul>
+<li>(无限容量 全相连)</li>
 </ul>
-<p>web cache</p>
-<p>三种类型的cache</p>
-<p>如何解决读写冲突</p>
+</li>
+<li><p><strong>容量失效：</strong>有限的cache容量导致cache放不下而替换出cache块，被替换出去的cache块再被访问，引起的失效叫做容量失效。</p>
+<ul>
+<li>(有限容量 全相连)</li>
+</ul>
+</li>
+<li><p><strong>冲突失效：</strong>在直接相联或组相联的cache中，不同的cache块由于index相同相互替换，引起的失效叫做冲突失效。</p>
+</li>
+</ul>
+<p>冲突缺失：如果高速缓存完全相关联且采用LRU替换规则，则不会发生冲突缺失。</p>
+<p>容量缺失：即使采用全关联和最完美的替换策略也会发生容量缺失。</p>
+<p>例如有一个大小为4的直接映射高速缓存。访问序列如下：0,1,2,3,4,1,2,3,0,4,0</p>
+<p>0(compulsory miss), 1(compulsory miss), 2(compulsory miss), 3(compulsory miss), 4(compulsory miss), 1(hit), 2(hit), 3(hit), 0(capacity miss), 4(capacity miss), 0(conflict miss)</p>
+<p>倒数第二个0是容量丢失，因为即使该缓存与LRU缓存完全关联，它仍然会导致丢失，因为在最后0之前访问了4,1,2,3。但是最后一个0是一个冲突丢失，因为在完全关联的缓存中，后4个将替换缓存中的1而不是0</p>
+<h1 id="cache如何进行优化"><a href="#cache如何进行优化" class="headerlink" title="cache如何进行优化"></a>cache如何进行优化</h1><hr>
+<p>考虑以下因素</p>
+<ul>
+<li><p>块大小：随着块大小增大，缺失率会变小（空间局部性）在变大（块数量减小影响空间局部性）</p>
+</li>
+<li><p>直接变大cache</p>
+</li>
+</ul>
+<h2 id="1-通过更加灵活放置块，来减少cache缺失"><a href="#1-通过更加灵活放置块，来减少cache缺失" class="headerlink" title="1.通过更加灵活放置块，来减少cache缺失"></a>1.通过更加灵活放置块，来减少cache缺失</h2><p><strong>全相连</strong></p>
+<ul>
+<li>直接取消index，而是直接比较tag，需要添加大量的比较器并行化处理</li>
+</ul>
+<p><strong>组相连</strong></p>
+<ul>
+<li>n路组相连：每一个index都对应n个块，在查找是不知道是哪个块，因此需要对每个块按照tag进行对比，找到哪个块以后，在按照byte offset来进行查找。</li>
+<li>index的位数： 块数/n  来确定</li>
+<li>组相连：index用来查找哪个组，tag用来确定哪个块，offset是块中被请求的数据地址</li>
+</ul>
+<p><strong>缺点/优势</strong></p>
+<ul>
+<li>提高相连度减低复杂度</li>
+<li>缺点是增加命中时间</li>
+</ul>
+<img src="https://gitee.com/mymengchuang/blog_img/raw/master/image-20211201214803219.png" alt="image-20211201214803219" style="zoom:80%;">
+
+<h2 id="2-替换策略"><a href="#2-替换策略" class="headerlink" title="2.替换策略"></a>2.替换策略</h2><p>LRU:最近最少使用</p>
+<blockquote>
+<p>仅仅针对于组相连和圈相连,当有新数据进来时,应该替换哪些块</p>
+</blockquote>
+<h2 id="3-使用多级cache减少缺失代价"><a href="#3-使用多级cache减少缺失代价" class="headerlink" title="3.使用多级cache减少缺失代价"></a>3.使用多级cache减少缺失代价</h2><ul>
+<li>平均访问时间: hit time+ miss penaty * mis rate;</li>
+<li>使用多级cache会减少缺失代价</li>
+</ul>
 
       
     </div>
@@ -290,11 +360,11 @@
     
 <nav id="article-nav">
   
-    <a href="/2021/11/20/%E6%9C%80%E5%B0%8F%E7%94%9F%E6%88%90%E6%A0%91/" id="article-nav-newer" class="article-nav-link-wrap">
+    <a href="/2021/11/18/HTTP%E5%8D%8F%E8%AE%AE/" id="article-nav-newer" class="article-nav-link-wrap">
       <strong class="article-nav-caption">&lt;</strong>
       <div class="article-nav-title">
         
-          最小生成树
+          HTTP协议和HTTPS
         
       </div>
     </a>

@@ -17,7 +17,7 @@
 <meta property="og:description" content="Homework5 5.1 Are there any circumstances when connection-oriented service will (or at least should) deliver packets out oforder? 无连接和面向连接的区别：  无连接通信，例如由IP和UDP协议使用的数据报模式通信，其中数据可以无序地传送，因为不同的网络分组是独立路由的，">
 <meta property="og:locale" content="en_US">
 <meta property="article:published_time" content="2021-11-29T05:00:00.000Z">
-<meta property="article:modified_time" content="2021-11-29T05:26:06.249Z">
+<meta property="article:modified_time" content="2021-12-03T18:05:26.769Z">
 <meta property="article:author" content="mengchuang">
 <meta property="article:tag" content="计算机网络">
 <meta name="twitter:card" content="summary">
@@ -39,9 +39,9 @@
 
 
   
-<meta name="generator" content="Hexo 5.4.0"><link rel="alternate" href="/atom.xml" title="mengchuang" type="application/atom+xml">
-
+<meta name="generator" content="Hexo 5.4.0">
 <style>.github-emoji { position: relative; display: inline-block; width: 1.2em; min-height: 1.2em; overflow: hidden; vertical-align: top; color: transparent; }  .github-emoji > span { position: relative; z-index: 10; }  .github-emoji img, .github-emoji .fancybox { margin: 0 !important; padding: 0 !important; border: none !important; outline: none !important; text-decoration: none !important; user-select: none !important; cursor: auto !important; }  .github-emoji img { height: 1.2em !important; width: 1.2em !important; position: absolute !important; left: 50% !important; top: 50% !important; transform: translate(-50%, -50%) !important; user-select: none !important; cursor: auto !important; } .github-emoji-fallback { color: inherit; } .github-emoji-fallback img { opacity: 0 !important; }</style>
+<link rel="alternate" href="/atom.xml" title="mengchuang" type="application/atom+xml">
 </head>
 <body>
   <div id="container">
@@ -100,7 +100,7 @@
 				
 				<section class="switch-part switch-part2">
 					<div class="widget tagcloud" id="js-tagcloud">
-						<a href="/tags/%E7%AE%97%E6%B3%95/" style="font-size: 20px;">算法</a> <a href="/tags/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BB%84%E6%88%90/" style="font-size: 10px;">计算机组成</a> <a href="/tags/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/" style="font-size: 15px;">计算机网络</a>
+						<a href="/tags/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F/" style="font-size: 10px;">操作系统</a> <a href="/tags/%E7%AE%97%E6%B3%95/" style="font-size: 20px;">算法</a> <a href="/tags/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BB%84%E6%88%90/" style="font-size: 13.33px;">计算机组成</a> <a href="/tags/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/" style="font-size: 16.67px;">计算机网络</a> <a href="/tags/%E9%9D%A2%E8%AF%95/" style="font-size: 10px;">面试</a>
 					</div>
 				</section>
 				
@@ -249,6 +249,23 @@
 </ul>
 </li>
 </ul>
+<p>5.6</p>
+<ul>
+<li>IP包头大小固定为<code>20B = 20byte</code> </li>
+<li>IP包头中的总长度（单位byte）：包头大小（20B）+数据最大长度  一共16位</li>
+<li>IP包头中的标志位(3byte) : <code>_ ,DF，MF</code> DF为0允许分片，MF=1代表后面还有分片，MF=0代表最后一个分片</li>
+<li>IP包头的片偏移：代表片的位置，单位是8byte</li>
+<li>生存长度，TTL代表路由器的跳转次数</li>
+<li>IP源地址目的地址</li>
+</ul>
+<blockquote>
+<p>IP数据包头部有三个关于长度的标志，首部长度：总长度：片偏移，基本单位为：4B:1B:8B</p>
+</blockquote>
+<p>5.14</p>
+<p><a target="_blank" rel="noopener" href="https://blog.csdn.net/u011784495/article/details/71693296">https://blog.csdn.net/u011784495/article/details/71693296</a></p>
+<p>Pv6和IPv4之间的最大差别在于：IP地址的长度从32位到128位。<br>通过裁剪IPv4报头中的某些字段，或把一些字段移入到扩展报头中，IPv6基本报头的总长度大大减小了。IPv6使用固定长度的基本报头，从而简化了转发设备对IPv6报文的处理，提高了转发效率。尽管IPv6地址长度是IPv4地址长度的4倍，但IPv6基本报头的长度只有40字节，为固定的IPv4报文头长度（不包括选项字段）的2倍</p>
+<p>5.11</p>
+<p>校验和只是校验header信息</p>
 
       
     </div>
