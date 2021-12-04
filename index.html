@@ -165,57 +165,6 @@
 </nav>
       <div class="body-wrap">
   
-    <article id="post-顶点覆盖问题" class="article article-type-post" itemscope itemprop="blogPost">
-  
-    <div class="article-meta">
-      <a href="/2021/12/03/%E9%A1%B6%E7%82%B9%E8%A6%86%E7%9B%96%E9%97%AE%E9%A2%98/" class="article-date">
-  	<time datetime="2021-12-03T03:57:45.746Z" itemprop="datePublished">2021-12-03</time>
-</a>
-    </div>
-  
-  <div class="article-inner">
-    
-      <input type="hidden" class="isFancy" />
-    
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <!--Table of Contents begin-->
-        <!--  -->
-          <!-- Table of Contents -->
-        
-        <!--Table of Contents end -->
-        
-
-
-
-
-        <p>找到最小的顶点覆盖图</p>
-
-      
-    </div>
-    
-    <div class="article-info article-info-index">
-      
-      
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-      
-    
-  </div>
-  
-</article>
-
-
-
-
-
-
-
-  
     <article id="post-算法极限" class="article article-type-post" itemscope itemprop="blogPost">
   
     <div class="article-meta">
@@ -1409,9 +1358,106 @@
 
 
   
+    <article id="post-次(k)最短路" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2021/11/26/%E6%AC%A1(k)%E6%9C%80%E7%9F%AD%E8%B7%AF/" class="article-date">
+  	<time datetime="2021-11-26T15:00:00.000Z" itemprop="datePublished">2021-11-26</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2021/11/26/%E6%AC%A1(k)%E6%9C%80%E7%9F%AD%E8%B7%AF/">
+        次(k)最短路算法
+        
+      </a>
+    </h1>
+  
+
+      </header>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <!--Table of Contents begin-->
+        <!-- 
+          <div id="toc" class="toc-article">
+            <strong class="toc-title">目录</strong>
+            <a class="js-toggle-toc" href="javascript:void(0)"></a>
+            <div class="toc-content">
+              <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#KSP%E7%AE%97%E6%B3%95%E6%B1%82%E8%A7%A3"><span class="toc-text">KSP算法求解</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#dijkstra%E7%AE%97%E6%B3%95"><span class="toc-text">dijkstra算法</span></a></li></ol>
+            </div>
+          </div>
+         -->
+          <!-- Table of Contents -->
+        
+          <div id="toc" class="toc-article">
+            <strong class="toc-title">目录</strong>
+            <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#KSP%E7%AE%97%E6%B3%95%E6%B1%82%E8%A7%A3"><span class="toc-text">KSP算法求解</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#dijkstra%E7%AE%97%E6%B3%95"><span class="toc-text">dijkstra算法</span></a></li></ol>
+          </div>
+        
+        <!--Table of Contents end -->
+        
+
+
+
+
+        <p>[toc]</p>
+<h1 id="KSP算法求解"><a href="#KSP算法求解" class="headerlink" title="KSP算法求解"></a>KSP算法求解</h1><hr>
+<ul>
+<li><code>Yen算法</code></li>
+<li><code>A*算法</code></li>
+<li><code>dijkstra算法</code>:维护一个出来最短路外的另外一个数组<code>dist2</code></li>
+</ul>
+<h1 id="dijkstra算法"><a href="#dijkstra算法" class="headerlink" title="dijkstra算法"></a>dijkstra算法</h1><hr>
+<blockquote>
+<p>维护一个出来最短路外的另外一个数组<code>dist2</code></p>
+</blockquote>
+<img src="https://gitee.com/mymengchuang/blog_img/raw/master/image-20211127153633194.png" alt="image-20211127153633194" style="zoom:80%;">
+
+<p><strong>代码：</strong></p>
+<figure class="highlight java"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br></pre></td><td class="code"><pre><span class="line">#include&lt;iostream&gt;</span><br><span class="line">#include&lt;cstdio&gt;</span><br><span class="line">#include&lt;algorithm&gt;</span><br><span class="line">#include&lt;cstring&gt;</span><br><span class="line">#include&lt;queue&gt;</span><br><span class="line">#define INF <span class="number">0x3f3f3f3f</span></span><br><span class="line">using namespace std;</span><br><span class="line"><span class="keyword">int</span> dis[<span class="number">5500</span>];</span><br><span class="line"><span class="keyword">int</span> dis2[<span class="number">5500</span>];</span><br><span class="line"><span class="keyword">int</span> vis[<span class="number">5500</span>];</span><br><span class="line"><span class="keyword">int</span> head[<span class="number">200100</span>],cnt;</span><br><span class="line">struct node</span><br><span class="line">{</span><br><span class="line">    <span class="keyword">int</span> v,w;</span><br><span class="line">    <span class="keyword">int</span> nxt;</span><br><span class="line">} edge[<span class="number">200100</span>];</span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">add</span><span class="params">(<span class="keyword">int</span> x,<span class="keyword">int</span> y,<span class="keyword">int</span> w)</span></span></span><br><span class="line"><span class="function"></span>{</span><br><span class="line">    edge[++cnt].nxt=head[x];</span><br><span class="line">    edge[cnt].v=y;</span><br><span class="line">    edge[cnt].w=w;</span><br><span class="line">    head[x]=cnt;</span><br><span class="line">}</span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">Dijkstra</span><span class="params">(<span class="keyword">int</span> x)</span></span></span><br><span class="line"><span class="function"></span>{</span><br><span class="line">    queue&lt;<span class="keyword">int</span>&gt;qu;</span><br><span class="line">    memset(vis,<span class="number">0</span>,sizeof(vis));</span><br><span class="line">    memset(dis,INF,sizeof(dis));</span><br><span class="line">    memset(dis2,INF,sizeof(dis2));</span><br><span class="line">    dis[x]=<span class="number">0</span>;</span><br><span class="line">    vis[x]=<span class="number">1</span>;</span><br><span class="line">    qu.push(x);</span><br><span class="line">    <span class="keyword">while</span>(!qu.empty( ))</span><br><span class="line">    {</span><br><span class="line">        <span class="keyword">int</span> u=qu.front( );</span><br><span class="line">        qu.pop( );</span><br><span class="line">        vis[u]=<span class="number">0</span>;</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> i=head[u]; i!=-<span class="number">1</span>; i=edge[i].nxt)</span><br><span class="line">        {</span><br><span class="line">            <span class="keyword">int</span> v=edge[i].v;</span><br><span class="line">            <span class="keyword">int</span> w=edge[i].w;</span><br><span class="line">            <span class="keyword">if</span>(dis[v]&gt;dis[u]+w)<span class="comment">//最短路更新，原来的最短路变成次短路</span></span><br><span class="line">            {</span><br><span class="line">                dis2[v]=dis[v];</span><br><span class="line">                dis[v]=dis[u]+w;</span><br><span class="line">                <span class="keyword">if</span>(!vis[v])</span><br><span class="line">                {</span><br><span class="line">                    qu.push(v);</span><br><span class="line">                    vis[v]=<span class="number">1</span>;</span><br><span class="line">                }</span><br><span class="line">            }</span><br><span class="line">            <span class="keyword">if</span>(dis2[v]&gt;dis2[u]+w)<span class="comment">//次短路直接更新(通常是最短路确定后才进行）</span></span><br><span class="line">            {</span><br><span class="line">                dis2[v]=dis2[u]+w;</span><br><span class="line">                <span class="keyword">if</span>(!vis[v])</span><br><span class="line">                {</span><br><span class="line">                    qu.push(v);</span><br><span class="line">                    vis[v]=<span class="number">1</span>;</span><br><span class="line">                }</span><br><span class="line">            }</span><br><span class="line">            <span class="keyword">if</span>(dis2[v]&gt;dis[u]+w&amp;&amp;dis[v]&lt;dis[u]+w)<span class="comment">//最短路不更新，但距离比次短路小</span></span><br><span class="line">            {</span><br><span class="line">                dis2[v]=dis[u]+w;</span><br><span class="line">                <span class="keyword">if</span>(!vis[v])</span><br><span class="line">                {</span><br><span class="line">                    qu.push(v);</span><br><span class="line">                    vis[v]=<span class="number">1</span>;</span><br><span class="line">                }</span><br><span class="line">            }</span><br><span class="line">        }</span><br><span class="line">    }</span><br><span class="line">}</span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">( )</span></span></span><br><span class="line"><span class="function"></span>{</span><br><span class="line">    <span class="keyword">int</span> n,r,x,y,w;</span><br><span class="line">    memset(head,-<span class="number">1</span>,sizeof(head));</span><br><span class="line">    cnt=<span class="number">0</span>;</span><br><span class="line">    scanf(<span class="string">"%d%d"</span>,&amp;n,&amp;r);</span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">1</span>; i&lt;=r; i++)</span><br><span class="line">    {</span><br><span class="line">        scanf(<span class="string">"%d%d%d"</span>,&amp;x,&amp;y,&amp;w);</span><br><span class="line">        add(x,y,w);</span><br><span class="line">        add(y,x,w);</span><br><span class="line">    }</span><br><span class="line">    Dijkstra(<span class="number">1</span>);</span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">1</span>;i&lt;=n;i++)</span><br><span class="line">    {</span><br><span class="line">        printf(<span class="string">"%d "</span>,dis[i]);</span><br><span class="line">    }</span><br><span class="line">    cout&lt;&lt;endl;</span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">1</span>;i&lt;=n;i++)</span><br><span class="line">    {</span><br><span class="line">        printf(<span class="string">"%d "</span>,dis2[i]);</span><br><span class="line">    }</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">}</span><br></pre></td></tr></tbody></table></figure>
+
+
+      
+    </div>
+    
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E7%AE%97%E6%B3%95/" rel="tag">算法</a></li></ul>
+	</div>
+
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+      
+    
+  </div>
+  
+</article>
+
+
+
+
+
+
+
+  
   
     <nav id="page-nav">
-      <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="page-number" href="/page/3/">3</a><a class="extend next" rel="next" href="/page/2/">Next &amp;raquo;</a>
+      <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="extend next" rel="next" href="/page/2/">Next &amp;raquo;</a>
     </nav>
   
 </div>
