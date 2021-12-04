@@ -6,7 +6,7 @@
   <link href="http://example.com/atom.xml" rel="self"/>
   
   <link href="http://example.com/"/>
-  <updated>2021-12-04T15:40:49.568Z</updated>
+  <updated>2021-12-04T15:43:02.303Z</updated>
   <id>http://example.com/</id>
   
   <author>
@@ -21,7 +21,7 @@
     <link href="http://example.com/2021/12/03/%E9%A1%B6%E7%82%B9%E8%A6%86%E7%9B%96%E9%97%AE%E9%A2%98/"/>
     <id>http://example.com/2021/12/03/%E9%A1%B6%E7%82%B9%E8%A6%86%E7%9B%96%E9%97%AE%E9%A2%98/</id>
     <published>2021-12-03T03:57:45.746Z</published>
-    <updated>2021-12-04T15:40:49.568Z</updated>
+    <updated>2021-12-04T15:43:02.303Z</updated>
     
     <content type="html"><![CDATA[<p>找到最小的顶点覆盖图</p>]]></content>
     
