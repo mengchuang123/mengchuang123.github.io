@@ -3,26 +3,24 @@
 <head>
   <meta charset="utf-8">
   
-  <title>算法极限 | mengchuang</title>
+  <title>网络层 | mengchuang</title>
 
   <!-- keywords -->
   
 
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="P问题，NP问题，NP完全问题 P : 在多项式时间内解决的问题     能在多项式时间内求解的判定问题 并不是所有的判定问题都能在多项式时间内解决，例如：图灵停机问题   NP 不能再多项式时间内解决，但是可以在多项式时间内验证该解是不是对的问题     p问题是NP问题的子集，以为NP问题还需要猜，然后验证，但是P问题可以确定解，并在多项式时间内验证   NPC 可以把D1判定问题用多项式转化">
+  <meta name="description" content="[toc] 网络层功能  路由器  路由器可以分割广播域，也就是不转发目的地址为255.255.255.255的目的IP包，可以分割广播域，避免广播风暴 交换机工作在链路层，能分割冲突域，但是没办法分割广播域 路由器连接的路由协议不一定是一样的，IPv4 IPv6   存储转发机制  路由器先接受完整的分组，然后检测分组是否有错，有错就丢弃，没有就等待路由算法提供路径    路由算法 1.分类 静">
 <meta property="og:type" content="article">
-<meta property="og:title" content="算法极限">
-<meta property="og:url" content="http://example.com/2021/12/03/%E7%AE%97%E6%B3%95%E6%9E%81%E9%99%90/index.html">
+<meta property="og:title" content="网络层">
+<meta property="og:url" content="http://example.com/2021/12/06/%E7%BD%91%E7%BB%9C%E5%B1%82408/index.html">
 <meta property="og:site_name" content="mengchuang">
-<meta property="og:description" content="P问题，NP问题，NP完全问题 P : 在多项式时间内解决的问题     能在多项式时间内求解的判定问题 并不是所有的判定问题都能在多项式时间内解决，例如：图灵停机问题   NP 不能再多项式时间内解决，但是可以在多项式时间内验证该解是不是对的问题     p问题是NP问题的子集，以为NP问题还需要猜，然后验证，但是P问题可以确定解，并在多项式时间内验证   NPC 可以把D1判定问题用多项式转化">
+<meta property="og:description" content="[toc] 网络层功能  路由器  路由器可以分割广播域，也就是不转发目的地址为255.255.255.255的目的IP包，可以分割广播域，避免广播风暴 交换机工作在链路层，能分割冲突域，但是没办法分割广播域 路由器连接的路由协议不一定是一样的，IPv4 IPv6   存储转发机制  路由器先接受完整的分组，然后检测分组是否有错，有错就丢弃，没有就等待路由算法提供路径    路由算法 1.分类 静">
 <meta property="og:locale" content="en_US">
-<meta property="og:image" content="https://gitee.com/mymengchuang/blog_img/raw/master/image-20211203111810888.png">
-<meta property="article:published_time" content="2021-12-02T16:00:00.000Z">
-<meta property="article:modified_time" content="2021-12-04T15:40:49.560Z">
+<meta property="article:published_time" content="2021-12-05T16:00:02.000Z">
+<meta property="article:modified_time" content="2021-12-05T17:44:33.716Z">
 <meta property="article:author" content="mengchuang">
-<meta property="article:tag" content="算法">
+<meta property="article:tag" content="计算机网络">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:image" content="https://gitee.com/mymengchuang/blog_img/raw/master/image-20211203111810888.png">
   
   
     <link rel="icon" href="/img/favicon.ico">
@@ -170,11 +168,11 @@
 		</header>				
 	</div>
 </nav>
-      <div class="body-wrap"><article id="post-算法极限" class="article article-type-post" itemscope itemprop="blogPost">
+      <div class="body-wrap"><article id="post-网络层408" class="article article-type-post" itemscope itemprop="blogPost">
   
     <div class="article-meta">
-      <a href="/2021/12/03/%E7%AE%97%E6%B3%95%E6%9E%81%E9%99%90/" class="article-date">
-  	<time datetime="2021-12-02T16:00:00.000Z" itemprop="datePublished">2021-12-03</time>
+      <a href="/2021/12/06/%E7%BD%91%E7%BB%9C%E5%B1%82408/" class="article-date">
+  	<time datetime="2021-12-05T16:00:02.000Z" itemprop="datePublished">2021-12-06</time>
 </a>
     </div>
   
@@ -187,7 +185,7 @@
         
   
     <h1 class="article-title" itemprop="name">
-      算法极限
+      网络层
       
     </h1>
   
@@ -197,7 +195,7 @@
       <div class="article-info article-info-post">
         
 	<div class="article-tag tagcloud">
-		<ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E7%AE%97%E6%B3%95/" rel="tag">算法</a></li></ul>
+		<ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/" rel="tag">计算机网络</a></li></ul>
 	</div>
 
         
@@ -215,7 +213,7 @@
             <strong class="toc-title">目录</strong>
             <a class="js-toggle-toc" href="javascript:void(0)"></a>
             <div class="toc-content">
-              <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#P%E9%97%AE%E9%A2%98%EF%BC%8CNP%E9%97%AE%E9%A2%98%EF%BC%8CNP%E5%AE%8C%E5%85%A8%E9%97%AE%E9%A2%98"><span class="toc-text">P问题，NP问题，NP完全问题</span></a></li></ol>
+              <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#%E7%BD%91%E7%BB%9C%E5%B1%82%E5%8A%9F%E8%83%BD"><span class="toc-text">网络层功能</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E8%B7%AF%E7%94%B1%E7%AE%97%E6%B3%95"><span class="toc-text">路由算法</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#1-%E5%88%86%E7%B1%BB"><span class="toc-text">1.分类</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2-%E8%B7%9D%E7%A6%BB%E5%90%91%E9%87%8F%E7%AE%97%E6%B3%95%EF%BC%88RIP%EF%BC%89"><span class="toc-text">2.距离向量算法（RIP）</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#3-%E9%93%BE%E8%B7%AF%E7%8A%B6%E6%80%81%E7%AE%97%E6%B3%95%EF%BC%88OSPF%EF%BC%89"><span class="toc-text">3.链路状态算法（OSPF）</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#4-%E5%B1%82%E6%AC%A1%E8%B7%AF%E7%94%B1"><span class="toc-text">4.层次路由</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#5-%E9%97%AE%E9%A2%98"><span class="toc-text">5.问题</span></a></li></ol></li></ol>
             </div>
           </div>
          -->
@@ -223,7 +221,7 @@
         
           <div id="toc" class="toc-article">
             <strong class="toc-title">目录</strong>
-            <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#P%E9%97%AE%E9%A2%98%EF%BC%8CNP%E9%97%AE%E9%A2%98%EF%BC%8CNP%E5%AE%8C%E5%85%A8%E9%97%AE%E9%A2%98"><span class="toc-text">P问题，NP问题，NP完全问题</span></a></li></ol>
+            <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#%E7%BD%91%E7%BB%9C%E5%B1%82%E5%8A%9F%E8%83%BD"><span class="toc-text">网络层功能</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E8%B7%AF%E7%94%B1%E7%AE%97%E6%B3%95"><span class="toc-text">路由算法</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#1-%E5%88%86%E7%B1%BB"><span class="toc-text">1.分类</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2-%E8%B7%9D%E7%A6%BB%E5%90%91%E9%87%8F%E7%AE%97%E6%B3%95%EF%BC%88RIP%EF%BC%89"><span class="toc-text">2.距离向量算法（RIP）</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#3-%E9%93%BE%E8%B7%AF%E7%8A%B6%E6%80%81%E7%AE%97%E6%B3%95%EF%BC%88OSPF%EF%BC%89"><span class="toc-text">3.链路状态算法（OSPF）</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#4-%E5%B1%82%E6%AC%A1%E8%B7%AF%E7%94%B1"><span class="toc-text">4.层次路由</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#5-%E9%97%AE%E9%A2%98"><span class="toc-text">5.问题</span></a></li></ol></li></ol>
           </div>
         
         <!--Table of Contents end -->
@@ -232,44 +230,50 @@
 
 
 
-        <h1 id="P问题，NP问题，NP完全问题"><a href="#P问题，NP问题，NP完全问题" class="headerlink" title="P问题，NP问题，NP完全问题"></a>P问题，NP问题，NP完全问题</h1><ul>
-<li><code>P</code> :<ul>
-<li>在多项式时间内解决的问题    </li>
-<li>能在多项式时间内求解的<strong>判定问题</strong></li>
-<li>并不是所有的判定问题都能在多项式时间内解决，例如：图灵停机问题</li>
-</ul>
-</li>
-<li><code>NP</code><ul>
-<li>不能再多项式时间内解决，但是可以在多项式时间内验证该解是不是对的问题</li>
-</ul>
-</li>
-</ul>
-<blockquote>
-<p>p问题是NP问题的子集，以为NP问题还需要猜，然后验证，但是P问题可以确定解，并在多项式时间内验证</p>
-</blockquote>
+        <p>[toc]</p>
+<h1 id="网络层功能"><a href="#网络层功能" class="headerlink" title="网络层功能"></a>网络层功能</h1><hr>
 <ul>
-<li><code>NPC</code><ul>
-<li>可以把D1判定问题用多项式转化为D2判定问题</li>
-<li>每一个NP问题都能在多项式时间内化简为问题D,这个问题就是NPC问题</li>
-<li>背包问题，哈密顿都是NPC问题</li>
-<li>判断一个问题是NPC问题？</li>
-</ul>
-</li>
-<li><code>NP hard</code><ul>
-<li>可以不是判断问题</li>
-</ul>
-</li>
-</ul>
-<blockquote>
-<p>不确定多项式类型：验证问题是多项式问题</p>
+<li><p><strong>路由器</strong></p>
 <ul>
-<li>产生任意一个串，把他作为问题的待选解</li>
-<li>在多项式时间内对问题进行判断</li>
+<li>路由器可以分割广播域，也就是不转发目的地址为255.255.255.255的目的IP包，可以分割广播域，避免广播风暴</li>
+<li>交换机工作在链路层，能分割冲突域，但是没办法分割广播域</li>
+<li>路由器连接的路由协议不一定是一样的，IPv4 IPv6</li>
 </ul>
-</blockquote>
-<img src="https://gitee.com/mymengchuang/blog_img/raw/master/image-20211203111810888.png" alt="image-20211203111810888" style="zoom:80%;">
-
-
+</li>
+<li><p><strong>存储转发机制</strong></p>
+<ul>
+<li>路由器先接受完整的分组，然后检测分组是否有错，有错就丢弃，没有就等待路由算法提供路径</li>
+</ul>
+</li>
+</ul>
+<h1 id="路由算法"><a href="#路由算法" class="headerlink" title="路由算法"></a>路由算法</h1><hr>
+<h2 id="1-分类"><a href="#1-分类" class="headerlink" title="1.分类"></a>1.分类</h2><ul>
+<li>静态路由算法（non-adaptive）</li>
+<li>动态路由算法  (adaptive)<ul>
+<li>距离向量路由算法</li>
+<li>链路状态路由算法</li>
+</ul>
+</li>
+</ul>
+<h2 id="2-距离向量算法（RIP）"><a href="#2-距离向量算法（RIP）" class="headerlink" title="2.距离向量算法（RIP）"></a>2.距离向量算法（RIP）</h2><ul>
+<li>其中的距离常常用跳数来代表</li>
+<li>条数大于等于15表示不可达</li>
+</ul>
+<h2 id="3-链路状态算法（OSPF）"><a href="#3-链路状态算法（OSPF）" class="headerlink" title="3.链路状态算法（OSPF）"></a>3.链路状态算法（OSPF）</h2><ul>
+<li>最短路算法更新：<code>dijkstra</code></li>
+<li>利用foold技术更新链路状态，同时具有快速收敛的特点</li>
+<li>对比:<ul>
+<li>距离向量算法：仅仅和自己的邻居进行交谈</li>
+<li>链路状态：广播分组，获得所有的结点状态</li>
+</ul>
+</li>
+</ul>
+<h2 id="4-层次路由"><a href="#4-层次路由" class="headerlink" title="4.层次路由"></a>4.层次路由</h2><p>互联网将路由协议分为两部分：</p>
+<ul>
+<li>内部网关协议（IGP）,主要是在一个自治系统内部使用的协议，包括RIP,OSPF</li>
+<li>外部网关协议（EGP）,主要包括：BGP</li>
+</ul>
+<h2 id="5-问题"><a href="#5-问题" class="headerlink" title="5.问题"></a>5.问题</h2>
       
     </div>
     
@@ -278,18 +282,18 @@
     
 <nav id="article-nav">
   
-    <a href="/2021/12/05/%E6%AD%A3%E6%96%B9%E5%BD%A2%E7%B1%BBDP/" id="article-nav-newer" class="article-nav-link-wrap">
+    <a href="/2021/12/06/%E5%9B%BE%E7%9A%84%E9%81%8D%E5%8E%86/" id="article-nav-newer" class="article-nav-link-wrap">
       <strong class="article-nav-caption">&lt;</strong>
       <div class="article-nav-title">
         
-          正方形类DP
+          图
         
       </div>
     </a>
   
   
-    <a href="/2021/12/02/%E5%BC%82%E5%B8%B8%E5%A4%84%E7%90%86%E8%BF%87%E7%A8%8B/" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">异常处理</div>
+    <a href="/2021/12/05/%E6%AD%A3%E6%96%B9%E5%BD%A2%E7%B1%BBDP/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">正方形类DP</div>
       <strong class="article-nav-caption">&gt;</strong>
     </a>
   

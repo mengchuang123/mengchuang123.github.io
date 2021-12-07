@@ -1,0 +1,493 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <title>图 | mengchuang</title>
+
+  <!-- keywords -->
+  
+
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="[toc] 深度优先搜索 图的深度优先需要避免重复访问 因为跟树不一样的地方是，图是对称的      问题：  不连通的图，可能会有一部分没办法遍历 因此需要判断图中的所有元素是否有元素都被遍历了；    双联通  拿掉一个结点以后，其他点依然是连通的，这个图就是，biconnected graph.  双联通就是没有关节点（articulation point）   articulation p">
+<meta property="og:type" content="article">
+<meta property="og:title" content="图">
+<meta property="og:url" content="http://example.com/2021/12/06/%E5%9B%BE%E7%9A%84%E5%8F%8C%E8%BF%9E%E9%80%9A%E5%88%86%E9%87%8F/index.html">
+<meta property="og:site_name" content="mengchuang">
+<meta property="og:description" content="[toc] 深度优先搜索 图的深度优先需要避免重复访问 因为跟树不一样的地方是，图是对称的      问题：  不连通的图，可能会有一部分没办法遍历 因此需要判断图中的所有元素是否有元素都被遍历了；    双联通  拿掉一个结点以后，其他点依然是连通的，这个图就是，biconnected graph.  双联通就是没有关节点（articulation point）   articulation p">
+<meta property="og:locale" content="en_US">
+<meta property="og:image" content="https://gitee.com/mymengchuang/blog_img/raw/master/image-20211206081241984.png">
+<meta property="og:image" content="https://gitee.com/mymengchuang/blog_img/raw/master/image-20211206081500868.png">
+<meta property="og:image" content="https://gitee.com/mymengchuang/blog_img/raw/master/image-20211206082406361.png">
+<meta property="og:image" content="https://gitee.com/mymengchuang/blog_img/raw/master/image-20211206082916391.png">
+<meta property="og:image" content="https://gitee.com/mymengchuang/blog_img/raw/master/image-20211206084134569.png">
+<meta property="og:image" content="https://gitee.com/mymengchuang/blog_img/raw/master/image-20211206083747313.png">
+<meta property="og:image" content="https://gitee.com/mymengchuang/blog_img/raw/master/image-20211206230947842.png">
+<meta property="og:image" content="https://gitee.com/mymengchuang/blog_img/raw/master/image-20211206231010697.png">
+<meta property="og:image" content="https://gitee.com/mymengchuang/blog_img/raw/master/image-20211206085744910.png">
+<meta property="og:image" content="https://gitee.com/mymengchuang/blog_img/raw/master/image-20211206090403250.png">
+<meta property="og:image" content="https://gitee.com/mymengchuang/blog_img/raw/master/image-20211206235631506.png">
+<meta property="og:image" content="https://gitee.com/mymengchuang/blog_img/raw/master/image-20211207023713412.png">
+<meta property="og:image" content="https://gitee.com/mymengchuang/blog_img/raw/master/image-20211207113532874.png">
+<meta property="article:published_time" content="2021-12-05T16:00:02.000Z">
+<meta property="article:modified_time" content="2021-12-07T03:37:49.910Z">
+<meta property="article:author" content="mengchuang">
+<meta property="article:tag" content="算法">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://gitee.com/mymengchuang/blog_img/raw/master/image-20211206081241984.png">
+  
+  
+    <link rel="icon" href="/img/favicon.ico">
+  
+  
+<link rel="stylesheet" href="/css/style.css">
+
+  
+  
+
+  
+<script src="//cdn.bootcss.com/require.js/2.3.2/require.min.js"></script>
+
+  
+<script src="//cdn.bootcss.com/jquery/3.1.1/jquery.min.js"></script>
+
+
+  
+<meta name="generator" content="Hexo 5.4.0">
+<style>.github-emoji { position: relative; display: inline-block; width: 1.2em; min-height: 1.2em; overflow: hidden; vertical-align: top; color: transparent; }  .github-emoji > span { position: relative; z-index: 10; }  .github-emoji img, .github-emoji .fancybox { margin: 0 !important; padding: 0 !important; border: none !important; outline: none !important; text-decoration: none !important; user-select: none !important; cursor: auto !important; }  .github-emoji img { height: 1.2em !important; width: 1.2em !important; position: absolute !important; left: 50% !important; top: 50% !important; transform: translate(-50%, -50%) !important; user-select: none !important; cursor: auto !important; } .github-emoji-fallback { color: inherit; } .github-emoji-fallback img { opacity: 0 !important; }</style>
+<link rel="alternate" href="/atom.xml" title="mengchuang" type="application/atom+xml">
+</head>
+<body>
+  <div id="container">
+    <div id="particles-js"></div>
+    <div class="left-col">
+    <div class="overlay"></div>
+<div class="intrude-less">
+	<header id="header" class="inner">
+		<a href="/" class="profilepic">
+			
+				<img lazy-src="/img/touxiang2.png" class="js-avatar">
+			
+		</a>
+
+		<hgroup>
+			<h1 class="header-author"><a href="/">mengchuang</a></h1>
+		</hgroup>
+
+		
+
+		<div class="switch-area">
+			<div class="switch-wrap">
+				<section class="switch-part switch-part1">
+					<nav class="header-menu">
+						<ul>
+						
+							<li><a href="/">Home</a></li>
+				        
+							<li><a href="/archives">Archives</a></li>
+				        
+						</ul>
+					</nav>
+					<nav class="half-header-menu">
+						<a class="hide">Home</a>
+						<a>Tags</a>
+						<a>Links</a>
+						<a>About</a>
+					</nav>
+					<nav class="header-nav">
+						<div class="social">
+							
+								<a class="github" target="_blank" href="#" title="github">github</a>
+					        
+								<a class="mail" target="_blank" href="#" title="mail">mail</a>
+					        
+								<a class="rss" target="_blank" href="/atom.xml" title="rss">rss</a>
+					        
+								<a class="zhihu" target="_blank" href="#" title="zhihu">zhihu</a>
+					        
+						</div>
+						<!-- music -->
+						
+					</nav>
+				</section>
+				
+				
+				<section class="switch-part switch-part2">
+					<div class="widget tagcloud" id="js-tagcloud">
+						<a href="/tags/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F/" style="font-size: 10px;">操作系统</a> <a href="/tags/%E7%AE%97%E6%B3%95/" style="font-size: 20px;">算法</a> <a href="/tags/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BB%84%E6%88%90/" style="font-size: 13.33px;">计算机组成</a> <a href="/tags/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/" style="font-size: 16.67px;">计算机网络</a> <a href="/tags/%E9%9D%A2%E8%AF%95/" style="font-size: 10px;">面试</a>
+					</div>
+				</section>
+				
+				
+				
+				<section class="switch-part switch-part3">
+					<div id="js-friends">
+					
+			          <a target="_blank" class="main-nav-link switch-friends-link" href="https://github.com/mengchuang123/">github</a>
+			        
+			        </div>
+				</section>
+				
+
+				
+				
+				<section class="switch-part switch-part4">
+				
+					<div id="js-aboutme">My study log.</div>
+				</section>
+				
+			</div>
+		</div>
+	</header>				
+</div>
+    </div>
+    <div class="mid-col">
+      <nav id="mobile-nav">
+  	<div class="overlay">
+  		<div class="slider-trigger"></div>
+  		<h1 class="header-author js-mobile-header hide"></h1>
+  	</div>
+	<div class="intrude-less">
+		<header id="header" class="inner">
+			<div class="profilepic">
+				<img lazy-src="/img/touxiang2.png" class="js-avatar">
+			</div>
+			<hgroup>
+			  <h1 class="header-author"></h1>
+			</hgroup>
+			
+			<nav class="header-menu">
+				<ul>
+				
+					<li><a href="/">Home</a></li>
+		        
+					<li><a href="/archives">Archives</a></li>
+		        
+		        <div class="clearfix"></div>
+				</ul>
+			</nav>
+			<nav class="header-nav">
+				<div class="social">
+					
+						<a class="github" target="_blank" href="#" title="github">github</a>
+			        
+						<a class="mail" target="_blank" href="#" title="mail">mail</a>
+			        
+						<a class="rss" target="_blank" href="/atom.xml" title="rss">rss</a>
+			        
+						<a class="zhihu" target="_blank" href="#" title="zhihu">zhihu</a>
+			        
+				</div>
+			</nav>
+		</header>				
+	</div>
+</nav>
+      <div class="body-wrap"><article id="post-图的双连通分量" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2021/12/06/%E5%9B%BE%E7%9A%84%E5%8F%8C%E8%BF%9E%E9%80%9A%E5%88%86%E9%87%8F/" class="article-date">
+  	<time datetime="2021-12-05T16:00:02.000Z" itemprop="datePublished">2021-12-06</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      图
+      
+    </h1>
+  
+
+      </header>
+      
+      <div class="article-info article-info-post">
+        
+	<div class="article-tag tagcloud">
+		<ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E7%AE%97%E6%B3%95/" rel="tag">算法</a></li></ul>
+	</div>
+
+        
+
+        
+        <div class="clearfix"></div>
+      </div>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <!--Table of Contents begin-->
+        <!-- 
+          <div id="toc" class="toc-article">
+            <strong class="toc-title">目录</strong>
+            <a class="js-toggle-toc" href="javascript:void(0)"></a>
+            <div class="toc-content">
+              <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#%E6%B7%B1%E5%BA%A6%E4%BC%98%E5%85%88%E6%90%9C%E7%B4%A2"><span class="toc-text">深度优先搜索</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E5%8F%8C%E8%81%94%E9%80%9A"><span class="toc-text">双联通</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E8%8E%B7%E5%BE%97%E5%89%B2%E7%82%B9"><span class="toc-text">获得割点</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#DFS%E6%89%BE%E7%8E%AF-Taijan%E7%AE%97%E6%B3%95"><span class="toc-text">DFS找环(Taijan算法)</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E6%AC%A7%E6%8B%89%E5%9B%9E%E8%B7%AF"><span class="toc-text">欧拉回路</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E6%97%A0%E5%90%91%E5%9B%BE%E7%9A%84%E5%8F%8C%E8%BF%9E%E9%80%9A%E5%88%86%E9%87%8F"><span class="toc-text">无向图的双连通分量</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E6%9C%89%E5%90%91%E5%9B%BE%E5%AF%BB%E6%89%BE%E8%BF%9E%E9%80%9A%E5%88%86%E9%87%8F"><span class="toc-text">有向图寻找连通分量</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#PTA%E6%9C%89%E5%90%91%E5%9B%BE%E5%BC%BA%E8%BF%9E%E9%80%9A"><span class="toc-text">PTA有向图强连通</span></a></li></ol>
+            </div>
+          </div>
+         -->
+          <!-- Table of Contents -->
+        
+          <div id="toc" class="toc-article">
+            <strong class="toc-title">目录</strong>
+            <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#%E6%B7%B1%E5%BA%A6%E4%BC%98%E5%85%88%E6%90%9C%E7%B4%A2"><span class="toc-text">深度优先搜索</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E5%8F%8C%E8%81%94%E9%80%9A"><span class="toc-text">双联通</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E8%8E%B7%E5%BE%97%E5%89%B2%E7%82%B9"><span class="toc-text">获得割点</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#DFS%E6%89%BE%E7%8E%AF-Taijan%E7%AE%97%E6%B3%95"><span class="toc-text">DFS找环(Taijan算法)</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E6%AC%A7%E6%8B%89%E5%9B%9E%E8%B7%AF"><span class="toc-text">欧拉回路</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E6%97%A0%E5%90%91%E5%9B%BE%E7%9A%84%E5%8F%8C%E8%BF%9E%E9%80%9A%E5%88%86%E9%87%8F"><span class="toc-text">无向图的双连通分量</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E6%9C%89%E5%90%91%E5%9B%BE%E5%AF%BB%E6%89%BE%E8%BF%9E%E9%80%9A%E5%88%86%E9%87%8F"><span class="toc-text">有向图寻找连通分量</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#PTA%E6%9C%89%E5%90%91%E5%9B%BE%E5%BC%BA%E8%BF%9E%E9%80%9A"><span class="toc-text">PTA有向图强连通</span></a></li></ol>
+          </div>
+        
+        <!--Table of Contents end -->
+        
+
+
+
+
+        <p>[toc]</p>
+<h1 id="深度优先搜索"><a href="#深度优先搜索" class="headerlink" title="深度优先搜索"></a>深度优先搜索</h1><ul>
+<li>图的深度优先需要避免重复访问</li>
+<li>因为跟树不一样的地方是，图是对称的</li>
+</ul>
+<img src="https://gitee.com/mymengchuang/blog_img/raw/master/image-20211206081241984.png" alt="image-20211206081241984" style="zoom:80%;">
+
+
+
+<p><strong>问题：</strong></p>
+<ul>
+<li>不连通的图，可能会有一部分没办法遍历</li>
+<li>因此需要判断图中的所有元素是否有元素都被遍历了；</li>
+</ul>
+<img src="https://gitee.com/mymengchuang/blog_img/raw/master/image-20211206081500868.png" alt="image-20211206081500868" style="zoom:80%;">
+
+<h1 id="双联通"><a href="#双联通" class="headerlink" title="双联通"></a>双联通</h1><hr>
+<ul>
+<li><p>拿掉一个结点以后，其他点依然是连通的，这个图就是，biconnected graph.</p>
+</li>
+<li><p>双联通就是没有关节点（articulation point）</p>
+</li>
+</ul>
+<p><strong>articulation point</strong> :</p>
+<ul>
+<li>拿掉以后，至少有两个连通组件</li>
+</ul>
+<p><strong>biconnected graph</strong></p>
+<ul>
+<li>连通的+没有articlution point</li>
+</ul>
+<p><strong>双联通组件</strong></p>
+<ul>
+<li>任意拿掉一个结点，依然是双联通的</li>
+<li>同时需要是最大的双连通子图</li>
+</ul>
+<img src="https://gitee.com/mymengchuang/blog_img/raw/master/image-20211206082406361.png" alt="image-20211206082406361" style="zoom:80%;">
+
+<img src="https://gitee.com/mymengchuang/blog_img/raw/master/image-20211206082916391.png" alt="image-20211206082916391" style="zoom:80%;">
+
+<p>顶点共享，但是边的集合，是被划分的，</p>
+<p><strong>两个双连通组件，不会共享一条边</strong></p>
+<h1 id="获得割点"><a href="#获得割点" class="headerlink" title="获得割点"></a>获得割点</h1><hr>
+<p>流程：</p>
+<ul>
+<li><p>DFS获得生成图，并进行排序，生成的是一个生成树，用到了所有的结点，又没有环的存在，以为访问过的结点不会再被访问</p>
+<img src="https://gitee.com/mymengchuang/blog_img/raw/master/image-20211206084134569.png" alt="image-20211206084134569" style="zoom:80%;"></li>
+</ul>
+<blockquote>
+<p>任何的左右子树之间，都不会存在祖先孩子关系。分支和分支之间，不存在虚线边</p>
+<p>因此剩下的边都是构成祖先孩子关系的</p>
+<p>u是v的祖先，一定有：<code>Num(u)&lt;Num(v)</code></p>
+</blockquote>
+<img src="https://gitee.com/mymengchuang/blog_img/raw/master/image-20211206083747313.png" alt="image-20211206083747313" style="zoom:80%;">
+
+<img src="https://gitee.com/mymengchuang/blog_img/raw/master/image-20211206230947842.png" alt="image-20211206230947842" style="zoom:80%;">
+
+<img src="https://gitee.com/mymengchuang/blog_img/raw/master/image-20211206231010697.png" alt="image-20211206231010697" style="zoom:80%;">
+
+
+
+<ul>
+<li><p>根结点如果有多个分支子树，那么他一定是割点，因为他的分支之间，不存在虚线边</p>
+</li>
+<li><p>判断根节点：只要有两个分支以上，根节点就是关键点</p>
+</li>
+<li><p>如果一个点是关节点，</p>
+<ul>
+<li>至少有一个孩子</li>
+<li>同时不可能向下走，然后跳到他的祖先</li>
+<li>也就是必须他的后辈有一个连接到他的祖先，不然就是关节点</li>
+</ul>
+</li>
+</ul>
+<img src="https://gitee.com/mymengchuang/blog_img/raw/master/image-20211206085744910.png" alt="image-20211206085744910" style="zoom:80%;">
+
+<p><strong>Low代表的就是，这个子树能连到的最高的祖先是哪个</strong></p>
+<p>以他为根的子树，能走到最高的点是哪个，需要后序的处理。</p>
+<img src="https://gitee.com/mymengchuang/blog_img/raw/master/image-20211206090403250.png" alt="image-20211206090403250" style="zoom:80%;">
+
+
+
+
+
+
+
+<h1 id="DFS找环-Taijan算法"><a href="#DFS找环-Taijan算法" class="headerlink" title="DFS找环(Taijan算法)"></a>DFS找环(Taijan算法)</h1><hr>
+<img src="https://gitee.com/mymengchuang/blog_img/raw/master/image-20211206235631506.png" alt="image-20211206235631506" style="zoom:80%;">
+
+
+
+<p>Taijan算法求得的环路id实际上就是数据结构书中的<code>Low[]</code>数组记录的内容，实际上是一个东西。</p>
+<p><strong>关键注意点</strong></p>
+<ul>
+<li><strong>时间戳</strong><ul>
+<li>是用来标记图中每个节点在进行深度优先搜索时被访问的时间顺序，当然，你可以理解成一个序号（这个序号由小到大），用 dfn[x] 来表示</li>
+<li>实际上就是<code>dfs</code>树的<code>id</code>,就是<code>num[]</code></li>
+</ul>
+</li>
+<li><strong>追溯值</strong><ul>
+<li>追溯值用来表示从当前节点 x 作为搜索树的根节点出发，能够访问到的所有节点中，时间戳最小的值 —— low[x]</li>
+<li>当前的<code>low[v]</code>的确定<ul>
+<li>直接父节点+1</li>
+<li>相邻结点id计算好的</li>
+<li>相邻结点没有计算好的，用dfs先计算</li>
+</ul>
+</li>
+<li>取三种情况的最小值</li>
+</ul>
+</li>
+</ul>
+<blockquote>
+<p>说白了，就是判断当前结点的邻接结点是不是id比他小，是就取小的值</p>
+</blockquote>
+<ul>
+<li><strong>无向图的桥判定法则</strong><ul>
+<li>判断边 e （其对应的两个节点分别为 u 与 v）是否为桥，需要其满足如下条件即可：dfn[u] &lt; low[v]</li>
+</ul>
+</li>
+</ul>
+<p><strong>算法伪代码：</strong></p>
+<figure class="highlight java"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//dfs()是返回当前结点的最终id</span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">dfs</span><span class="params">(<span class="keyword">int</span> nodeId,<span class="keyword">int</span> parent,<span class="keyword">int</span> V)</span></span>{</span><br><span class="line">    low[V] = nodeId;</span><br><span class="line">    visit[V] = <span class="number">1</span>;</span><br><span class="line">    <span class="keyword">for</span>(each W adjencet to V){</span><br><span class="line">        <span class="keyword">if</span>(W==parent) </span><br><span class="line">            <span class="keyword">continue</span>;</span><br><span class="line">        <span class="keyword">else</span> <span class="keyword">if</span>(visit[W]==<span class="number">1</span>){</span><br><span class="line">			low[V] = min(low[V],low[W]);</span><br><span class="line">        }</span><br><span class="line">        <span class="keyword">else</span> {</span><br><span class="line">			low[V] = min(low[V],dfs(nodeId+<span class="number">1</span>,V,W));</span><br><span class="line">        }</span><br><span class="line">    }</span><br><span class="line">    <span class="comment">//记录桥</span></span><br><span class="line">    <span class="keyword">if</span>(low[V]==nodeId&amp;&amp;V不是根结点)</span><br><span class="line">        res.add(parent,V);</span><br><span class="line">}</span><br></pre></td></tr></tbody></table></figure>
+
+
+
+
+
+<h1 id="欧拉回路"><a href="#欧拉回路" class="headerlink" title="欧拉回路"></a>欧拉回路</h1><hr>
+<p><strong>一笔画问题</strong></p>
+<p>欧拉路径：起点和终点可能不一样</p>
+<p>欧拉回路，起点终点是一样的</p>
+<p><strong>欧拉回路存在的条件</strong></p>
+<ul>
+<li>每一个顶点的度数需要是偶数</li>
+<li>起点和终点的度数恰好是奇数</li>
+</ul>
+<img src="https://gitee.com/mymengchuang/blog_img/raw/master/image-20211207023713412.png" alt="image-20211207023713412" style="zoom:80%;">
+
+
+
+
+
+<h1 id="无向图的双连通分量"><a href="#无向图的双连通分量" class="headerlink" title="无向图的双连通分量"></a>无向图的双连通分量</h1><hr>
+<p><strong>思路：</strong></p>
+<ul>
+<li><code>low[V]==nodeId&amp;&amp;V不是根结点</code>是</li>
+</ul>
+<figure class="highlight java"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//dfs()是返回当前结点的最终id</span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">dfs</span><span class="params">(<span class="keyword">int</span> nodeId,<span class="keyword">int</span> parent,<span class="keyword">int</span> V)</span></span>{</span><br><span class="line">    low[V] = nodeId;</span><br><span class="line">    visit[V] = <span class="number">1</span>;</span><br><span class="line">    <span class="keyword">for</span>(each W adjencet to V){</span><br><span class="line">        <span class="keyword">if</span>(W==parent) </span><br><span class="line">            <span class="keyword">continue</span>;</span><br><span class="line">        <span class="keyword">else</span> <span class="keyword">if</span>(visit[W]==<span class="number">1</span>){</span><br><span class="line">			low[V] = min(low[V],low[W]);</span><br><span class="line">        }</span><br><span class="line">        <span class="keyword">else</span> {</span><br><span class="line">			low[V] = min(low[V],dfs(nodeId+<span class="number">1</span>,V,W));</span><br><span class="line">        }</span><br><span class="line">    }</span><br><span class="line">    <span class="comment">//记录桥</span></span><br><span class="line">    <span class="keyword">if</span>(low[V]==nodeId&amp;&amp;V不是根结点)</span><br><span class="line">        res.add(parent,V);</span><br><span class="line">}</span><br></pre></td></tr></tbody></table></figure>
+
+
+
+<h1 id="有向图寻找连通分量"><a href="#有向图寻找连通分量" class="headerlink" title="有向图寻找连通分量"></a>有向图寻找连通分量</h1><hr>
+<ul>
+<li>当DFN(u)=Low(u)时，以u为根的搜索子树上所有节点是一个强连通分量。</li>
+<li>绝对不能等全部遍历好，在处理</li>
+</ul>
+<figure class="highlight java"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">tarjan(u)</span><br><span class="line">{</span><br><span class="line">	DFN[u]=Low[u]=++Index                      <span class="comment">// 为节点u设定次序编号和Low初值</span></span><br><span class="line">	Stack.push(u)                              <span class="comment">// 将节点u压入栈中</span></span><br><span class="line">	<span class="function"><span class="keyword">for</span> <span class="title">each</span> <span class="params">(u, v)</span> in E                       <span class="comment">// 枚举每一条边</span></span></span><br><span class="line"><span class="function">		<span class="title">if</span> <span class="params">(v is not visted)</span>               <span class="comment">// 如果节点v未被访问过</span></span></span><br><span class="line"><span class="function">			<span class="title">tarjan</span><span class="params">(v)</span>                  <span class="comment">// 继续向下找</span></span></span><br><span class="line"><span class="function">			Low[u] </span>= min(Low[u], Low[v])</span><br><span class="line">		<span class="keyword">else</span> <span class="keyword">if</span> (v in S)                   <span class="comment">// 如果节点v还在栈内</span></span><br><span class="line">			Low[u] = min(Low[u], DFN[v])</span><br><span class="line">	<span class="keyword">if</span> (DFN[u] == Low[u])                      <span class="comment">// 如果节点u是强连通分量的根</span></span><br><span class="line">		repeat</span><br><span class="line">			v = S.pop                  <span class="comment">// 将v退栈，为该强连通分量中一个顶点</span></span><br><span class="line">			<span class="function">print v</span></span><br><span class="line"><span class="function">		<span class="title">until</span> <span class="params">(u== v)</span></span></span><br><span class="line"><span class="function">}</span></span><br></pre></td></tr></tbody></table></figure>
+
+
+
+<blockquote>
+<p>有向图和无向图的区别;</p>
+<ul>
+<li>优先图可能会有一些点无法到达</li>
+<li>优先图处理祖先结点上面需要进行改变</li>
+<li>相同的点是需要在结尾判断<code>num[V]==low[V]</code>,也就是节点V是强连通分量的根</li>
+<li>均采用模拟栈来求解</li>
+</ul>
+</blockquote>
+<figure class="highlight java"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//dfs()是返回当前结点的最终id</span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">dfs</span><span class="params">(<span class="keyword">int</span> nodeId,<span class="keyword">int</span> parent,<span class="keyword">int</span> V)</span></span>{</span><br><span class="line">    low[V] = nodeId;</span><br><span class="line">    visit[V] = <span class="number">1</span>;</span><br><span class="line">    <span class="keyword">for</span>(each W adjencet to V){</span><br><span class="line">        <span class="keyword">if</span>(W==parent) </span><br><span class="line">            <span class="keyword">continue</span>;</span><br><span class="line">        <span class="keyword">else</span> <span class="keyword">if</span>(visit[W]==<span class="number">1</span>){</span><br><span class="line">			low[V] = min(low[V],low[W]);</span><br><span class="line">        }</span><br><span class="line">        <span class="keyword">else</span> {</span><br><span class="line">			low[V] = min(low[V],dfs(nodeId+<span class="number">1</span>,V,W));</span><br><span class="line">        }</span><br><span class="line">    }</span><br><span class="line">    <span class="comment">//记录桥</span></span><br><span class="line">    <span class="keyword">if</span>(low[V]==nodeId&amp;&amp;V不是根结点)</span><br><span class="line">        res.add(parent,V);</span><br><span class="line">}</span><br></pre></td></tr></tbody></table></figure>
+
+
+
+
+
+<h1 id="PTA有向图强连通"><a href="#PTA有向图强连通" class="headerlink" title="PTA有向图强连通"></a>PTA有向图强连通</h1><hr>
+<img src="https://gitee.com/mymengchuang/blog_img/raw/master/image-20211207113532874.png" alt="image-20211207113532874" style="zoom:80%;">
+
+<figure class="highlight c++"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">int</span> stack[<span class="number">20</span>]; <span class="comment">//保存dfs树，获得完整的强连通分量</span></span><br><span class="line"><span class="keyword">int</span> top = <span class="number">0</span>;</span><br><span class="line"><span class="keyword">int</span> v[<span class="number">20</span>];  <span class="comment">//用来判断哪些点已经打印出来了</span></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">dfs</span><span class="params">(Graph G,<span class="keyword">int</span> pre,<span class="keyword">int</span> V,<span class="keyword">int</span> nodeId,<span class="keyword">int</span> know[],<span class="keyword">int</span> low[])</span></span>{</span><br><span class="line">    </span><br><span class="line">    know[V] = <span class="number">1</span>;</span><br><span class="line">    low[V] = nodeId;</span><br><span class="line">    stack[top++] = V;</span><br><span class="line">    PtrToVNode ptrv = *(G-&gt;Array+V);</span><br><span class="line">    PtrToVNode temp = ptrv;</span><br><span class="line">    <span class="keyword">while</span>(temp!=<span class="literal">NULL</span>){</span><br><span class="line">        <span class="keyword">int</span> W = temp-&gt;Vert;</span><br><span class="line">        <span class="keyword">if</span>(v[W]==<span class="number">1</span>){</span><br><span class="line"></span><br><span class="line">        }</span><br><span class="line">        <span class="keyword">else</span> <span class="keyword">if</span>(pre==W){   <span class="comment">//这个地方和有向图是有区别的</span></span><br><span class="line">            low[V] = low[V]&lt;low[W]?low[V]:low[W];</span><br><span class="line">        }</span><br><span class="line">        <span class="keyword">else</span> <span class="keyword">if</span>(know[W]==<span class="number">1</span>){</span><br><span class="line">            low[V] = low[V]&lt;low[W]?low[V]:low[W];</span><br><span class="line">        }</span><br><span class="line">        <span class="keyword">else</span> {</span><br><span class="line">            <span class="keyword">int</span> item = <span class="built_in">dfs</span>(G,V,W,nodeId+<span class="number">1</span>,know,low);</span><br><span class="line">            low[V] = low[V]&lt;item?low[V]:item;</span><br><span class="line">        }</span><br><span class="line">        temp = temp-&gt;Next;</span><br><span class="line">    }</span><br><span class="line">    <span class="comment">//判断处于强连通分量的根节点</span></span><br><span class="line">    <span class="keyword">int</span> flag = <span class="number">0</span>;</span><br><span class="line">    <span class="keyword">if</span>(low[V]==nodeId){</span><br><span class="line">        <span class="keyword">int</span> item = stack[top<span class="number">-1</span>];</span><br><span class="line">        top--;</span><br><span class="line">        <span class="keyword">if</span>(v[item]==<span class="number">-1</span>){</span><br><span class="line">            v[item] = <span class="number">1</span>;</span><br><span class="line">            flag=<span class="number">1</span>;</span><br><span class="line">            <span class="built_in">printf</span>(<span class="string">"%d "</span>,item);</span><br><span class="line">        }</span><br><span class="line"></span><br><span class="line">        <span class="keyword">while</span>(item!=V){</span><br><span class="line">            item = stack[top<span class="number">-1</span>];</span><br><span class="line">            top--;</span><br><span class="line">            <span class="keyword">if</span>(v[item]==<span class="number">-1</span>){</span><br><span class="line">                v[item] = <span class="number">1</span>;</span><br><span class="line">                flag=<span class="number">1</span>;</span><br><span class="line">                <span class="built_in">printf</span>(<span class="string">"%d "</span>,item);</span><br><span class="line">            }</span><br><span class="line"></span><br><span class="line">        }</span><br><span class="line">        <span class="keyword">if</span>(flag==<span class="number">1</span>)<span class="built_in">printf</span>(<span class="string">"\n"</span>);</span><br><span class="line">    }</span><br><span class="line">    <span class="keyword">return</span> low[V];</span><br><span class="line">}</span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">StronglyConnectedComponents</span><span class="params">( Graph G, <span class="keyword">void</span> (*visit)(Vertex V) )</span></span>{</span><br><span class="line">    <span class="keyword">int</span> know[G-&gt;NumOfVertices];</span><br><span class="line">    <span class="keyword">int</span> low[G-&gt;NumOfVertices];</span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">0</span>;i&lt;G-&gt;NumOfVertices;i++){</span><br><span class="line">        know[i] = <span class="number">-1</span>;</span><br><span class="line">        low[i] = <span class="number">-1</span>;</span><br><span class="line">    }</span><br><span class="line">    </span><br><span class="line">    </span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">0</span>;i&lt;<span class="number">20</span>;i++)</span><br><span class="line">        v[i] = <span class="number">-1</span>;</span><br><span class="line">    <span class="comment">// 有向图需要判断所有的点是否都被遍历过，否则</span></span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> k=<span class="number">0</span>;k&lt;G-&gt;NumOfVertices;k++){</span><br><span class="line">        <span class="keyword">if</span>(v[k]==<span class="number">-1</span>){</span><br><span class="line">            <span class="built_in">dfs</span>(G,<span class="number">-1</span>,k,<span class="number">0</span>,know,low);</span><br><span class="line">        }</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">0</span>;i&lt;G-&gt;NumOfVertices;i++){</span><br><span class="line">            know[i] = <span class="number">-1</span>;</span><br><span class="line">            low[i] = <span class="number">-1</span>;</span><br><span class="line">        }</span><br><span class="line">    }</span><br><span class="line"></span><br><span class="line">}</span><br><span class="line"></span><br></pre></td></tr></tbody></table></figure>
+
+
+      
+    </div>
+    
+  </div>
+  
+    
+<nav id="article-nav">
+  
+  
+    <a href="/2021/12/06/%E5%9B%BE%E7%9A%84%E9%81%8D%E5%8E%86/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">图</div>
+      <strong class="article-nav-caption">&gt;</strong>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+
+
+
+
+
+</div>
+      <footer id="footer">
+  <div class="outer">
+    <div id="footer-info">
+      <div class="footer-left">
+        &copy; 2021 mengchuang
+      </div>
+        <div class="footer-right">
+          <a href="http://hexo.io/" target="_blank">Hexo</a>  Theme <a href="https://github.com/preccrep/hexo-theme-jelly" target="_blank">Jelly</a>
+        </div>
+    </div>
+  </div>
+</footer>
+    </div>
+    
+  
+<link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+
+
+
+<script>
+	var yiliaConfig = {
+		fancybox: true,
+		mathjax: false,
+		animate: true,
+		isHome: false,
+		isPost: true,
+		isArchive: false,
+		isTag: false,
+		isCategory: false,
+		open_in_new: false
+	}
+</script>
+
+<script src="/js/main.js"></script>
+
+
+
+
+  </div>
+</body>
+</html>
