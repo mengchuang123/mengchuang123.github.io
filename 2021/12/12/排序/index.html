@@ -1,0 +1,394 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <title>排序算法 | mengchuang</title>
+
+  <!-- keywords -->
+  
+
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="[toc] 快速排序模板注意：  分开编写比较可以接收 注意选取p可以选取P &#x3D; (left+right)&#x2F;2 注意left,right都是可以到达的下标 p的位置是j while(i&lt;&#x3D;j),等于号 里面的whle需要添加判断条件i&lt;&#x3D;right,j&gt;&#x3D;left+1 最后添加if(i&lt;&#x3D;j) swap(nums,i,j) 其中i&lt;&#x3D;j很重要   这种写法，所有的比较">
+<meta property="og:type" content="article">
+<meta property="og:title" content="排序算法">
+<meta property="og:url" content="http://example.com/2021/12/12/%E6%8E%92%E5%BA%8F/index.html">
+<meta property="og:site_name" content="mengchuang">
+<meta property="og:description" content="[toc] 快速排序模板注意：  分开编写比较可以接收 注意选取p可以选取P &#x3D; (left+right)&#x2F;2 注意left,right都是可以到达的下标 p的位置是j while(i&lt;&#x3D;j),等于号 里面的whle需要添加判断条件i&lt;&#x3D;right,j&gt;&#x3D;left+1 最后添加if(i&lt;&#x3D;j) swap(nums,i,j) 其中i&lt;&#x3D;j很重要   这种写法，所有的比较">
+<meta property="og:locale" content="en_US">
+<meta property="og:image" content="https://upload-images.jianshu.io/upload_images/6095354-ff984d80dbc0455f.png?imageMogr2/auto-orient/strip|imageView2/2/format/webp">
+<meta property="og:image" content="https://gitee.com/mymengchuang/blog_img/raw/master/image-20211214134435413.png">
+<meta property="article:published_time" content="2021-12-11T16:00:00.000Z">
+<meta property="article:modified_time" content="2021-12-14T05:45:04.318Z">
+<meta property="article:author" content="mengchuang">
+<meta property="article:tag" content="算法">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://upload-images.jianshu.io/upload_images/6095354-ff984d80dbc0455f.png?imageMogr2/auto-orient/strip|imageView2/2/format/webp">
+  
+  
+    <link rel="icon" href="/img/favicon.ico">
+  
+  
+<link rel="stylesheet" href="/css/style.css">
+
+  
+  
+
+  
+<script src="//cdn.bootcss.com/require.js/2.3.2/require.min.js"></script>
+
+  
+<script src="//cdn.bootcss.com/jquery/3.1.1/jquery.min.js"></script>
+
+
+  
+<meta name="generator" content="Hexo 5.4.0">
+<style>.github-emoji { position: relative; display: inline-block; width: 1.2em; min-height: 1.2em; overflow: hidden; vertical-align: top; color: transparent; }  .github-emoji > span { position: relative; z-index: 10; }  .github-emoji img, .github-emoji .fancybox { margin: 0 !important; padding: 0 !important; border: none !important; outline: none !important; text-decoration: none !important; user-select: none !important; cursor: auto !important; }  .github-emoji img { height: 1.2em !important; width: 1.2em !important; position: absolute !important; left: 50% !important; top: 50% !important; transform: translate(-50%, -50%) !important; user-select: none !important; cursor: auto !important; } .github-emoji-fallback { color: inherit; } .github-emoji-fallback img { opacity: 0 !important; }</style>
+<link rel="alternate" href="/atom.xml" title="mengchuang" type="application/atom+xml">
+</head>
+<body>
+  <div id="container">
+    <div id="particles-js"></div>
+    <div class="left-col">
+    <div class="overlay"></div>
+<div class="intrude-less">
+	<header id="header" class="inner">
+		<a href="/" class="profilepic">
+			
+				<img lazy-src="/img/touxiang2.png" class="js-avatar">
+			
+		</a>
+
+		<hgroup>
+			<h1 class="header-author"><a href="/">mengchuang</a></h1>
+		</hgroup>
+
+		
+
+		<div class="switch-area">
+			<div class="switch-wrap">
+				<section class="switch-part switch-part1">
+					<nav class="header-menu">
+						<ul>
+						
+							<li><a href="/">Home</a></li>
+				        
+							<li><a href="/archives">Archives</a></li>
+				        
+						</ul>
+					</nav>
+					<nav class="half-header-menu">
+						<a class="hide">Home</a>
+						<a>Tags</a>
+						<a>Links</a>
+						<a>About</a>
+					</nav>
+					<nav class="header-nav">
+						<div class="social">
+							
+								<a class="github" target="_blank" href="#" title="github">github</a>
+					        
+								<a class="mail" target="_blank" href="#" title="mail">mail</a>
+					        
+								<a class="rss" target="_blank" href="/atom.xml" title="rss">rss</a>
+					        
+								<a class="zhihu" target="_blank" href="#" title="zhihu">zhihu</a>
+					        
+						</div>
+						<!-- music -->
+						
+					</nav>
+				</section>
+				
+				
+				<section class="switch-part switch-part2">
+					<div class="widget tagcloud" id="js-tagcloud">
+						<a href="/tags/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F/" style="font-size: 10px;">操作系统</a> <a href="/tags/%E7%AE%97%E6%B3%95/" style="font-size: 20px;">算法</a> <a href="/tags/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BB%84%E6%88%90/" style="font-size: 13.33px;">计算机组成</a> <a href="/tags/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/" style="font-size: 16.67px;">计算机网络</a> <a href="/tags/%E9%9D%A2%E8%AF%95/" style="font-size: 10px;">面试</a>
+					</div>
+				</section>
+				
+				
+				
+				<section class="switch-part switch-part3">
+					<div id="js-friends">
+					
+			          <a target="_blank" class="main-nav-link switch-friends-link" href="https://github.com/mengchuang123/">github</a>
+			        
+			        </div>
+				</section>
+				
+
+				
+				
+				<section class="switch-part switch-part4">
+				
+					<div id="js-aboutme">My study log.</div>
+				</section>
+				
+			</div>
+		</div>
+	</header>				
+</div>
+    </div>
+    <div class="mid-col">
+      <nav id="mobile-nav">
+  	<div class="overlay">
+  		<div class="slider-trigger"></div>
+  		<h1 class="header-author js-mobile-header hide"></h1>
+  	</div>
+	<div class="intrude-less">
+		<header id="header" class="inner">
+			<div class="profilepic">
+				<img lazy-src="/img/touxiang2.png" class="js-avatar">
+			</div>
+			<hgroup>
+			  <h1 class="header-author"></h1>
+			</hgroup>
+			
+			<nav class="header-menu">
+				<ul>
+				
+					<li><a href="/">Home</a></li>
+		        
+					<li><a href="/archives">Archives</a></li>
+		        
+		        <div class="clearfix"></div>
+				</ul>
+			</nav>
+			<nav class="header-nav">
+				<div class="social">
+					
+						<a class="github" target="_blank" href="#" title="github">github</a>
+			        
+						<a class="mail" target="_blank" href="#" title="mail">mail</a>
+			        
+						<a class="rss" target="_blank" href="/atom.xml" title="rss">rss</a>
+			        
+						<a class="zhihu" target="_blank" href="#" title="zhihu">zhihu</a>
+			        
+				</div>
+			</nav>
+		</header>				
+	</div>
+</nav>
+      <div class="body-wrap"><article id="post-排序" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2021/12/12/%E6%8E%92%E5%BA%8F/" class="article-date">
+  	<time datetime="2021-12-11T16:00:00.000Z" itemprop="datePublished">2021-12-12</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      排序算法
+      
+    </h1>
+  
+
+      </header>
+      
+      <div class="article-info article-info-post">
+        
+	<div class="article-tag tagcloud">
+		<ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E7%AE%97%E6%B3%95/" rel="tag">算法</a></li></ul>
+	</div>
+
+        
+
+        
+        <div class="clearfix"></div>
+      </div>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <!--Table of Contents begin-->
+        <!-- 
+          <div id="toc" class="toc-article">
+            <strong class="toc-title">目录</strong>
+            <a class="js-toggle-toc" href="javascript:void(0)"></a>
+            <div class="toc-content">
+              <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#%E5%BF%AB%E9%80%9F%E6%8E%92%E5%BA%8F%E6%A8%A1%E6%9D%BF"><span class="toc-text">快速排序模板</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E5%B8%8C%E5%B0%94%E6%8E%92%E5%BA%8F"><span class="toc-text">希尔排序</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E5%BD%92%E5%B9%B6%E6%8E%92%E5%BA%8F"><span class="toc-text">归并排序</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E5%A0%86%E6%8E%92%E5%BA%8F"><span class="toc-text">堆排序</span></a></li></ol>
+            </div>
+          </div>
+         -->
+          <!-- Table of Contents -->
+        
+          <div id="toc" class="toc-article">
+            <strong class="toc-title">目录</strong>
+            <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#%E5%BF%AB%E9%80%9F%E6%8E%92%E5%BA%8F%E6%A8%A1%E6%9D%BF"><span class="toc-text">快速排序模板</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E5%B8%8C%E5%B0%94%E6%8E%92%E5%BA%8F"><span class="toc-text">希尔排序</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E5%BD%92%E5%B9%B6%E6%8E%92%E5%BA%8F"><span class="toc-text">归并排序</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E5%A0%86%E6%8E%92%E5%BA%8F"><span class="toc-text">堆排序</span></a></li></ol>
+          </div>
+        
+        <!--Table of Contents end -->
+        
+
+
+
+
+        <p>[toc]</p>
+<h1 id="快速排序模板"><a href="#快速排序模板" class="headerlink" title="快速排序模板"></a>快速排序模板</h1><p><strong>注意：</strong></p>
+<ul>
+<li>分开编写比较可以接收</li>
+<li>注意选取p可以选取<code>P = (left+right)/2</code></li>
+<li>注意<code>left,right</code>都是可以到达的下标</li>
+<li>p的位置是j</li>
+<li><code>while(i&lt;=j)</code>,等于号</li>
+<li>里面的whle需要添加判断条件<code>i&lt;=right,j&gt;=left+1</code></li>
+<li>最后添加<code>if(i&lt;=j) swap(nums,i,j)</code> 其中<code>i&lt;=j</code>很重要</li>
+</ul>
+<blockquote>
+<p>这种写法，所有的比较是&gt;=或者&lt;=一定是有等于号的</p>
+</blockquote>
+<figure class="highlight java"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> </span>{</span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">int</span>[] sortArray(<span class="keyword">int</span>[] nums) {</span><br><span class="line">        qsort(nums,<span class="number">0</span>,nums.length-<span class="number">1</span>);</span><br><span class="line">        <span class="keyword">return</span> nums;</span><br><span class="line">    }</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">qsort</span><span class="params">(<span class="keyword">int</span> []nums,<span class="keyword">int</span> left,<span class="keyword">int</span> right)</span></span>{</span><br><span class="line">        <span class="keyword">if</span>(left&gt;=right) <span class="keyword">return</span> ;</span><br><span class="line">        <span class="keyword">int</span> p = (right+left)/<span class="number">2</span>;</span><br><span class="line">        swap(nums,left,p);</span><br><span class="line">        <span class="keyword">int</span> position = portion(nums,left,right);</span><br><span class="line">        qsort(nums,left,position-<span class="number">1</span>);</span><br><span class="line">        qsort(nums,position+<span class="number">1</span>,right);</span><br><span class="line">        <span class="keyword">return</span> ;</span><br><span class="line"></span><br><span class="line">    }</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">portion</span><span class="params">(<span class="keyword">int</span> []nums,<span class="keyword">int</span> left,<span class="keyword">int</span> right)</span></span>{</span><br><span class="line">        <span class="keyword">if</span>(left&gt;=right)<span class="keyword">return</span> left;</span><br><span class="line">        <span class="keyword">int</span> i=left+<span class="number">1</span>;</span><br><span class="line">        <span class="keyword">int</span> j = right;</span><br><span class="line">        <span class="keyword">int</span> p = nums[left];</span><br><span class="line">        <span class="keyword">while</span>(i&lt;=j){</span><br><span class="line">            <span class="keyword">while</span>(i&lt;=right&amp;&amp;nums[i]&lt;=p)</span><br><span class="line">                i++;</span><br><span class="line">            <span class="keyword">while</span>(j&gt;=left+<span class="number">1</span>&amp;&amp;nums[j]&gt;=p){</span><br><span class="line">                j--;</span><br><span class="line">            }</span><br><span class="line">            <span class="keyword">if</span>(i&lt;=j) swap(nums,i,j);</span><br><span class="line">        }</span><br><span class="line">        swap(nums,left,j);</span><br><span class="line">        <span class="keyword">return</span> j;</span><br><span class="line">    }</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">swap</span><span class="params">(<span class="keyword">int</span> []nums,<span class="keyword">int</span> a,<span class="keyword">int</span> b)</span></span>{</span><br><span class="line">        <span class="keyword">int</span> temp = nums[a];</span><br><span class="line">        nums[a] = nums[b];</span><br><span class="line">        nums[b] = temp;</span><br><span class="line">        <span class="keyword">return</span>;</span><br><span class="line">    }</span><br><span class="line">}</span><br></pre></td></tr></tbody></table></figure>
+
+
+
+<h1 id="希尔排序"><a href="#希尔排序" class="headerlink" title="希尔排序"></a>希尔排序</h1><hr>
+<figure class="highlight c++"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">ShellSort</span><span class="params">(<span class="keyword">int</span> A[],<span class="keyword">int</span> N)</span></span>{</span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> Increment = N/<span class="number">2</span>;Increment&gt;<span class="number">0</span>;Increment/=<span class="number">2</span>){  <span class="comment">//遍历所有的Increment,必须保证第一个元素是1</span></span><br><span class="line">		<span class="keyword">for</span>(<span class="keyword">int</span> i = Increment;i&lt;N;i++){    <span class="comment">//i= Increment实际上是子序列的第二个数，插入排序需要第二个数</span></span><br><span class="line">			temp = A[i];</span><br><span class="line">            <span class="keyword">for</span>(<span class="keyword">int</span> j=i;j&gt;=Increment,j-=Increment)</span><br><span class="line">                <span class="keyword">if</span>(temp&lt;A[j-Increment])</span><br><span class="line">                    A[j] = A[j-Increment];</span><br><span class="line">            	<span class="keyword">else</span> </span><br><span class="line">                    <span class="keyword">break</span>;</span><br><span class="line">            A[j] = temp;</span><br><span class="line">        }</span><br><span class="line">    }</span><br><span class="line">    <span class="keyword">return</span>;</span><br><span class="line">}</span><br></pre></td></tr></tbody></table></figure>
+
+<ul>
+<li>希尔排序的准确性是靠最小的间隔为1来保证的</li>
+<li>间隔是从大到小来实现的，也就是<code>N/2</code>,…1，原因在于，实现$h_{k-1}-sort$不会破坏$h_{k}-sort$的排序结果</li>
+<li>每用一个间隔以后，在实现一个插入排序</li>
+<li>希尔排序是非稳定排序算法</li>
+<li>采用希尔的序列，最差时间复杂度是$O(n^2)$  Hibbard的增量序列，$O(N^{2/3})$ </li>
+<li>是一个inplace的算法，在线算法</li>
+</ul>
+<blockquote>
+<p>（<strong>注：</strong>为方便记忆算法，我习惯将其记作<strong>“三层for循环+if”</strong> ——** for（for（for（if）））**）</p>
+</blockquote>
+<img src="https://upload-images.jianshu.io/upload_images/6095354-ff984d80dbc0455f.png?imageMogr2/auto-orient/strip|imageView2/2/format/webp" alt="img">
+
+<h1 id="归并排序"><a href="#归并排序" class="headerlink" title="归并排序"></a>归并排序</h1><hr>
+<p><strong>注意点：</strong></p>
+<ul>
+<li>每次划分的时候应该避免无穷次的迭代</li>
+</ul>
+<figure class="highlight java"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">mergeSort(array, left, mid, newArray);</span><br><span class="line">mergeSort(array, mid+<span class="number">1</span>, right, newArray);</span><br></pre></td></tr></tbody></table></figure>
+
+<ul>
+<li>左边是<code> [left, mid-1]</code>，</li>
+<li>右边是 <code>[mid, right]</code>，</li>
+</ul>
+<ul>
+<li><p>中点的选取，<code>int mid = left + (right - left)/2;</code></p>
+</li>
+<li><p><strong>是稳定的算法</strong></p>
+</li>
+</ul>
+<figure class="highlight java"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//其中的temp额外开辟的数组，right指向最后一个元素</span></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">MSrot</span><span class="params">(<span class="keyword">int</span> A[],<span class="keyword">int</span> temp[],<span class="keyword">int</span> left,<span class="keyword">int</span> right)</span></span>{</span><br><span class="line">	<span class="keyword">if</span>(left&gt;=right) <span class="keyword">return</span>;</span><br><span class="line">    <span class="keyword">int</span> mid=  left +(right-left)/<span class="number">2</span>;</span><br><span class="line">    MSort(A,temp,left,mid);</span><br><span class="line">    Msort(A,temp,mid+<span class="number">1</span>,right);</span><br><span class="line">    Merge(A,temp,left,mid,right);</span><br><span class="line">}</span><br><span class="line"><span class="comment">//二路合并</span></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">Merge</span><span class="params">(<span class="keyword">int</span> A[],<span class="keyword">int</span> temp[],<span class="keyword">int</span> left,<span class="keyword">int</span> mid,<span class="keyword">int</span> right)</span></span>{</span><br><span class="line">	<span class="keyword">int</span> len1 = mid;</span><br><span class="line">    <span class="keyword">int</span> len2 =right;</span><br><span class="line">    <span class="keyword">int</span> i=left;</span><br><span class="line">    <span class="keyword">int</span> right = mid+<span class="number">1</span>;</span><br><span class="line">    <span class="keyword">int</span> tempindex = left;</span><br><span class="line">    <span class="keyword">while</span>(i&lt;=len1&amp;&amp;j&lt;=len2){</span><br><span class="line">		<span class="keyword">if</span>(A[i]&lt;A[j])</span><br><span class="line">            temp[tempindex++] = A[i++];</span><br><span class="line">        <span class="keyword">else</span> </span><br><span class="line">            temp[tempindex++] = A[j++];</span><br><span class="line">    }</span><br><span class="line">    <span class="keyword">while</span>(i&lt;=len1)</span><br><span class="line">        temp[tempindex++] = A[i++];</span><br><span class="line">    <span class="keyword">while</span>(j&lt;=len2)</span><br><span class="line">        temp[tempindex++] = A[j++];</span><br><span class="line">    copy(A,temp);</span><br><span class="line">    <span class="keyword">return</span> ;</span><br><span class="line">}</span><br><span class="line"></span><br></pre></td></tr></tbody></table></figure>
+
+<img src="https://gitee.com/mymengchuang/blog_img/raw/master/image-20211214134435413.png" alt="image-20211214134435413" style="zoom:80%;">
+
+<h1 id="堆排序"><a href="#堆排序" class="headerlink" title="堆排序"></a>堆排序</h1><hr>
+<p><strong>复习堆的建立和删除</strong></p>
+<ul>
+<li>直接在数组上面进行建堆即可，快速的$O(n)$</li>
+<li>删除加入临时数组即可</li>
+<li>优化算法变成在线的，只要在元世祖中的最后一个元素存放元素即可</li>
+</ul>
+<figure class="highlight java"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">HeahSort</span><span class="params">()</span></span>{</span><br><span class="line">	BuildHeap(H);</span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">0</span>;i&lt;n;i++)</span><br><span class="line">        temp[i] = DeleteMin(H);</span><br><span class="line">}</span><br></pre></td></tr></tbody></table></figure>
+
+<p><strong>算法二：</strong></p>
+<figure class="highlight java"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">HeadSort</span><span class="params">()</span></span>{</span><br><span class="line">	BuildHeap(H);</span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> i=N-<span class="number">1</span>;i&gt;<span class="number">0</span>;i--){</span><br><span class="line">		Swap(A[<span class="number">0</span>],A[i]);</span><br><span class="line">        PercDown(A,<span class="number">0</span>,i);   <span class="comment">//</span></span><br><span class="line">    }</span><br><span class="line">}</span><br></pre></td></tr></tbody></table></figure>
+
+
+
+<p><strong>在现有的数组上面进行建堆</strong></p>
+<ul>
+<li>需要记忆如何建立堆，也就是数组向上操作</li>
+</ul>
+<figure class="highlight java"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 自己写的，不太好用</span></span><br><span class="line"><span class="keyword">for</span>(<span class="keyword">int</span> i=N/<span class="number">2</span>;i&gt;=<span class="number">1</span>;i--){</span><br><span class="line">    <span class="keyword">while</span>(i&lt;=N){</span><br><span class="line">        <span class="keyword">if</span>(A[i*<span class="number">2</span>]&gt;A[i*<span class="number">2</span>+<span class="number">1</span>]){</span><br><span class="line">            max = A[i*<span class="number">2</span>]; temp = i*<span class="number">2</span>;</span><br><span class="line">        }</span><br><span class="line">        <span class="keyword">else</span> {</span><br><span class="line">            max = A[i*<span class="number">2</span>+<span class="number">1</span>];temp = i*<span class="number">2</span>+<span class="number">1</span>;</span><br><span class="line">        }</span><br><span class="line">        <span class="keyword">if</span>(A[i]&lt;max){</span><br><span class="line">            swap(A[i],A[temp]);</span><br><span class="line">            i = temp;</span><br><span class="line">        }</span><br><span class="line">    }</span><br><span class="line">}</span><br><span class="line"><span class="comment">//这个是自己写的</span></span><br></pre></td></tr></tbody></table></figure>
+
+<figure class="highlight java"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">BuildHeap</span><span class="params">()</span></span>{</span><br><span class="line">	<span class="keyword">for</span>(<span class="keyword">int</span> i=N/<span class="number">2</span>;i&gt;=<span class="number">0</span>;i--)</span><br><span class="line">        PercDown(A,i,n);</span><br><span class="line">}</span><br><span class="line"><span class="comment">//</span></span><br><span class="line">#<span class="function">define <span class="title">LeftChild</span><span class="params">(i)</span> 2*i+1</span></span><br><span class="line"><span class="function"><span class="comment">//如果是从0开始的算法，应该注意</span></span></span><br><span class="line"><span class="function"></span></span><br><span class="line"><span class="function"><span class="comment">//最大堆下滤过程</span></span></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">PercDown</span><span class="params">(<span class="keyword">int</span>* a, <span class="keyword">int</span> item, <span class="keyword">int</span> n)</span></span></span><br><span class="line"><span class="function"></span>{</span><br><span class="line">    </span><br><span class="line">	<span class="keyword">int</span> tmp, child;</span><br><span class="line">    tmp = a[i];</span><br><span class="line"> 	<span class="keyword">int</span> i;</span><br><span class="line">	<span class="keyword">while</span>(LeftChild(i) &lt; n)</span><br><span class="line">	{</span><br><span class="line">		child = LeftChild(i);</span><br><span class="line">		<span class="keyword">if</span>(child != n-<span class="number">1</span> &amp;&amp; a[child] &lt; a[child+<span class="number">1</span>])  <span class="comment">//最小堆的时候改为“&gt;"</span></span><br><span class="line">			++child;</span><br><span class="line">		<span class="keyword">if</span>(tmp &lt; a[child])                         <span class="comment">//最小堆的时候改为“&gt;"</span></span><br><span class="line">			a[i] = a[child];</span><br><span class="line">		<span class="keyword">else</span></span><br><span class="line">			<span class="keyword">break</span>;</span><br><span class="line">        i = child;</span><br><span class="line">	}</span><br><span class="line">	a[i] = tmp;</span><br><span class="line">}</span><br><span class="line"><span class="comment">//这个代码如果记得，说明heap完全掌握了</span></span><br></pre></td></tr></tbody></table></figure>
+
+<p><strong>寻找规律</strong></p>
+<ul>
+<li>假设一直向左下，也就是i一直去 <code>i=child,child = 2*i;</code></li>
+<li>如果右边满足，再更改即可</li>
+<li>每一次都找到<code>a[i]</code>的值是什么即可，然后给i赋值</li>
+</ul>
+
+      
+    </div>
+    
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/2021/12/12/BFS_DFS%E5%8F%98%E4%BD%93/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">&lt;</strong>
+      <div class="article-nav-title">
+        
+          DFS_BFS变体
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2021/12/09/%E6%A8%A1%E6%8B%9F%E9%A2%98%E7%9B%AE%E8%AE%AD%E7%BB%83/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">模拟题目训练</div>
+      <strong class="article-nav-caption">&gt;</strong>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+
+
+
+
+
+</div>
+      <footer id="footer">
+  <div class="outer">
+    <div id="footer-info">
+      <div class="footer-left">
+        &copy; 2021 mengchuang
+      </div>
+        <div class="footer-right">
+          <a href="http://hexo.io/" target="_blank">Hexo</a>  Theme <a href="https://github.com/preccrep/hexo-theme-jelly" target="_blank">Jelly</a>
+        </div>
+    </div>
+  </div>
+</footer>
+    </div>
+    
+  
+<link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+
+
+
+<script>
+	var yiliaConfig = {
+		fancybox: true,
+		mathjax: false,
+		animate: true,
+		isHome: false,
+		isPost: true,
+		isArchive: false,
+		isTag: false,
+		isCategory: false,
+		open_in_new: false
+	}
+</script>
+
+<script src="/js/main.js"></script>
+
+
+
+
+  </div>
+</body>
+</html>

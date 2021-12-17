@@ -17,7 +17,7 @@
 <meta property="og:description" content="[toc] 网络层功能  路由器  路由器可以分割广播域，也就是不转发目的地址为255.255.255.255的目的IP包，可以分割广播域，避免广播风暴 交换机工作在链路层，能分割冲突域，但是没办法分割广播域 路由器连接的路由协议不一定是一样的，IPv4 IPv6   存储转发机制  路由器先接受完整的分组，然后检测分组是否有错，有错就丢弃，没有就等待路由算法提供路径    路由算法 1.分类 静">
 <meta property="og:locale" content="en_US">
 <meta property="article:published_time" content="2021-12-05T16:00:02.000Z">
-<meta property="article:modified_time" content="2021-12-07T17:58:02.239Z">
+<meta property="article:modified_time" content="2021-12-17T08:12:39.804Z">
 <meta property="article:author" content="mengchuang">
 <meta property="article:tag" content="计算机网络">
 <meta name="twitter:card" content="summary">
@@ -213,7 +213,7 @@
             <strong class="toc-title">目录</strong>
             <a class="js-toggle-toc" href="javascript:void(0)"></a>
             <div class="toc-content">
-              <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#%E7%BD%91%E7%BB%9C%E5%B1%82%E5%8A%9F%E8%83%BD"><span class="toc-text">网络层功能</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E8%B7%AF%E7%94%B1%E7%AE%97%E6%B3%95"><span class="toc-text">路由算法</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#1-%E5%88%86%E7%B1%BB"><span class="toc-text">1.分类</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2-%E8%B7%9D%E7%A6%BB%E5%90%91%E9%87%8F%E7%AE%97%E6%B3%95%EF%BC%88RIP%EF%BC%89"><span class="toc-text">2.距离向量算法（RIP）</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#3-%E9%93%BE%E8%B7%AF%E7%8A%B6%E6%80%81%E7%AE%97%E6%B3%95%EF%BC%88OSPF%EF%BC%89"><span class="toc-text">3.链路状态算法（OSPF）</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#4-%E5%B1%82%E6%AC%A1%E8%B7%AF%E7%94%B1"><span class="toc-text">4.层次路由</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#5-%E9%97%AE%E9%A2%98"><span class="toc-text">5.问题</span></a></li></ol></li></ol>
+              <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#%E7%BD%91%E7%BB%9C%E5%B1%82%E5%8A%9F%E8%83%BD"><span class="toc-text">网络层功能</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E8%B7%AF%E7%94%B1%E7%AE%97%E6%B3%95"><span class="toc-text">路由算法</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#1-%E5%88%86%E7%B1%BB"><span class="toc-text">1.分类</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2-%E8%B7%9D%E7%A6%BB%E5%90%91%E9%87%8F%E7%AE%97%E6%B3%95%EF%BC%88RIP%EF%BC%89"><span class="toc-text">2.距离向量算法（RIP）</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#3-%E9%93%BE%E8%B7%AF%E7%8A%B6%E6%80%81%E7%AE%97%E6%B3%95%EF%BC%88OSPF%EF%BC%89"><span class="toc-text">3.链路状态算法（OSPF）</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#4-%E5%B1%82%E6%AC%A1%E8%B7%AF%E7%94%B1"><span class="toc-text">4.层次路由</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#5-%E8%B7%AF%E7%94%B1%E8%A1%A8%E6%98%AF%E4%BB%80%E4%B9%88"><span class="toc-text">5.路由表是什么</span></a></li></ol></li></ol>
             </div>
           </div>
          -->
@@ -221,7 +221,7 @@
         
           <div id="toc" class="toc-article">
             <strong class="toc-title">目录</strong>
-            <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#%E7%BD%91%E7%BB%9C%E5%B1%82%E5%8A%9F%E8%83%BD"><span class="toc-text">网络层功能</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E8%B7%AF%E7%94%B1%E7%AE%97%E6%B3%95"><span class="toc-text">路由算法</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#1-%E5%88%86%E7%B1%BB"><span class="toc-text">1.分类</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2-%E8%B7%9D%E7%A6%BB%E5%90%91%E9%87%8F%E7%AE%97%E6%B3%95%EF%BC%88RIP%EF%BC%89"><span class="toc-text">2.距离向量算法（RIP）</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#3-%E9%93%BE%E8%B7%AF%E7%8A%B6%E6%80%81%E7%AE%97%E6%B3%95%EF%BC%88OSPF%EF%BC%89"><span class="toc-text">3.链路状态算法（OSPF）</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#4-%E5%B1%82%E6%AC%A1%E8%B7%AF%E7%94%B1"><span class="toc-text">4.层次路由</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#5-%E9%97%AE%E9%A2%98"><span class="toc-text">5.问题</span></a></li></ol></li></ol>
+            <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#%E7%BD%91%E7%BB%9C%E5%B1%82%E5%8A%9F%E8%83%BD"><span class="toc-text">网络层功能</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E8%B7%AF%E7%94%B1%E7%AE%97%E6%B3%95"><span class="toc-text">路由算法</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#1-%E5%88%86%E7%B1%BB"><span class="toc-text">1.分类</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2-%E8%B7%9D%E7%A6%BB%E5%90%91%E9%87%8F%E7%AE%97%E6%B3%95%EF%BC%88RIP%EF%BC%89"><span class="toc-text">2.距离向量算法（RIP）</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#3-%E9%93%BE%E8%B7%AF%E7%8A%B6%E6%80%81%E7%AE%97%E6%B3%95%EF%BC%88OSPF%EF%BC%89"><span class="toc-text">3.链路状态算法（OSPF）</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#4-%E5%B1%82%E6%AC%A1%E8%B7%AF%E7%94%B1"><span class="toc-text">4.层次路由</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#5-%E8%B7%AF%E7%94%B1%E8%A1%A8%E6%98%AF%E4%BB%80%E4%B9%88"><span class="toc-text">5.路由表是什么</span></a></li></ol></li></ol>
           </div>
         
         <!--Table of Contents end -->
@@ -273,7 +273,20 @@
 <li>内部网关协议（IGP）,主要是在一个自治系统内部使用的协议，包括RIP,OSPF</li>
 <li>外部网关协议（EGP）,主要包括：BGP</li>
 </ul>
-<h2 id="5-问题"><a href="#5-问题" class="headerlink" title="5.问题"></a>5.问题</h2>
+<h2 id="5-路由表是什么"><a href="#5-路由表是什么" class="headerlink" title="5.路由表是什么"></a>5.路由表是什么</h2><p>路由表建立的主要目标是为了实现路由协议和静态路由选择。</p>
+<p>（1）链路层协议发现的路由（即是直连路由)    </p>
+<p>（2）静态路由</p>
+<p>（3）动态路由协议发现的路由</p>
+<ul>
+<li><p>添加静态路由时，下一跳地址是填写本路由器的端口地址，还是对方路由器的端口地</p>
+<p>址？或者是目的地网络的路由器端口地址？<strong>下一跳地址写对方路由器的端口地址</strong></p>
+</li>
+<li><p>在同一个局域网内的2台PC机，IP地址分别为10.0.0.x/24和10.0.1.x/24，都属于VLAN1，一开始不能互相Ping通，为什么把子网掩码长度从24位变成16位，就通了？</p>
+<p>答：当掩码长度为 24 位时，两台 PC 不在同一网段，计算机首先查找网关的 MAC，如果网关 MAC 得不到回应，是 ping 不通的。当掩码长度为 16 位时，两台 PC 在同一网段，不需要通过网关，因此可以 ping 通。</p>
+</li>
+<li></li>
+</ul>
+
       
     </div>
     

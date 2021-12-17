@@ -165,6 +165,339 @@
 </nav>
       <div class="body-wrap">
   
+    <article id="post-BFS_DFS变体" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2021/12/12/BFS_DFS%E5%8F%98%E4%BD%93/" class="article-date">
+  	<time datetime="2021-12-11T16:17:00.000Z" itemprop="datePublished">2021-12-12</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2021/12/12/BFS_DFS%E5%8F%98%E4%BD%93/">
+        DFS_BFS变体
+        
+      </a>
+    </h1>
+  
+
+      </header>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <!--Table of Contents begin-->
+        <!-- 
+          <div id="toc" class="toc-article">
+            <strong class="toc-title">目录</strong>
+            <a class="js-toggle-toc" href="javascript:void(0)"></a>
+            <div class="toc-content">
+              
+            </div>
+          </div>
+         -->
+          <!-- Table of Contents -->
+        
+          <div id="toc" class="toc-article">
+            <strong class="toc-title">目录</strong>
+            
+          </div>
+        
+        <!--Table of Contents end -->
+        
+
+
+
+
+        
+      
+    </div>
+    
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E7%AE%97%E6%B3%95/" rel="tag">算法</a></li></ul>
+	</div>
+
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+      
+    
+  </div>
+  
+</article>
+
+
+
+
+
+
+
+  
+    <article id="post-排序" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2021/12/12/%E6%8E%92%E5%BA%8F/" class="article-date">
+  	<time datetime="2021-12-11T16:00:00.000Z" itemprop="datePublished">2021-12-12</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2021/12/12/%E6%8E%92%E5%BA%8F/">
+        排序算法
+        
+      </a>
+    </h1>
+  
+
+      </header>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <!--Table of Contents begin-->
+        <!-- 
+          <div id="toc" class="toc-article">
+            <strong class="toc-title">目录</strong>
+            <a class="js-toggle-toc" href="javascript:void(0)"></a>
+            <div class="toc-content">
+              <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#%E5%BF%AB%E9%80%9F%E6%8E%92%E5%BA%8F%E6%A8%A1%E6%9D%BF"><span class="toc-text">快速排序模板</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E5%B8%8C%E5%B0%94%E6%8E%92%E5%BA%8F"><span class="toc-text">希尔排序</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E5%BD%92%E5%B9%B6%E6%8E%92%E5%BA%8F"><span class="toc-text">归并排序</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E5%A0%86%E6%8E%92%E5%BA%8F"><span class="toc-text">堆排序</span></a></li></ol>
+            </div>
+          </div>
+         -->
+          <!-- Table of Contents -->
+        
+          <div id="toc" class="toc-article">
+            <strong class="toc-title">目录</strong>
+            <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#%E5%BF%AB%E9%80%9F%E6%8E%92%E5%BA%8F%E6%A8%A1%E6%9D%BF"><span class="toc-text">快速排序模板</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E5%B8%8C%E5%B0%94%E6%8E%92%E5%BA%8F"><span class="toc-text">希尔排序</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E5%BD%92%E5%B9%B6%E6%8E%92%E5%BA%8F"><span class="toc-text">归并排序</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E5%A0%86%E6%8E%92%E5%BA%8F"><span class="toc-text">堆排序</span></a></li></ol>
+          </div>
+        
+        <!--Table of Contents end -->
+        
+
+
+
+
+        <p>[toc]</p>
+<h1 id="快速排序模板"><a href="#快速排序模板" class="headerlink" title="快速排序模板"></a>快速排序模板</h1><p><strong>注意：</strong></p>
+<ul>
+<li>分开编写比较可以接收</li>
+<li>注意选取p可以选取<code>P = (left+right)/2</code></li>
+<li>注意<code>left,right</code>都是可以到达的下标</li>
+<li>p的位置是j</li>
+<li><code>while(i&lt;=j)</code>,等于号</li>
+<li>里面的whle需要添加判断条件<code>i&lt;=right,j&gt;=left+1</code></li>
+<li>最后添加<code>if(i&lt;=j) swap(nums,i,j)</code> 其中<code>i&lt;=j</code>很重要</li>
+</ul>
+<blockquote>
+<p>这种写法，所有的比较是&gt;=或者&lt;=一定是有等于号的</p>
+</blockquote>
+<figure class="highlight java"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> </span>{</span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">int</span>[] sortArray(<span class="keyword">int</span>[] nums) {</span><br><span class="line">        qsort(nums,<span class="number">0</span>,nums.length-<span class="number">1</span>);</span><br><span class="line">        <span class="keyword">return</span> nums;</span><br><span class="line">    }</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">qsort</span><span class="params">(<span class="keyword">int</span> []nums,<span class="keyword">int</span> left,<span class="keyword">int</span> right)</span></span>{</span><br><span class="line">        <span class="keyword">if</span>(left&gt;=right) <span class="keyword">return</span> ;</span><br><span class="line">        <span class="keyword">int</span> p = (right+left)/<span class="number">2</span>;</span><br><span class="line">        swap(nums,left,p);</span><br><span class="line">        <span class="keyword">int</span> position = portion(nums,left,right);</span><br><span class="line">        qsort(nums,left,position-<span class="number">1</span>);</span><br><span class="line">        qsort(nums,position+<span class="number">1</span>,right);</span><br><span class="line">        <span class="keyword">return</span> ;</span><br><span class="line"></span><br><span class="line">    }</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">portion</span><span class="params">(<span class="keyword">int</span> []nums,<span class="keyword">int</span> left,<span class="keyword">int</span> right)</span></span>{</span><br><span class="line">        <span class="keyword">if</span>(left&gt;=right)<span class="keyword">return</span> left;</span><br><span class="line">        <span class="keyword">int</span> i=left+<span class="number">1</span>;</span><br><span class="line">        <span class="keyword">int</span> j = right;</span><br><span class="line">        <span class="keyword">int</span> p = nums[left];</span><br><span class="line">        <span class="keyword">while</span>(i&lt;=j){</span><br><span class="line">            <span class="keyword">while</span>(i&lt;=right&amp;&amp;nums[i]&lt;=p)</span><br><span class="line">                i++;</span><br><span class="line">            <span class="keyword">while</span>(j&gt;=left+<span class="number">1</span>&amp;&amp;nums[j]&gt;=p){</span><br><span class="line">                j--;</span><br><span class="line">            }</span><br><span class="line">            <span class="keyword">if</span>(i&lt;=j) swap(nums,i,j);</span><br><span class="line">        }</span><br><span class="line">        swap(nums,left,j);</span><br><span class="line">        <span class="keyword">return</span> j;</span><br><span class="line">    }</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">swap</span><span class="params">(<span class="keyword">int</span> []nums,<span class="keyword">int</span> a,<span class="keyword">int</span> b)</span></span>{</span><br><span class="line">        <span class="keyword">int</span> temp = nums[a];</span><br><span class="line">        nums[a] = nums[b];</span><br><span class="line">        nums[b] = temp;</span><br><span class="line">        <span class="keyword">return</span>;</span><br><span class="line">    }</span><br><span class="line">}</span><br></pre></td></tr></tbody></table></figure>
+
+
+
+<h1 id="希尔排序"><a href="#希尔排序" class="headerlink" title="希尔排序"></a>希尔排序</h1><hr>
+<figure class="highlight c++"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">ShellSort</span><span class="params">(<span class="keyword">int</span> A[],<span class="keyword">int</span> N)</span></span>{</span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> Increment = N/<span class="number">2</span>;Increment&gt;<span class="number">0</span>;Increment/=<span class="number">2</span>){  <span class="comment">//遍历所有的Increment,必须保证第一个元素是1</span></span><br><span class="line">		<span class="keyword">for</span>(<span class="keyword">int</span> i = Increment;i&lt;N;i++){    <span class="comment">//i= Increment实际上是子序列的第二个数，插入排序需要第二个数</span></span><br><span class="line">			temp = A[i];</span><br><span class="line">            <span class="keyword">for</span>(<span class="keyword">int</span> j=i;j&gt;=Increment,j-=Increment)</span><br><span class="line">                <span class="keyword">if</span>(temp&lt;A[j-Increment])</span><br><span class="line">                    A[j] = A[j-Increment];</span><br><span class="line">            	<span class="keyword">else</span> </span><br><span class="line">                    <span class="keyword">break</span>;</span><br><span class="line">            A[j] = temp;</span><br><span class="line">        }</span><br><span class="line">    }</span><br><span class="line">    <span class="keyword">return</span>;</span><br><span class="line">}</span><br></pre></td></tr></tbody></table></figure>
+
+<ul>
+<li>希尔排序的准确性是靠最小的间隔为1来保证的</li>
+<li>间隔是从大到小来实现的，也就是<code>N/2</code>,…1，原因在于，实现$h_{k-1}-sort$不会破坏$h_{k}-sort$的排序结果</li>
+<li>每用一个间隔以后，在实现一个插入排序</li>
+<li>希尔排序是非稳定排序算法</li>
+<li>采用希尔的序列，最差时间复杂度是$O(n^2)$  Hibbard的增量序列，$O(N^{2/3})$ </li>
+<li>是一个inplace的算法，在线算法</li>
+</ul>
+<blockquote>
+<p>（<strong>注：</strong>为方便记忆算法，我习惯将其记作<strong>“三层for循环+if”</strong> ——** for（for（for（if）））**）</p>
+</blockquote>
+<img src="https://upload-images.jianshu.io/upload_images/6095354-ff984d80dbc0455f.png?imageMogr2/auto-orient/strip|imageView2/2/format/webp" alt="img">
+
+<h1 id="归并排序"><a href="#归并排序" class="headerlink" title="归并排序"></a>归并排序</h1><hr>
+<p><strong>注意点：</strong></p>
+<ul>
+<li>每次划分的时候应该避免无穷次的迭代</li>
+</ul>
+<figure class="highlight java"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">mergeSort(array, left, mid, newArray);</span><br><span class="line">mergeSort(array, mid+<span class="number">1</span>, right, newArray);</span><br></pre></td></tr></tbody></table></figure>
+
+<ul>
+<li>左边是<code> [left, mid-1]</code>，</li>
+<li>右边是 <code>[mid, right]</code>，</li>
+</ul>
+<ul>
+<li><p>中点的选取，<code>int mid = left + (right - left)/2;</code></p>
+</li>
+<li><p><strong>是稳定的算法</strong></p>
+</li>
+</ul>
+<figure class="highlight java"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//其中的temp额外开辟的数组，right指向最后一个元素</span></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">MSrot</span><span class="params">(<span class="keyword">int</span> A[],<span class="keyword">int</span> temp[],<span class="keyword">int</span> left,<span class="keyword">int</span> right)</span></span>{</span><br><span class="line">	<span class="keyword">if</span>(left&gt;=right) <span class="keyword">return</span>;</span><br><span class="line">    <span class="keyword">int</span> mid=  left +(right-left)/<span class="number">2</span>;</span><br><span class="line">    MSort(A,temp,left,mid);</span><br><span class="line">    Msort(A,temp,mid+<span class="number">1</span>,right);</span><br><span class="line">    Merge(A,temp,left,mid,right);</span><br><span class="line">}</span><br><span class="line"><span class="comment">//二路合并</span></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">Merge</span><span class="params">(<span class="keyword">int</span> A[],<span class="keyword">int</span> temp[],<span class="keyword">int</span> left,<span class="keyword">int</span> mid,<span class="keyword">int</span> right)</span></span>{</span><br><span class="line">	<span class="keyword">int</span> len1 = mid;</span><br><span class="line">    <span class="keyword">int</span> len2 =right;</span><br><span class="line">    <span class="keyword">int</span> i=left;</span><br><span class="line">    <span class="keyword">int</span> right = mid+<span class="number">1</span>;</span><br><span class="line">    <span class="keyword">int</span> tempindex = left;</span><br><span class="line">    <span class="keyword">while</span>(i&lt;=len1&amp;&amp;j&lt;=len2){</span><br><span class="line">		<span class="keyword">if</span>(A[i]&lt;A[j])</span><br><span class="line">            temp[tempindex++] = A[i++];</span><br><span class="line">        <span class="keyword">else</span> </span><br><span class="line">            temp[tempindex++] = A[j++];</span><br><span class="line">    }</span><br><span class="line">    <span class="keyword">while</span>(i&lt;=len1)</span><br><span class="line">        temp[tempindex++] = A[i++];</span><br><span class="line">    <span class="keyword">while</span>(j&lt;=len2)</span><br><span class="line">        temp[tempindex++] = A[j++];</span><br><span class="line">    copy(A,temp);</span><br><span class="line">    <span class="keyword">return</span> ;</span><br><span class="line">}</span><br><span class="line"></span><br></pre></td></tr></tbody></table></figure>
+
+<img src="https://gitee.com/mymengchuang/blog_img/raw/master/image-20211214134435413.png" alt="image-20211214134435413" style="zoom:80%;">
+
+<h1 id="堆排序"><a href="#堆排序" class="headerlink" title="堆排序"></a>堆排序</h1><hr>
+<p><strong>复习堆的建立和删除</strong></p>
+<ul>
+<li>直接在数组上面进行建堆即可，快速的$O(n)$</li>
+<li>删除加入临时数组即可</li>
+<li>优化算法变成在线的，只要在元世祖中的最后一个元素存放元素即可</li>
+</ul>
+<figure class="highlight java"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">HeahSort</span><span class="params">()</span></span>{</span><br><span class="line">	BuildHeap(H);</span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">0</span>;i&lt;n;i++)</span><br><span class="line">        temp[i] = DeleteMin(H);</span><br><span class="line">}</span><br></pre></td></tr></tbody></table></figure>
+
+<p><strong>算法二：</strong></p>
+<figure class="highlight java"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">HeadSort</span><span class="params">()</span></span>{</span><br><span class="line">	BuildHeap(H);</span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> i=N-<span class="number">1</span>;i&gt;<span class="number">0</span>;i--){</span><br><span class="line">		Swap(A[<span class="number">0</span>],A[i]);</span><br><span class="line">        PercDown(A,<span class="number">0</span>,i);   <span class="comment">//</span></span><br><span class="line">    }</span><br><span class="line">}</span><br></pre></td></tr></tbody></table></figure>
+
+
+
+<p><strong>在现有的数组上面进行建堆</strong></p>
+<ul>
+<li>需要记忆如何建立堆，也就是数组向上操作</li>
+</ul>
+<figure class="highlight java"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 自己写的，不太好用</span></span><br><span class="line"><span class="keyword">for</span>(<span class="keyword">int</span> i=N/<span class="number">2</span>;i&gt;=<span class="number">1</span>;i--){</span><br><span class="line">    <span class="keyword">while</span>(i&lt;=N){</span><br><span class="line">        <span class="keyword">if</span>(A[i*<span class="number">2</span>]&gt;A[i*<span class="number">2</span>+<span class="number">1</span>]){</span><br><span class="line">            max = A[i*<span class="number">2</span>]; temp = i*<span class="number">2</span>;</span><br><span class="line">        }</span><br><span class="line">        <span class="keyword">else</span> {</span><br><span class="line">            max = A[i*<span class="number">2</span>+<span class="number">1</span>];temp = i*<span class="number">2</span>+<span class="number">1</span>;</span><br><span class="line">        }</span><br><span class="line">        <span class="keyword">if</span>(A[i]&lt;max){</span><br><span class="line">            swap(A[i],A[temp]);</span><br><span class="line">            i = temp;</span><br><span class="line">        }</span><br><span class="line">    }</span><br><span class="line">}</span><br><span class="line"><span class="comment">//这个是自己写的</span></span><br></pre></td></tr></tbody></table></figure>
+
+<figure class="highlight java"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">BuildHeap</span><span class="params">()</span></span>{</span><br><span class="line">	<span class="keyword">for</span>(<span class="keyword">int</span> i=N/<span class="number">2</span>;i&gt;=<span class="number">0</span>;i--)</span><br><span class="line">        PercDown(A,i,n);</span><br><span class="line">}</span><br><span class="line"><span class="comment">//</span></span><br><span class="line">#<span class="function">define <span class="title">LeftChild</span><span class="params">(i)</span> 2*i+1</span></span><br><span class="line"><span class="function"><span class="comment">//如果是从0开始的算法，应该注意</span></span></span><br><span class="line"><span class="function"></span></span><br><span class="line"><span class="function"><span class="comment">//最大堆下滤过程</span></span></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">PercDown</span><span class="params">(<span class="keyword">int</span>* a, <span class="keyword">int</span> item, <span class="keyword">int</span> n)</span></span></span><br><span class="line"><span class="function"></span>{</span><br><span class="line">    </span><br><span class="line">	<span class="keyword">int</span> tmp, child;</span><br><span class="line">    tmp = a[i];</span><br><span class="line"> 	<span class="keyword">int</span> i;</span><br><span class="line">	<span class="keyword">while</span>(LeftChild(i) &lt; n)</span><br><span class="line">	{</span><br><span class="line">		child = LeftChild(i);</span><br><span class="line">		<span class="keyword">if</span>(child != n-<span class="number">1</span> &amp;&amp; a[child] &lt; a[child+<span class="number">1</span>])  <span class="comment">//最小堆的时候改为“&gt;"</span></span><br><span class="line">			++child;</span><br><span class="line">		<span class="keyword">if</span>(tmp &lt; a[child])                         <span class="comment">//最小堆的时候改为“&gt;"</span></span><br><span class="line">			a[i] = a[child];</span><br><span class="line">		<span class="keyword">else</span></span><br><span class="line">			<span class="keyword">break</span>;</span><br><span class="line">        i = child;</span><br><span class="line">	}</span><br><span class="line">	a[i] = tmp;</span><br><span class="line">}</span><br><span class="line"><span class="comment">//这个代码如果记得，说明heap完全掌握了</span></span><br></pre></td></tr></tbody></table></figure>
+
+<p><strong>寻找规律</strong></p>
+<ul>
+<li>假设一直向左下，也就是i一直去 <code>i=child,child = 2*i;</code></li>
+<li>如果右边满足，再更改即可</li>
+<li>每一次都找到<code>a[i]</code>的值是什么即可，然后给i赋值</li>
+</ul>
+
+      
+    </div>
+    
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E7%AE%97%E6%B3%95/" rel="tag">算法</a></li></ul>
+	</div>
+
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+      
+    
+  </div>
+  
+</article>
+
+
+
+
+
+
+
+  
+    <article id="post-模拟题目训练" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2021/12/09/%E6%A8%A1%E6%8B%9F%E9%A2%98%E7%9B%AE%E8%AE%AD%E7%BB%83/" class="article-date">
+  	<time datetime="2021-12-08T16:00:00.000Z" itemprop="datePublished">2021-12-09</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2021/12/09/%E6%A8%A1%E6%8B%9F%E9%A2%98%E7%9B%AE%E8%AE%AD%E7%BB%83/">
+        模拟题目训练
+        
+      </a>
+    </h1>
+  
+
+      </header>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <!--Table of Contents begin-->
+        <!-- 
+          <div id="toc" class="toc-article">
+            <strong class="toc-title">目录</strong>
+            <a class="js-toggle-toc" href="javascript:void(0)"></a>
+            <div class="toc-content">
+              <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#709-%E8%BD%AC%E6%8D%A2%E6%88%90%E5%B0%8F%E5%86%99%E5%AD%97%E6%AF%8D"><span class="toc-text">709. 转换成小写字母</span></a></li></ol>
+            </div>
+          </div>
+         -->
+          <!-- Table of Contents -->
+        
+          <div id="toc" class="toc-article">
+            <strong class="toc-title">目录</strong>
+            <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#709-%E8%BD%AC%E6%8D%A2%E6%88%90%E5%B0%8F%E5%86%99%E5%AD%97%E6%AF%8D"><span class="toc-text">709. 转换成小写字母</span></a></li></ol>
+          </div>
+        
+        <!--Table of Contents end -->
+        
+
+
+
+
+        <h1 id="709-转换成小写字母"><a href="#709-转换成小写字母" class="headerlink" title="709. 转换成小写字母"></a>709. 转换成小写字母</h1><hr>
+<p><strong>java字符串函数需要记忆</strong></p>
+<ul>
+<li><code>s.toLowerCase()</code></li>
+</ul>
+<figure class="highlight java"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> </span>{</span><br><span class="line">    <span class="function"><span class="keyword">public</span> String <span class="title">toLowerCase</span><span class="params">(String s)</span> </span>{</span><br><span class="line">        <span class="keyword">return</span> s.toLowerCase();</span><br><span class="line">    }</span><br><span class="line">}</span><br></pre></td></tr></tbody></table></figure>
+
+
+      
+    </div>
+    
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E7%AE%97%E6%B3%95/" rel="tag">算法</a></li></ul>
+	</div>
+
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+      
+    
+  </div>
+  
+</article>
+
+
+
+
+
+
+
+  
     <article id="post-Taijan算法练习" class="article article-type-post" itemscope itemprop="blogPost">
   
     <div class="article-meta">
@@ -665,7 +998,7 @@
             <strong class="toc-title">目录</strong>
             <a class="js-toggle-toc" href="javascript:void(0)"></a>
             <div class="toc-content">
-              <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#%E7%BD%91%E7%BB%9C%E5%B1%82%E5%8A%9F%E8%83%BD"><span class="toc-text">网络层功能</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E8%B7%AF%E7%94%B1%E7%AE%97%E6%B3%95"><span class="toc-text">路由算法</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#1-%E5%88%86%E7%B1%BB"><span class="toc-text">1.分类</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2-%E8%B7%9D%E7%A6%BB%E5%90%91%E9%87%8F%E7%AE%97%E6%B3%95%EF%BC%88RIP%EF%BC%89"><span class="toc-text">2.距离向量算法（RIP）</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#3-%E9%93%BE%E8%B7%AF%E7%8A%B6%E6%80%81%E7%AE%97%E6%B3%95%EF%BC%88OSPF%EF%BC%89"><span class="toc-text">3.链路状态算法（OSPF）</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#4-%E5%B1%82%E6%AC%A1%E8%B7%AF%E7%94%B1"><span class="toc-text">4.层次路由</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#5-%E9%97%AE%E9%A2%98"><span class="toc-text">5.问题</span></a></li></ol></li></ol>
+              <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#%E7%BD%91%E7%BB%9C%E5%B1%82%E5%8A%9F%E8%83%BD"><span class="toc-text">网络层功能</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E8%B7%AF%E7%94%B1%E7%AE%97%E6%B3%95"><span class="toc-text">路由算法</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#1-%E5%88%86%E7%B1%BB"><span class="toc-text">1.分类</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2-%E8%B7%9D%E7%A6%BB%E5%90%91%E9%87%8F%E7%AE%97%E6%B3%95%EF%BC%88RIP%EF%BC%89"><span class="toc-text">2.距离向量算法（RIP）</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#3-%E9%93%BE%E8%B7%AF%E7%8A%B6%E6%80%81%E7%AE%97%E6%B3%95%EF%BC%88OSPF%EF%BC%89"><span class="toc-text">3.链路状态算法（OSPF）</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#4-%E5%B1%82%E6%AC%A1%E8%B7%AF%E7%94%B1"><span class="toc-text">4.层次路由</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#5-%E8%B7%AF%E7%94%B1%E8%A1%A8%E6%98%AF%E4%BB%80%E4%B9%88"><span class="toc-text">5.路由表是什么</span></a></li></ol></li></ol>
             </div>
           </div>
          -->
@@ -673,7 +1006,7 @@
         
           <div id="toc" class="toc-article">
             <strong class="toc-title">目录</strong>
-            <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#%E7%BD%91%E7%BB%9C%E5%B1%82%E5%8A%9F%E8%83%BD"><span class="toc-text">网络层功能</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E8%B7%AF%E7%94%B1%E7%AE%97%E6%B3%95"><span class="toc-text">路由算法</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#1-%E5%88%86%E7%B1%BB"><span class="toc-text">1.分类</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2-%E8%B7%9D%E7%A6%BB%E5%90%91%E9%87%8F%E7%AE%97%E6%B3%95%EF%BC%88RIP%EF%BC%89"><span class="toc-text">2.距离向量算法（RIP）</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#3-%E9%93%BE%E8%B7%AF%E7%8A%B6%E6%80%81%E7%AE%97%E6%B3%95%EF%BC%88OSPF%EF%BC%89"><span class="toc-text">3.链路状态算法（OSPF）</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#4-%E5%B1%82%E6%AC%A1%E8%B7%AF%E7%94%B1"><span class="toc-text">4.层次路由</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#5-%E9%97%AE%E9%A2%98"><span class="toc-text">5.问题</span></a></li></ol></li></ol>
+            <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#%E7%BD%91%E7%BB%9C%E5%B1%82%E5%8A%9F%E8%83%BD"><span class="toc-text">网络层功能</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E8%B7%AF%E7%94%B1%E7%AE%97%E6%B3%95"><span class="toc-text">路由算法</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#1-%E5%88%86%E7%B1%BB"><span class="toc-text">1.分类</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2-%E8%B7%9D%E7%A6%BB%E5%90%91%E9%87%8F%E7%AE%97%E6%B3%95%EF%BC%88RIP%EF%BC%89"><span class="toc-text">2.距离向量算法（RIP）</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#3-%E9%93%BE%E8%B7%AF%E7%8A%B6%E6%80%81%E7%AE%97%E6%B3%95%EF%BC%88OSPF%EF%BC%89"><span class="toc-text">3.链路状态算法（OSPF）</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#4-%E5%B1%82%E6%AC%A1%E8%B7%AF%E7%94%B1"><span class="toc-text">4.层次路由</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#5-%E8%B7%AF%E7%94%B1%E8%A1%A8%E6%98%AF%E4%BB%80%E4%B9%88"><span class="toc-text">5.路由表是什么</span></a></li></ol></li></ol>
           </div>
         
         <!--Table of Contents end -->
@@ -725,7 +1058,20 @@
 <li>内部网关协议（IGP）,主要是在一个自治系统内部使用的协议，包括RIP,OSPF</li>
 <li>外部网关协议（EGP）,主要包括：BGP</li>
 </ul>
-<h2 id="5-问题"><a href="#5-问题" class="headerlink" title="5.问题"></a>5.问题</h2>
+<h2 id="5-路由表是什么"><a href="#5-路由表是什么" class="headerlink" title="5.路由表是什么"></a>5.路由表是什么</h2><p>路由表建立的主要目标是为了实现路由协议和静态路由选择。</p>
+<p>（1）链路层协议发现的路由（即是直连路由)    </p>
+<p>（2）静态路由</p>
+<p>（3）动态路由协议发现的路由</p>
+<ul>
+<li><p>添加静态路由时，下一跳地址是填写本路由器的端口地址，还是对方路由器的端口地</p>
+<p>址？或者是目的地网络的路由器端口地址？<strong>下一跳地址写对方路由器的端口地址</strong></p>
+</li>
+<li><p>在同一个局域网内的2台PC机，IP地址分别为10.0.0.x/24和10.0.1.x/24，都属于VLAN1，一开始不能互相Ping通，为什么把子网掩码长度从24位变成16位，就通了？</p>
+<p>答：当掩码长度为 24 位时，两台 PC 不在同一网段，计算机首先查找网关的 MAC，如果网关 MAC 得不到回应，是 ping 不通的。当掩码长度为 16 位时，两台 PC 在同一网段，不需要通过网关，因此可以 ping 通。</p>
+</li>
+<li></li>
+</ul>
+
       
     </div>
     
@@ -1120,408 +1466,6 @@
       
 	<div class="article-tag tagcloud">
 		<ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F/" rel="tag">操作系统</a></li></ul>
-	</div>
-
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-      
-    
-  </div>
-  
-</article>
-
-
-
-
-
-
-
-  
-    <article id="post-啊问题待选择" class="article article-type-post" itemscope itemprop="blogPost">
-  
-    <div class="article-meta">
-      <a href="/2021/12/02/%E5%95%8A%E9%97%AE%E9%A2%98%E5%BE%85%E9%80%89%E6%8B%A9/" class="article-date">
-  	<time datetime="2021-12-01T16:00:02.000Z" itemprop="datePublished">2021-12-02</time>
-</a>
-    </div>
-  
-  <div class="article-inner">
-    
-      <input type="hidden" class="isFancy" />
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2021/12/02/%E5%95%8A%E9%97%AE%E9%A2%98%E5%BE%85%E9%80%89%E6%8B%A9/">
-        问题
-        
-      </a>
-    </h1>
-  
-
-      </header>
-      
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <!--Table of Contents begin-->
-        <!-- 
-          <div id="toc" class="toc-article">
-            <strong class="toc-title">目录</strong>
-            <a class="js-toggle-toc" href="javascript:void(0)"></a>
-            <div class="toc-content">
-              <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#%E9%97%AE%E9%A2%98"><span class="toc-text">问题</span></a></li></ol>
-            </div>
-          </div>
-         -->
-          <!-- Table of Contents -->
-        
-          <div id="toc" class="toc-article">
-            <strong class="toc-title">目录</strong>
-            <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#%E9%97%AE%E9%A2%98"><span class="toc-text">问题</span></a></li></ol>
-          </div>
-        
-        <!--Table of Contents end -->
-        
-
-
-
-
-        <p>[toc]</p>
-<h1 id="问题"><a href="#问题" class="headerlink" title="问题"></a>问题</h1><ul>
-<li>操作系统进程调度</li>
-<li>多线程多进程</li>
-<li>操作系统怎么实现保护模式</li>
-<li>HTTP协议每次发送什么东西，http和https的区别</li>
-<li>TCP创建链接过程</li>
-</ul>
-
-      
-    </div>
-    
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E9%9D%A2%E8%AF%95/" rel="tag">面试</a></li></ul>
-	</div>
-
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-      
-    
-  </div>
-  
-</article>
-
-
-
-
-
-
-
-  
-    <article id="post-虚拟内存" class="article article-type-post" itemscope itemprop="blogPost">
-  
-    <div class="article-meta">
-      <a href="/2021/12/02/%E8%99%9A%E6%8B%9F%E5%86%85%E5%AD%98/" class="article-date">
-  	<time datetime="2021-12-01T16:00:02.000Z" itemprop="datePublished">2021-12-02</time>
-</a>
-    </div>
-  
-  <div class="article-inner">
-    
-      <input type="hidden" class="isFancy" />
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2021/12/02/%E8%99%9A%E6%8B%9F%E5%86%85%E5%AD%98/">
-        虚拟内存
-        
-      </a>
-    </h1>
-  
-
-      </header>
-      
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <!--Table of Contents begin-->
-        <!-- 
-          <div id="toc" class="toc-article">
-            <strong class="toc-title">目录</strong>
-            <a class="js-toggle-toc" href="javascript:void(0)"></a>
-            <div class="toc-content">
-              <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#%E9%97%AE%E9%A2%98"><span class="toc-text">问题</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E4%BB%80%E4%B9%88%E6%98%AF%E8%99%9A%E6%8B%9F%E5%86%85%E5%AD%98"><span class="toc-text">什么是虚拟内存</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E8%99%9A%E6%8B%9F%E5%AD%98%E5%82%A8%E7%9A%84%E7%9B%AE%E7%9A%84"><span class="toc-text">虚拟存储的目的</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E8%99%9A%E6%8B%9F%E5%AD%98%E5%82%A8%E5%8E%9F%E7%90%86"><span class="toc-text">虚拟存储原理</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#1-%E5%86%85%E5%AD%98%E6%98%A0%E5%B0%84%E7%9A%84%E5%8E%9F%E7%90%86"><span class="toc-text">1.内存映射的原理</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2-%E9%A1%B5%E7%9A%84%E6%9F%A5%E6%89%BE"><span class="toc-text">2.页的查找</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#3-%E7%BC%BA%E9%A1%B5%E6%95%85%E9%9A%9C"><span class="toc-text">3.缺页故障</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#4-%E8%99%9A%E6%8B%9F%E5%AD%98%E5%82%A8%E7%9A%84%E5%86%99%E6%93%8D%E4%BD%9C"><span class="toc-text">4.虚拟存储的写操作</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E5%BF%AB%E8%A1%A8TLB"><span class="toc-text">快表TLB</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#1-%E7%9B%AE%E7%9A%84"><span class="toc-text">1.目的</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2-%E7%BB%93%E6%9E%84"><span class="toc-text">2.结构</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#3-TLB%E7%BC%BA%E9%A1%B5%E5%A4%84%E7%90%86"><span class="toc-text">3.TLB缺页处理</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#cache%E5%92%8CTLB%E4%B9%8B%E9%97%B4%E7%9A%84%E5%8D%8F%E5%90%8C"><span class="toc-text">cache和TLB之间的协同</span></a></li></ol>
-            </div>
-          </div>
-         -->
-          <!-- Table of Contents -->
-        
-          <div id="toc" class="toc-article">
-            <strong class="toc-title">目录</strong>
-            <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#%E9%97%AE%E9%A2%98"><span class="toc-text">问题</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E4%BB%80%E4%B9%88%E6%98%AF%E8%99%9A%E6%8B%9F%E5%86%85%E5%AD%98"><span class="toc-text">什么是虚拟内存</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E8%99%9A%E6%8B%9F%E5%AD%98%E5%82%A8%E7%9A%84%E7%9B%AE%E7%9A%84"><span class="toc-text">虚拟存储的目的</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E8%99%9A%E6%8B%9F%E5%AD%98%E5%82%A8%E5%8E%9F%E7%90%86"><span class="toc-text">虚拟存储原理</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#1-%E5%86%85%E5%AD%98%E6%98%A0%E5%B0%84%E7%9A%84%E5%8E%9F%E7%90%86"><span class="toc-text">1.内存映射的原理</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2-%E9%A1%B5%E7%9A%84%E6%9F%A5%E6%89%BE"><span class="toc-text">2.页的查找</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#3-%E7%BC%BA%E9%A1%B5%E6%95%85%E9%9A%9C"><span class="toc-text">3.缺页故障</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#4-%E8%99%9A%E6%8B%9F%E5%AD%98%E5%82%A8%E7%9A%84%E5%86%99%E6%93%8D%E4%BD%9C"><span class="toc-text">4.虚拟存储的写操作</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E5%BF%AB%E8%A1%A8TLB"><span class="toc-text">快表TLB</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#1-%E7%9B%AE%E7%9A%84"><span class="toc-text">1.目的</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2-%E7%BB%93%E6%9E%84"><span class="toc-text">2.结构</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#3-TLB%E7%BC%BA%E9%A1%B5%E5%A4%84%E7%90%86"><span class="toc-text">3.TLB缺页处理</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#cache%E5%92%8CTLB%E4%B9%8B%E9%97%B4%E7%9A%84%E5%8D%8F%E5%90%8C"><span class="toc-text">cache和TLB之间的协同</span></a></li></ol>
-          </div>
-        
-        <!--Table of Contents end -->
-        
-
-
-
-
-        <p>[toc]</p>
-<h1 id="问题"><a href="#问题" class="headerlink" title="问题"></a>问题</h1><hr>
-<ul>
-<li>什么是虚拟内存</li>
-<li>虚拟内存原理</li>
-<li>虚拟内存怎么进行也置换</li>
-<li>两个进程数据如何共享（物理地址页共享，页表分开，fork()）</li>
-<li>如何实现进程中的内存是可变的：分段</li>
-<li>分页存储的好处：利用内存空间，防止碎片化</li>
-<li>虚拟内存和物理内存地址如何映射，页表结构？位置在哪？</li>
-<li>为什么说虚拟内存可以提供保护机制</li>
-<li>快表？每一个程序都有一个页表吗</li>
-</ul>
-<h1 id="什么是虚拟内存"><a href="#什么是虚拟内存" class="headerlink" title="什么是虚拟内存"></a>什么是虚拟内存</h1><hr>
-<ul>
-<li>虚拟存储实际上就是一个页表，更进一步的就是一个快表</li>
-<li>将主存作为磁盘cache</li>
-</ul>
-<h1 id="虚拟存储的目的"><a href="#虚拟存储的目的" class="headerlink" title="虚拟存储的目的"></a>虚拟存储的目的</h1><hr>
-<ul>
-<li>可以<strong>弥补物理内存大小的不足</strong>，看上去程序就像拥有很大的内存空间</li>
-<li>充分利用磁盘空间，<strong>解决零碎化的问题：分页</strong></li>
-<li>加强各个程序之间的<strong>地址保护</strong></li>
-</ul>
-<h1 id="虚拟存储原理"><a href="#虚拟存储原理" class="headerlink" title="虚拟存储原理"></a>虚拟存储原理</h1><hr>
-<blockquote>
-<p>主要原理就是采用页表进行虚拟地址到物理地址的映射</p>
-</blockquote>
-<h2 id="1-内存映射的原理"><a href="#1-内存映射的原理" class="headerlink" title="1.内存映射的原理"></a>1.内存映射的原理</h2><img src="https://gitee.com/mymengchuang/blog_img/raw/master/image-20211204225306513.png" alt="image-20211204225306513" style="zoom:80%;">
-
-
-
-<h2 id="2-页的查找"><a href="#2-页的查找" class="headerlink" title="2.页的查找"></a>2.页的查找</h2><p><code>实现物理地址到虚拟地址的映射流程如下：</code></p>
-<img src="https://gitee.com/mymengchuang/blog_img/raw/master/image-20211204225017393.png" alt="image-20211204225017393" style="zoom:80%;">
-
-
-
-<p><code>注意：</code></p>
-<ul>
-<li><p>Page table Register 指向页表，页表存放在</p>
-</li>
-<li><p>虚拟地址的<code>page offser</code>和物理地址的是一样的</p>
-</li>
-<li><p>页表同时指向内存和磁盘</p>
-</li>
-<li><p>问题：需要访问两次主存，因为页表存在主存中，因此可以引入快表，作为页表的cache</p>
-</li>
-<li><p>虚拟存储都是采用写回策略</p>
-</li>
-<li><p>允许页以全相联的方式放置</p>
-</li>
-<li><p>控制页表查询的是MMU（硬件，也就是MMU查询页表，获得虚拟地址到物理地址的映射）</p>
-</li>
-</ul>
-<blockquote>
-<p>程序分段，存储分页</p>
-</blockquote>
-<h2 id="3-缺页故障"><a href="#3-缺页故障" class="headerlink" title="3.缺页故障"></a>3.缺页故障</h2><blockquote>
-<p>主要是MMU实现对虚拟地址到内存地址之间的映射。引入快表以后，优先查询快表</p>
-<p><strong>页表存在于进程的内存之中，MMU收到虚拟地址之后查询Page Table来获取物理地址。</strong></p>
-</blockquote>
-<ul>
-<li><p>CPU给MMU的虚拟地址，在TLB和 Page Table都没有找到对应的物理页帧</p>
-</li>
-<li><p><strong>缺页异常Page Fault，它是一个由硬件中断触发的可以由软件逻辑纠正的错误</strong></p>
-</li>
-</ul>
-<p><code>处理流程</code></p>
-<p>​        <strong>由于CPU没有数据就无法进行计算，CPU罢工了用户进程也就出现了缺页中断，进程会从用户态切换到内核态，并将缺页中断交给内核的 Page Fault Handler 处理。</strong></p>
-<h2 id="4-虚拟存储的写操作"><a href="#4-虚拟存储的写操作" class="headerlink" title="4.虚拟存储的写操作"></a>4.虚拟存储的写操作</h2><p>​        虚拟存储系统必须采用写回操作，对主存中的页进行单独的写操作，在该页被替换出主存以后，在复制到磁盘中。</p>
-<h1 id="快表TLB"><a href="#快表TLB" class="headerlink" title="快表TLB"></a>快表TLB</h1><hr>
-<h2 id="1-目的"><a href="#1-目的" class="headerlink" title="1.目的"></a>1.目的</h2><p><strong>加快地址转化</strong></p>
-<h2 id="2-结构"><a href="#2-结构" class="headerlink" title="2.结构"></a>2.结构</h2><ul>
-<li>TLB包含脏位、引用位，标记位（虚拟页号），物理地址页面</li>
-<li>采用写回操作</li>
-<li>全相连查找</li>
-</ul>
-<img src="https://gitee.com/mymengchuang/blog_img/raw/master/image-20211204232811380.png" alt="image-20211204232811380" style="zoom:80%;">
-
-
-
-
-
-<h2 id="3-TLB缺页处理"><a href="#3-TLB缺页处理" class="headerlink" title="3.TLB缺页处理"></a>3.TLB缺页处理</h2><ul>
-<li><p>MMU无法查询到TLB中合适的地址，查询页表</p>
-</li>
-<li><p>查询页表查询到了，在reload到TLB中；查询不到，操作系统启动中断</p>
-</li>
-<li><p>采用软件和硬件来处理的速度是差不多的</p>
-</li>
-</ul>
-<h1 id="cache和TLB之间的协同"><a href="#cache和TLB之间的协同" class="headerlink" title="cache和TLB之间的协同"></a>cache和TLB之间的协同</h1><hr>
-<img src="https://gitee.com/mymengchuang/blog_img/raw/master/image-20211204233140918.png" alt="image-20211204233140918" style="zoom:80%;">
-
-<p><strong>结构示意图：</strong></p>
-<img src="https://gitee.com/mymengchuang/blog_img/raw/master/image-20211204233343917.png" alt="image-20211204233343917" style="zoom:80%;">
-
-<img src="https://gitee.com/mymengchuang/blog_img/raw/master/image-20211204233623570.png" alt="image-20211204233623570" style="zoom:80%;">
-
-
-      
-    </div>
-    
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BB%84%E6%88%90/" rel="tag">计算机组成</a></li></ul>
-	</div>
-
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-      
-    
-  </div>
-  
-</article>
-
-
-
-
-
-
-
-  
-    <article id="post-二分图最大匹配" class="article article-type-post" itemscope itemprop="blogPost">
-  
-    <div class="article-meta">
-      <a href="/2021/11/29/%E4%BA%8C%E5%88%86%E5%9B%BE%E6%9C%80%E5%A4%A7%E5%8C%B9%E9%85%8D/" class="article-date">
-  	<time datetime="2021-11-29T14:00:00.000Z" itemprop="datePublished">2021-11-29</time>
-</a>
-    </div>
-  
-  <div class="article-inner">
-    
-      <input type="hidden" class="isFancy" />
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2021/11/29/%E4%BA%8C%E5%88%86%E5%9B%BE%E6%9C%80%E5%A4%A7%E5%8C%B9%E9%85%8D/">
-        二分图最大匹配
-        
-      </a>
-    </h1>
-  
-
-      </header>
-      
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <!--Table of Contents begin-->
-        <!-- 
-          <div id="toc" class="toc-article">
-            <strong class="toc-title">目录</strong>
-            <a class="js-toggle-toc" href="javascript:void(0)"></a>
-            <div class="toc-content">
-              <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#%E9%97%AE%E9%A2%98%E6%8F%8F%E8%BF%B0"><span class="toc-text">问题描述</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E5%8C%88%E7%89%99%E5%88%A9%E7%AE%97%E6%B3%95"><span class="toc-text">匈牙利算法</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#DFS%E7%AE%97%E6%B3%95"><span class="toc-text">DFS算法</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#LCP-04-%E8%A6%86%E7%9B%96"><span class="toc-text">LCP 04. 覆盖</span></a></li></ol>
-            </div>
-          </div>
-         -->
-          <!-- Table of Contents -->
-        
-          <div id="toc" class="toc-article">
-            <strong class="toc-title">目录</strong>
-            <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#%E9%97%AE%E9%A2%98%E6%8F%8F%E8%BF%B0"><span class="toc-text">问题描述</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E5%8C%88%E7%89%99%E5%88%A9%E7%AE%97%E6%B3%95"><span class="toc-text">匈牙利算法</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#DFS%E7%AE%97%E6%B3%95"><span class="toc-text">DFS算法</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#LCP-04-%E8%A6%86%E7%9B%96"><span class="toc-text">LCP 04. 覆盖</span></a></li></ol>
-          </div>
-        
-        <!--Table of Contents end -->
-        
-
-
-
-
-        <h1 id="问题描述"><a href="#问题描述" class="headerlink" title="问题描述"></a>问题描述</h1><hr>
-<p>二分图的一个等价定义是：不含有「含奇数条边的环」的图。</p>
-<p><strong>二分图：</strong>简单来说，如果图中点可以被分为两组，并且使得所有边都跨越组的边界，则这就是一个二分图。准确地说：把一个图的顶点划分为两个不相交集 <code>U</code>和<code>V</code> ，使得每一条边都分别连接<code>U</code>、<code>V</code>中的顶点。</p>
-<p><strong>最大匹配</strong>：一个图所有匹配中，所<strong>含匹配边数最多的匹配</strong><code>(也可以说匹配对数最多)</code>，称为这个图的最大匹配。</p>
-<p><strong>完美匹配</strong>：如果一个图的某个匹配中，所有的顶点都是匹配点，那么它就是一个完美匹配。</p>
-<blockquote>
-<p>每一个点只能进行一次匹配</p>
-</blockquote>
-<h1 id="匈牙利算法"><a href="#匈牙利算法" class="headerlink" title="匈牙利算法"></a>匈牙利算法</h1><hr>
-<p><strong>交替路</strong>：从一个未匹配点出发，依次经过非匹配边、匹配边、非匹配边…形成的路径叫交替路。</p>
-<p><strong>增广路</strong>：从一个未匹配点出发，走交替路，如果途径另一个未匹配点（出发的点不算），则这条交替路称为增广路（agumenting path）。</p>
-<p><strong>特点：</strong>增广路有一个重要特点：非匹配边比匹配边多一条。因此，研究增广路的意义是<strong>改进匹配</strong>。只要把增广路中的匹配边和非匹配边的身份交换即可。由于中间的匹配节点不存在其他相连的匹配边，所以这样做不会破坏匹配的性质。交换后，图中的匹配边数目比原来多了 1 条</p>
-<p><code>增广路定理：</code>我们可以通过不停地找增广路来增加匹配中的匹配边和匹配点。找不到增广路时，达到最大匹配。</p>
-<p><code>匈牙利树</code>：一般由 BFS 构造（类似于 BFS 树）。从一个未匹配点出发运行 BFS（唯一的限制是，必须走交替路），直到不能再扩展为止。</p>
-<p><strong>匈牙利算法的要点如下</strong></p>
-<ol>
-<li>从左边第 1 个顶点开始，挑选未匹配点进行搜索，寻找增广路。<ol>
-<li>如果经过一个未匹配点，说明寻找成功。更新路径信息，匹配边数 +1，停止搜索。</li>
-<li>如果一直没有找到增广路，则不再从这个点开始搜索。事实上，此时搜索后会形成一棵匈牙利树。我们可以永久性地把它从图中删去，而不影响结果。</li>
-</ol>
-</li>
-<li>由于找到增广路之后需要沿着路径更新匹配，所以我们需要一个结构来记录路径上的点。DFS 版本通过函数调用隐式地使用一个栈，而 BFS 版本使用 <code>prev</code> 数组。</li>
-</ol>
-<h1 id="DFS算法"><a href="#DFS算法" class="headerlink" title="DFS算法"></a>DFS算法</h1><hr>
-<figure class="highlight java"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">int</span> matching[__maxNodes]; <span class="comment">/* 存储求解结果 */</span></span><br><span class="line"><span class="keyword">int</span> check[__maxNodes];</span><br><span class="line"></span><br><span class="line"><span class="function">bool <span class="title">dfs</span><span class="params">(<span class="keyword">int</span> u)</span></span></span><br><span class="line"><span class="function"></span>{</span><br><span class="line">    <span class="keyword">for</span> (iterator_t i = G[u].begin(); i != G[u].end(); ++i) { <span class="comment">// 对 u 的每个邻接点</span></span><br><span class="line">        <span class="keyword">int</span> v = edges[*i].to;</span><br><span class="line">        <span class="keyword">if</span> (!check[v]) {     <span class="comment">// 要求不在交替路中</span></span><br><span class="line">            check[v] = <span class="keyword">true</span>; <span class="comment">// 放入交替路</span></span><br><span class="line">            <span class="keyword">if</span> (matching[v] == -<span class="number">1</span> || dfs(matching[v])) {</span><br><span class="line">                <span class="comment">// 如果是未盖点，说明交替路为增广路，则交换路径，并返回成功</span></span><br><span class="line">                matching[v] = u;</span><br><span class="line">                matching[u] = v;</span><br><span class="line">                <span class="keyword">return</span> <span class="keyword">true</span>;</span><br><span class="line">            }</span><br><span class="line">        }</span><br><span class="line">    }</span><br><span class="line">    <span class="keyword">return</span> <span class="keyword">false</span>; <span class="comment">// 不存在增广路，返回失败</span></span><br><span class="line">}</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">hungarian</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>{</span><br><span class="line">    <span class="keyword">int</span> ans = <span class="number">0</span>;</span><br><span class="line">    memset(matching, -<span class="number">1</span>, sizeof(matching));</span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> u=<span class="number">0</span>; u &lt; num_left; ++u) {</span><br><span class="line">        <span class="keyword">if</span> (matching[u] == -<span class="number">1</span>) {</span><br><span class="line">            memset(check, <span class="number">0</span>, sizeof(check));</span><br><span class="line">            <span class="keyword">if</span> (dfs(u))</span><br><span class="line">                ++ans;</span><br><span class="line">        }</span><br><span class="line">    }</span><br><span class="line">    <span class="keyword">return</span> ans;</span><br><span class="line">}</span><br></pre></td></tr></tbody></table></figure>
-
-
-
-<p>详细解答不必须要解答：<a target="_blank" rel="noopener" href="https://blog.csdn.net/thundermrbird/article/details/52231639">https://blog.csdn.net/thundermrbird/article/details/52231639</a></p>
-<h1 id="LCP-04-覆盖"><a href="#LCP-04-覆盖" class="headerlink" title="LCP 04. 覆盖"></a>LCP 04. 覆盖</h1><hr>
-<p>你有一块棋盘，棋盘上有一些格子已经坏掉了。你还有无穷块大小为<code>1 * 2</code>的多米诺骨牌，你想把这些骨牌<strong>不重叠</strong>地覆盖在<strong>完好</strong>的格子上，请找出你最多能在棋盘上放多少块骨牌？这些骨牌可以横着或者竖着放。</p>
-<p>输入：<code>n, m</code>代表棋盘的大小；<code>broken</code>是一个<code>b * 2</code>的二维数组，其中每个元素代表棋盘上每一个坏掉的格子的位置</p>
-<p>输出：一个整数，代表最多能在棋盘上放的骨牌数</p>
-<p><strong>示例一：</strong></p>
-<figure class="highlight java"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">输入：n = <span class="number">2</span>, m = <span class="number">3</span>, broken = [[<span class="number">1</span>, <span class="number">0</span>], [<span class="number">1</span>, <span class="number">1</span>]]</span><br><span class="line">输出：<span class="number">2</span></span><br><span class="line">解释：我们最多可以放两块骨牌：[[<span class="number">0</span>, <span class="number">0</span>], [<span class="number">0</span>, <span class="number">1</span>]]以及[[<span class="number">0</span>, <span class="number">2</span>], [<span class="number">1</span>, <span class="number">2</span>]]。（见下图）</span><br></pre></td></tr></tbody></table></figure>
-
-<p><strong>思路：</strong></p>
-<ul>
-<li>状态压缩动态规划</li>
-<li>二分图最大匹配</li>
-</ul>
-<p><strong>思路一：二分图匹配</strong></p>
-<ul>
-<li><p>1*2大小的棋子相关的问题可以用黑白棋盘染色，然后用二分图来解决；</p>
-</li>
-<li><p>因为这种形状的棋子必然占据两个不同颜色的棋盘格</p>
-</li>
-<li><p>这里的染色是用(i + j) 的奇偶性判断；</p>
-</li>
-<li><p>根据上下左右建边；然后用匈牙利算法寻找二分图最大匹配即可；</p>
-</li>
-</ul>
-
-      
-    </div>
-    
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E7%AE%97%E6%B3%95/" rel="tag">算法</a></li></ul>
 	</div>
 
       

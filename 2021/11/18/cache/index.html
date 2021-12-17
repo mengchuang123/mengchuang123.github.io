@@ -20,7 +20,7 @@
 <meta property="og:image" content="https://gitee.com/mymengchuang/blog_img/raw/master/image-20211201214803219.png">
 <meta property="og:image" content="c:/Users/DELL/AppData/Roaming/Typora/typora-user-images/image-20211208004831099.png">
 <meta property="article:published_time" content="2021-11-17T16:00:02.000Z">
-<meta property="article:modified_time" content="2021-12-07T17:25:09.628Z">
+<meta property="article:modified_time" content="2021-12-16T04:13:30.783Z">
 <meta property="article:author" content="mengchuang">
 <meta property="article:tag" content="计算机组成">
 <meta name="twitter:card" content="summary">
@@ -314,10 +314,13 @@
 <li><p><strong>冲突失效：</strong>在直接相联或组相联的cache中，不同的cache块由于index相同相互替换，引起的失效叫做冲突失效。</p>
 </li>
 </ul>
+<p>关键路径是获取数据过程中占用时间最长的那条路径。</p>
+<p>the sub-blocked cache的关键路径：Comparator-&gt; N-to-1 Mux</p>
+<p>块大小增加会影响conflict miss。因为有限的cache容量导致cache放不下而替换出cache块，被替换出去的cache块再被访问</p>
 <p>冲突缺失：如果高速缓存完全相关联且采用LRU替换规则，则不会发生冲突缺失。</p>
 <p>容量缺失：即使采用全关联和最完美的替换策略也会发生容量缺失。</p>
 <p>例如有一个大小为4的直接映射高速缓存。访问序列如下：0,1,2,3,4,1,2,3,0,4,0</p>
-<p>0(compulsory miss), 1(compulsory miss), 2(compulsory miss), 3(compulsory miss), 4(compulsory miss), 1(hit), 2(hit), 3(hit), 0(capacity miss), 4(capacity miss), 0(conflict miss)</p>
+<p>0(compulsory miss), 1(compulsory miss), 2(compulsory miss), 3(compulsory miss), 4(compulsory miss), 1(hit), 2(hit), 3(hit), <strong>0(capacity miss),</strong> 4(capacity miss), 0(conflict miss)</p>
 <p>倒数第二个0是容量丢失，因为即使该缓存与LRU缓存完全关联，它仍然会导致丢失，因为在最后0之前访问了4,1,2,3。但是最后一个0是一个冲突丢失，因为在完全关联的缓存中，后4个将替换缓存中的1而不是0</p>
 <h1 id="cache如何进行优化"><a href="#cache如何进行优化" class="headerlink" title="cache如何进行优化"></a>cache如何进行优化</h1><hr>
 <p>考虑以下因素</p>
