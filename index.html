@@ -34,9 +34,9 @@
 
 
   
-<meta name="generator" content="Hexo 5.4.0">
+<meta name="generator" content="Hexo 5.4.0"><link rel="alternate" href="/atom.xml" title="mengchuang" type="application/atom+xml">
+
 <style>.github-emoji { position: relative; display: inline-block; width: 1.2em; min-height: 1.2em; overflow: hidden; vertical-align: top; color: transparent; }  .github-emoji > span { position: relative; z-index: 10; }  .github-emoji img, .github-emoji .fancybox { margin: 0 !important; padding: 0 !important; border: none !important; outline: none !important; text-decoration: none !important; user-select: none !important; cursor: auto !important; }  .github-emoji img { height: 1.2em !important; width: 1.2em !important; position: absolute !important; left: 50% !important; top: 50% !important; transform: translate(-50%, -50%) !important; user-select: none !important; cursor: auto !important; } .github-emoji-fallback { color: inherit; } .github-emoji-fallback img { opacity: 0 !important; }</style>
-<link rel="alternate" href="/atom.xml" title="mengchuang" type="application/atom+xml">
 </head>
 <body>
   <div id="container">
@@ -164,6 +164,419 @@
 	</div>
 </nav>
       <div class="body-wrap">
+  
+    <article id="post-数据分析算法设计复习" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2021/12/24/%E6%95%B0%E6%8D%AE%E5%88%86%E6%9E%90%E7%AE%97%E6%B3%95%E8%AE%BE%E8%AE%A1%E5%A4%8D%E4%B9%A0/" class="article-date">
+  	<time datetime="2021-12-24T14:19:00.000Z" itemprop="datePublished">2021-12-24</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2021/12/24/%E6%95%B0%E6%8D%AE%E5%88%86%E6%9E%90%E7%AE%97%E6%B3%95%E8%AE%BE%E8%AE%A1%E5%A4%8D%E4%B9%A0/">
+        算法设计复习
+        
+      </a>
+    </h1>
+  
+
+      </header>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <!--Table of Contents begin-->
+        <!-- 
+          <div id="toc" class="toc-article">
+            <strong class="toc-title">目录</strong>
+            <a class="js-toggle-toc" href="javascript:void(0)"></a>
+            <div class="toc-content">
+              <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#%E5%A4%8D%E4%B9%A0%E8%AE%A1%E5%88%92"><span class="toc-text">复习计划</span></a></li></ol>
+            </div>
+          </div>
+         -->
+          <!-- Table of Contents -->
+        
+          <div id="toc" class="toc-article">
+            <strong class="toc-title">目录</strong>
+            <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#%E5%A4%8D%E4%B9%A0%E8%AE%A1%E5%88%92"><span class="toc-text">复习计划</span></a></li></ol>
+          </div>
+        
+        <!--Table of Contents end -->
+        
+
+
+
+
+        <p>[toc]</p>
+<h1 id="复习计划"><a href="#复习计划" class="headerlink" title="复习计划"></a>复习计划</h1><ul>
+<li>课本基础知识点总结在A4上面</li>
+<li>复习课本所有的习题</li>
+<li>复习leetcode中的动态规划，贪心算法中等到困难的思路</li>
+</ul>
+
+      
+    </div>
+    
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E7%AE%97%E6%B3%95/" rel="tag">算法</a></li></ul>
+	</div>
+
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+      
+    
+  </div>
+  
+</article>
+
+
+
+
+
+
+
+  
+    <article id="post-贪心算法hard思路总结" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2021/12/24/%E8%B4%AA%E5%BF%83%E7%AE%97%E6%B3%95hard%E6%80%9D%E8%B7%AF%E6%80%BB%E7%BB%93/" class="article-date">
+  	<time datetime="2021-12-24T13:19:00.000Z" itemprop="datePublished">2021-12-24</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2021/12/24/%E8%B4%AA%E5%BF%83%E7%AE%97%E6%B3%95hard%E6%80%9D%E8%B7%AF%E6%80%BB%E7%BB%93/">
+        贪心hard思路总结
+        
+      </a>
+    </h1>
+  
+
+      </header>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <!--Table of Contents begin-->
+        <!-- 
+          <div id="toc" class="toc-article">
+            <strong class="toc-title">目录</strong>
+            <a class="js-toggle-toc" href="javascript:void(0)"></a>
+            <div class="toc-content">
+              <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#517%E8%B6%85%E7%BA%A7%E6%B4%97%E8%A1%A3%E6%9C%BA"><span class="toc-text">517超级洗衣机</span></a></li></ol>
+            </div>
+          </div>
+         -->
+          <!-- Table of Contents -->
+        
+          <div id="toc" class="toc-article">
+            <strong class="toc-title">目录</strong>
+            <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#517%E8%B6%85%E7%BA%A7%E6%B4%97%E8%A1%A3%E6%9C%BA"><span class="toc-text">517超级洗衣机</span></a></li></ol>
+          </div>
+        
+        <!--Table of Contents end -->
+        
+
+
+
+
+        <p>[toc]</p>
+<h1 id="517超级洗衣机"><a href="#517超级洗衣机" class="headerlink" title="517超级洗衣机"></a>517超级洗衣机</h1>
+      
+    </div>
+    
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E7%AE%97%E6%B3%95/" rel="tag">算法</a></li></ul>
+	</div>
+
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+      
+    
+  </div>
+  
+</article>
+
+
+
+
+
+
+
+  
+    <article id="post-做过的题目思路总结" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2021/12/24/%E5%81%9A%E8%BF%87%E7%9A%84%E9%A2%98%E7%9B%AE%E6%80%9D%E8%B7%AF%E6%80%BB%E7%BB%93/" class="article-date">
+  	<time datetime="2021-12-24T02:23:23.565Z" itemprop="datePublished">2021-12-24</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <!--Table of Contents begin-->
+        <!--  -->
+          <!-- Table of Contents -->
+        
+        <!--Table of Contents end -->
+        
+
+
+
+
+        
+      
+    </div>
+    
+    <div class="article-info article-info-index">
+      
+      
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+      
+    
+  </div>
+  
+</article>
+
+
+
+
+
+
+
+  
+    <article id="post-动态规划hard思路总结" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2021/12/22/%E5%8A%A8%E6%80%81%E8%A7%84%E5%88%92hard%E6%80%9D%E8%B7%AF%E6%80%BB%E7%BB%93/" class="article-date">
+  	<time datetime="2021-12-22T13:19:00.000Z" itemprop="datePublished">2021-12-22</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2021/12/22/%E5%8A%A8%E6%80%81%E8%A7%84%E5%88%92hard%E6%80%9D%E8%B7%AF%E6%80%BB%E7%BB%93/">
+        动态规划hard思路总结
+        
+      </a>
+    </h1>
+  
+
+      </header>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <!--Table of Contents begin-->
+        <!-- 
+          <div id="toc" class="toc-article">
+            <strong class="toc-title">目录</strong>
+            <a class="js-toggle-toc" href="javascript:void(0)"></a>
+            <div class="toc-content">
+              <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#42%E6%8E%A5%E9%9B%A8%E6%B0%B4"><span class="toc-text">42接雨水</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#1-%E6%9A%B4%E5%8A%9B%E8%A7%A3%E6%B3%95"><span class="toc-text">1. 暴力解法</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2-%E5%8A%A8%E6%80%81%E8%A7%84%E5%88%92%EF%BC%88%E9%A2%84%E5%A4%84%E7%90%86%EF%BC%89"><span class="toc-text">2. 动态规划（预处理）</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#123-%E4%B9%B0%E5%8D%96%E8%82%A1%E7%A5%A8%E7%9A%84%E6%9C%80%E4%BD%B3%E6%97%B6%E6%9C%BA-III%EF%BC%88DP%EF%BC%89"><span class="toc-text">123. 买卖股票的最佳时机 III（DP）</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#1340-%E8%B7%B3%E8%B7%83%E6%B8%B8%E6%88%8F-V"><span class="toc-text">1340. 跳跃游戏 V</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#462-%E6%9C%80%E5%B0%91%E7%A7%BB%E5%8A%A8%E6%AC%A1%E6%95%B0%E4%BD%BF%E6%95%B0%E7%BB%84%E5%85%83%E7%B4%A0%E7%9B%B8%E7%AD%89-II"><span class="toc-text">462. 最少移动次数使数组元素相等 II</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#218-%E5%A4%A9%E9%99%85%E7%BA%BF%E9%97%AE%E9%A2%98"><span class="toc-text">218. 天际线问题</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#403-%E9%9D%92%E8%9B%99%E8%BF%87%E6%B2%B3"><span class="toc-text">403.青蛙过河</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#72-%E7%BC%96%E8%BE%91%E8%B7%9D%E7%A6%BB"><span class="toc-text">72. 编辑距离</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#84-%E6%9F%B1%E7%8A%B6%E5%9B%BE%E4%B8%AD%E6%9C%80%E5%A4%A7%E7%9A%84%E7%9F%A9%E5%BD%A2"><span class="toc-text">84. 柱状图中最大的矩形</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#85-%E6%9C%80%E5%A4%A7%E7%9F%A9%E5%BD%A2"><span class="toc-text">85. 最大矩形</span></a></li></ol>
+            </div>
+          </div>
+         -->
+          <!-- Table of Contents -->
+        
+          <div id="toc" class="toc-article">
+            <strong class="toc-title">目录</strong>
+            <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#42%E6%8E%A5%E9%9B%A8%E6%B0%B4"><span class="toc-text">42接雨水</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#1-%E6%9A%B4%E5%8A%9B%E8%A7%A3%E6%B3%95"><span class="toc-text">1. 暴力解法</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2-%E5%8A%A8%E6%80%81%E8%A7%84%E5%88%92%EF%BC%88%E9%A2%84%E5%A4%84%E7%90%86%EF%BC%89"><span class="toc-text">2. 动态规划（预处理）</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#123-%E4%B9%B0%E5%8D%96%E8%82%A1%E7%A5%A8%E7%9A%84%E6%9C%80%E4%BD%B3%E6%97%B6%E6%9C%BA-III%EF%BC%88DP%EF%BC%89"><span class="toc-text">123. 买卖股票的最佳时机 III（DP）</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#1340-%E8%B7%B3%E8%B7%83%E6%B8%B8%E6%88%8F-V"><span class="toc-text">1340. 跳跃游戏 V</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#462-%E6%9C%80%E5%B0%91%E7%A7%BB%E5%8A%A8%E6%AC%A1%E6%95%B0%E4%BD%BF%E6%95%B0%E7%BB%84%E5%85%83%E7%B4%A0%E7%9B%B8%E7%AD%89-II"><span class="toc-text">462. 最少移动次数使数组元素相等 II</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#218-%E5%A4%A9%E9%99%85%E7%BA%BF%E9%97%AE%E9%A2%98"><span class="toc-text">218. 天际线问题</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#403-%E9%9D%92%E8%9B%99%E8%BF%87%E6%B2%B3"><span class="toc-text">403.青蛙过河</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#72-%E7%BC%96%E8%BE%91%E8%B7%9D%E7%A6%BB"><span class="toc-text">72. 编辑距离</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#84-%E6%9F%B1%E7%8A%B6%E5%9B%BE%E4%B8%AD%E6%9C%80%E5%A4%A7%E7%9A%84%E7%9F%A9%E5%BD%A2"><span class="toc-text">84. 柱状图中最大的矩形</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#85-%E6%9C%80%E5%A4%A7%E7%9F%A9%E5%BD%A2"><span class="toc-text">85. 最大矩形</span></a></li></ol>
+          </div>
+        
+        <!--Table of Contents end -->
+        
+
+
+
+
+        <p>[toc]</p>
+<h1 id="42接雨水"><a href="#42接雨水" class="headerlink" title="42接雨水"></a>42接雨水</h1><hr>
+<p>给定 <code>n</code> 个非负整数表示每个宽度为 <code>1</code> 的柱子的高度图，计算按此排列的柱子，下雨之后能接多少雨水。</p>
+<p><strong>示例一：</strong></p>
+<figure class="highlight java"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">输入：height = [<span class="number">0</span>,<span class="number">1</span>,<span class="number">0</span>,<span class="number">2</span>,<span class="number">1</span>,<span class="number">0</span>,<span class="number">1</span>,<span class="number">3</span>,<span class="number">2</span>,<span class="number">1</span>,<span class="number">2</span>,<span class="number">1</span>]</span><br><span class="line">输出：<span class="number">6</span></span><br><span class="line">解释：上面是由数组 [<span class="number">0</span>,<span class="number">1</span>,<span class="number">0</span>,<span class="number">2</span>,<span class="number">1</span>,<span class="number">0</span>,<span class="number">1</span>,<span class="number">3</span>,<span class="number">2</span>,<span class="number">1</span>,<span class="number">2</span>,<span class="number">1</span>] 表示的高度图，在这种情况下，可以接 <span class="number">6</span> 个单位的雨水（蓝色部分表示雨水）。 </span><br></pre></td></tr></tbody></table></figure>
+
+<h2 id="1-暴力解法"><a href="#1-暴力解法" class="headerlink" title="1. 暴力解法"></a>1. 暴力解法</h2><p>对于数组中的每个元素，我们找出下雨后水能达到的最高位置，等于两边最大高度的较小值减去当前高度的值。</p>
+<blockquote>
+<p>实际上就是求出每一个数组中的值上方的雨水量</p>
+</blockquote>
+<img src="https://gitee.com/mymengchuang/blog_img/raw/master/image-20211222212856631.png" alt="image-20211222212856631" style="zoom:80%;">
+
+<figure class="highlight java"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">trap</span><span class="params">(<span class="keyword">int</span>[] height)</span> </span>{</span><br><span class="line">    <span class="keyword">int</span> ans = <span class="number">0</span>;</span><br><span class="line">    <span class="keyword">int</span> size = height.length;</span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">1</span>; i &lt; size - <span class="number">1</span>; i++) {</span><br><span class="line">        <span class="keyword">int</span> max_left = <span class="number">0</span>, max_right = <span class="number">0</span>;</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> j = i; j &gt;= <span class="number">0</span>; j--) { <span class="comment">//Search the left part for max bar size</span></span><br><span class="line">            max_left = Math.max(max_left, height[j]);</span><br><span class="line">        }</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> j = i; j &lt; size; j++) { <span class="comment">//Search the right part for max bar size</span></span><br><span class="line">            max_right = Math.max(max_right, height[j]);</span><br><span class="line">        }</span><br><span class="line">        ans += Math.min(max_left, max_right) - height[i];</span><br><span class="line">    }</span><br><span class="line">    <span class="keyword">return</span> ans;</span><br><span class="line">}</span><br></pre></td></tr></tbody></table></figure>
+
+<h2 id="2-动态规划（预处理）"><a href="#2-动态规划（预处理）" class="headerlink" title="2. 动态规划（预处理）"></a>2. 动态规划（预处理）</h2><img src="https://gitee.com/mymengchuang/blog_img/raw/master/image-20211222213101147.png" alt="image-20211222213101147" style="zoom:80%;">
+
+<img src="https://gitee.com/mymengchuang/blog_img/raw/master/image-20211222213139524.png" alt="image-20211222213139524" style="zoom:80%;">
+
+<ul>
+<li><p>时间复杂度：$O(n)$</p>
+</li>
+<li><p>空间复杂度：$O(n)$</p>
+</li>
+</ul>
+<figure class="highlight java"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">trap</span><span class="params">(<span class="keyword">int</span>[] height)</span> </span>{</span><br><span class="line">    <span class="keyword">if</span> (height == <span class="keyword">null</span> || height.length == <span class="number">0</span>)</span><br><span class="line">        <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">    <span class="keyword">int</span> ans = <span class="number">0</span>;</span><br><span class="line">    <span class="keyword">int</span> size = height.length;</span><br><span class="line">    <span class="keyword">int</span>[] left_max = <span class="keyword">new</span> <span class="keyword">int</span>[size];</span><br><span class="line">    <span class="keyword">int</span>[] right_max = <span class="keyword">new</span> <span class="keyword">int</span>[size];</span><br><span class="line">    left_max[<span class="number">0</span>] = height[<span class="number">0</span>];</span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">1</span>; i &lt; size; i++) {</span><br><span class="line">        left_max[i] = Math.max(height[i], left_max[i - <span class="number">1</span>]);</span><br><span class="line">    }</span><br><span class="line">    right_max[size - <span class="number">1</span>] = height[size - <span class="number">1</span>];</span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> i = size - <span class="number">2</span>; i &gt;= <span class="number">0</span>; i--) {</span><br><span class="line">        right_max[i] = Math.max(height[i], right_max[i + <span class="number">1</span>]);</span><br><span class="line">    }</span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">1</span>; i &lt; size - <span class="number">1</span>; i++) {</span><br><span class="line">        ans += Math.min(left_max[i], right_max[i]) - height[i];</span><br><span class="line">    }</span><br><span class="line">    <span class="keyword">return</span> ans;</span><br><span class="line">}</span><br></pre></td></tr></tbody></table></figure>
+
+
+
+<h1 id="123-买卖股票的最佳时机-III（DP）"><a href="#123-买卖股票的最佳时机-III（DP）" class="headerlink" title="123. 买卖股票的最佳时机 III（DP）"></a>123. 买卖股票的最佳时机 III（DP）</h1><hr>
+<p>给定一个数组，它的第 <code>i</code> 个元素是一支给定的股票在第 <code>i</code> 天的价格。</p>
+<p>设计一个算法来计算你所能获取的最大利润。你最多可以完成 <strong>两笔</strong> 交易</p>
+<p><strong>注意：</strong>你不能同时参与多笔交易（你必须在再次购买前出售掉之前的股票）。</p>
+<p><strong>示例一：</strong></p>
+<figure class="highlight java"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">输入：prices = [<span class="number">3</span>,<span class="number">3</span>,<span class="number">5</span>,<span class="number">0</span>,<span class="number">0</span>,<span class="number">3</span>,<span class="number">1</span>,<span class="number">4</span>]</span><br><span class="line">输出：<span class="number">6</span></span><br><span class="line">解释：在第 <span class="number">4</span> 天（股票价格 = <span class="number">0</span>）的时候买入，在第 <span class="number">6</span> 天（股票价格 = <span class="number">3</span>）的时候卖出，这笔交易所能获得利润 = <span class="number">3</span>-<span class="number">0</span> = <span class="number">3</span> 。</span><br><span class="line">&nbsp;    随后，在第 <span class="number">7</span> 天（股票价格 = <span class="number">1</span>）的时候买入，在第 <span class="number">8</span> 天 （股票价格 = <span class="number">4</span>）的时候卖出，这笔交易所能获得利润 = <span class="number">4</span>-<span class="number">1</span> = <span class="number">3</span> </span><br></pre></td></tr></tbody></table></figure>
+
+<p><strong>示例二：</strong></p>
+<figure class="highlight java"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">输入：prices = [<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>,<span class="number">4</span>,<span class="number">5</span>]</span><br><span class="line">输出：<span class="number">4</span></span><br><span class="line">解释：在第 <span class="number">1</span> 天（股票价格 = <span class="number">1</span>）的时候买入，在第 <span class="number">5</span> 天 （股票价格 = <span class="number">5</span>）的时候卖出, 这笔交易所能获得利润 = <span class="number">5</span>-<span class="number">1</span> = <span class="number">4</span> 。 &nbsp; </span><br><span class="line">&nbsp;    注意你不能在第 <span class="number">1</span> 天和第 <span class="number">2</span> 天接连购买股票，之后再将它们卖出。 &nbsp; </span><br><span class="line">&nbsp;    因为这样属于同时参与了多笔交易，你必须在再次购买前出售掉之前的股票。</span><br></pre></td></tr></tbody></table></figure>
+
+<p><strong>思考</strong></p>
+<ul>
+<li>想不到如何表示表达式应该是什么呢</li>
+<li>似乎可以思考<code>dfs</code>遍历所有的可能性，然后记忆化保存？</li>
+</ul>
+<p><strong>思路</strong></p>
+<ul>
+<li>第i天的情况一共有5种，第<code>i</code>天时的最大收益是需要分情况讨论的</li>
+<li><code>dp[i][0]</code>第i天结束优化什么都没干的收益一直为0</li>
+<li><code>dp[i][1]</code>第i天结束时，买入一次还没卖出的最大收益</li>
+<li><code>dp[i][2]</code>第i天结束时，买入一次卖出一次的最大收益</li>
+<li><code>dp[i][3]</code> 第i天结束时，买入两次，卖出一次，第二次还没卖出的最大收益</li>
+<li>·<code>dp[i][4]</code>第i天结束时，买入两次，卖出两次的最大收益</li>
+</ul>
+<p><strong>递推关系式</strong></p>
+<ul>
+<li><code>dp[i][1]=max(dp[i-1][1],-price[i])</code></li>
+<li><code>dp[i][2] = max(dp[i-1][1]+price[i],dp[i-1][2])</code></li>
+<li><code>dp[i][3] = max(dp[i-1][2]-price[i],dp[i-3][3])</code></li>
+<li><code>dp[i][4] = max(dp[i-1][4],dp[i-1][3]+price(i))</code> </li>
+</ul>
+<p><strong>注意：</strong></p>
+<ul>
+<li>初始化不仅仅要初始化<code>dp[0][1]=-prces[0]</code>,还要初始化<code>dp[0][3] = -prices[0]</code></li>
+</ul>
+<p><strong>代码：</strong></p>
+<figure class="highlight java"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> </span>{</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">maxProfit</span><span class="params">(<span class="keyword">int</span>[] prices)</span> </span>{</span><br><span class="line">        <span class="keyword">int</span> len = prices.length;</span><br><span class="line"></span><br><span class="line">        <span class="keyword">int</span> dp[][] = <span class="keyword">new</span> <span class="keyword">int</span> [len][<span class="number">5</span>];</span><br><span class="line">        dp[<span class="number">0</span>][<span class="number">1</span>] = -prices[<span class="number">0</span>];</span><br><span class="line">        dp[<span class="number">0</span>][<span class="number">3</span>] = -prices[<span class="number">0</span>];</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">1</span>;i&lt;len;i++){</span><br><span class="line">            dp[i][<span class="number">1</span>]=Math.max(dp[i-<span class="number">1</span>][<span class="number">1</span>],-prices[i]);</span><br><span class="line">            dp[i][<span class="number">2</span>] = Math.max(dp[i-<span class="number">1</span>][<span class="number">1</span>]+prices[i],dp[i-<span class="number">1</span>][<span class="number">2</span>]);</span><br><span class="line">            dp[i][<span class="number">3</span>] = Math.max(dp[i-<span class="number">1</span>][<span class="number">2</span>]-prices[i],dp[i-<span class="number">1</span>][<span class="number">3</span>]);</span><br><span class="line">            dp[i][<span class="number">4</span>] = Math.max(dp[i-<span class="number">1</span>][<span class="number">4</span>],dp[i-<span class="number">1</span>][<span class="number">3</span>]+prices[i]);</span><br><span class="line">            <span class="comment">// dp[i][4] = Math.max(dp[i][4],dp[i-1][1]+prices[i]); </span></span><br><span class="line">        }</span><br><span class="line">        <span class="comment">// int res = 0;</span></span><br><span class="line">        <span class="comment">// for(int i=0;i&lt;len;i++){</span></span><br><span class="line">        <span class="comment">//     res = Math.max(res,dp[i][4]);</span></span><br><span class="line">        <span class="comment">// }</span></span><br><span class="line">        <span class="keyword">return</span> dp[len-<span class="number">1</span>][<span class="number">4</span>];</span><br><span class="line">    }</span><br><span class="line">}</span><br><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment">第一笔交易和第二笔交易是有区别的</span></span><br><span class="line"><span class="comment">第二笔交易只要用贪心算法既可以--&gt;预处理</span></span><br><span class="line"><span class="comment"></span></span><br><span class="line"><span class="comment"> */</span></span><br></pre></td></tr></tbody></table></figure>
+
+<h1 id="1340-跳跃游戏-V"><a href="#1340-跳跃游戏-V" class="headerlink" title="1340. 跳跃游戏 V"></a>1340. 跳跃游戏 V</h1><hr>
+<h1 id="462-最少移动次数使数组元素相等-II"><a href="#462-最少移动次数使数组元素相等-II" class="headerlink" title="462. 最少移动次数使数组元素相等 II"></a>462. 最少移动次数使数组元素相等 II</h1><hr>
+<h1 id="218-天际线问题"><a href="#218-天际线问题" class="headerlink" title="218. 天际线问题"></a>218. 天际线问题</h1><hr>
+<h1 id="403-青蛙过河"><a href="#403-青蛙过河" class="headerlink" title="403.青蛙过河"></a>403.青蛙过河</h1><hr>
+<p>一只青蛙想要过河。 假定河流被等分为若干个单元格，并且在每一个单元格内都有可能放有一块石子（也有可能没有）。 青蛙可以跳上石子，但是不可以跳入水中。</p>
+<p>给你石子的位置列表 stones（用单元格序号 升序 表示）， 请判定青蛙能否成功过河（即能否在最后一步跳至最后一块石子上）。</p>
+<p>开始时， 青蛙默认已站在第一块石子上，并可以假定它第一步只能跳跃一个单位（即只能从单元格 1 跳至单元格 2 ）。</p>
+<p>如果青蛙上一步跳跃了 k 个单位，那么它接下来的跳跃距离只能选择为 k - 1、k 或 k + 1 个单位。 另请注意，青蛙只能向前方（终点的方向）跳跃。</p>
+<p><strong>示例：</strong></p>
+<figure class="highlight java"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">输入：stones = [<span class="number">0</span>,<span class="number">1</span>,<span class="number">3</span>,<span class="number">5</span>,<span class="number">6</span>,<span class="number">8</span>,<span class="number">12</span>,<span class="number">17</span>]</span><br><span class="line">输出：<span class="keyword">true</span></span><br><span class="line">解释：青蛙可以成功过河，按照如下方案跳跃：跳 <span class="number">1</span> 个单位到第 <span class="number">2</span> 块石子, 然后跳 <span class="number">2</span> 个单位到第 <span class="number">3</span> 块石子, 接着 跳 <span class="number">2</span> 个单位到第 <span class="number">4</span> 块石子, 然后跳 <span class="number">3</span> 个单位到第 <span class="number">6</span> 块石子, 跳 <span class="number">4</span> 个单位到第 <span class="number">7</span> 块石子, 最后，跳 <span class="number">5</span> 个单位到第 <span class="number">8</span> 个石子（即最后一块石子）。</span><br></pre></td></tr></tbody></table></figure>
+
+<p><strong>公式</strong></p>
+<ul>
+<li><code>dp[i][k]</code> 代表第i个石子能不能从j跳k步到达</li>
+<li><code>dp[i][k] = dp[i-k][k]||dp[i-k-1][k+1]||dp[i-k+1][k-1]</code></li>
+</ul>
+<h1 id="72-编辑距离"><a href="#72-编辑距离" class="headerlink" title="72. 编辑距离"></a>72. 编辑距离</h1><p>给你两个单词 <code>word1</code> 和 <code>word2</code>，请你计算出将 <code>word1</code> 转换成 <code>word2</code> 所使用的最少操作数 。</p>
+<p>你可以对一个单词进行如下三种操作：</p>
+<ul>
+<li>插入一个字符</li>
+<li>删除一个字符</li>
+<li>替换一个字符</li>
+</ul>
+<p><strong>示例一：</strong></p>
+<figure class="highlight java"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">输入：word1 = <span class="string">"horse"</span>, word2 = <span class="string">"ros"</span></span><br><span class="line">输出：<span class="number">3</span></span><br><span class="line">解释：</span><br><span class="line">horse -&gt; rorse (将 <span class="string">'h'</span> 替换为 <span class="string">'r'</span>)</span><br><span class="line">rorse -&gt; rose (删除 <span class="string">'r'</span>)</span><br><span class="line">rose -&gt; ros (删除 <span class="string">'e'</span>)</span><br></pre></td></tr></tbody></table></figure>
+
+<p><strong>思路：</strong></p>
+<figure class="highlight java"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">dp[i][j] 代表 word1 到 i 位置转换成 word2 到 j 位置需要最少步数</span><br><span class="line"></span><br><span class="line">当 word1[i] == word2[j]，dp[i][j] = dp[i-<span class="number">1</span>][j-<span class="number">1</span>]；</span><br><span class="line"></span><br><span class="line">当 word1[i] != word2[j]，dp[i][j] = min(dp[i-<span class="number">1</span>][j-<span class="number">1</span>], dp[i-<span class="number">1</span>][j], dp[i][j-<span class="number">1</span>]) + <span class="number">1</span></span><br><span class="line">    </span><br><span class="line">其中，dp[i-<span class="number">1</span>][j-<span class="number">1</span>] 表示替换操作，dp[i-<span class="number">1</span>][j] 表示删除操作，dp[i][j-<span class="number">1</span>] 表示插入操作</span><br></pre></td></tr></tbody></table></figure>
+
+
+
+<h1 id="84-柱状图中最大的矩形"><a href="#84-柱状图中最大的矩形" class="headerlink" title="84. 柱状图中最大的矩形"></a>84. 柱状图中最大的矩形</h1><hr>
+<p>给定 <em>n</em> 个非负整数，用来表示柱状图中各个柱子的高度。每个柱子彼此相邻，且宽度为 1 。</p>
+<p>求在该柱状图中，能够勾勒出来的矩形的最大面积.</p>
+<p><img src="https://assets.leetcode.com/uploads/2021/01/04/histogram.jpg" alt="img"></p>
+<p><strong>思路</strong></p>
+<h1 id="85-最大矩形"><a href="#85-最大矩形" class="headerlink" title="85. 最大矩形"></a>85. 最大矩形</h1><hr>
+<figure class="highlight shell"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">crontab -e</span><br><span class="line"><span class="meta">#</span><span class="bash">每10秒执行一次命令，插入50条数据</span></span><br><span class="line">* * * * * python /opt/client/autodatagen.py  "/tmp/flume_spooldir/test.txt"  50</span><br><span class="line">* * * * * sleep 10; python /opt/client/autodatagen.py  "/tmp/flume_spooldir/test.txt"  50</span><br><span class="line">* * * * * sleep 20; python /opt/client/autodatagen.py  "/tmp/flume_spooldir/test.txt"  50</span><br><span class="line">* * * * * sleep 30; python /opt/client/autodatagen.py  "/tmp/flume_spooldir/test.txt"  50</span><br><span class="line">* * * * * sleep 40; python /opt/client/autodatagen.py  "/tmp/flume_spooldir/test.txt"  50</span><br><span class="line">* * * * * sleep 50; python /opt/client/autodatagen.py  "/tmp/flume_spooldir/test.txt"  50</span><br></pre></td></tr></tbody></table></figure>
+
+
+
+<figure class="highlight sql"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">select</span> goods_name,goods_no,"接种量" <span class="keyword">as</span> title <span class="keyword">from</span> `desc_goods_info` <span class="keyword">order</span> <span class="keyword">by</span> goods_name  limit <span class="number">7</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">select</span> store_name,amount_total,"接种量" <span class="keyword">as</span> title <span class="keyword">from</span> `amount_store_rank` <span class="keyword">order</span> <span class="keyword">by</span> store_name  limit <span class="number">5</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">select</span> sale_date,amount_total,"接种量" <span class="keyword">as</span> title <span class="keyword">from</span> `goods_amount_count` <span class="keyword">order</span> <span class="keyword">by</span> sale_date  limit <span class="number">7</span> </span><br></pre></td></tr></tbody></table></figure>
+
+
+
+<figure class="highlight python"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br><span class="line">108</span><br><span class="line">109</span><br><span class="line">110</span><br><span class="line">111</span><br><span class="line">112</span><br><span class="line">113</span><br><span class="line">114</span><br><span class="line">115</span><br><span class="line">116</span><br><span class="line">117</span><br><span class="line">118</span><br><span class="line">119</span><br><span class="line">120</span><br><span class="line">121</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#coding:utf-8</span></span><br><span class="line"><span class="comment">###########################################</span></span><br><span class="line"><span class="comment"># rowkey：随机的两位数 + 当前时间戳，并要确保该rowkey在表数据中唯一。</span></span><br><span class="line"><span class="comment"># 列定义：行健，用户名，年龄，性别，商品ID，价格，门店ID，购物行为，电话，邮箱，购买日期</span></span><br><span class="line"><span class="comment"># 列定义：行健，接种编号，年龄，性别，疫苗ID，价格，接种医院ID，购物行为，电话，邮箱，接种日期</span></span><br><span class="line"><span class="comment">#421564974572,Sgxrp,20,woman,152121,297.64,313015,scan,15516056688,JbwLDQmzwP@qq.com,2019-08-01</span></span><br><span class="line"><span class="comment">#601564974572,Lbeuo,43,man,220902,533.13,313016,pv,15368953106,ezfrJSluoR@163.com,2019-08-05###########################################</span></span><br><span class="line"><span class="keyword">import</span> random</span><br><span class="line"><span class="keyword">import</span> string</span><br><span class="line"><span class="keyword">import</span> sys</span><br><span class="line"><span class="keyword">import</span> time</span><br><span class="line"></span><br><span class="line"><span class="comment"># 大小写字母</span></span><br><span class="line">alphabet_upper_list = string.ascii_uppercase</span><br><span class="line">alphabet_lower_list = string.ascii_lowercase</span><br><span class="line"></span><br><span class="line"><span class="comment"># 随机生成指定位数的字符串</span></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">get_random</span>(<span class="params">instr, length</span>):</span></span><br><span class="line">    <span class="comment"># 从指定序列中随机获取指定长度的片段并组成数组，例如:['a', 't', 'f', 'v', 'y']</span></span><br><span class="line">    res = random.sample(instr, length)</span><br><span class="line">    <span class="comment"># 将数组内的元素组成字符串</span></span><br><span class="line">    result = <span class="string">''</span>.join(res)</span><br><span class="line">    <span class="keyword">return</span> result</span><br><span class="line"></span><br><span class="line"><span class="comment"># 放置生成的并且不存在的rowkey</span></span><br><span class="line">rowkey_tmp_list = []</span><br><span class="line"></span><br><span class="line"><span class="comment"># 制作rowkey</span></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">get_random_rowkey</span>():</span></span><br><span class="line">    <span class="keyword">import</span> time</span><br><span class="line">    pre_rowkey = <span class="string">""</span></span><br><span class="line">    <span class="keyword">while</span> <span class="literal">True</span>:</span><br><span class="line">        <span class="comment"># 获取00~99的两位数字，包含00与99</span></span><br><span class="line">        num = random.randint(<span class="number">00</span>, <span class="number">99</span>)</span><br><span class="line">        <span class="comment"># 获取当前10位的时间戳</span></span><br><span class="line">        timestamp = <span class="built_in">int</span>(time.time())</span><br><span class="line">        <span class="comment"># str(num).zfill(2)为字符串不满足2位，自动将该字符串补0</span></span><br><span class="line">        pre_rowkey = <span class="built_in">str</span>(num).zfill(<span class="number">2</span>) + <span class="built_in">str</span>(timestamp)</span><br><span class="line">        <span class="keyword">if</span> pre_rowkey <span class="keyword">not</span> <span class="keyword">in</span> rowkey_tmp_list:</span><br><span class="line">            rowkey_tmp_list.append(pre_rowkey)</span><br><span class="line">            <span class="keyword">break</span></span><br><span class="line">    <span class="keyword">return</span> pre_rowkey</span><br><span class="line"></span><br><span class="line"><span class="comment"># 创建用户名</span></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">get_random_name</span>(<span class="params">length</span>):</span></span><br><span class="line">    name = string.capwords(get_random(alphabet_lower_list, length))</span><br><span class="line">    <span class="keyword">return</span> name</span><br><span class="line"></span><br><span class="line"><span class="comment"># 获取年龄</span></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">get_random_age</span>():</span></span><br><span class="line">    <span class="keyword">return</span> <span class="built_in">str</span>(random.randint(<span class="number">18</span>, <span class="number">60</span>))</span><br><span class="line"></span><br><span class="line"><span class="comment"># 获取性别</span></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">get_random_sex</span>():</span></span><br><span class="line">    <span class="keyword">return</span> random.choice([<span class="string">"woman"</span>, <span class="string">"man"</span>])</span><br><span class="line"></span><br><span class="line"><span class="comment"># 获取商品ID</span></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">get_random_goods_no</span>():</span></span><br><span class="line">    goods_no_list = [<span class="string">"220902"</span>, <span class="string">"430031"</span>, <span class="string">"550012"</span>, <span class="string">"650012"</span>, <span class="string">"532120"</span>,<span class="string">"230121"</span>,<span class="string">"250983"</span>, <span class="string">"480071"</span>, <span class="string">"580016"</span>, <span class="string">"950013"</span>, <span class="string">"152121"</span>,<span class="string">"230121"</span>]</span><br><span class="line">    <span class="keyword">return</span> random.choice(goods_no_list)</span><br><span class="line"></span><br><span class="line"><span class="comment"># 获取商品价格（浮点型）</span></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">get_random_goods_price</span>():</span></span><br><span class="line">    <span class="comment"># 随机生成商品价格的整数位，1~999的三位数字，包含1与999</span></span><br><span class="line">    price_int = random.randint(<span class="number">1</span>, <span class="number">999</span>)</span><br><span class="line">    <span class="comment"># 随机生成商品价格的小数位，1~99的两位数字，包含1与99</span></span><br><span class="line">    price_decimal = random.randint(<span class="number">1</span>, <span class="number">99</span>)</span><br><span class="line">    goods_price = <span class="built_in">str</span>(price_int) +<span class="string">"."</span> + <span class="built_in">str</span>(price_decimal)</span><br><span class="line">    <span class="keyword">return</span> goods_price</span><br><span class="line"></span><br><span class="line"><span class="comment"># 获取门店ID</span></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">get_random_store_id</span>():</span></span><br><span class="line">    store_id_list = [<span class="string">"313012"</span>, <span class="string">"313013"</span>, <span class="string">"313014"</span>, <span class="string">"313015"</span>, <span class="string">"313016"</span>,<span class="string">"313017"</span>,<span class="string">"313018"</span>, <span class="string">"313019"</span>, <span class="string">"313020"</span>, <span class="string">"313021"</span>, <span class="string">"313022"</span>,<span class="string">"313023"</span>]</span><br><span class="line">    <span class="keyword">return</span> random.choice(store_id_list)</span><br><span class="line"></span><br><span class="line"><span class="comment"># 获取购物行为类型</span></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">get_random_goods_type</span>():</span></span><br><span class="line">    goods_type_list = [<span class="string">"pv"</span>, <span class="string">"buy"</span>, <span class="string">"cart"</span>, <span class="string">"fav"</span>,<span class="string">"scan"</span>]<span class="comment">#点击、购买、加购、收藏、浏览</span></span><br><span class="line">    <span class="keyword">return</span> random.choice(goods_type_list)</span><br><span class="line"><span class="comment"># 获取电话号码</span></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">get_random_tel</span>():</span></span><br><span class="line">    pre_list = [<span class="string">"130"</span>, <span class="string">"131"</span>, <span class="string">"132"</span>, <span class="string">"133"</span>, <span class="string">"134"</span>, <span class="string">"135"</span>, <span class="string">"136"</span>, <span class="string">"137"</span>, <span class="string">"138"</span>, <span class="string">"139"</span>, <span class="string">"147"</span>, <span class="string">"150"</span>,</span><br><span class="line">                <span class="string">"151"</span>, <span class="string">"152"</span>, <span class="string">"153"</span>, <span class="string">"155"</span>, <span class="string">"156"</span>, <span class="string">"157"</span>, <span class="string">"158"</span>, <span class="string">"159"</span>, <span class="string">"186"</span>, <span class="string">"187"</span>, <span class="string">"188"</span>]</span><br><span class="line">    <span class="keyword">return</span> random.choice(pre_list) + <span class="string">''</span>.join(random.sample(<span class="string">'0123456789'</span>, <span class="number">8</span>))</span><br><span class="line"></span><br><span class="line"><span class="comment"># 获取邮箱名</span></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">get_random_email</span>(<span class="params">length</span>):</span></span><br><span class="line">    alphabet_list = alphabet_lower_list + alphabet_upper_list</span><br><span class="line">    email_list = [<span class="string">"163.com"</span>, <span class="string">"126.com"</span>, <span class="string">"qq.com"</span>, <span class="string">"gmail.com"</span>,<span class="string">"huawei.com"</span>]</span><br><span class="line">    <span class="keyword">return</span> get_random(alphabet_list, length) + <span class="string">"@"</span> + random.choice(email_list)</span><br><span class="line"></span><br><span class="line"><span class="comment"># 获取商品购买日期（统计最近7天数据）</span></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">get_random_buy_time</span>():</span></span><br><span class="line">    buy_time_list = [<span class="string">"2019-08-01"</span>, <span class="string">"2019-08-02"</span>, <span class="string">"2019-08-03"</span>, <span class="string">"2019-08-04"</span>, <span class="string">"2019-08-05"</span>, <span class="string">"2019-08-06"</span>, <span class="string">"2019-08-07"</span>]</span><br><span class="line">    <span class="keyword">return</span> random.choice(buy_time_list)</span><br><span class="line"></span><br><span class="line"><span class="comment"># 生成一条数据</span></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">get_random_record</span>():</span></span><br><span class="line">    <span class="keyword">return</span> get_random_rowkey() + <span class="string">","</span> + get_random_name(</span><br><span class="line">        <span class="number">5</span>) + <span class="string">","</span> + get_random_age() + <span class="string">","</span> + get_random_sex() + <span class="string">","</span> + get_random_goods_no() + <span class="string">","</span>+get_random_goods_price()+ <span class="string">","</span> +get_random_store_id()+ <span class="string">","</span> +get_random_goods_type() + <span class="string">","</span>+ get_random_tel() + <span class="string">","</span> + get_random_email(</span><br><span class="line">        <span class="number">10</span>) + <span class="string">","</span> +get_random_buy_time()</span><br><span class="line"></span><br><span class="line"><span class="comment"># 获取随机整数用于休眠</span></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">get_random_sleep_time</span>():</span></span><br><span class="line">    <span class="keyword">return</span> random.randint(<span class="number">5</span>, <span class="number">10</span>)</span><br><span class="line"></span><br><span class="line"><span class="comment"># 将记录写到文本中</span></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">write_record_to_file</span>():</span></span><br><span class="line">    <span class="comment"># 覆盖文件内容，重新写入</span></span><br><span class="line">    f = <span class="built_in">open</span>(sys.argv[<span class="number">1</span>], <span class="string">'w'</span>)</span><br><span class="line">    i = <span class="number">0</span></span><br><span class="line">    <span class="keyword">while</span> i &lt; <span class="built_in">int</span>(sys.argv[<span class="number">2</span>]):</span><br><span class="line">        record = get_random_record()</span><br><span class="line">        f.write(record)</span><br><span class="line">        <span class="comment"># 换行写入</span></span><br><span class="line">        f.write(<span class="string">'\n'</span>)</span><br><span class="line">        i += <span class="number">1</span></span><br><span class="line">    f.close()</span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span> __name__ == <span class="string">"__main__"</span>:</span><br><span class="line">    write_record_to_file()</span><br></pre></td></tr></tbody></table></figure>
+
+
+      
+    </div>
+    
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E7%AE%97%E6%B3%95/" rel="tag">算法</a></li></ul>
+	</div>
+
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+      
+    
+  </div>
+  
+</article>
+
+
+
+
+
+
+
   
     <article id="post-BFS_DFS变体" class="article article-type-post" itemscope itemprop="blogPost">
   
@@ -963,532 +1376,9 @@
 
 
   
-    <article id="post-网络层408" class="article article-type-post" itemscope itemprop="blogPost">
-  
-    <div class="article-meta">
-      <a href="/2021/12/06/%E7%BD%91%E7%BB%9C%E5%B1%82408/" class="article-date">
-  	<time datetime="2021-12-05T16:00:02.000Z" itemprop="datePublished">2021-12-06</time>
-</a>
-    </div>
-  
-  <div class="article-inner">
-    
-      <input type="hidden" class="isFancy" />
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2021/12/06/%E7%BD%91%E7%BB%9C%E5%B1%82408/">
-        网络层
-        
-      </a>
-    </h1>
-  
-
-      </header>
-      
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <!--Table of Contents begin-->
-        <!-- 
-          <div id="toc" class="toc-article">
-            <strong class="toc-title">目录</strong>
-            <a class="js-toggle-toc" href="javascript:void(0)"></a>
-            <div class="toc-content">
-              <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#%E7%BD%91%E7%BB%9C%E5%B1%82%E5%8A%9F%E8%83%BD"><span class="toc-text">网络层功能</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E8%B7%AF%E7%94%B1%E7%AE%97%E6%B3%95"><span class="toc-text">路由算法</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#1-%E5%88%86%E7%B1%BB"><span class="toc-text">1.分类</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2-%E8%B7%9D%E7%A6%BB%E5%90%91%E9%87%8F%E7%AE%97%E6%B3%95%EF%BC%88RIP%EF%BC%89"><span class="toc-text">2.距离向量算法（RIP）</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#3-%E9%93%BE%E8%B7%AF%E7%8A%B6%E6%80%81%E7%AE%97%E6%B3%95%EF%BC%88OSPF%EF%BC%89"><span class="toc-text">3.链路状态算法（OSPF）</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#4-%E5%B1%82%E6%AC%A1%E8%B7%AF%E7%94%B1"><span class="toc-text">4.层次路由</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#5-%E8%B7%AF%E7%94%B1%E8%A1%A8%E6%98%AF%E4%BB%80%E4%B9%88"><span class="toc-text">5.路由表是什么</span></a></li></ol></li></ol>
-            </div>
-          </div>
-         -->
-          <!-- Table of Contents -->
-        
-          <div id="toc" class="toc-article">
-            <strong class="toc-title">目录</strong>
-            <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#%E7%BD%91%E7%BB%9C%E5%B1%82%E5%8A%9F%E8%83%BD"><span class="toc-text">网络层功能</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E8%B7%AF%E7%94%B1%E7%AE%97%E6%B3%95"><span class="toc-text">路由算法</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#1-%E5%88%86%E7%B1%BB"><span class="toc-text">1.分类</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2-%E8%B7%9D%E7%A6%BB%E5%90%91%E9%87%8F%E7%AE%97%E6%B3%95%EF%BC%88RIP%EF%BC%89"><span class="toc-text">2.距离向量算法（RIP）</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#3-%E9%93%BE%E8%B7%AF%E7%8A%B6%E6%80%81%E7%AE%97%E6%B3%95%EF%BC%88OSPF%EF%BC%89"><span class="toc-text">3.链路状态算法（OSPF）</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#4-%E5%B1%82%E6%AC%A1%E8%B7%AF%E7%94%B1"><span class="toc-text">4.层次路由</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#5-%E8%B7%AF%E7%94%B1%E8%A1%A8%E6%98%AF%E4%BB%80%E4%B9%88"><span class="toc-text">5.路由表是什么</span></a></li></ol></li></ol>
-          </div>
-        
-        <!--Table of Contents end -->
-        
-
-
-
-
-        <p>[toc]</p>
-<h1 id="网络层功能"><a href="#网络层功能" class="headerlink" title="网络层功能"></a>网络层功能</h1><hr>
-<ul>
-<li><p><strong>路由器</strong></p>
-<ul>
-<li>路由器可以分割广播域，也就是不转发目的地址为255.255.255.255的目的IP包，可以分割广播域，避免广播风暴</li>
-<li>交换机工作在链路层，能分割冲突域，但是没办法分割广播域</li>
-<li>路由器连接的路由协议不一定是一样的，IPv4 IPv6</li>
-</ul>
-</li>
-<li><p><strong>存储转发机制</strong></p>
-<ul>
-<li>路由器先接受完整的分组，然后检测分组是否有错，有错就丢弃，没有就等待路由算法提供路径</li>
-</ul>
-</li>
-</ul>
-<h1 id="路由算法"><a href="#路由算法" class="headerlink" title="路由算法"></a>路由算法</h1><hr>
-<h2 id="1-分类"><a href="#1-分类" class="headerlink" title="1.分类"></a>1.分类</h2><ul>
-<li>静态路由算法（non-adaptive）</li>
-<li>动态路由算法  (adaptive)<ul>
-<li>距离向量路由算法</li>
-<li>链路状态路由算法</li>
-</ul>
-</li>
-</ul>
-<h2 id="2-距离向量算法（RIP）"><a href="#2-距离向量算法（RIP）" class="headerlink" title="2.距离向量算法（RIP）"></a>2.距离向量算法（RIP）</h2><ul>
-<li>其中的距离常常用跳数来代表</li>
-<li>条数大于等于15表示不可达</li>
-</ul>
-<h2 id="3-链路状态算法（OSPF）"><a href="#3-链路状态算法（OSPF）" class="headerlink" title="3.链路状态算法（OSPF）"></a>3.链路状态算法（OSPF）</h2><ul>
-<li>最短路算法更新：<code>dijkstra</code></li>
-<li>利用foold技术更新链路状态，同时具有快速收敛的特点</li>
-<li>对比:<ul>
-<li>距离向量算法：仅仅和自己的邻居进行交谈</li>
-<li>链路状态：广播分组，获得所有的结点状态</li>
-</ul>
-</li>
-</ul>
-<h2 id="4-层次路由"><a href="#4-层次路由" class="headerlink" title="4.层次路由"></a>4.层次路由</h2><p>互联网将路由协议分为两部分：</p>
-<ul>
-<li>内部网关协议（IGP）,主要是在一个自治系统内部使用的协议，包括RIP,OSPF</li>
-<li>外部网关协议（EGP）,主要包括：BGP</li>
-</ul>
-<h2 id="5-路由表是什么"><a href="#5-路由表是什么" class="headerlink" title="5.路由表是什么"></a>5.路由表是什么</h2><p>路由表建立的主要目标是为了实现路由协议和静态路由选择。</p>
-<p>（1）链路层协议发现的路由（即是直连路由)    </p>
-<p>（2）静态路由</p>
-<p>（3）动态路由协议发现的路由</p>
-<ul>
-<li><p>添加静态路由时，下一跳地址是填写本路由器的端口地址，还是对方路由器的端口地</p>
-<p>址？或者是目的地网络的路由器端口地址？<strong>下一跳地址写对方路由器的端口地址</strong></p>
-</li>
-<li><p>在同一个局域网内的2台PC机，IP地址分别为10.0.0.x/24和10.0.1.x/24，都属于VLAN1，一开始不能互相Ping通，为什么把子网掩码长度从24位变成16位，就通了？</p>
-<p>答：当掩码长度为 24 位时，两台 PC 不在同一网段，计算机首先查找网关的 MAC，如果网关 MAC 得不到回应，是 ping 不通的。当掩码长度为 16 位时，两台 PC 在同一网段，不需要通过网关，因此可以 ping 通。</p>
-</li>
-<li></li>
-</ul>
-
-      
-    </div>
-    
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/" rel="tag">计算机网络</a></li></ul>
-	</div>
-
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-      
-    
-  </div>
-  
-</article>
-
-
-
-
-
-
-
-  
-    <article id="post-正方形类DP" class="article article-type-post" itemscope itemprop="blogPost">
-  
-    <div class="article-meta">
-      <a href="/2021/12/05/%E6%AD%A3%E6%96%B9%E5%BD%A2%E7%B1%BBDP/" class="article-date">
-  	<time datetime="2021-12-05T11:00:00.000Z" itemprop="datePublished">2021-12-05</time>
-</a>
-    </div>
-  
-  <div class="article-inner">
-    
-      <input type="hidden" class="isFancy" />
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2021/12/05/%E6%AD%A3%E6%96%B9%E5%BD%A2%E7%B1%BBDP/">
-        正方形类DP
-        
-      </a>
-    </h1>
-  
-
-      </header>
-      
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <!--Table of Contents begin-->
-        <!-- 
-          <div id="toc" class="toc-article">
-            <strong class="toc-title">目录</strong>
-            <a class="js-toggle-toc" href="javascript:void(0)"></a>
-            <div class="toc-content">
-              <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#221-%E6%9C%80%E5%A4%A7%E6%AD%A3%E6%96%B9%E5%BD%A2-%E5%8A%A8%E6%80%81%E8%A7%84%E5%88%92"><span class="toc-text">221. 最大正方形(动态规划)</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#1277-%E7%BB%9F%E8%AE%A1%E5%85%A8%E4%B8%BA-1-%E7%9A%84%E6%AD%A3%E6%96%B9%E5%BD%A2%E5%AD%90%E7%9F%A9%E9%98%B5"><span class="toc-text">1277. 统计全为 1 的正方形子矩阵</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#764-%E6%9C%80%E5%A4%A7%E5%8A%A0%E5%8F%B7%E6%A0%87%E5%BF%97"><span class="toc-text">764. 最大加号标志</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#1139-%E6%9C%80%E5%A4%A7%E7%9A%84%E4%BB%A5-1-%E4%B8%BA%E8%BE%B9%E7%95%8C%E7%9A%84%E6%AD%A3%E6%96%B9%E5%BD%A2"><span class="toc-text">1139. 最大的以 1 为边界的正方形</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E9%9D%A2%E8%AF%95%E9%A2%98-17-23-%E6%9C%80%E5%A4%A7%E9%BB%91%E6%96%B9%E9%98%B5"><span class="toc-text">面试题 17.23. 最大黑方阵</span></a></li></ol>
-            </div>
-          </div>
-         -->
-          <!-- Table of Contents -->
-        
-          <div id="toc" class="toc-article">
-            <strong class="toc-title">目录</strong>
-            <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#221-%E6%9C%80%E5%A4%A7%E6%AD%A3%E6%96%B9%E5%BD%A2-%E5%8A%A8%E6%80%81%E8%A7%84%E5%88%92"><span class="toc-text">221. 最大正方形(动态规划)</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#1277-%E7%BB%9F%E8%AE%A1%E5%85%A8%E4%B8%BA-1-%E7%9A%84%E6%AD%A3%E6%96%B9%E5%BD%A2%E5%AD%90%E7%9F%A9%E9%98%B5"><span class="toc-text">1277. 统计全为 1 的正方形子矩阵</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#764-%E6%9C%80%E5%A4%A7%E5%8A%A0%E5%8F%B7%E6%A0%87%E5%BF%97"><span class="toc-text">764. 最大加号标志</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#1139-%E6%9C%80%E5%A4%A7%E7%9A%84%E4%BB%A5-1-%E4%B8%BA%E8%BE%B9%E7%95%8C%E7%9A%84%E6%AD%A3%E6%96%B9%E5%BD%A2"><span class="toc-text">1139. 最大的以 1 为边界的正方形</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E9%9D%A2%E8%AF%95%E9%A2%98-17-23-%E6%9C%80%E5%A4%A7%E9%BB%91%E6%96%B9%E9%98%B5"><span class="toc-text">面试题 17.23. 最大黑方阵</span></a></li></ol>
-          </div>
-        
-        <!--Table of Contents end -->
-        
-
-
-
-
-        <p>[toc]</p>
-<blockquote>
-<p>属于经典动态规划题，破防了</p>
-</blockquote>
-<h1 id="221-最大正方形-动态规划"><a href="#221-最大正方形-动态规划" class="headerlink" title="221. 最大正方形(动态规划)"></a>221. 最大正方形(动态规划)</h1><hr>
-<p>在一个由 <code>'0'</code> 和 <code>'1'</code> 组成的二维矩阵内，找到只包含 <code>'1'</code> 的最大正方形，并返回其面积。</p>
-<p><strong>示例一：</strong></p>
-<img src="https://gitee.com/mymengchuang/blog_img/raw/master/image-20211205154153876.png" alt="image-20211205154153876" style="zoom:80%;">
-
-
-
-<p><strong>思考</strong></p>
-<ul>
-<li>似乎可以考虑二进制运算，前后行进行并操作</li>
-<li>无法思考出如何解决<code>dp[][]</code>代表是什么东西，似乎不太能直接代表答案，应该想出一个有意义的</li>
-</ul>
-<p><strong>思路</strong></p>
-<ul>
-<li><p>用 <code>dp[i][j]</code> 表示以 <code>(i, j)</code> 为右下角，且只包含 1 的正方形的边长最大值</p>
-</li>
-<li><p>递推关系很难得到，需要记忆，因此单独拿出来一个专题</p>
-<ul>
-<li><code>dp[i][j] =  min{dp[i-1][j],dp[i][j-1],dp[i-1][j-1]}+1 (num[i][j]==1)</code></li>
-<li><code>dp[i][j] = 0   (num[i][j] = 0)</code></li>
-</ul>
-</li>
-<li><p><strong>区别：</strong></p>
-<ul>
-<li>和思考的区别在于利用<code>dp[i][j]</code>来<strong>固定了右下角的元素</strong>，矩阵的右下角元素一定是<code>[i,j]</code></li>
-<li>和最长递增子序列类似</li>
-</ul>
-</li>
-</ul>
-<img src="https://gitee.com/mymengchuang/blog_img/raw/master/image-20211205163837939.png" alt="image-20211205163837939" style="zoom:80%;">
-
-
-
-<p><strong>代码：</strong></p>
-<figure class="highlight java"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> </span>{</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">maximalSquare</span><span class="params">(<span class="keyword">char</span>[][] matrix)</span> </span>{</span><br><span class="line">        <span class="keyword">int</span> row = matrix.length;</span><br><span class="line">        <span class="keyword">int</span> col = matrix[<span class="number">0</span>].length;</span><br><span class="line">        <span class="keyword">int</span> [][]dp = <span class="keyword">new</span> <span class="keyword">int</span>[row][col];</span><br><span class="line">        dp[<span class="number">0</span>][<span class="number">0</span>] = matrix[<span class="number">0</span>][<span class="number">0</span>]==<span class="string">'0'</span>?<span class="number">0</span>:<span class="number">1</span>;</span><br><span class="line"></span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">0</span>;i&lt;row;i++){</span><br><span class="line">            <span class="keyword">for</span>(<span class="keyword">int</span> j=<span class="number">0</span>;j&lt;col;j++){</span><br><span class="line">                <span class="keyword">int</span> min = Integer.MAX_VALUE;</span><br><span class="line">                <span class="keyword">if</span>(i==<span class="number">0</span>&amp;&amp;j==<span class="number">0</span>)<span class="keyword">continue</span>;</span><br><span class="line">                <span class="keyword">if</span>(matrix[i][j]==<span class="string">'0'</span>){</span><br><span class="line">                    dp[i][j] = <span class="number">0</span>;</span><br><span class="line">                    <span class="keyword">continue</span>;</span><br><span class="line">                }</span><br><span class="line">                <span class="keyword">if</span>(i-<span class="number">1</span>&gt;=<span class="number">0</span>&amp;&amp;j-<span class="number">1</span>&gt;=<span class="number">0</span>) min= Math.min(min,dp[i-<span class="number">1</span>][j-<span class="number">1</span>]);</span><br><span class="line">                <span class="keyword">else</span> min  =<span class="number">0</span>;</span><br><span class="line">                <span class="keyword">if</span>(i-<span class="number">1</span>&gt;=<span class="number">0</span>) min= Math.min(min,dp[i-<span class="number">1</span>][j]);</span><br><span class="line">                <span class="keyword">else</span> min = <span class="number">0</span>;</span><br><span class="line">                <span class="keyword">if</span>(j-<span class="number">1</span>&gt;=<span class="number">0</span>) min= Math.min(min,dp[i][j-<span class="number">1</span>]);</span><br><span class="line">                <span class="keyword">else</span> min = <span class="number">0</span>;</span><br><span class="line">                dp[i][j] = min+<span class="number">1</span>;</span><br><span class="line"></span><br><span class="line">            }</span><br><span class="line">        }</span><br><span class="line">        <span class="keyword">int</span> max = <span class="number">0</span>;</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">0</span>;i&lt;row;i++){</span><br><span class="line">            <span class="keyword">for</span>(<span class="keyword">int</span> j=<span class="number">0</span>;j&lt;col;j++){</span><br><span class="line">                max=  Math.max(max,dp[i][j]);</span><br><span class="line">            }</span><br><span class="line">        }</span><br><span class="line">        <span class="keyword">return</span> max*max;</span><br><span class="line">    }</span><br><span class="line">}</span><br><span class="line"></span><br><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment">dp[i]  考虑前i行矩阵所有正方形中面积的最大值</span></span><br><span class="line"><span class="comment"></span></span><br><span class="line"><span class="comment">dp[i] = dp[i-1] </span></span><br><span class="line"><span class="comment"></span></span><br><span class="line"><span class="comment"> */</span></span><br></pre></td></tr></tbody></table></figure>
-
-
-
-<h1 id="1277-统计全为-1-的正方形子矩阵"><a href="#1277-统计全为-1-的正方形子矩阵" class="headerlink" title="1277. 统计全为 1 的正方形子矩阵"></a>1277. 统计全为 1 的正方形子矩阵</h1><hr>
-<p>给你一个 <code>m * n</code> 的矩阵，矩阵中的元素不是 <code>0</code> 就是 <code>1</code>，请你统计并返回其中完全由 <code>1</code> 组成的 <strong>正方形</strong> 子矩阵的个数。</p>
-<p><strong>思路：</strong></p>
-<ul>
-<li>统计以<code>dp[i][j]</code>为结尾的最大矩阵长度</li>
-<li>结果就是以<code>[i,j]</code>结尾的所有子矩阵相加</li>
-</ul>
-<p><strong>代码：</strong></p>
-<figure class="highlight java"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> </span>{</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">countSquares</span><span class="params">(<span class="keyword">int</span>[][] matrix)</span> </span>{</span><br><span class="line">        <span class="keyword">int</span> row = matrix.length;</span><br><span class="line">        <span class="keyword">int</span> col = matrix[<span class="number">0</span>].length;</span><br><span class="line">        <span class="keyword">int</span> [][]dp = <span class="keyword">new</span> <span class="keyword">int</span> [row][col];</span><br><span class="line">        dp[<span class="number">0</span>][<span class="number">0</span>] = matrix[<span class="number">0</span>][<span class="number">0</span>];</span><br><span class="line">        <span class="keyword">int</span> res =dp[<span class="number">0</span>][<span class="number">0</span>];</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">0</span>;i&lt;row;i++){</span><br><span class="line">            <span class="keyword">for</span>(<span class="keyword">int</span> j=<span class="number">0</span>;j&lt;col;j++){</span><br><span class="line">                <span class="keyword">if</span>(i==<span class="number">0</span>&amp;&amp;j==<span class="number">0</span>)<span class="keyword">continue</span>;</span><br><span class="line">                <span class="keyword">if</span>(matrix[i][j]==<span class="number">0</span>)<span class="keyword">continue</span>;</span><br><span class="line">                <span class="keyword">if</span>(i==<span class="number">0</span>||j==<span class="number">0</span>){</span><br><span class="line">                    dp[i][j] = matrix[i][j];</span><br><span class="line">                    res+=dp[i][j];</span><br><span class="line">                    <span class="keyword">continue</span>;</span><br><span class="line">                }</span><br><span class="line">                </span><br><span class="line">                dp[i][j] = Math.min(dp[i-<span class="number">1</span>][j],Math.min(dp[i][j-<span class="number">1</span>],dp[i-<span class="number">1</span>][j-<span class="number">1</span>]))+<span class="number">1</span>;</span><br><span class="line">                res+=dp[i][j];</span><br><span class="line">            }</span><br><span class="line">        }</span><br><span class="line">        <span class="keyword">return</span> res;</span><br><span class="line">    }</span><br><span class="line">}</span><br></pre></td></tr></tbody></table></figure>
-
-
-
-<h1 id="764-最大加号标志"><a href="#764-最大加号标志" class="headerlink" title="764. 最大加号标志"></a>764. 最大加号标志</h1><hr>
-<p><strong>思路：</strong></p>
-<ul>
-<li>同下面的题一样，求解前缀和，按照前缀和来进行判断即可</li>
-</ul>
-<p><strong>代码:</strong></p>
-<figure class="highlight java"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> </span>{</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">orderOfLargestPlusSign</span><span class="params">(<span class="keyword">int</span> n, <span class="keyword">int</span>[][] mines)</span> </span>{</span><br><span class="line">        <span class="keyword">int</span> row = n;</span><br><span class="line">        <span class="keyword">int</span> col = n;</span><br><span class="line">        <span class="keyword">int</span> [][]gird=<span class="keyword">new</span> <span class="keyword">int</span> [n][n];</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">0</span>;i&lt;n;i++){</span><br><span class="line">            <span class="keyword">for</span>(<span class="keyword">int</span> j=<span class="number">0</span>;j&lt;n;j++){</span><br><span class="line">                gird[i][j]=<span class="number">1</span>;</span><br><span class="line">            }</span><br><span class="line">        }</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">0</span>;i&lt;mines.length;i++){</span><br><span class="line">            gird[mines[i][<span class="number">0</span>]][mines[i][<span class="number">1</span>]] = <span class="number">0</span>;</span><br><span class="line">        }</span><br><span class="line">        <span class="keyword">int</span> [][][]dp = <span class="keyword">new</span> <span class="keyword">int</span> [row+<span class="number">1</span>][col+<span class="number">1</span>][<span class="number">2</span>];</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">1</span>;i&lt;row+<span class="number">1</span>;i++){</span><br><span class="line">            <span class="keyword">for</span>(<span class="keyword">int</span> j=<span class="number">1</span>;j&lt;col+<span class="number">1</span>;j++){</span><br><span class="line">                <span class="keyword">if</span>(gird[i-<span class="number">1</span>][j-<span class="number">1</span>]==<span class="number">1</span>){</span><br><span class="line">                    dp[i][j][<span class="number">0</span>] =dp[i-<span class="number">1</span>][j][<span class="number">0</span>]+<span class="number">1</span>;</span><br><span class="line">                    dp[i][j][<span class="number">1</span>] = dp[i][j-<span class="number">1</span>][<span class="number">1</span>]+<span class="number">1</span>;</span><br><span class="line">                }</span><br><span class="line">            }</span><br><span class="line">        }</span><br><span class="line">        <span class="keyword">int</span> max = -<span class="number">1</span>;</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">1</span>;i&lt;row+<span class="number">1</span>;i++){</span><br><span class="line">            <span class="keyword">for</span>(<span class="keyword">int</span> j=<span class="number">1</span>;j&lt;col+<span class="number">1</span>;j++){</span><br><span class="line">                <span class="keyword">int</span> min = Math.min(dp[i][j][<span class="number">0</span>],dp[i][j][<span class="number">1</span>]);</span><br><span class="line">                </span><br><span class="line">                <span class="keyword">for</span>(<span class="keyword">int</span> k=<span class="number">1</span>;k&lt;=min;k++){</span><br><span class="line">                    <span class="keyword">if</span>(i+k-<span class="number">1</span>&lt;=n&amp;&amp;j+k-<span class="number">1</span>&lt;=n)</span><br><span class="line">                    <span class="keyword">if</span>(dp[i+k-<span class="number">1</span>][j][<span class="number">0</span>]&gt;=<span class="number">2</span>*k-<span class="number">1</span>&amp;&amp;dp[i][j+k-<span class="number">1</span>][<span class="number">1</span>]&gt;=<span class="number">2</span>*k-<span class="number">1</span>){</span><br><span class="line">                        <span class="keyword">if</span>(k&gt;max){</span><br><span class="line">                            max = k;</span><br><span class="line">                        }</span><br><span class="line">                    }</span><br><span class="line">                }</span><br><span class="line">            }</span><br><span class="line">        }</span><br><span class="line"></span><br><span class="line">        <span class="keyword">if</span>(max==-<span class="number">1</span>)  <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">        <span class="keyword">return</span> max;</span><br><span class="line"></span><br><span class="line">    }</span><br><span class="line">}</span><br></pre></td></tr></tbody></table></figure>
-
-
-
-<h1 id="1139-最大的以-1-为边界的正方形"><a href="#1139-最大的以-1-为边界的正方形" class="headerlink" title="1139. 最大的以 1 为边界的正方形"></a>1139. 最大的以 1 为边界的正方形</h1><hr>
-<p>给你一个由若干 <code>0</code> 和 <code>1</code> 组成的二维网格 <code>grid</code>，请你找出边界全部由 <code>1</code> 组成的最大 <strong>正方形</strong> 子网格，并返回该子网格中的元素数量。如果不存在，则返回 <code>0</code>。</p>
-<p><strong>示例一：</strong></p>
-<figure class="highlight java"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">输入：grid = [[<span class="number">1</span>,<span class="number">1</span>,<span class="number">1</span>],[<span class="number">1</span>,<span class="number">0</span>,<span class="number">1</span>],[<span class="number">1</span>,<span class="number">1</span>,<span class="number">1</span>]]</span><br><span class="line">输出：<span class="number">9</span></span><br></pre></td></tr></tbody></table></figure>
-
-<p><strong>示例二：</strong></p>
-<figure class="highlight java"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">输入：grid = [[<span class="number">1</span>,<span class="number">1</span>,<span class="number">0</span>,<span class="number">0</span>]]</span><br><span class="line">输出：<span class="number">1</span></span><br></pre></td></tr></tbody></table></figure>
-
-<p><strong>思路：</strong></p>
-<ul>
-<li>定义dp数组</li>
-</ul>
-<figure class="highlight java"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">dp[i][j][<span class="number">0</span>]: i,j左边连续的<span class="number">1</span>的个数（包括自身）</span><br><span class="line">dp[i][j][<span class="number">1</span>]: i,j上边连续的<span class="number">1</span>的个数（包括自身）</span><br><span class="line"><span class="keyword">int</span>[][][] dp = <span class="keyword">new</span> <span class="keyword">int</span>[m+<span class="number">1</span>][n+<span class="number">1</span>][<span class="number">2</span>];</span><br><span class="line"><span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">1</span>; i &lt;= m; i++) {</span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> j = <span class="number">1</span>; j &lt;= n; j++) {</span><br><span class="line">        <span class="keyword">if</span> (grid[i-<span class="number">1</span>][j-<span class="number">1</span>] == <span class="number">1</span>){</span><br><span class="line">            dp[i][j][<span class="number">0</span>] = <span class="number">1</span> + dp[i][j-<span class="number">1</span>][<span class="number">0</span>];</span><br><span class="line">            dp[i][j][<span class="number">1</span>] = <span class="number">1</span> + dp[i-<span class="number">1</span>][j][<span class="number">1</span>];</span><br><span class="line">        }</span><br><span class="line">    }</span><br><span class="line">}</span><br></pre></td></tr></tbody></table></figure>
-
-<ul>
-<li>验证side是否合法也很容易，如上图，我们只需要考虑<code>（6，5）</code>上边距离为side的点的左边连续1的个数是否大于等于<code>side（dp[i-side+1][j][0] &gt;= side）</code>，以及左边距离为side的点的上边连续的1的个数是否大于等于    <code>side（dp[i][j-side+1][1] &gt;= side）    </code>，如果都大于等于<code>side</code>那么该<code>side    </code>就是合法的</li>
-</ul>
-<img src="https://gitee.com/mymengchuang/blog_img/raw/master/image-20211206180003088.png" alt="image-20211206180003088" style="zoom:80%;">
-
-<p><strong>代码</strong></p>
-<figure class="highlight java"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> </span>{</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">largest1BorderedSquare</span><span class="params">(<span class="keyword">int</span>[][] grid)</span> </span>{</span><br><span class="line">        <span class="keyword">int</span> row = grid.length;</span><br><span class="line">        <span class="keyword">int</span> col = grid[<span class="number">0</span>].length;</span><br><span class="line">        <span class="keyword">int</span> [][][]dp = <span class="keyword">new</span> <span class="keyword">int</span> [row+<span class="number">1</span>][col+<span class="number">1</span>][<span class="number">2</span>];</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">1</span>;i&lt;=row;i++){</span><br><span class="line">            <span class="keyword">for</span>(<span class="keyword">int</span> j=<span class="number">1</span>;j&lt;=col;j++){</span><br><span class="line">                <span class="keyword">if</span>(grid[i-<span class="number">1</span>][j-<span class="number">1</span>]==<span class="number">1</span>){</span><br><span class="line">                    dp[i][j][<span class="number">0</span>] =<span class="number">1</span>+dp[i-<span class="number">1</span>][j][<span class="number">0</span>];</span><br><span class="line">                    dp[i][j][<span class="number">1</span>] = <span class="number">1</span>+dp[i][j-<span class="number">1</span>][<span class="number">1</span>];</span><br><span class="line">                }</span><br><span class="line">            }</span><br><span class="line">        }</span><br><span class="line">        <span class="keyword">int</span> max = -<span class="number">1</span>;</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">1</span>;i&lt;=row;i++){</span><br><span class="line">            <span class="keyword">for</span>(<span class="keyword">int</span> j=<span class="number">1</span>;j&lt;=col;j++){</span><br><span class="line">                <span class="keyword">int</span> min = Math.min(dp[i][j][<span class="number">0</span>],dp[i][j][<span class="number">1</span>]);</span><br><span class="line">                <span class="keyword">if</span>(min==<span class="number">0</span>)<span class="keyword">continue</span>;</span><br><span class="line">                <span class="keyword">for</span>(<span class="keyword">int</span> k=<span class="number">1</span>;k&lt;=min;k++){</span><br><span class="line">                    <span class="keyword">if</span>(dp[i-k+<span class="number">1</span>][j][<span class="number">1</span>]&gt;=k&amp;&amp;dp[i][j-k+<span class="number">1</span>][<span class="number">0</span>]&gt;=k){</span><br><span class="line">                        max =Math.max(max,k);</span><br><span class="line">                    }</span><br><span class="line">                } </span><br><span class="line">            }</span><br><span class="line">        }</span><br><span class="line">        <span class="keyword">if</span> (max==-<span class="number">1</span>)<span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">        <span class="keyword">return</span> max*max;</span><br><span class="line">    }</span><br><span class="line">}</span><br></pre></td></tr></tbody></table></figure>
-
-
-
-<h1 id="面试题-17-23-最大黑方阵"><a href="#面试题-17-23-最大黑方阵" class="headerlink" title="面试题 17.23. 最大黑方阵"></a>面试题 17.23. 最大黑方阵</h1><hr>
-<p>给定一个方阵，其中每个单元(像素)非黑即白。设计一个算法，找出 4 条边皆为黑色像素的最大子方阵。</p>
-<p><strong>示例：</strong></p>
-<figure class="highlight java"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">输入:</span><br><span class="line">[</span><br><span class="line">&nbsp;  [<span class="number">1</span>,<span class="number">0</span>,<span class="number">1</span>],</span><br><span class="line">&nbsp;  [<span class="number">0</span>,<span class="number">0</span>,<span class="number">1</span>],</span><br><span class="line">&nbsp;  [<span class="number">0</span>,<span class="number">0</span>,<span class="number">1</span>]</span><br><span class="line">]</span><br><span class="line">输出: [<span class="number">1</span>,<span class="number">0</span>,<span class="number">2</span>]</span><br><span class="line">解释: 输入中 <span class="number">0</span> 代表黑色，<span class="number">1</span> 代表白色，标粗的元素即为满足条件的最大子方阵</span><br></pre></td></tr></tbody></table></figure>
-
-<p><strong>思路：</strong></p>
-<ul>
-<li>跟上题是一样的</li>
-</ul>
-<p><strong>代码：</strong></p>
-<figure class="highlight java"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> </span>{</span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">int</span>[] findSquare(<span class="keyword">int</span>[][] matrix) {</span><br><span class="line">        <span class="keyword">int</span> row = matrix.length;</span><br><span class="line">        <span class="keyword">int</span> col = matrix[<span class="number">0</span>].length;</span><br><span class="line">        <span class="keyword">int</span> [][][]dp = <span class="keyword">new</span> <span class="keyword">int</span> [row+<span class="number">1</span>][col+<span class="number">1</span>][<span class="number">2</span>];</span><br><span class="line">        <span class="keyword">int</span> []res = <span class="keyword">new</span> <span class="keyword">int</span>[<span class="number">3</span>];</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">1</span>;i&lt;=row;i++){</span><br><span class="line">            <span class="keyword">for</span>(<span class="keyword">int</span> j=<span class="number">1</span>;j&lt;=col;j++){</span><br><span class="line">                <span class="keyword">if</span>(matrix[i-<span class="number">1</span>][j-<span class="number">1</span>]==<span class="number">0</span>){</span><br><span class="line">                    dp[i][j][<span class="number">0</span>] =<span class="number">1</span>+dp[i-<span class="number">1</span>][j][<span class="number">0</span>];</span><br><span class="line">                    dp[i][j][<span class="number">1</span>] = <span class="number">1</span>+dp[i][j-<span class="number">1</span>][<span class="number">1</span>];</span><br><span class="line">                }</span><br><span class="line">            }</span><br><span class="line">        }</span><br><span class="line">        <span class="keyword">int</span> max = -<span class="number">1</span>;</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">1</span>;i&lt;=row;i++){</span><br><span class="line">            <span class="keyword">for</span>(<span class="keyword">int</span> j=<span class="number">1</span>;j&lt;=col;j++){</span><br><span class="line">                <span class="keyword">int</span> min = Math.min(dp[i][j][<span class="number">0</span>],dp[i][j][<span class="number">1</span>]);</span><br><span class="line">                <span class="keyword">if</span>(min==<span class="number">0</span>)<span class="keyword">continue</span>;</span><br><span class="line">                <span class="keyword">for</span>(<span class="keyword">int</span> k=<span class="number">1</span>;k&lt;=min;k++){</span><br><span class="line">                    <span class="keyword">if</span>(dp[i-k+<span class="number">1</span>][j][<span class="number">1</span>]&gt;=k&amp;&amp;dp[i][j-k+<span class="number">1</span>][<span class="number">0</span>]&gt;=k){</span><br><span class="line">                        <span class="keyword">if</span>(max&lt;k){</span><br><span class="line">                            max =Math.max(max,k);</span><br><span class="line">                            res[<span class="number">2</span>] = max;</span><br><span class="line">                            res[<span class="number">0</span>] = i-k;</span><br><span class="line">                            res[<span class="number">1</span>] = j-k;</span><br><span class="line">                        }</span><br><span class="line"></span><br><span class="line">                    }</span><br><span class="line">                } </span><br><span class="line">            }</span><br><span class="line">        }</span><br><span class="line">        <span class="keyword">int</span> []ans = <span class="keyword">new</span> <span class="keyword">int</span>[<span class="number">0</span>];</span><br><span class="line">        <span class="keyword">if</span> (max==-<span class="number">1</span>)<span class="keyword">return</span> ans;</span><br><span class="line">        <span class="keyword">return</span> res;</span><br><span class="line">    }</span><br><span class="line">}</span><br></pre></td></tr></tbody></table></figure>
-
-
-      
-    </div>
-    
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E7%AE%97%E6%B3%95/" rel="tag">算法</a></li></ul>
-	</div>
-
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-      
-    
-  </div>
-  
-</article>
-
-
-
-
-
-
-
-  
-    <article id="post-算法极限" class="article article-type-post" itemscope itemprop="blogPost">
-  
-    <div class="article-meta">
-      <a href="/2021/12/03/%E7%AE%97%E6%B3%95%E6%9E%81%E9%99%90/" class="article-date">
-  	<time datetime="2021-12-02T16:00:00.000Z" itemprop="datePublished">2021-12-03</time>
-</a>
-    </div>
-  
-  <div class="article-inner">
-    
-      <input type="hidden" class="isFancy" />
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2021/12/03/%E7%AE%97%E6%B3%95%E6%9E%81%E9%99%90/">
-        算法极限
-        
-      </a>
-    </h1>
-  
-
-      </header>
-      
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <!--Table of Contents begin-->
-        <!-- 
-          <div id="toc" class="toc-article">
-            <strong class="toc-title">目录</strong>
-            <a class="js-toggle-toc" href="javascript:void(0)"></a>
-            <div class="toc-content">
-              <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#P%E9%97%AE%E9%A2%98%EF%BC%8CNP%E9%97%AE%E9%A2%98%EF%BC%8CNP%E5%AE%8C%E5%85%A8%E9%97%AE%E9%A2%98"><span class="toc-text">P问题，NP问题，NP完全问题</span></a></li></ol>
-            </div>
-          </div>
-         -->
-          <!-- Table of Contents -->
-        
-          <div id="toc" class="toc-article">
-            <strong class="toc-title">目录</strong>
-            <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#P%E9%97%AE%E9%A2%98%EF%BC%8CNP%E9%97%AE%E9%A2%98%EF%BC%8CNP%E5%AE%8C%E5%85%A8%E9%97%AE%E9%A2%98"><span class="toc-text">P问题，NP问题，NP完全问题</span></a></li></ol>
-          </div>
-        
-        <!--Table of Contents end -->
-        
-
-
-
-
-        <h1 id="P问题，NP问题，NP完全问题"><a href="#P问题，NP问题，NP完全问题" class="headerlink" title="P问题，NP问题，NP完全问题"></a>P问题，NP问题，NP完全问题</h1><ul>
-<li><code>P</code> :<ul>
-<li>在多项式时间内解决的问题    </li>
-<li>能在多项式时间内求解的<strong>判定问题</strong></li>
-<li>并不是所有的判定问题都能在多项式时间内解决，例如：图灵停机问题</li>
-</ul>
-</li>
-<li><code>NP</code><ul>
-<li>不能再多项式时间内解决，但是可以在多项式时间内验证该解是不是对的问题</li>
-</ul>
-</li>
-</ul>
-<blockquote>
-<p>p问题是NP问题的子集，以为NP问题还需要猜，然后验证，但是P问题可以确定解，并在多项式时间内验证</p>
-</blockquote>
-<ul>
-<li><code>NPC</code><ul>
-<li>可以把D1判定问题用多项式转化为D2判定问题</li>
-<li>每一个NP问题都能在多项式时间内化简为问题D,这个问题就是NPC问题</li>
-<li>背包问题，哈密顿都是NPC问题</li>
-<li>判断一个问题是NPC问题？</li>
-</ul>
-</li>
-<li><code>NP hard</code><ul>
-<li>可以不是判断问题</li>
-</ul>
-</li>
-</ul>
-<blockquote>
-<p>不确定多项式类型：验证问题是多项式问题</p>
-<ul>
-<li>产生任意一个串，把他作为问题的待选解</li>
-<li>在多项式时间内对问题进行判断</li>
-</ul>
-</blockquote>
-<img src="https://gitee.com/mymengchuang/blog_img/raw/master/image-20211203111810888.png" alt="image-20211203111810888" style="zoom:80%;">
-
-
-      
-    </div>
-    
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E7%AE%97%E6%B3%95/" rel="tag">算法</a></li></ul>
-	</div>
-
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-      
-    
-  </div>
-  
-</article>
-
-
-
-
-
-
-
-  
-    <article id="post-异常处理过程" class="article article-type-post" itemscope itemprop="blogPost">
-  
-    <div class="article-meta">
-      <a href="/2021/12/02/%E5%BC%82%E5%B8%B8%E5%A4%84%E7%90%86%E8%BF%87%E7%A8%8B/" class="article-date">
-  	<time datetime="2021-12-01T16:10:02.000Z" itemprop="datePublished">2021-12-02</time>
-</a>
-    </div>
-  
-  <div class="article-inner">
-    
-      <input type="hidden" class="isFancy" />
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2021/12/02/%E5%BC%82%E5%B8%B8%E5%A4%84%E7%90%86%E8%BF%87%E7%A8%8B/">
-        异常处理
-        
-      </a>
-    </h1>
-  
-
-      </header>
-      
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <!--Table of Contents begin-->
-        <!-- 
-          <div id="toc" class="toc-article">
-            <strong class="toc-title">目录</strong>
-            <a class="js-toggle-toc" href="javascript:void(0)"></a>
-            <div class="toc-content">
-              <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#%E9%97%AE%E9%A2%98"><span class="toc-text">问题</span></a></li></ol>
-            </div>
-          </div>
-         -->
-          <!-- Table of Contents -->
-        
-          <div id="toc" class="toc-article">
-            <strong class="toc-title">目录</strong>
-            <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#%E9%97%AE%E9%A2%98"><span class="toc-text">问题</span></a></li></ol>
-          </div>
-        
-        <!--Table of Contents end -->
-        
-
-
-
-
-        <p>[toc]</p>
-<h1 id="问题"><a href="#问题" class="headerlink" title="问题"></a>问题</h1><hr>
-<ul>
-<li>操作系统怎么进行异常处理</li>
-<li>异常处理的原理和机制是什么</li>
-</ul>
-
-      
-    </div>
-    
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F/" rel="tag">操作系统</a></li></ul>
-	</div>
-
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-      
-    
-  </div>
-  
-</article>
-
-
-
-
-
-
-
-  
   
     <nav id="page-nav">
-      <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="page-number" href="/page/3/">3</a><a class="extend next" rel="next" href="/page/2/">Next &amp;raquo;</a>
+      <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="page-number" href="/page/3/">3</a><a class="page-number" href="/page/4/">4</a><a class="extend next" rel="next" href="/page/2/">Next &amp;raquo;</a>
     </nav>
   
 </div>
