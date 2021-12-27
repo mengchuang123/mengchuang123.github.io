@@ -165,6 +165,114 @@
 </nav>
       <div class="body-wrap">
   
+    <article id="post-图的遍历" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2021/12/06/%E5%9B%BE%E7%9A%84%E9%81%8D%E5%8E%86/" class="article-date">
+  	<time datetime="2021-12-05T16:00:02.000Z" itemprop="datePublished">2021-12-06</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2021/12/06/%E5%9B%BE%E7%9A%84%E9%81%8D%E5%8E%86/">
+        图
+        
+      </a>
+    </h1>
+  
+
+      </header>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <!--Table of Contents begin-->
+        <!-- 
+          <div id="toc" class="toc-article">
+            <strong class="toc-title">目录</strong>
+            <a class="js-toggle-toc" href="javascript:void(0)"></a>
+            <div class="toc-content">
+              <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#%E6%B7%B1%E5%BA%A6%E4%BC%98%E5%85%88%E6%90%9C%E7%B4%A2"><span class="toc-text">深度优先搜索</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E5%B9%BF%E5%BA%A6%E4%BC%98%E5%85%88%E6%90%9C%E7%B4%A2"><span class="toc-text">广度优先搜索</span></a></li></ol>
+            </div>
+          </div>
+         -->
+          <!-- Table of Contents -->
+        
+          <div id="toc" class="toc-article">
+            <strong class="toc-title">目录</strong>
+            <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#%E6%B7%B1%E5%BA%A6%E4%BC%98%E5%85%88%E6%90%9C%E7%B4%A2"><span class="toc-text">深度优先搜索</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E5%B9%BF%E5%BA%A6%E4%BC%98%E5%85%88%E6%90%9C%E7%B4%A2"><span class="toc-text">广度优先搜索</span></a></li></ol>
+          </div>
+        
+        <!--Table of Contents end -->
+        
+
+
+
+
+        <p>[toc]</p>
+<h1 id="深度优先搜索"><a href="#深度优先搜索" class="headerlink" title="深度优先搜索"></a>深度优先搜索</h1><ul>
+<li>图的深度优先需要避免重复访问</li>
+<li>因为跟树不一样的地方是，图是对称的</li>
+</ul>
+<img src="https://gitee.com/mymengchuang/blog_img/raw/master/image-20211206081241984.png" alt="image-20211206081241984" style="zoom:80%;">
+
+
+
+<p><strong>问题：</strong></p>
+<ul>
+<li>不连通的图，可能会有一部分没办法遍历</li>
+<li>因此需要判断图中的所有元素是否有元素都被遍历了；</li>
+</ul>
+<img src="https://gitee.com/mymengchuang/blog_img/raw/master/image-20211206081500868.png" alt="image-20211206081500868" style="zoom:80%;">
+
+
+
+
+
+<h1 id="广度优先搜索"><a href="#广度优先搜索" class="headerlink" title="广度优先搜索"></a>广度优先搜索</h1><hr>
+<ul>
+<li>关键在于找点，判断是否遍历过</li>
+<li>保存路劲</li>
+</ul>
+<figure class="highlight java"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">///寻找一条从s到t的增广路，若找到返回true</span></span><br><span class="line"><span class="comment">//因为要求是最短的，所以采用bfsb</span></span><br><span class="line"><span class="function">bool <span class="title">bfs</span><span class="params">(<span class="keyword">int</span> s, <span class="keyword">int</span> t)</span></span></span><br><span class="line"><span class="function"></span>{</span><br><span class="line">    queue&lt;<span class="keyword">int</span>&gt; q;</span><br><span class="line">    memset(vis, <span class="number">0</span>, sizeof(vis));</span><br><span class="line">    memset(pre, -<span class="number">1</span>, sizeof(pre));</span><br><span class="line">    vis[s] = <span class="number">1</span>;</span><br><span class="line">    q.push(s);</span><br><span class="line">    <span class="keyword">while</span>(q.size())</span><br><span class="line">    {</span><br><span class="line">        <span class="keyword">int</span> first = q.front();</span><br><span class="line">        q.pop();</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">1</span>; i &lt;= n; ++i)</span><br><span class="line">            <span class="keyword">if</span>(!vis[i] &amp;&amp; r[first][i] &gt; <span class="number">0</span>)</span><br><span class="line">            {</span><br><span class="line">                pre[i] = first;</span><br><span class="line">                vis[i] = <span class="number">1</span>;</span><br><span class="line">                <span class="keyword">if</span>(i == t)</span><br><span class="line">                    <span class="keyword">return</span> <span class="number">1</span>;</span><br><span class="line">                q.push(i);</span><br><span class="line">            }</span><br><span class="line">    }</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">}</span><br><span class="line"></span><br></pre></td></tr></tbody></table></figure>
+
+
+      
+    </div>
+    
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E7%AE%97%E6%B3%95/" rel="tag">算法</a></li></ul>
+	</div>
+
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+      
+    
+  </div>
+  
+</article>
+
+
+
+
+
+
+
+  
     <article id="post-网络层408" class="article article-type-post" itemscope itemprop="blogPost">
   
     <div class="article-meta">
@@ -1414,123 +1522,6 @@
 </ul>
 <h1 id="TCP拥塞控制"><a href="#TCP拥塞控制" class="headerlink" title="TCP拥塞控制"></a>TCP拥塞控制</h1><hr>
 <h2 id="2-1慢开始和拥塞避免"><a href="#2-1慢开始和拥塞避免" class="headerlink" title="2.1慢开始和拥塞避免"></a>2.1慢开始和拥塞避免</h2><h2 id="2-2快重传和快恢复"><a href="#2-2快重传和快恢复" class="headerlink" title="2.2快重传和快恢复"></a>2.2快重传和快恢复</h2>
-      
-    </div>
-    
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/" rel="tag">计算机网络</a></li></ul>
-	</div>
-
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-      
-    
-  </div>
-  
-</article>
-
-
-
-
-
-
-
-  
-    <article id="post-计算机网络作业" class="article article-type-post" itemscope itemprop="blogPost">
-  
-    <div class="article-meta">
-      <a href="/2021/11/29/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C%E4%BD%9C%E4%B8%9A/" class="article-date">
-  	<time datetime="2021-11-29T05:00:00.000Z" itemprop="datePublished">2021-11-29</time>
-</a>
-    </div>
-  
-  <div class="article-inner">
-    
-      <input type="hidden" class="isFancy" />
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2021/11/29/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C%E4%BD%9C%E4%B8%9A/">
-        计算机网络作业
-        
-      </a>
-    </h1>
-  
-
-      </header>
-      
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <!--Table of Contents begin-->
-        <!-- 
-          <div id="toc" class="toc-article">
-            <strong class="toc-title">目录</strong>
-            <a class="js-toggle-toc" href="javascript:void(0)"></a>
-            <div class="toc-content">
-              <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#Homework5"><span class="toc-text">Homework5</span></a></li></ol>
-            </div>
-          </div>
-         -->
-          <!-- Table of Contents -->
-        
-          <div id="toc" class="toc-article">
-            <strong class="toc-title">目录</strong>
-            <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#Homework5"><span class="toc-text">Homework5</span></a></li></ol>
-          </div>
-        
-        <!--Table of Contents end -->
-        
-
-
-
-
-        <h1 id="Homework5"><a href="#Homework5" class="headerlink" title="Homework5"></a>Homework5</h1><hr>
-<p>5.1 Are there any circumstances when connection-oriented service will (or at least should) deliver packets out of<br>order?</p>
-<p><strong>无连接和面向连接的区别：</strong></p>
-<ul>
-<li>无连接通信，例如由IP和UDP协议使用的数据报模式通信，其中<strong>数据可以无序地传送，因为不同的网络分组是独立路由的</strong>，并且可以通过不同的路径传送。</li>
-<li>面向连接的通信可以是<strong>电路交换连接</strong>或分<strong>组模式虚拟电路连接</strong>。在后一种情况下，<strong>它可以使用传输层虚拟电路协议</strong>，例如TCP协议，<strong>允许数据按顺序传送，尽管下层交换是无连接的</strong>，或者它可以是数据链路层或网络层交换模式，其中，属于同一业务流的所有数据包在同一路径上传送，业务流由某个连接标识符而不是完整的路由信息来标识，从而允许基于硬件的快速切换.<ul>
-<li>面向连接的协议服务通常（但并非总是）是可靠的网络服务，在成功交付后提供确认，并在数据丢失或检测到位错误时提供自动重复请求功能。</li>
-</ul>
-</li>
-</ul>
-<p><strong>面向连接的例子：</strong></p>
-<ul>
-<li>电路交换电路交换通信，例如公共交换电话网本质上是面向连接的通信系统。</li>
-<li>分组交换通信也可以是面向连接的，这被称为虚拟电路模式通信。面向连接的通信不一定是可靠的协议。<ul>
-<li>传输层：传输层连接模式通信面向连接的传输层协议通过无连接的通信系统提供面向连接的通信。面向连接的传输层协议，例如TCP，可以基于无连接的网络层协议（例如IP</li>
-<li>数据链路和网络层虚拟电路交换在面向连接的分组交换数据链路层或网络层协议中，所有数据在通信会话期间通过相同的路径发送。</li>
-</ul>
-</li>
-</ul>
-<p>5.6</p>
-<ul>
-<li>IP包头大小固定为<code>20B = 20byte</code> </li>
-<li>IP包头中的总长度（单位byte）：包头大小（20B）+数据最大长度  一共16位</li>
-<li>IP包头中的标志位(3byte) : <code>_ ,DF，MF</code> DF为0允许分片，MF=1代表后面还有分片，MF=0代表最后一个分片</li>
-<li>IP包头的片偏移：代表片的位置，单位是8byte</li>
-<li>生存长度，TTL代表路由器的跳转次数</li>
-<li>IP源地址目的地址</li>
-</ul>
-<blockquote>
-<p>IP数据包头部有三个关于长度的标志，首部长度：总长度：片偏移，基本单位为：4B:1B:8B</p>
-</blockquote>
-<p>5.14</p>
-<p><a target="_blank" rel="noopener" href="https://blog.csdn.net/u011784495/article/details/71693296">https://blog.csdn.net/u011784495/article/details/71693296</a></p>
-<p>Pv6和IPv4之间的最大差别在于：IP地址的长度从32位到128位。<br>通过裁剪IPv4报头中的某些字段，或把一些字段移入到扩展报头中，IPv6基本报头的总长度大大减小了。IPv6使用固定长度的基本报头，从而简化了转发设备对IPv6报文的处理，提高了转发效率。尽管IPv6地址长度是IPv4地址长度的4倍，但IPv6基本报头的长度只有40字节，为固定的IPv4报文头长度（不包括选项字段）的2倍</p>
-<p>5.11</p>
-<p>校验和只是校验header信息</p>
-
       
     </div>
     

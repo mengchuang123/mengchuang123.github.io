@@ -6,7 +6,7 @@
   <link href="http://example.com/atom.xml" rel="self"/>
   
   <link href="http://example.com/"/>
-  <updated>2021-12-26T11:14:43.064Z</updated>
+  <updated>2021-12-27T05:36:33.864Z</updated>
   <id>http://example.com/</id>
   
   <author>
@@ -15,6 +15,32 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>数据链路层</title>
+    <link href="http://example.com/2021/12/27/%E6%95%B0%E6%8D%AE%E9%93%BE%E8%B7%AF%E5%B1%82408/"/>
+    <id>http://example.com/2021/12/27/%E6%95%B0%E6%8D%AE%E9%93%BE%E8%B7%AF%E5%B1%82408/</id>
+    <published>2021-12-26T16:00:02.000Z</published>
+    <updated>2021-12-27T05:36:33.864Z</updated>
+    
+    <content type="html"><![CDATA[<p>[toc]</p><h1 id="链路层功能"><a href="#链路层功能" class="headerlink" title="链路层功能"></a>链路层功能</h1><hr><ul><li>为网络层提供服务：有连接就一定要确认</li><li>链路管理</li><li>帧定界、帧同步、透明传输</li><li>流量控制 <strong>这是对</strong></li><li>差错控制<ul><li>循环冗余校验CRC</li><li>自动重传请求ARQ</li></ul></li></ul><blockquote><p>差错控制主要靠：循环冗余校验和计时器及时发现帧错和丢失，然后ARQ发送很小的控制信号要求重传</p></blockquote><h1 id="组帧"><a href="#组帧" class="headerlink" title="组帧"></a>组帧</h1><hr><blockquote><p>帧是网络传输中的最小单位，因此需要同时加尾部和首部</p></blockquote><h2 id="1-字符技术法"><a href="#1-字符技术法" class="headerlink" title="1. 字符技术法"></a>1. 字符技术法</h2><ul><li>首部加上字符个数，但是如果出错会导致后续所有的帧全部出错</li></ul><h2 id="2-字符填充"><a href="#2-字符填充" class="headerlink" title="2. 字符填充"></a>2. 字符填充</h2><ul><li>在首部尾部加上特定的字符来界定一个帧</li></ul><h2 id="3-0比特填充的首位标记法"><a href="#3-0比特填充的首位标记法" class="headerlink" title="3. 0比特填充的首位标记法"></a>3. 0比特填充的首位标记法</h2><ul><li>用<code>01111110</code>来界定一个字符串的开始和结束</li><li>为了避免出现一样的字符串在原来的IP packet，因此每遇到5个1，就在后面添加0</li></ul><h2 id="4-违规编码法"><a href="#4-违规编码法" class="headerlink" title="4. 违规编码法"></a>4. 违规编码法</h2><ul><li>借用一些违规编码序列来进行界定，这些违规编码是不会出现在数据中</li><li>但是他只能使用于采用冗余编码的特殊编码环境</li></ul>]]></content>
+    
+    
+      
+      
+    <summary type="html">&lt;p&gt;[toc]&lt;/p&gt;
+&lt;h1 id=&quot;链路层功能&quot;&gt;&lt;a href=&quot;#链路层功能&quot; class=&quot;headerlink&quot; title=&quot;链路层功能&quot;&gt;&lt;/a&gt;链路层功能&lt;/h1&gt;&lt;hr&gt;
+&lt;ul&gt;
+&lt;li&gt;为网络层提供服务：有连接就一定要确认&lt;/li&gt;
+&lt;li&gt;链路管理&lt;/</summary>
+      
+    
+    
+    
+    
+    <category term="计算机网络" scheme="http://example.com/tags/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/"/>
+    
+  </entry>
   
   <entry>
     <title>算法设计复习</title>
@@ -70,7 +96,7 @@
     <link href="http://example.com/2021/12/24/%E5%81%9A%E8%BF%87%E7%9A%84%E9%A2%98%E7%9B%AE%E6%80%9D%E8%B7%AF%E6%80%BB%E7%BB%93/"/>
     <id>http://example.com/2021/12/24/%E5%81%9A%E8%BF%87%E7%9A%84%E9%A2%98%E7%9B%AE%E6%80%9D%E8%B7%AF%E6%80%BB%E7%BB%93/</id>
     <published>2021-12-24T02:23:23.565Z</published>
-    <updated>2021-12-26T11:14:43.042Z</updated>
+    <updated>2021-12-26T11:16:19.364Z</updated>
     
     
     
@@ -107,8 +133,16 @@
     <link href="http://example.com/2021/12/12/BFS_DFS%E5%8F%98%E4%BD%93/"/>
     <id>http://example.com/2021/12/12/BFS_DFS%E5%8F%98%E4%BD%93/</id>
     <published>2021-12-11T16:17:00.000Z</published>
-    <updated>2021-12-17T14:11:26.653Z</updated>
+    <updated>2021-12-27T05:07:29.691Z</updated>
     
+    <content type="html"><![CDATA[<h1 id="DFS-BFS变体"><a href="#DFS-BFS变体" class="headerlink" title="DFS_BFS变体"></a>DFS_BFS变体</h1><hr>]]></content>
+    
+    
+      
+      
+    <summary type="html">&lt;h1 id=&quot;DFS-BFS变体&quot;&gt;&lt;a href=&quot;#DFS-BFS变体&quot; class=&quot;headerlink&quot; title=&quot;DFS_BFS变体&quot;&gt;&lt;/a&gt;DFS_BFS变体&lt;/h1&gt;&lt;hr&gt;
+</summary>
+      
     
     
     
@@ -458,29 +492,6 @@
 &lt;li&gt;&lt;p&gt;是在不可靠IP层实现的可靠数据传输协议&lt;/p&gt;
 &lt;/li&gt;
 &lt;li&gt;&lt;p</summary>
-      
-    
-    
-    
-    
-    <category term="计算机网络" scheme="http://example.com/tags/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>计算机网络作业</title>
-    <link href="http://example.com/2021/11/29/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C%E4%BD%9C%E4%B8%9A/"/>
-    <id>http://example.com/2021/11/29/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C%E4%BD%9C%E4%B8%9A/</id>
-    <published>2021-11-29T05:00:00.000Z</published>
-    <updated>2021-12-03T18:05:26.769Z</updated>
-    
-    <content type="html"><![CDATA[<h1 id="Homework5"><a href="#Homework5" class="headerlink" title="Homework5"></a>Homework5</h1><hr><p>5.1 Are there any circumstances when connection-oriented service will (or at least should) deliver packets out of<br>order?</p><p><strong>无连接和面向连接的区别：</strong></p><ul><li>无连接通信，例如由IP和UDP协议使用的数据报模式通信，其中<strong>数据可以无序地传送，因为不同的网络分组是独立路由的</strong>，并且可以通过不同的路径传送。</li><li>面向连接的通信可以是<strong>电路交换连接</strong>或分<strong>组模式虚拟电路连接</strong>。在后一种情况下，<strong>它可以使用传输层虚拟电路协议</strong>，例如TCP协议，<strong>允许数据按顺序传送，尽管下层交换是无连接的</strong>，或者它可以是数据链路层或网络层交换模式，其中，属于同一业务流的所有数据包在同一路径上传送，业务流由某个连接标识符而不是完整的路由信息来标识，从而允许基于硬件的快速切换.<ul><li>面向连接的协议服务通常（但并非总是）是可靠的网络服务，在成功交付后提供确认，并在数据丢失或检测到位错误时提供自动重复请求功能。</li></ul></li></ul><p><strong>面向连接的例子：</strong></p><ul><li>电路交换电路交换通信，例如公共交换电话网本质上是面向连接的通信系统。</li><li>分组交换通信也可以是面向连接的，这被称为虚拟电路模式通信。面向连接的通信不一定是可靠的协议。<ul><li>传输层：传输层连接模式通信面向连接的传输层协议通过无连接的通信系统提供面向连接的通信。面向连接的传输层协议，例如TCP，可以基于无连接的网络层协议（例如IP</li><li>数据链路和网络层虚拟电路交换在面向连接的分组交换数据链路层或网络层协议中，所有数据在通信会话期间通过相同的路径发送。</li></ul></li></ul><p>5.6</p><ul><li>IP包头大小固定为<code>20B = 20byte</code> </li><li>IP包头中的总长度（单位byte）：包头大小（20B）+数据最大长度  一共16位</li><li>IP包头中的标志位(3byte) : <code>_ ,DF，MF</code> DF为0允许分片，MF=1代表后面还有分片，MF=0代表最后一个分片</li><li>IP包头的片偏移：代表片的位置，单位是8byte</li><li>生存长度，TTL代表路由器的跳转次数</li><li>IP源地址目的地址</li></ul><blockquote><p>IP数据包头部有三个关于长度的标志，首部长度：总长度：片偏移，基本单位为：4B:1B:8B</p></blockquote><p>5.14</p><p><a href="https://blog.csdn.net/u011784495/article/details/71693296">https://blog.csdn.net/u011784495/article/details/71693296</a></p><p>Pv6和IPv4之间的最大差别在于：IP地址的长度从32位到128位。<br>通过裁剪IPv4报头中的某些字段，或把一些字段移入到扩展报头中，IPv6基本报头的总长度大大减小了。IPv6使用固定长度的基本报头，从而简化了转发设备对IPv6报文的处理，提高了转发效率。尽管IPv6地址长度是IPv4地址长度的4倍，但IPv6基本报头的长度只有40字节，为固定的IPv4报文头长度（不包括选项字段）的2倍</p><p>5.11</p><p>校验和只是校验header信息</p>]]></content>
-    
-    
-      
-      
-    <summary type="html">&lt;h1 id=&quot;Homework5&quot;&gt;&lt;a href=&quot;#Homework5&quot; class=&quot;headerlink&quot; title=&quot;Homework5&quot;&gt;&lt;/a&gt;Homework5&lt;/h1&gt;&lt;hr&gt;
-&lt;p&gt;5.1 Are there any circumstances when </summary>
       
     
     
