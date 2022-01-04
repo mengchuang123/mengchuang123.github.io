@@ -165,6 +165,212 @@
 </nav>
       <div class="body-wrap">
   
+    <article id="post-Taijan算法练习" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2021/12/07/Taijan%E7%AE%97%E6%B3%95%E7%BB%83%E4%B9%A0/" class="article-date">
+  	<time datetime="2021-12-06T16:00:02.000Z" itemprop="datePublished">2021-12-07</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2021/12/07/Taijan%E7%AE%97%E6%B3%95%E7%BB%83%E4%B9%A0/">
+        Taijan算法练习
+        
+      </a>
+    </h1>
+  
+
+      </header>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <!--Table of Contents begin-->
+        <!-- 
+          <div id="toc" class="toc-article">
+            <strong class="toc-title">目录</strong>
+            <a class="js-toggle-toc" href="javascript:void(0)"></a>
+            <div class="toc-content">
+              <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#1192-%E6%9F%A5%E6%89%BE%E9%9B%86%E7%BE%A4%E5%86%85%E7%9A%84%E3%80%8C%E5%85%B3%E9%94%AE%E8%BF%9E%E6%8E%A5%E3%80%8D"><span class="toc-text">1192. 查找集群内的「关键连接」</span></a></li></ol>
+            </div>
+          </div>
+         -->
+          <!-- Table of Contents -->
+        
+          <div id="toc" class="toc-article">
+            <strong class="toc-title">目录</strong>
+            <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#1192-%E6%9F%A5%E6%89%BE%E9%9B%86%E7%BE%A4%E5%86%85%E7%9A%84%E3%80%8C%E5%85%B3%E9%94%AE%E8%BF%9E%E6%8E%A5%E3%80%8D"><span class="toc-text">1192. 查找集群内的「关键连接」</span></a></li></ol>
+          </div>
+        
+        <!--Table of Contents end -->
+        
+
+
+
+
+        <p>[toc]</p>
+<h1 id="1192-查找集群内的「关键连接」"><a href="#1192-查找集群内的「关键连接」" class="headerlink" title="1192. 查找集群内的「关键连接」"></a>1192. 查找集群内的「关键连接」</h1><hr>
+<p>力扣数据中心有 <code>n</code> 台服务器，分别按从 <code>0</code> 到 <code>n-1</code> 的方式进行了编号。</p>
+<p>它们之间以「服务器到服务器」点对点的形式相互连接组成了一个内部集群，其中连接 <code>connections</code> 是无向的。</p>
+<p>从形式上讲，<code>connections[i] = [a, b]</code> 表示服务器 <code>a</code> 和 <code>b</code> 之间形成连接。任何服务器都可以直接或者间接地通过网络到达任何其他服务器。</p>
+<p>「关键连接」是在该集群中的重要连接，也就是说，假如我们将它移除，便会导致某些服务器无法访问其他服务器。</p>
+<p>请你以任意顺序返回该集群内的所有 「关键连接」。</p>
+<p><strong>示例一</strong></p>
+<figure class="highlight java"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">输入：n = <span class="number">4</span>, connections = [[<span class="number">0</span>,<span class="number">1</span>],[<span class="number">1</span>,<span class="number">2</span>],[<span class="number">2</span>,<span class="number">0</span>],[<span class="number">1</span>,<span class="number">3</span>]]</span><br><span class="line">输出：[[<span class="number">1</span>,<span class="number">3</span>]]</span><br><span class="line">解释：[[<span class="number">3</span>,<span class="number">1</span>]] 也是正确的。</span><br></pre></td></tr></tbody></table></figure>
+
+<img src="https://gitee.com/mymengchuang/blog_img/raw/master/image-20211207004809551.png" alt="image-20211207004809551" style="zoom:80%;">
+
+<p><strong>代码：</strong></p>
+<figure class="highlight java"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> </span>{</span><br><span class="line">    <span class="keyword">int</span> []low;</span><br><span class="line">    <span class="keyword">int</span> []visit;</span><br><span class="line">    List&lt;Integer&gt;[]adj;</span><br><span class="line">    List&lt;List&lt;Integer&gt;&gt; res;</span><br><span class="line">    <span class="keyword">public</span> List&lt;List&lt;Integer&gt;&gt; criticalConnections(<span class="keyword">int</span> n, List&lt;List&lt;Integer&gt;&gt; connections) {</span><br><span class="line">         adj = <span class="keyword">new</span> List[n];</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">0</span>;i&lt;n;i++)</span><br><span class="line">            adj[i] = <span class="keyword">new</span> ArrayList&lt;&gt;();</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">0</span>;i&lt;connections.size();i++){</span><br><span class="line">            <span class="keyword">int</span> pre = connections.get(i).get(<span class="number">0</span>);</span><br><span class="line">            <span class="keyword">int</span> v = connections.get(i).get(<span class="number">1</span>);</span><br><span class="line">            adj[pre].add(v);</span><br><span class="line">            adj[v].add(pre);</span><br><span class="line">        }</span><br><span class="line">        low = <span class="keyword">new</span> <span class="keyword">int</span>[n];</span><br><span class="line">        visit = <span class="keyword">new</span> <span class="keyword">int</span>[n];</span><br><span class="line">        </span><br><span class="line">        res = <span class="keyword">new</span> ArrayList&lt;&gt;();</span><br><span class="line">        dfs(-<span class="number">1</span>,<span class="number">0</span>,<span class="number">0</span>);</span><br><span class="line">        <span class="keyword">return</span> res;</span><br><span class="line">    }</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">dfs</span><span class="params">(<span class="keyword">int</span> pre,<span class="keyword">int</span> nodeId,<span class="keyword">int</span> V)</span></span>{</span><br><span class="line">        visit[V] =<span class="number">1</span>;</span><br><span class="line">        low[V] = nodeId;</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">0</span>;i&lt;adj[V].size();i++){</span><br><span class="line">            <span class="keyword">int</span> W = adj[V].get(i);</span><br><span class="line">            <span class="keyword">if</span>(W==pre)<span class="keyword">continue</span>;</span><br><span class="line">            <span class="keyword">else</span> <span class="keyword">if</span>(visit[W]==<span class="number">0</span>){</span><br><span class="line">                low[V] = Math.min(low[V],dfs(V,nodeId+<span class="number">1</span>,W));</span><br><span class="line">            }</span><br><span class="line">            <span class="keyword">else</span> {</span><br><span class="line">                low[V] = Math.min(low[V],low[W]);</span><br><span class="line">            }</span><br><span class="line">        }</span><br><span class="line">        <span class="keyword">if</span>(low[V]==nodeId&amp;&amp;V!=<span class="number">0</span>){</span><br><span class="line">            List&lt;Integer&gt; tmp = <span class="keyword">new</span> ArrayList&lt;&gt;();</span><br><span class="line">            tmp.add(pre);</span><br><span class="line">            tmp.add(V);</span><br><span class="line">            res.add(tmp);</span><br><span class="line">        }</span><br><span class="line">        <span class="keyword">return</span> low[V];</span><br><span class="line">    }</span><br><span class="line">}</span><br></pre></td></tr></tbody></table></figure>
+
+
+      
+    </div>
+    
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E7%AE%97%E6%B3%95/" rel="tag">算法</a></li></ul>
+	</div>
+
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+      
+    
+  </div>
+  
+</article>
+
+
+
+
+
+
+
+  
+    <article id="post-图的遍历" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2021/12/06/%E5%9B%BE%E7%9A%84%E9%81%8D%E5%8E%86/" class="article-date">
+  	<time datetime="2021-12-05T16:00:02.000Z" itemprop="datePublished">2021-12-06</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2021/12/06/%E5%9B%BE%E7%9A%84%E9%81%8D%E5%8E%86/">
+        图
+        
+      </a>
+    </h1>
+  
+
+      </header>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <!--Table of Contents begin-->
+        <!-- 
+          <div id="toc" class="toc-article">
+            <strong class="toc-title">目录</strong>
+            <a class="js-toggle-toc" href="javascript:void(0)"></a>
+            <div class="toc-content">
+              <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#%E6%B7%B1%E5%BA%A6%E4%BC%98%E5%85%88%E6%90%9C%E7%B4%A2"><span class="toc-text">深度优先搜索</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E5%B9%BF%E5%BA%A6%E4%BC%98%E5%85%88%E6%90%9C%E7%B4%A2"><span class="toc-text">广度优先搜索</span></a></li></ol>
+            </div>
+          </div>
+         -->
+          <!-- Table of Contents -->
+        
+          <div id="toc" class="toc-article">
+            <strong class="toc-title">目录</strong>
+            <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#%E6%B7%B1%E5%BA%A6%E4%BC%98%E5%85%88%E6%90%9C%E7%B4%A2"><span class="toc-text">深度优先搜索</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E5%B9%BF%E5%BA%A6%E4%BC%98%E5%85%88%E6%90%9C%E7%B4%A2"><span class="toc-text">广度优先搜索</span></a></li></ol>
+          </div>
+        
+        <!--Table of Contents end -->
+        
+
+
+
+
+        <p>[toc]</p>
+<h1 id="深度优先搜索"><a href="#深度优先搜索" class="headerlink" title="深度优先搜索"></a>深度优先搜索</h1><ul>
+<li>图的深度优先需要避免重复访问</li>
+<li>因为跟树不一样的地方是，图是对称的</li>
+</ul>
+<img src="https://gitee.com/mymengchuang/blog_img/raw/master/image-20211206081241984.png" alt="image-20211206081241984" style="zoom:80%;">
+
+
+
+<p><strong>问题：</strong></p>
+<ul>
+<li>不连通的图，可能会有一部分没办法遍历<ul>
+<li>因此需要判断图中的所有元素是否有元素都被遍历了；</li>
+</ul>
+</li>
+</ul>
+<img src="https://gitee.com/mymengchuang/blog_img/raw/master/image-20211206081500868.png" alt="image-20211206081500868" style="zoom:80%;">
+
+
+
+
+
+<h1 id="广度优先搜索"><a href="#广度优先搜索" class="headerlink" title="广度优先搜索"></a>广度优先搜索</h1><hr>
+<ul>
+<li>关键在于找点，判断是否遍历过</li>
+<li>保存路劲</li>
+</ul>
+<figure class="highlight java"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">///寻找一条从s到t的增广路，若找到返回true</span></span><br><span class="line"><span class="comment">//因为要求是最短的，所以采用bfsb</span></span><br><span class="line"><span class="function">bool <span class="title">bfs</span><span class="params">(<span class="keyword">int</span> s, <span class="keyword">int</span> t)</span></span></span><br><span class="line"><span class="function"></span>{</span><br><span class="line">    queue&lt;<span class="keyword">int</span>&gt; q;</span><br><span class="line">    memset(vis, <span class="number">0</span>, sizeof(vis));</span><br><span class="line">    memset(pre, -<span class="number">1</span>, sizeof(pre));</span><br><span class="line">    vis[s] = <span class="number">1</span>;</span><br><span class="line">    q.push(s);</span><br><span class="line">    <span class="keyword">while</span>(q.size())</span><br><span class="line">    {</span><br><span class="line">        <span class="keyword">int</span> first = q.front();</span><br><span class="line">        q.pop();</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">1</span>; i &lt;= n; ++i)</span><br><span class="line">            <span class="keyword">if</span>(!vis[i] &amp;&amp; r[first][i] &gt; <span class="number">0</span>)</span><br><span class="line">            {</span><br><span class="line">                pre[i] = first;</span><br><span class="line">                vis[i] = <span class="number">1</span>;</span><br><span class="line">                <span class="keyword">if</span>(i == t)</span><br><span class="line">                    <span class="keyword">return</span> <span class="number">1</span>;</span><br><span class="line">                q.push(i);</span><br><span class="line">            }</span><br><span class="line">    }</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">}</span><br><span class="line"></span><br></pre></td></tr></tbody></table></figure>
+
+
+      
+    </div>
+    
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E7%AE%97%E6%B3%95/" rel="tag">算法</a></li></ul>
+	</div>
+
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+      
+    
+  </div>
+  
+</article>
+
+
+
+
+
+
+
+  
     <article id="post-图的双连通分量" class="article article-type-post" itemscope itemprop="blogPost">
   
     <div class="article-meta">
@@ -200,7 +406,7 @@
             <strong class="toc-title">目录</strong>
             <a class="js-toggle-toc" href="javascript:void(0)"></a>
             <div class="toc-content">
-              <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#%E6%B7%B1%E5%BA%A6%E4%BC%98%E5%85%88%E6%90%9C%E7%B4%A2"><span class="toc-text">深度优先搜索</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E5%8F%8C%E8%81%94%E9%80%9A"><span class="toc-text">双联通</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E8%8E%B7%E5%BE%97%E5%89%B2%E7%82%B9"><span class="toc-text">获得割点</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#DFS%E6%89%BE%E7%8E%AF-Taijan%E7%AE%97%E6%B3%95"><span class="toc-text">DFS找环(Taijan算法)</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E6%AC%A7%E6%8B%89%E5%9B%9E%E8%B7%AF"><span class="toc-text">欧拉回路</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E6%97%A0%E5%90%91%E5%9B%BE%E7%9A%84%E5%8F%8C%E8%BF%9E%E9%80%9A%E5%88%86%E9%87%8F"><span class="toc-text">无向图的双连通分量</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E6%9C%89%E5%90%91%E5%9B%BE%E5%AF%BB%E6%89%BE%E8%BF%9E%E9%80%9A%E5%88%86%E9%87%8F"><span class="toc-text">有向图寻找连通分量</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#PTA%E6%9C%89%E5%90%91%E5%9B%BE%E5%BC%BA%E8%BF%9E%E9%80%9A"><span class="toc-text">PTA有向图强连通</span></a></li></ol>
+              <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#%E6%A0%91"><span class="toc-text">树</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E6%B7%B1%E5%BA%A6%E4%BC%98%E5%85%88%E6%90%9C%E7%B4%A2"><span class="toc-text">深度优先搜索</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E5%8F%8C%E8%81%94%E9%80%9A"><span class="toc-text">双联通</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E8%8E%B7%E5%BE%97%E5%89%B2%E7%82%B9"><span class="toc-text">获得割点</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#DFS%E6%89%BE%E7%8E%AF-Taijan%E7%AE%97%E6%B3%95"><span class="toc-text">DFS找环(Taijan算法)</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E6%AC%A7%E6%8B%89%E5%9B%9E%E8%B7%AF"><span class="toc-text">欧拉回路</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E6%97%A0%E5%90%91%E5%9B%BE%E7%9A%84%E5%8F%8C%E8%BF%9E%E9%80%9A%E5%88%86%E9%87%8F"><span class="toc-text">无向图的双连通分量</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E6%9C%89%E5%90%91%E5%9B%BE%E5%AF%BB%E6%89%BE%E8%BF%9E%E9%80%9A%E5%88%86%E9%87%8F"><span class="toc-text">有向图寻找连通分量</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#PTA%E6%9C%89%E5%90%91%E5%9B%BE%E5%BC%BA%E8%BF%9E%E9%80%9A"><span class="toc-text">PTA有向图强连通</span></a></li></ol>
             </div>
           </div>
          -->
@@ -208,7 +414,7 @@
         
           <div id="toc" class="toc-article">
             <strong class="toc-title">目录</strong>
-            <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#%E6%B7%B1%E5%BA%A6%E4%BC%98%E5%85%88%E6%90%9C%E7%B4%A2"><span class="toc-text">深度优先搜索</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E5%8F%8C%E8%81%94%E9%80%9A"><span class="toc-text">双联通</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E8%8E%B7%E5%BE%97%E5%89%B2%E7%82%B9"><span class="toc-text">获得割点</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#DFS%E6%89%BE%E7%8E%AF-Taijan%E7%AE%97%E6%B3%95"><span class="toc-text">DFS找环(Taijan算法)</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E6%AC%A7%E6%8B%89%E5%9B%9E%E8%B7%AF"><span class="toc-text">欧拉回路</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E6%97%A0%E5%90%91%E5%9B%BE%E7%9A%84%E5%8F%8C%E8%BF%9E%E9%80%9A%E5%88%86%E9%87%8F"><span class="toc-text">无向图的双连通分量</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E6%9C%89%E5%90%91%E5%9B%BE%E5%AF%BB%E6%89%BE%E8%BF%9E%E9%80%9A%E5%88%86%E9%87%8F"><span class="toc-text">有向图寻找连通分量</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#PTA%E6%9C%89%E5%90%91%E5%9B%BE%E5%BC%BA%E8%BF%9E%E9%80%9A"><span class="toc-text">PTA有向图强连通</span></a></li></ol>
+            <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#%E6%A0%91"><span class="toc-text">树</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E6%B7%B1%E5%BA%A6%E4%BC%98%E5%85%88%E6%90%9C%E7%B4%A2"><span class="toc-text">深度优先搜索</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E5%8F%8C%E8%81%94%E9%80%9A"><span class="toc-text">双联通</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E8%8E%B7%E5%BE%97%E5%89%B2%E7%82%B9"><span class="toc-text">获得割点</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#DFS%E6%89%BE%E7%8E%AF-Taijan%E7%AE%97%E6%B3%95"><span class="toc-text">DFS找环(Taijan算法)</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E6%AC%A7%E6%8B%89%E5%9B%9E%E8%B7%AF"><span class="toc-text">欧拉回路</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E6%97%A0%E5%90%91%E5%9B%BE%E7%9A%84%E5%8F%8C%E8%BF%9E%E9%80%9A%E5%88%86%E9%87%8F"><span class="toc-text">无向图的双连通分量</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E6%9C%89%E5%90%91%E5%9B%BE%E5%AF%BB%E6%89%BE%E8%BF%9E%E9%80%9A%E5%88%86%E9%87%8F"><span class="toc-text">有向图寻找连通分量</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#PTA%E6%9C%89%E5%90%91%E5%9B%BE%E5%BC%BA%E8%BF%9E%E9%80%9A"><span class="toc-text">PTA有向图强连通</span></a></li></ol>
           </div>
         
         <!--Table of Contents end -->
@@ -218,6 +424,11 @@
 
 
         <p>[toc]</p>
+<h1 id="树"><a href="#树" class="headerlink" title="树"></a>树</h1><hr>
+<ul>
+<li>DFS树可以判断回边</li>
+<li>BFS树可以判断交叉边</li>
+</ul>
 <h1 id="深度优先搜索"><a href="#深度优先搜索" class="headerlink" title="深度优先搜索"></a>深度优先搜索</h1><ul>
 <li>图的深度优先需要避免重复访问</li>
 <li>因为跟树不一样的地方是，图是对称的</li>
@@ -426,114 +637,6 @@
 
 
   
-    <article id="post-图的遍历" class="article article-type-post" itemscope itemprop="blogPost">
-  
-    <div class="article-meta">
-      <a href="/2021/12/06/%E5%9B%BE%E7%9A%84%E9%81%8D%E5%8E%86/" class="article-date">
-  	<time datetime="2021-12-05T16:00:02.000Z" itemprop="datePublished">2021-12-06</time>
-</a>
-    </div>
-  
-  <div class="article-inner">
-    
-      <input type="hidden" class="isFancy" />
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2021/12/06/%E5%9B%BE%E7%9A%84%E9%81%8D%E5%8E%86/">
-        图
-        
-      </a>
-    </h1>
-  
-
-      </header>
-      
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <!--Table of Contents begin-->
-        <!-- 
-          <div id="toc" class="toc-article">
-            <strong class="toc-title">目录</strong>
-            <a class="js-toggle-toc" href="javascript:void(0)"></a>
-            <div class="toc-content">
-              <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#%E6%B7%B1%E5%BA%A6%E4%BC%98%E5%85%88%E6%90%9C%E7%B4%A2"><span class="toc-text">深度优先搜索</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E5%B9%BF%E5%BA%A6%E4%BC%98%E5%85%88%E6%90%9C%E7%B4%A2"><span class="toc-text">广度优先搜索</span></a></li></ol>
-            </div>
-          </div>
-         -->
-          <!-- Table of Contents -->
-        
-          <div id="toc" class="toc-article">
-            <strong class="toc-title">目录</strong>
-            <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#%E6%B7%B1%E5%BA%A6%E4%BC%98%E5%85%88%E6%90%9C%E7%B4%A2"><span class="toc-text">深度优先搜索</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E5%B9%BF%E5%BA%A6%E4%BC%98%E5%85%88%E6%90%9C%E7%B4%A2"><span class="toc-text">广度优先搜索</span></a></li></ol>
-          </div>
-        
-        <!--Table of Contents end -->
-        
-
-
-
-
-        <p>[toc]</p>
-<h1 id="深度优先搜索"><a href="#深度优先搜索" class="headerlink" title="深度优先搜索"></a>深度优先搜索</h1><ul>
-<li>图的深度优先需要避免重复访问</li>
-<li>因为跟树不一样的地方是，图是对称的</li>
-</ul>
-<img src="https://gitee.com/mymengchuang/blog_img/raw/master/image-20211206081241984.png" alt="image-20211206081241984" style="zoom:80%;">
-
-
-
-<p><strong>问题：</strong></p>
-<ul>
-<li>不连通的图，可能会有一部分没办法遍历</li>
-<li>因此需要判断图中的所有元素是否有元素都被遍历了；</li>
-</ul>
-<img src="https://gitee.com/mymengchuang/blog_img/raw/master/image-20211206081500868.png" alt="image-20211206081500868" style="zoom:80%;">
-
-
-
-
-
-<h1 id="广度优先搜索"><a href="#广度优先搜索" class="headerlink" title="广度优先搜索"></a>广度优先搜索</h1><hr>
-<ul>
-<li>关键在于找点，判断是否遍历过</li>
-<li>保存路劲</li>
-</ul>
-<figure class="highlight java"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">///寻找一条从s到t的增广路，若找到返回true</span></span><br><span class="line"><span class="comment">//因为要求是最短的，所以采用bfsb</span></span><br><span class="line"><span class="function">bool <span class="title">bfs</span><span class="params">(<span class="keyword">int</span> s, <span class="keyword">int</span> t)</span></span></span><br><span class="line"><span class="function"></span>{</span><br><span class="line">    queue&lt;<span class="keyword">int</span>&gt; q;</span><br><span class="line">    memset(vis, <span class="number">0</span>, sizeof(vis));</span><br><span class="line">    memset(pre, -<span class="number">1</span>, sizeof(pre));</span><br><span class="line">    vis[s] = <span class="number">1</span>;</span><br><span class="line">    q.push(s);</span><br><span class="line">    <span class="keyword">while</span>(q.size())</span><br><span class="line">    {</span><br><span class="line">        <span class="keyword">int</span> first = q.front();</span><br><span class="line">        q.pop();</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">1</span>; i &lt;= n; ++i)</span><br><span class="line">            <span class="keyword">if</span>(!vis[i] &amp;&amp; r[first][i] &gt; <span class="number">0</span>)</span><br><span class="line">            {</span><br><span class="line">                pre[i] = first;</span><br><span class="line">                vis[i] = <span class="number">1</span>;</span><br><span class="line">                <span class="keyword">if</span>(i == t)</span><br><span class="line">                    <span class="keyword">return</span> <span class="number">1</span>;</span><br><span class="line">                q.push(i);</span><br><span class="line">            }</span><br><span class="line">    }</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">}</span><br><span class="line"></span><br></pre></td></tr></tbody></table></figure>
-
-
-      
-    </div>
-    
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E7%AE%97%E6%B3%95/" rel="tag">算法</a></li></ul>
-	</div>
-
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-      
-    
-  </div>
-  
-</article>
-
-
-
-
-
-
-
-  
     <article id="post-网络层408" class="article article-type-post" itemscope itemprop="blogPost">
   
     <div class="article-meta">
@@ -569,7 +672,7 @@
             <strong class="toc-title">目录</strong>
             <a class="js-toggle-toc" href="javascript:void(0)"></a>
             <div class="toc-content">
-              <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#%E7%BD%91%E7%BB%9C%E5%B1%82%E5%8A%9F%E8%83%BD"><span class="toc-text">网络层功能</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E8%B7%AF%E7%94%B1%E7%AE%97%E6%B3%95"><span class="toc-text">路由算法</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#1-%E5%88%86%E7%B1%BB"><span class="toc-text">1.分类</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2-%E8%B7%9D%E7%A6%BB%E5%90%91%E9%87%8F%E7%AE%97%E6%B3%95%EF%BC%88RIP%EF%BC%89"><span class="toc-text">2.距离向量算法（RIP）</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#3-%E9%93%BE%E8%B7%AF%E7%8A%B6%E6%80%81%E7%AE%97%E6%B3%95%EF%BC%88OSPF%EF%BC%89"><span class="toc-text">3.链路状态算法（OSPF）</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#4-%E5%B1%82%E6%AC%A1%E8%B7%AF%E7%94%B1"><span class="toc-text">4.层次路由</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#5-%E8%B7%AF%E7%94%B1%E8%A1%A8%E6%98%AF%E4%BB%80%E4%B9%88"><span class="toc-text">5.路由表是什么</span></a></li></ol></li></ol>
+              <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#%E7%BD%91%E7%BB%9C%E5%B1%82%E5%8A%9F%E8%83%BD"><span class="toc-text">网络层功能</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#1-%E4%B9%A0%E9%A2%98"><span class="toc-text">1.习题</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E8%B7%AF%E7%94%B1%E7%AE%97%E6%B3%95"><span class="toc-text">路由算法</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#1-%E5%88%86%E7%B1%BB"><span class="toc-text">1.分类</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2-%E8%B7%9D%E7%A6%BB%E5%90%91%E9%87%8F%E7%AE%97%E6%B3%95%EF%BC%88RIP%EF%BC%89"><span class="toc-text">2.距离向量算法（RIP）</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#3-%E9%93%BE%E8%B7%AF%E7%8A%B6%E6%80%81%E7%AE%97%E6%B3%95%EF%BC%88OSPF%EF%BC%89"><span class="toc-text">3.链路状态算法（OSPF）</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#4-%E5%B1%82%E6%AC%A1%E8%B7%AF%E7%94%B1"><span class="toc-text">4.层次路由</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#5-%E8%B7%AF%E7%94%B1%E8%A1%A8%E6%98%AF%E4%BB%80%E4%B9%88"><span class="toc-text">5.路由表是什么</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#6-%E4%B9%A0%E9%A2%98"><span class="toc-text">6.习题</span></a></li></ol></li></ol>
             </div>
           </div>
          -->
@@ -577,7 +680,7 @@
         
           <div id="toc" class="toc-article">
             <strong class="toc-title">目录</strong>
-            <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#%E7%BD%91%E7%BB%9C%E5%B1%82%E5%8A%9F%E8%83%BD"><span class="toc-text">网络层功能</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E8%B7%AF%E7%94%B1%E7%AE%97%E6%B3%95"><span class="toc-text">路由算法</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#1-%E5%88%86%E7%B1%BB"><span class="toc-text">1.分类</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2-%E8%B7%9D%E7%A6%BB%E5%90%91%E9%87%8F%E7%AE%97%E6%B3%95%EF%BC%88RIP%EF%BC%89"><span class="toc-text">2.距离向量算法（RIP）</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#3-%E9%93%BE%E8%B7%AF%E7%8A%B6%E6%80%81%E7%AE%97%E6%B3%95%EF%BC%88OSPF%EF%BC%89"><span class="toc-text">3.链路状态算法（OSPF）</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#4-%E5%B1%82%E6%AC%A1%E8%B7%AF%E7%94%B1"><span class="toc-text">4.层次路由</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#5-%E8%B7%AF%E7%94%B1%E8%A1%A8%E6%98%AF%E4%BB%80%E4%B9%88"><span class="toc-text">5.路由表是什么</span></a></li></ol></li></ol>
+            <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#%E7%BD%91%E7%BB%9C%E5%B1%82%E5%8A%9F%E8%83%BD"><span class="toc-text">网络层功能</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#1-%E4%B9%A0%E9%A2%98"><span class="toc-text">1.习题</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E8%B7%AF%E7%94%B1%E7%AE%97%E6%B3%95"><span class="toc-text">路由算法</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#1-%E5%88%86%E7%B1%BB"><span class="toc-text">1.分类</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2-%E8%B7%9D%E7%A6%BB%E5%90%91%E9%87%8F%E7%AE%97%E6%B3%95%EF%BC%88RIP%EF%BC%89"><span class="toc-text">2.距离向量算法（RIP）</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#3-%E9%93%BE%E8%B7%AF%E7%8A%B6%E6%80%81%E7%AE%97%E6%B3%95%EF%BC%88OSPF%EF%BC%89"><span class="toc-text">3.链路状态算法（OSPF）</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#4-%E5%B1%82%E6%AC%A1%E8%B7%AF%E7%94%B1"><span class="toc-text">4.层次路由</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#5-%E8%B7%AF%E7%94%B1%E8%A1%A8%E6%98%AF%E4%BB%80%E4%B9%88"><span class="toc-text">5.路由表是什么</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#6-%E4%B9%A0%E9%A2%98"><span class="toc-text">6.习题</span></a></li></ol></li></ol>
           </div>
         
         <!--Table of Contents end -->
@@ -589,18 +692,20 @@
         <p>[toc]</p>
 <h1 id="网络层功能"><a href="#网络层功能" class="headerlink" title="网络层功能"></a>网络层功能</h1><hr>
 <ul>
-<li><p><strong>路由器</strong></p>
-<ul>
+<li><strong>路由器</strong><ul>
 <li>路由器可以分割广播域，也就是不转发目的地址为255.255.255.255的目的IP包，可以分割广播域，避免广播风暴</li>
 <li>交换机工作在链路层，能分割冲突域，但是没办法分割广播域</li>
 <li>路由器连接的路由协议不一定是一样的，IPv4 IPv6</li>
 </ul>
 </li>
-<li><p><strong>存储转发机制</strong></p>
-<ul>
+<li><strong>存储转发机制</strong><ul>
 <li>路由器先接受完整的分组，然后检测分组是否有错，有错就丢弃，没有就等待路由算法提供路径</li>
 </ul>
 </li>
+</ul>
+<h2 id="1-习题"><a href="#1-习题" class="headerlink" title="1.习题"></a>1.习题</h2><ul>
+<li>IP进行的通信是不可靠的通信</li>
+<li></li>
 </ul>
 <h1 id="路由算法"><a href="#路由算法" class="headerlink" title="路由算法"></a>路由算法</h1><hr>
 <h2 id="1-分类"><a href="#1-分类" class="headerlink" title="1.分类"></a>1.分类</h2><ul>
@@ -640,9 +745,8 @@
 <li><p>在同一个局域网内的2台PC机，IP地址分别为10.0.0.x/24和10.0.1.x/24，都属于VLAN1，一开始不能互相Ping通，为什么把子网掩码长度从24位变成16位，就通了？</p>
 <p>答：当掩码长度为 24 位时，两台 PC 不在同一网段，计算机首先查找网关的 MAC，如果网关 MAC 得不到回应，是 ping 不通的。当掩码长度为 16 位时，两台 PC 在同一网段，不需要通过网关，因此可以 ping 通。</p>
 </li>
-<li></li>
 </ul>
-
+<h2 id="6-习题"><a href="#6-习题" class="headerlink" title="6.习题"></a>6.习题</h2>
       
     </div>
     
@@ -1398,139 +1502,6 @@
       
 	<div class="article-tag tagcloud">
 		<ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BB%84%E6%88%90/" rel="tag">计算机组成</a></li></ul>
-	</div>
-
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-      
-    
-  </div>
-  
-</article>
-
-
-
-
-
-
-
-  
-    <article id="post-二分图最大匹配" class="article article-type-post" itemscope itemprop="blogPost">
-  
-    <div class="article-meta">
-      <a href="/2021/11/29/%E4%BA%8C%E5%88%86%E5%9B%BE%E6%9C%80%E5%A4%A7%E5%8C%B9%E9%85%8D/" class="article-date">
-  	<time datetime="2021-11-29T14:00:00.000Z" itemprop="datePublished">2021-11-29</time>
-</a>
-    </div>
-  
-  <div class="article-inner">
-    
-      <input type="hidden" class="isFancy" />
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2021/11/29/%E4%BA%8C%E5%88%86%E5%9B%BE%E6%9C%80%E5%A4%A7%E5%8C%B9%E9%85%8D/">
-        二分图最大匹配
-        
-      </a>
-    </h1>
-  
-
-      </header>
-      
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <!--Table of Contents begin-->
-        <!-- 
-          <div id="toc" class="toc-article">
-            <strong class="toc-title">目录</strong>
-            <a class="js-toggle-toc" href="javascript:void(0)"></a>
-            <div class="toc-content">
-              <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#%E9%97%AE%E9%A2%98%E6%8F%8F%E8%BF%B0"><span class="toc-text">问题描述</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E5%8C%88%E7%89%99%E5%88%A9%E7%AE%97%E6%B3%95"><span class="toc-text">匈牙利算法</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#DFS%E7%AE%97%E6%B3%95"><span class="toc-text">DFS算法</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#LCP-04-%E8%A6%86%E7%9B%96"><span class="toc-text">LCP 04. 覆盖</span></a></li></ol>
-            </div>
-          </div>
-         -->
-          <!-- Table of Contents -->
-        
-          <div id="toc" class="toc-article">
-            <strong class="toc-title">目录</strong>
-            <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#%E9%97%AE%E9%A2%98%E6%8F%8F%E8%BF%B0"><span class="toc-text">问题描述</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E5%8C%88%E7%89%99%E5%88%A9%E7%AE%97%E6%B3%95"><span class="toc-text">匈牙利算法</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#DFS%E7%AE%97%E6%B3%95"><span class="toc-text">DFS算法</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#LCP-04-%E8%A6%86%E7%9B%96"><span class="toc-text">LCP 04. 覆盖</span></a></li></ol>
-          </div>
-        
-        <!--Table of Contents end -->
-        
-
-
-
-
-        <h1 id="问题描述"><a href="#问题描述" class="headerlink" title="问题描述"></a>问题描述</h1><hr>
-<p>二分图的一个等价定义是：不含有「含奇数条边的环」的图。</p>
-<p><strong>二分图：</strong>简单来说，如果图中点可以被分为两组，并且使得所有边都跨越组的边界，则这就是一个二分图。准确地说：把一个图的顶点划分为两个不相交集 <code>U</code>和<code>V</code> ，使得每一条边都分别连接<code>U</code>、<code>V</code>中的顶点。</p>
-<p><strong>最大匹配</strong>：一个图所有匹配中，所<strong>含匹配边数最多的匹配</strong><code>(也可以说匹配对数最多)</code>，称为这个图的最大匹配。</p>
-<p><strong>完美匹配</strong>：如果一个图的某个匹配中，所有的顶点都是匹配点，那么它就是一个完美匹配。</p>
-<blockquote>
-<p>每一个点只能进行一次匹配</p>
-</blockquote>
-<h1 id="匈牙利算法"><a href="#匈牙利算法" class="headerlink" title="匈牙利算法"></a>匈牙利算法</h1><hr>
-<p><strong>交替路</strong>：从一个未匹配点出发，依次经过非匹配边、匹配边、非匹配边…形成的路径叫交替路。</p>
-<p><strong>增广路</strong>：从一个未匹配点出发，走交替路，如果途径另一个未匹配点（出发的点不算），则这条交替路称为增广路（agumenting path）。</p>
-<p><strong>特点：</strong>增广路有一个重要特点：非匹配边比匹配边多一条。因此，研究增广路的意义是<strong>改进匹配</strong>。只要把增广路中的匹配边和非匹配边的身份交换即可。由于中间的匹配节点不存在其他相连的匹配边，所以这样做不会破坏匹配的性质。交换后，图中的匹配边数目比原来多了 1 条</p>
-<p><code>增广路定理：</code>我们可以通过不停地找增广路来增加匹配中的匹配边和匹配点。找不到增广路时，达到最大匹配。</p>
-<p><code>匈牙利树</code>：一般由 BFS 构造（类似于 BFS 树）。从一个未匹配点出发运行 BFS（唯一的限制是，必须走交替路），直到不能再扩展为止。</p>
-<p><strong>匈牙利算法的要点如下</strong></p>
-<ol>
-<li>从左边第 1 个顶点开始，挑选未匹配点进行搜索，寻找增广路。<ol>
-<li>如果经过一个未匹配点，说明寻找成功。更新路径信息，匹配边数 +1，停止搜索。</li>
-<li>如果一直没有找到增广路，则不再从这个点开始搜索。事实上，此时搜索后会形成一棵匈牙利树。我们可以永久性地把它从图中删去，而不影响结果。</li>
-</ol>
-</li>
-<li>由于找到增广路之后需要沿着路径更新匹配，所以我们需要一个结构来记录路径上的点。DFS 版本通过函数调用隐式地使用一个栈，而 BFS 版本使用 <code>prev</code> 数组。</li>
-</ol>
-<h1 id="DFS算法"><a href="#DFS算法" class="headerlink" title="DFS算法"></a>DFS算法</h1><hr>
-<figure class="highlight java"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">int</span> matching[__maxNodes]; <span class="comment">/* 存储求解结果 */</span></span><br><span class="line"><span class="keyword">int</span> check[__maxNodes];</span><br><span class="line"></span><br><span class="line"><span class="function">bool <span class="title">dfs</span><span class="params">(<span class="keyword">int</span> u)</span></span></span><br><span class="line"><span class="function"></span>{</span><br><span class="line">    <span class="keyword">for</span> (iterator_t i = G[u].begin(); i != G[u].end(); ++i) { <span class="comment">// 对 u 的每个邻接点</span></span><br><span class="line">        <span class="keyword">int</span> v = edges[*i].to;</span><br><span class="line">        <span class="keyword">if</span> (!check[v]) {     <span class="comment">// 要求不在交替路中</span></span><br><span class="line">            check[v] = <span class="keyword">true</span>; <span class="comment">// 放入交替路</span></span><br><span class="line">            <span class="keyword">if</span> (matching[v] == -<span class="number">1</span> || dfs(matching[v])) {</span><br><span class="line">                <span class="comment">// 如果是未盖点，说明交替路为增广路，则交换路径，并返回成功</span></span><br><span class="line">                matching[v] = u;</span><br><span class="line">                matching[u] = v;</span><br><span class="line">                <span class="keyword">return</span> <span class="keyword">true</span>;</span><br><span class="line">            }</span><br><span class="line">        }</span><br><span class="line">    }</span><br><span class="line">    <span class="keyword">return</span> <span class="keyword">false</span>; <span class="comment">// 不存在增广路，返回失败</span></span><br><span class="line">}</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">hungarian</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>{</span><br><span class="line">    <span class="keyword">int</span> ans = <span class="number">0</span>;</span><br><span class="line">    memset(matching, -<span class="number">1</span>, sizeof(matching));</span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> u=<span class="number">0</span>; u &lt; num_left; ++u) {</span><br><span class="line">        <span class="keyword">if</span> (matching[u] == -<span class="number">1</span>) {</span><br><span class="line">            memset(check, <span class="number">0</span>, sizeof(check));</span><br><span class="line">            <span class="keyword">if</span> (dfs(u))</span><br><span class="line">                ++ans;</span><br><span class="line">        }</span><br><span class="line">    }</span><br><span class="line">    <span class="keyword">return</span> ans;</span><br><span class="line">}</span><br></pre></td></tr></tbody></table></figure>
-
-
-
-<p>详细解答不必须要解答：<a target="_blank" rel="noopener" href="https://blog.csdn.net/thundermrbird/article/details/52231639">https://blog.csdn.net/thundermrbird/article/details/52231639</a></p>
-<h1 id="LCP-04-覆盖"><a href="#LCP-04-覆盖" class="headerlink" title="LCP 04. 覆盖"></a>LCP 04. 覆盖</h1><hr>
-<p>你有一块棋盘，棋盘上有一些格子已经坏掉了。你还有无穷块大小为<code>1 * 2</code>的多米诺骨牌，你想把这些骨牌<strong>不重叠</strong>地覆盖在<strong>完好</strong>的格子上，请找出你最多能在棋盘上放多少块骨牌？这些骨牌可以横着或者竖着放。</p>
-<p>输入：<code>n, m</code>代表棋盘的大小；<code>broken</code>是一个<code>b * 2</code>的二维数组，其中每个元素代表棋盘上每一个坏掉的格子的位置</p>
-<p>输出：一个整数，代表最多能在棋盘上放的骨牌数</p>
-<p><strong>示例一：</strong></p>
-<figure class="highlight java"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">输入：n = <span class="number">2</span>, m = <span class="number">3</span>, broken = [[<span class="number">1</span>, <span class="number">0</span>], [<span class="number">1</span>, <span class="number">1</span>]]</span><br><span class="line">输出：<span class="number">2</span></span><br><span class="line">解释：我们最多可以放两块骨牌：[[<span class="number">0</span>, <span class="number">0</span>], [<span class="number">0</span>, <span class="number">1</span>]]以及[[<span class="number">0</span>, <span class="number">2</span>], [<span class="number">1</span>, <span class="number">2</span>]]。（见下图）</span><br></pre></td></tr></tbody></table></figure>
-
-<p><strong>思路：</strong></p>
-<ul>
-<li>状态压缩动态规划</li>
-<li>二分图最大匹配</li>
-</ul>
-<p><strong>思路一：二分图匹配</strong></p>
-<ul>
-<li><p>1*2大小的棋子相关的问题可以用黑白棋盘染色，然后用二分图来解决；</p>
-</li>
-<li><p>因为这种形状的棋子必然占据两个不同颜色的棋盘格</p>
-</li>
-<li><p>这里的染色是用(i + j) 的奇偶性判断；</p>
-</li>
-<li><p>根据上下左右建边；然后用匈牙利算法寻找二分图最大匹配即可；</p>
-</li>
-</ul>
-
-      
-    </div>
-    
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E7%AE%97%E6%B3%95/" rel="tag">算法</a></li></ul>
 	</div>
 
       

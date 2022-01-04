@@ -20,7 +20,7 @@
 <meta property="og:image" content="https://gitee.com/mymengchuang/blog_img/raw/master/image-20211201214803219.png">
 <meta property="og:image" content="c:/Users/DELL/AppData/Roaming/Typora/typora-user-images/image-20211208004831099.png">
 <meta property="article:published_time" content="2021-11-17T16:00:02.000Z">
-<meta property="article:modified_time" content="2021-12-16T04:13:30.783Z">
+<meta property="article:modified_time" content="2022-01-01T19:33:07.146Z">
 <meta property="article:author" content="绘梨衣">
 <meta property="article:tag" content="计算机组成">
 <meta name="twitter:card" content="summary">
@@ -364,6 +364,12 @@
 </li>
 <li></li>
 </ul>
+<figure class="highlight verilog"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">assign</span> dirty = (hit1 &amp; dirty1) | (hit2 &amp; dirty2);</span><br><span class="line"><span class="keyword">assign</span> valid =(hit1 &amp; valid1) | (hit2 &amp; valid2);</span><br><span class="line"><span class="keyword">assign</span> hit1 = (tag1_loaded == addr[<span class="number">31</span>:<span class="number">11</span>]) &amp; valid1;</span><br><span class="line"><span class="keyword">assign</span> hit2 = (tag2_loaded == addr[<span class="number">31</span>:<span class="number">11</span>]) &amp; valid2;</span><br><span class="line"><span class="comment">//hit and miss </span></span><br><span class="line"><span class="keyword">assign</span> hit = (ld | st) &amp; (hit1 | hit2);</span><br><span class="line"><span class="keyword">assign</span> miss = ~hit;</span><br></pre></td></tr></tbody></table></figure>
+
+
+
+
+
 
       
     </div>

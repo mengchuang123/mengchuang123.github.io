@@ -165,6 +165,139 @@
 </nav>
       <div class="body-wrap">
   
+    <article id="post-二分图最大匹配" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2021/11/29/%E4%BA%8C%E5%88%86%E5%9B%BE%E6%9C%80%E5%A4%A7%E5%8C%B9%E9%85%8D/" class="article-date">
+  	<time datetime="2021-11-29T14:00:00.000Z" itemprop="datePublished">2021-11-29</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2021/11/29/%E4%BA%8C%E5%88%86%E5%9B%BE%E6%9C%80%E5%A4%A7%E5%8C%B9%E9%85%8D/">
+        二分图最大匹配
+        
+      </a>
+    </h1>
+  
+
+      </header>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <!--Table of Contents begin-->
+        <!-- 
+          <div id="toc" class="toc-article">
+            <strong class="toc-title">目录</strong>
+            <a class="js-toggle-toc" href="javascript:void(0)"></a>
+            <div class="toc-content">
+              <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#%E9%97%AE%E9%A2%98%E6%8F%8F%E8%BF%B0"><span class="toc-text">问题描述</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E5%8C%88%E7%89%99%E5%88%A9%E7%AE%97%E6%B3%95"><span class="toc-text">匈牙利算法</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#DFS%E7%AE%97%E6%B3%95"><span class="toc-text">DFS算法</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#LCP-04-%E8%A6%86%E7%9B%96"><span class="toc-text">LCP 04. 覆盖</span></a></li></ol>
+            </div>
+          </div>
+         -->
+          <!-- Table of Contents -->
+        
+          <div id="toc" class="toc-article">
+            <strong class="toc-title">目录</strong>
+            <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#%E9%97%AE%E9%A2%98%E6%8F%8F%E8%BF%B0"><span class="toc-text">问题描述</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E5%8C%88%E7%89%99%E5%88%A9%E7%AE%97%E6%B3%95"><span class="toc-text">匈牙利算法</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#DFS%E7%AE%97%E6%B3%95"><span class="toc-text">DFS算法</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#LCP-04-%E8%A6%86%E7%9B%96"><span class="toc-text">LCP 04. 覆盖</span></a></li></ol>
+          </div>
+        
+        <!--Table of Contents end -->
+        
+
+
+
+
+        <h1 id="问题描述"><a href="#问题描述" class="headerlink" title="问题描述"></a>问题描述</h1><hr>
+<p>二分图的一个等价定义是：不含有「含奇数条边的环」的图。</p>
+<p><strong>二分图：</strong>简单来说，如果图中点可以被分为两组，并且使得所有边都跨越组的边界，则这就是一个二分图。准确地说：把一个图的顶点划分为两个不相交集 <code>U</code>和<code>V</code> ，使得每一条边都分别连接<code>U</code>、<code>V</code>中的顶点。</p>
+<p><strong>最大匹配</strong>：一个图所有匹配中，所<strong>含匹配边数最多的匹配</strong><code>(也可以说匹配对数最多)</code>，称为这个图的最大匹配。</p>
+<p><strong>完美匹配</strong>：如果一个图的某个匹配中，所有的顶点都是匹配点，那么它就是一个完美匹配。</p>
+<blockquote>
+<p>每一个点只能进行一次匹配</p>
+</blockquote>
+<h1 id="匈牙利算法"><a href="#匈牙利算法" class="headerlink" title="匈牙利算法"></a>匈牙利算法</h1><hr>
+<p><strong>交替路</strong>：从一个未匹配点出发，依次经过非匹配边、匹配边、非匹配边…形成的路径叫交替路。</p>
+<p><strong>增广路</strong>：从一个未匹配点出发，走交替路，如果途径另一个未匹配点（出发的点不算），则这条交替路称为增广路（agumenting path）。</p>
+<p><strong>特点：</strong>增广路有一个重要特点：非匹配边比匹配边多一条。因此，研究增广路的意义是<strong>改进匹配</strong>。只要把增广路中的匹配边和非匹配边的身份交换即可。由于中间的匹配节点不存在其他相连的匹配边，所以这样做不会破坏匹配的性质。交换后，图中的匹配边数目比原来多了 1 条</p>
+<p><code>增广路定理：</code>我们可以通过不停地找增广路来增加匹配中的匹配边和匹配点。找不到增广路时，达到最大匹配。</p>
+<p><code>匈牙利树</code>：一般由 BFS 构造（类似于 BFS 树）。从一个未匹配点出发运行 BFS（唯一的限制是，必须走交替路），直到不能再扩展为止。</p>
+<p><strong>匈牙利算法的要点如下</strong></p>
+<ol>
+<li>从左边第 1 个顶点开始，挑选未匹配点进行搜索，寻找增广路。<ol>
+<li>如果经过一个未匹配点，说明寻找成功。更新路径信息，匹配边数 +1，停止搜索。</li>
+<li>如果一直没有找到增广路，则不再从这个点开始搜索。事实上，此时搜索后会形成一棵匈牙利树。我们可以永久性地把它从图中删去，而不影响结果。</li>
+</ol>
+</li>
+<li>由于找到增广路之后需要沿着路径更新匹配，所以我们需要一个结构来记录路径上的点。DFS 版本通过函数调用隐式地使用一个栈，而 BFS 版本使用 <code>prev</code> 数组。</li>
+</ol>
+<h1 id="DFS算法"><a href="#DFS算法" class="headerlink" title="DFS算法"></a>DFS算法</h1><hr>
+<figure class="highlight java"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">int</span> matching[__maxNodes]; <span class="comment">/* 存储求解结果 */</span></span><br><span class="line"><span class="keyword">int</span> check[__maxNodes];</span><br><span class="line"></span><br><span class="line"><span class="function">bool <span class="title">dfs</span><span class="params">(<span class="keyword">int</span> u)</span></span></span><br><span class="line"><span class="function"></span>{</span><br><span class="line">    <span class="keyword">for</span> (iterator_t i = G[u].begin(); i != G[u].end(); ++i) { <span class="comment">// 对 u 的每个邻接点</span></span><br><span class="line">        <span class="keyword">int</span> v = edges[*i].to;</span><br><span class="line">        <span class="keyword">if</span> (!check[v]) {     <span class="comment">// 要求不在交替路中</span></span><br><span class="line">            check[v] = <span class="keyword">true</span>; <span class="comment">// 放入交替路</span></span><br><span class="line">            <span class="keyword">if</span> (matching[v] == -<span class="number">1</span> || dfs(matching[v])) {</span><br><span class="line">                <span class="comment">// 如果是未盖点，说明交替路为增广路，则交换路径，并返回成功</span></span><br><span class="line">                matching[v] = u;</span><br><span class="line">                matching[u] = v;</span><br><span class="line">                <span class="keyword">return</span> <span class="keyword">true</span>;</span><br><span class="line">            }</span><br><span class="line">        }</span><br><span class="line">    }</span><br><span class="line">    <span class="keyword">return</span> <span class="keyword">false</span>; <span class="comment">// 不存在增广路，返回失败</span></span><br><span class="line">}</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">hungarian</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>{</span><br><span class="line">    <span class="keyword">int</span> ans = <span class="number">0</span>;</span><br><span class="line">    memset(matching, -<span class="number">1</span>, sizeof(matching));</span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> u=<span class="number">0</span>; u &lt; num_left; ++u) {</span><br><span class="line">        <span class="keyword">if</span> (matching[u] == -<span class="number">1</span>) {</span><br><span class="line">            memset(check, <span class="number">0</span>, sizeof(check));</span><br><span class="line">            <span class="keyword">if</span> (dfs(u))</span><br><span class="line">                ++ans;</span><br><span class="line">        }</span><br><span class="line">    }</span><br><span class="line">    <span class="keyword">return</span> ans;</span><br><span class="line">}</span><br></pre></td></tr></tbody></table></figure>
+
+
+
+<p>详细解答不必须要解答：<a target="_blank" rel="noopener" href="https://blog.csdn.net/thundermrbird/article/details/52231639">https://blog.csdn.net/thundermrbird/article/details/52231639</a></p>
+<h1 id="LCP-04-覆盖"><a href="#LCP-04-覆盖" class="headerlink" title="LCP 04. 覆盖"></a>LCP 04. 覆盖</h1><hr>
+<p>你有一块棋盘，棋盘上有一些格子已经坏掉了。你还有无穷块大小为<code>1 * 2</code>的多米诺骨牌，你想把这些骨牌<strong>不重叠</strong>地覆盖在<strong>完好</strong>的格子上，请找出你最多能在棋盘上放多少块骨牌？这些骨牌可以横着或者竖着放。</p>
+<p>输入：<code>n, m</code>代表棋盘的大小；<code>broken</code>是一个<code>b * 2</code>的二维数组，其中每个元素代表棋盘上每一个坏掉的格子的位置</p>
+<p>输出：一个整数，代表最多能在棋盘上放的骨牌数</p>
+<p><strong>示例一：</strong></p>
+<figure class="highlight java"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">输入：n = <span class="number">2</span>, m = <span class="number">3</span>, broken = [[<span class="number">1</span>, <span class="number">0</span>], [<span class="number">1</span>, <span class="number">1</span>]]</span><br><span class="line">输出：<span class="number">2</span></span><br><span class="line">解释：我们最多可以放两块骨牌：[[<span class="number">0</span>, <span class="number">0</span>], [<span class="number">0</span>, <span class="number">1</span>]]以及[[<span class="number">0</span>, <span class="number">2</span>], [<span class="number">1</span>, <span class="number">2</span>]]。（见下图）</span><br></pre></td></tr></tbody></table></figure>
+
+<p><strong>思路：</strong></p>
+<ul>
+<li>状态压缩动态规划</li>
+<li>二分图最大匹配</li>
+</ul>
+<p><strong>思路一：二分图匹配</strong></p>
+<ul>
+<li><p>1*2大小的棋子相关的问题可以用黑白棋盘染色，然后用二分图来解决；</p>
+</li>
+<li><p>因为这种形状的棋子必然占据两个不同颜色的棋盘格</p>
+</li>
+<li><p>这里的染色是用(i + j) 的奇偶性判断；</p>
+</li>
+<li><p>根据上下左右建边；然后用匈牙利算法寻找二分图最大匹配即可；</p>
+</li>
+</ul>
+
+      
+    </div>
+    
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E7%AE%97%E6%B3%95/" rel="tag">算法</a></li></ul>
+	</div>
+
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+      
+    
+  </div>
+  
+</article>
+
+
+
+
+
+
+
+  
     <article id="post-最短路算法练习" class="article article-type-post" itemscope itemprop="blogPost">
   
     <div class="article-meta">
@@ -1567,184 +1700,6 @@
 
 
 
-
-      
-    </div>
-    
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E7%AE%97%E6%B3%95/" rel="tag">算法</a></li></ul>
-	</div>
-
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-      
-    
-  </div>
-  
-</article>
-
-
-
-
-
-
-
-  
-    <article id="post-最小生成树" class="article article-type-post" itemscope itemprop="blogPost">
-  
-    <div class="article-meta">
-      <a href="/2021/11/20/%E6%9C%80%E5%B0%8F%E7%94%9F%E6%88%90%E6%A0%91/" class="article-date">
-  	<time datetime="2021-11-19T16:01:00.000Z" itemprop="datePublished">2021-11-20</time>
-</a>
-    </div>
-  
-  <div class="article-inner">
-    
-      <input type="hidden" class="isFancy" />
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2021/11/20/%E6%9C%80%E5%B0%8F%E7%94%9F%E6%88%90%E6%A0%91/">
-        最小生成树
-        
-      </a>
-    </h1>
-  
-
-      </header>
-      
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <!--Table of Contents begin-->
-        <!-- 
-          <div id="toc" class="toc-article">
-            <strong class="toc-title">目录</strong>
-            <a class="js-toggle-toc" href="javascript:void(0)"></a>
-            <div class="toc-content">
-              <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#Prim%E7%AE%97%E6%B3%95"><span class="toc-text">Prim算法</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Kruskal"><span class="toc-text">Kruskal</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E5%A6%82%E4%BD%95%E5%88%A4%E6%96%AD%E6%98%AF%E5%90%A6%E5%AD%98%E5%9C%A8%E6%9C%80%E5%B0%8F%E7%94%9F%E6%88%90%E6%A0%91"><span class="toc-text">如何判断是否存在最小生成树</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E5%A6%82%E4%BD%95%E5%88%A4%E6%96%AD%E6%9C%80%E5%B0%8F%E7%94%9F%E6%88%90%E6%A0%91%E6%98%AF%E4%B8%8D%E6%98%AF%E5%94%AF%E4%B8%80%E7%9A%84%E5%91%A2"><span class="toc-text">如何判断最小生成树是不是唯一的呢</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E5%A6%82%E4%BD%95%E8%8E%B7%E5%BE%97%E6%9C%80%E5%B0%8F%E7%94%9F%E6%88%90%E6%A0%91%E7%9A%84%E6%95%B0%E9%87%8F%E5%91%A2"><span class="toc-text">如何获得最小生成树的数量呢</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#POJ1679"><span class="toc-text">POJ1679</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Prim%E5%92%8CKruskal%E6%80%8E%E4%B9%88%E9%80%89%E6%8B%A9"><span class="toc-text">Prim和Kruskal怎么选择</span></a></li></ol>
-            </div>
-          </div>
-         -->
-          <!-- Table of Contents -->
-        
-          <div id="toc" class="toc-article">
-            <strong class="toc-title">目录</strong>
-            <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#Prim%E7%AE%97%E6%B3%95"><span class="toc-text">Prim算法</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Kruskal"><span class="toc-text">Kruskal</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E5%A6%82%E4%BD%95%E5%88%A4%E6%96%AD%E6%98%AF%E5%90%A6%E5%AD%98%E5%9C%A8%E6%9C%80%E5%B0%8F%E7%94%9F%E6%88%90%E6%A0%91"><span class="toc-text">如何判断是否存在最小生成树</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E5%A6%82%E4%BD%95%E5%88%A4%E6%96%AD%E6%9C%80%E5%B0%8F%E7%94%9F%E6%88%90%E6%A0%91%E6%98%AF%E4%B8%8D%E6%98%AF%E5%94%AF%E4%B8%80%E7%9A%84%E5%91%A2"><span class="toc-text">如何判断最小生成树是不是唯一的呢</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E5%A6%82%E4%BD%95%E8%8E%B7%E5%BE%97%E6%9C%80%E5%B0%8F%E7%94%9F%E6%88%90%E6%A0%91%E7%9A%84%E6%95%B0%E9%87%8F%E5%91%A2"><span class="toc-text">如何获得最小生成树的数量呢</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#POJ1679"><span class="toc-text">POJ1679</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Prim%E5%92%8CKruskal%E6%80%8E%E4%B9%88%E9%80%89%E6%8B%A9"><span class="toc-text">Prim和Kruskal怎么选择</span></a></li></ol>
-          </div>
-        
-        <!--Table of Contents end -->
-        
-
-
-
-
-        <h1 id="Prim算法"><a href="#Prim算法" class="headerlink" title="Prim算法"></a>Prim算法</h1><ul>
-<li><p>选取一个顶点作为已选择的顶点，加入<strong>已选结点集合</strong></p>
-</li>
-<li><p>选出<strong>未选结点集合</strong>中选出一个<strong>和已选结点集合中的距离最小</strong>的结点</p>
-</li>
-<li><p>该结点加入<strong>已选结点集合</strong></p>
-</li>
-</ul>
-<p><strong>证明：</strong></p>
-<p>用归纳法（反证法）证明形成的MST</p>
-<ul>
-<li>假设一个最短，但是不是最优的结点，和另外一个最优但是不是最短的边，</li>
-<li>两个不可能同时存在，必然只能选择一个</li>
-<li>明显最短的那个就是最优的。</li>
-</ul>
-<p><strong>效率：</strong></p>
-<ul>
-<li><strong>权重矩阵表示：</strong> $O(|V|^2)$ </li>
-<li><strong>邻接链表表示：</strong> $(|V|-1+|E|)O(log|V|)=O(|E|log|V|)$   </li>
-</ul>
-<p><strong>代码：</strong></p>
-<ul>
-<li>维护一个<code>lowcost</code>数组，可以同时实现标记和求每次的贪心步骤</li>
-<li>最后求出来的最小值大于等于inf，那么就是不存在最小生成树</li>
-</ul>
-<figure class="highlight java"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">Prim</span><span class="params">(<span class="keyword">int</span> graph[][MAX], <span class="keyword">int</span> n)</span></span></span><br><span class="line"><span class="function"></span>{</span><br><span class="line">    <span class="keyword">int</span> lowcost[MAX];</span><br><span class="line">    <span class="keyword">int</span> i, j, min, minid, sum = <span class="number">0</span>;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">for</span> (i = <span class="number">2</span>; i &lt;= n; i++)  lowcost[i] = graph[<span class="number">1</span>][i];</span><br><span class="line">    lowcost[<span class="number">1</span>] = <span class="number">0</span>;</span><br><span class="line">    </span><br><span class="line">    <span class="keyword">for</span> (i = <span class="number">2</span>; i &lt;= n; i++)</span><br><span class="line">    {</span><br><span class="line">        <span class="comment">//取值</span></span><br><span class="line">        取出lowcost中不为<span class="number">0</span>的最小值</span><br><span class="line">        <span class="comment">//标记    </span></span><br><span class="line">        sum += min;</span><br><span class="line">        lowcost[minid] = <span class="number">0</span>;<span class="comment">//相当于know[minid] = 1;</span></span><br><span class="line">        </span><br><span class="line">        <span class="comment">//松弛----这个很棒</span></span><br><span class="line">        <span class="keyword">for</span> (j = <span class="number">2</span>; j &lt;= n; j++)</span><br><span class="line">            <span class="keyword">if</span> (graph[minid][j] &lt; lowcost[j])  lowcost[j] = graph[minid][j];</span><br><span class="line">    }</span><br><span class="line">    <span class="keyword">return</span> sum;</span><br><span class="line">}</span><br></pre></td></tr></tbody></table></figure>
-
-<p><strong>保存路径</strong></p>
-<p><code> mst[j] = minid;  //更新最小权值边的起点</code></p>
-<figure class="highlight java"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">Prim</span><span class="params">(<span class="keyword">int</span> graph[][MAX], <span class="keyword">int</span> n)</span></span></span><br><span class="line"><span class="function"></span>{</span><br><span class="line">    <span class="keyword">int</span> lowcost[MAX],mst[MAX];</span><br><span class="line">    <span class="keyword">int</span> i, j, min, minid, sum = <span class="number">0</span>;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">for</span> (i = <span class="number">2</span>; i &lt;= n; i++)  {</span><br><span class="line">        lowcost[i] = graph[<span class="number">1</span>][i];</span><br><span class="line">        mst[i] = <span class="number">1</span>;  <span class="comment">//标记所有节点的起点皆为默认的1号节点</span></span><br><span class="line">    }</span><br><span class="line">    lowcost[<span class="number">1</span>] = <span class="number">0</span>;</span><br><span class="line">    mst[<span class="number">1</span>] = <span class="number">0</span>;  <span class="comment">//标记1号节点加入生成树</span></span><br><span class="line">    <span class="keyword">for</span> (i = <span class="number">2</span>; i &lt;= n; i++)</span><br><span class="line">    {</span><br><span class="line">        <span class="comment">//取值</span></span><br><span class="line">        取出lowcost中不为<span class="number">0</span>的最小值</span><br><span class="line">        <span class="comment">//标记    </span></span><br><span class="line">        sum += min;</span><br><span class="line">        lowcost[minid] = <span class="number">0</span>;<span class="comment">//相当于know[minid] = 1;  </span></span><br><span class="line">	      printf(<span class="string">"%c - %c : %d\n"</span>, mst[minid] + <span class="string">'A'</span> - <span class="number">1</span>, minid + <span class="string">'A'</span> - <span class="number">1</span>, min);  <span class="comment">//输出生成树边的信息:起点，终点，权值</span></span><br><span class="line">  </span><br><span class="line">        <span class="comment">//松弛----这个很棒</span></span><br><span class="line">        <span class="keyword">for</span> (j = <span class="number">2</span>; j &lt;= n; j++){</span><br><span class="line">            <span class="keyword">if</span> (graph[minid][j] &lt; lowcost[j])  lowcost[j] = graph[minid][j];</span><br><span class="line">			mst[j] = minid;  <span class="comment">//更新最小权值边的起点</span></span><br><span class="line">        }</span><br><span class="line">    }</span><br><span class="line">    <span class="keyword">return</span> sum;</span><br><span class="line">}</span><br></pre></td></tr></tbody></table></figure>
-
-
-
-<h1 id="Kruskal"><a href="#Kruskal" class="headerlink" title="Kruskal"></a>Kruskal</h1><hr>
-<p>思想：对边的操作</p>
-<ul>
-<li><p>将所有的边按照权重来进行排序</p>
-</li>
-<li><p>按照排序的顺序依次判断排序好的边是否可以加入结果中（是否构成回路）</p>
-</li>
-<li><p>难点：需要检查是否属于一个回路</p>
-</li>
-</ul>
-<blockquote>
-<p>用查并集来判断是否两个结点属于同一个树</p>
-</blockquote>
-<p><strong>实现</strong></p>
-<figure class="highlight java"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//m是边的数量</span></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">Kruskal</span><span class="params">()</span></span>{</span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">0</span>;i&lt;m;i++){     <span class="comment">//遍历所有的边</span></span><br><span class="line">		<span class="keyword">int</span> e = r[i];         <span class="comment">//第i条边</span></span><br><span class="line">        <span class="keyword">if</span>(find(u(e))!=find(v(e))){</span><br><span class="line">			ans+=w(e);</span><br><span class="line">            union(u(e),v(e)); <span class="comment">//合并</span></span><br><span class="line">        }</span><br><span class="line">    }</span><br><span class="line">     <span class="keyword">return</span> ans;</span><br><span class="line">}</span><br></pre></td></tr></tbody></table></figure>
-
-<h1 id="如何判断是否存在最小生成树"><a href="#如何判断是否存在最小生成树" class="headerlink" title="如何判断是否存在最小生成树"></a>如何判断是否存在最小生成树</h1><hr>
-<ul>
-<li>采用<code>Kruasal</code>，最后所有的点是否都被包含进一个类别即可</li>
-<li>先判断连通性，由于结点数比较少，可以通过<code>dfs</code>直接判断连通块的个数</li>
-</ul>
-<h1 id="如何判断最小生成树是不是唯一的呢"><a href="#如何判断最小生成树是不是唯一的呢" class="headerlink" title="如何判断最小生成树是不是唯一的呢"></a>如何判断最小生成树是不是唯一的呢</h1><hr>
-<ul>
-<li>如果全部的边都是不一样的，那么生成树就是唯一的。</li>
-<li>无向图中存在相同权值的边是最小生成树不唯一的必要条件（但不是充分条件）</li>
-</ul>
-<p><code>判定最小生成树唯一的算法思路</code></p>
-<ul>
-<li>求次小生成树，判断次小生成树的大小是否等于最小生成树</li>
-</ul>
-<p><code>次小生成树</code></p>
-<ul>
-<li>求第二小生成树的时候，一般采用的是求出最小生成树后，</li>
-<li>依次删除最小生成树上的每一条边，然后生成n-1次最小生成树，</li>
-<li>记录下这个过程中的最小的生成树的值，那么这个就是第二小生成树了。</li>
-</ul>
-<h1 id="如何获得最小生成树的数量呢"><a href="#如何获得最小生成树的数量呢" class="headerlink" title="如何获得最小生成树的数量呢"></a>如何获得最小生成树的数量呢</h1><hr>
-<blockquote>
-<p> Kruskal+Matrix_Tree 定理实现最小生成树计数问题</p>
-</blockquote>
-<p><code>问题：</code></p>
-<ul>
-<li>给定一个含有 N 个结点 M 条边的无向图，求它最小生成树的个数 t (G);</li>
-</ul>
-<p><code>算法流程：</code></p>
-<ul>
-<li>。。。比较麻烦</li>
-</ul>
-<h1 id="POJ1679"><a href="#POJ1679" class="headerlink" title="POJ1679"></a>POJ1679</h1><hr>
-<p><strong>思路：</strong> 我们可能先判断连通性，由于结点数比较少，可以通过dfs直接判断连通块的个数，对于最小生成树的唯一性，我们可以通过求出次小生成的权值，在于最小生成树的权值进行比较即可。</p>
-<ul>
-<li>采用查并集查看存在多少个组件集合，也就是多少棵生成树</li>
-<li>采用Prim算法求解最短路</li>
-<li>一次删除最短路中的每一条边，得到次短路</li>
-</ul>
-<p><strong>代码：</strong></p>
-<figure class="highlight java"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br><span class="line">108</span><br><span class="line">109</span><br><span class="line">110</span><br><span class="line">111</span><br><span class="line">112</span><br><span class="line">113</span><br><span class="line">114</span><br><span class="line">115</span><br><span class="line">116</span><br><span class="line">117</span><br><span class="line">118</span><br><span class="line">119</span><br><span class="line">120</span><br><span class="line">121</span><br><span class="line">122</span><br><span class="line">123</span><br><span class="line">124</span><br><span class="line">125</span><br><span class="line">126</span><br><span class="line">127</span><br><span class="line">128</span><br><span class="line">129</span><br><span class="line">130</span><br><span class="line">131</span><br><span class="line">132</span><br><span class="line">133</span><br><span class="line">134</span><br><span class="line">135</span><br><span class="line">136</span><br><span class="line">137</span><br><span class="line">138</span><br><span class="line">139</span><br><span class="line">140</span><br><span class="line">141</span><br><span class="line">142</span><br><span class="line">143</span><br><span class="line">144</span><br><span class="line">145</span><br><span class="line">146</span><br><span class="line">147</span><br><span class="line">148</span><br><span class="line">149</span><br><span class="line">150</span><br><span class="line">151</span><br><span class="line">152</span><br><span class="line">153</span><br><span class="line">154</span><br><span class="line">155</span><br><span class="line">156</span><br><span class="line">157</span><br><span class="line">158</span><br><span class="line">159</span><br><span class="line">160</span><br><span class="line">161</span><br><span class="line">162</span><br><span class="line">163</span><br><span class="line">164</span><br><span class="line">165</span><br><span class="line">166</span><br><span class="line">167</span><br></pre></td><td class="code"><pre><span class="line">#include&lt;stdio.h&gt;</span><br><span class="line">#include&lt;string.h&gt;</span><br><span class="line"><span class="comment">// int s[501]; </span></span><br><span class="line"><span class="keyword">int</span> M=<span class="number">0</span>;</span><br><span class="line"><span class="keyword">int</span> N=<span class="number">0</span>;</span><br><span class="line"><span class="keyword">int</span> d[<span class="number">500</span>][<span class="number">500</span>];</span><br><span class="line"><span class="keyword">int</span> INF = <span class="number">100000</span>;</span><br><span class="line"><span class="keyword">int</span> path[<span class="number">500</span>];</span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">Prim2</span><span class="params">()</span></span>{</span><br><span class="line">    <span class="keyword">int</span> LowCost[N];</span><br><span class="line">    <span class="keyword">int</span> res= <span class="number">0</span>;</span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">0</span>;i&lt;N;i++){</span><br><span class="line">        LowCost[i] = d[<span class="number">0</span>][i];</span><br><span class="line">    }</span><br><span class="line">    LowCost[<span class="number">0</span>] = <span class="number">0</span>;</span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">1</span>;i&lt;N;i++){</span><br><span class="line">        <span class="keyword">int</span> min = INF;</span><br><span class="line">        <span class="keyword">int</span> index =-<span class="number">1</span>;</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> j=<span class="number">1</span>;j&lt;N;j++){</span><br><span class="line">            <span class="keyword">if</span>(LowCost[j]&lt;min&amp;&amp;LowCost[j]!=<span class="number">0</span>){</span><br><span class="line">                min = LowCost[j];</span><br><span class="line">                index= j;</span><br><span class="line">            }</span><br><span class="line">        }</span><br><span class="line">        res +=min;</span><br><span class="line">        LowCost[index]=<span class="number">0</span>;</span><br><span class="line"></span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> j=<span class="number">1</span>;j&lt;N;j++){</span><br><span class="line">            <span class="keyword">if</span>(LowCost[j]&gt;d[index][j]){</span><br><span class="line">                LowCost[j] = d[index][j];</span><br><span class="line">            }</span><br><span class="line">        }</span><br><span class="line">    }</span><br><span class="line">    <span class="keyword">return</span> res;</span><br><span class="line">}</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">Prim</span><span class="params">(<span class="keyword">int</span> mst[])</span></span>{</span><br><span class="line">    <span class="keyword">int</span> LowCost[N];</span><br><span class="line">    <span class="keyword">int</span> res= <span class="number">0</span>;</span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">0</span>;i&lt;N;i++){</span><br><span class="line">        LowCost[i] = d[<span class="number">0</span>][i];</span><br><span class="line">        mst[i] =<span class="number">0</span>;</span><br><span class="line">        path[i] =<span class="number">0</span>;</span><br><span class="line">    }</span><br><span class="line">    LowCost[<span class="number">0</span>] = <span class="number">0</span>;</span><br><span class="line">    mst[<span class="number">0</span>] = -<span class="number">1</span>;</span><br><span class="line">    path[<span class="number">0</span>] = -<span class="number">1</span>;</span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">1</span>;i&lt;N;i++){</span><br><span class="line">        <span class="keyword">int</span> min = INF;</span><br><span class="line">        <span class="keyword">int</span> index =-<span class="number">1</span>;</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> j=<span class="number">1</span>;j&lt;N;j++){</span><br><span class="line">            <span class="keyword">if</span>(LowCost[j]&lt;min&amp;&amp;LowCost[j]!=<span class="number">0</span>){</span><br><span class="line">                min = LowCost[j];</span><br><span class="line">                index= j;</span><br><span class="line">            }</span><br><span class="line">        }</span><br><span class="line">        res +=min;</span><br><span class="line">        LowCost[index]=<span class="number">0</span>;</span><br><span class="line">        path[index] = mst[index];</span><br><span class="line"></span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> j=<span class="number">1</span>;j&lt;N;j++){</span><br><span class="line">            <span class="keyword">if</span>(LowCost[j]&gt;d[index][j]){</span><br><span class="line">                LowCost[j] = d[index][j];</span><br><span class="line">                mst[j] = index;</span><br><span class="line">            }</span><br><span class="line">        }</span><br><span class="line">    }</span><br><span class="line">    <span class="keyword">return</span> res;</span><br><span class="line">}</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">Find</span><span class="params">(<span class="keyword">int</span> s[],<span class="keyword">int</span> x)</span></span></span><br><span class="line"><span class="function"></span>{</span><br><span class="line">    <span class="keyword">if</span>(x==s[x]) <span class="keyword">return</span> x;</span><br><span class="line">    <span class="keyword">if</span>(s[x] == <span class="number">0</span>) {</span><br><span class="line">        <span class="comment">// printf("%d",x);   </span></span><br><span class="line">        <span class="keyword">return</span> x;</span><br><span class="line">    }</span><br><span class="line">    <span class="keyword">else</span> {</span><br><span class="line">        <span class="comment">// printf("%d",x);   </span></span><br><span class="line"></span><br><span class="line">        <span class="keyword">return</span> Find(s,s[x]);</span><br><span class="line">    }</span><br><span class="line">}</span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">(<span class="keyword">void</span>)</span></span></span><br><span class="line"><span class="function"></span>{</span><br><span class="line"></span><br><span class="line">    scanf(<span class="string">"%d %d"</span>,&amp;N,&amp;M);</span><br><span class="line">    <span class="keyword">int</span> edge[M][<span class="number">3</span>];</span><br><span class="line"></span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">0</span>;i&lt;N;i++){</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> j=<span class="number">0</span>;j&lt;N;j++){</span><br><span class="line">            d[i][j] = INF;</span><br><span class="line">            <span class="keyword">if</span>(i==j) d[i][j] =<span class="number">0</span>;</span><br><span class="line">        }</span><br><span class="line">    }</span><br><span class="line"></span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">0</span>;i&lt;M;i++){</span><br><span class="line">        <span class="keyword">int</span> v= <span class="number">0</span>;</span><br><span class="line">        <span class="keyword">int</span> u =<span class="number">0</span>;</span><br><span class="line">        <span class="keyword">int</span> cost = <span class="number">0</span>;</span><br><span class="line"></span><br><span class="line">        scanf(<span class="string">"%d %d %d"</span>,&amp;v,&amp;u,&amp;cost);</span><br><span class="line">        v--;</span><br><span class="line">        u--;</span><br><span class="line">        d[v][u] = cost;</span><br><span class="line">        d[u][v] = cost;</span><br><span class="line">        edge[i][<span class="number">0</span>] =v;</span><br><span class="line">        edge[i][<span class="number">1</span>] =u;</span><br><span class="line">        edge[i][<span class="number">2</span>] =cost;</span><br><span class="line">    }</span><br><span class="line">    <span class="keyword">int</span> mst[N];</span><br><span class="line">    <span class="keyword">int</span> s[N+<span class="number">1</span>];</span><br><span class="line"></span><br><span class="line">    <span class="keyword">int</span> res = Prim(mst);</span><br><span class="line">    <span class="keyword">if</span>(res&lt;INF){</span><br><span class="line">        printf(<span class="string">"%d"</span>,res);</span><br><span class="line">    }</span><br><span class="line">    <span class="keyword">else</span> {</span><br><span class="line">        printf(<span class="string">"No MST"</span>);</span><br><span class="line">        <span class="keyword">int</span> cnt = <span class="number">0</span>;</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">0</span>;i&lt;=N;i++){</span><br><span class="line">            s[i] =<span class="number">0</span>;</span><br><span class="line">        }</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">0</span>;i&lt;M;i++){</span><br><span class="line">            <span class="keyword">if</span>(Find(s,edge[i][<span class="number">0</span>]+<span class="number">1</span>)!=Find(s,edge[i][<span class="number">1</span>]+<span class="number">1</span>))    <span class="comment">//这个判断条件一定要加入，不然会出错</span></span><br><span class="line">                s[Find(s,edge[i][<span class="number">0</span>]+<span class="number">1</span>)] = Find(s,edge[i][<span class="number">1</span>]+<span class="number">1</span>);</span><br><span class="line">        }</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">1</span>;i&lt;=N;i++){</span><br><span class="line">            <span class="keyword">if</span>(s[i] ==<span class="number">0</span>)cnt++;</span><br><span class="line">        }</span><br><span class="line">        <span class="comment">// printf("%d",cnt);</span></span><br><span class="line">        printf(<span class="string">"\n%d"</span>,cnt);</span><br><span class="line">        <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">    }</span><br><span class="line">    <span class="comment">// printf("%d",res);</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line">    <span class="keyword">int</span> min = <span class="number">20</span>*INF;</span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> i=N-<span class="number">1</span>;i&gt;=<span class="number">1</span>;i--){</span><br><span class="line">        <span class="keyword">int</span> v = i;</span><br><span class="line">        <span class="keyword">int</span> u = path[v];</span><br><span class="line">        <span class="keyword">int</span> cost = d[u][v];</span><br><span class="line">        d[u][v] = INF;</span><br><span class="line">        d[v][u] = INF;</span><br><span class="line">        <span class="keyword">int</span> temp = Prim2();</span><br><span class="line">        <span class="keyword">if</span>(min&gt;temp)min = temp;</span><br><span class="line">        d[u][v] = cost;</span><br><span class="line">        d[v][u] = cost;   </span><br><span class="line">    }</span><br><span class="line"></span><br><span class="line">    <span class="keyword">if</span>(min==res) printf(<span class="string">"\nNo"</span>);</span><br><span class="line">    <span class="keyword">else</span> printf(<span class="string">"\nYes"</span>);</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">}</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment">// 5 5</span></span><br><span class="line"><span class="comment">// 1 2 1</span></span><br><span class="line"><span class="comment">// 2 3 1</span></span><br><span class="line"><span class="comment">// 3 4 2</span></span><br><span class="line"><span class="comment">// 4 1 2</span></span><br><span class="line"><span class="comment">// 3 1 3</span></span><br></pre></td></tr></tbody></table></figure>
-
-
-
-<h1 id="Prim和Kruskal怎么选择"><a href="#Prim和Kruskal怎么选择" class="headerlink" title="Prim和Kruskal怎么选择"></a>Prim和Kruskal怎么选择</h1><hr>
-<blockquote>
-<p> C语言用Prim，java，C++用Kruskal算法</p>
-</blockquote>
 
       
     </div>

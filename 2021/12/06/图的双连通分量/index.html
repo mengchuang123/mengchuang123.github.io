@@ -9,12 +9,12 @@
   
 
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="[toc] 深度优先搜索 图的深度优先需要避免重复访问 因为跟树不一样的地方是，图是对称的      问题：  不连通的图，可能会有一部分没办法遍历 因此需要判断图中的所有元素是否有元素都被遍历了；    双联通  拿掉一个结点以后，其他点依然是连通的，这个图就是，biconnected graph.  双联通就是没有关节点（articulation point）   articulation p">
+  <meta name="description" content="[toc] 树  DFS树可以判断回边 BFS树可以判断交叉边  深度优先搜索 图的深度优先需要避免重复访问 因为跟树不一样的地方是，图是对称的      问题：  不连通的图，可能会有一部分没办法遍历 因此需要判断图中的所有元素是否有元素都被遍历了；    双联通  拿掉一个结点以后，其他点依然是连通的，这个图就是，biconnected graph.  双联通就是没有关节点（articulat">
 <meta property="og:type" content="article">
 <meta property="og:title" content="图">
 <meta property="og:url" content="http://example.com/2021/12/06/%E5%9B%BE%E7%9A%84%E5%8F%8C%E8%BF%9E%E9%80%9A%E5%88%86%E9%87%8F/index.html">
 <meta property="og:site_name" content="绘梨衣">
-<meta property="og:description" content="[toc] 深度优先搜索 图的深度优先需要避免重复访问 因为跟树不一样的地方是，图是对称的      问题：  不连通的图，可能会有一部分没办法遍历 因此需要判断图中的所有元素是否有元素都被遍历了；    双联通  拿掉一个结点以后，其他点依然是连通的，这个图就是，biconnected graph.  双联通就是没有关节点（articulation point）   articulation p">
+<meta property="og:description" content="[toc] 树  DFS树可以判断回边 BFS树可以判断交叉边  深度优先搜索 图的深度优先需要避免重复访问 因为跟树不一样的地方是，图是对称的      问题：  不连通的图，可能会有一部分没办法遍历 因此需要判断图中的所有元素是否有元素都被遍历了；    双联通  拿掉一个结点以后，其他点依然是连通的，这个图就是，biconnected graph.  双联通就是没有关节点（articulat">
 <meta property="og:locale" content="en_US">
 <meta property="og:image" content="https://gitee.com/mymengchuang/blog_img/raw/master/image-20211206081241984.png">
 <meta property="og:image" content="https://gitee.com/mymengchuang/blog_img/raw/master/image-20211206081500868.png">
@@ -30,7 +30,7 @@
 <meta property="og:image" content="https://gitee.com/mymengchuang/blog_img/raw/master/image-20211207023713412.png">
 <meta property="og:image" content="https://gitee.com/mymengchuang/blog_img/raw/master/image-20211207113532874.png">
 <meta property="article:published_time" content="2021-12-05T16:00:02.000Z">
-<meta property="article:modified_time" content="2021-12-07T17:58:02.232Z">
+<meta property="article:modified_time" content="2022-01-02T07:33:28.200Z">
 <meta property="article:author" content="绘梨衣">
 <meta property="article:tag" content="算法">
 <meta name="twitter:card" content="summary">
@@ -227,7 +227,7 @@
             <strong class="toc-title">目录</strong>
             <a class="js-toggle-toc" href="javascript:void(0)"></a>
             <div class="toc-content">
-              <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#%E6%B7%B1%E5%BA%A6%E4%BC%98%E5%85%88%E6%90%9C%E7%B4%A2"><span class="toc-text">深度优先搜索</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E5%8F%8C%E8%81%94%E9%80%9A"><span class="toc-text">双联通</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E8%8E%B7%E5%BE%97%E5%89%B2%E7%82%B9"><span class="toc-text">获得割点</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#DFS%E6%89%BE%E7%8E%AF-Taijan%E7%AE%97%E6%B3%95"><span class="toc-text">DFS找环(Taijan算法)</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E6%AC%A7%E6%8B%89%E5%9B%9E%E8%B7%AF"><span class="toc-text">欧拉回路</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E6%97%A0%E5%90%91%E5%9B%BE%E7%9A%84%E5%8F%8C%E8%BF%9E%E9%80%9A%E5%88%86%E9%87%8F"><span class="toc-text">无向图的双连通分量</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E6%9C%89%E5%90%91%E5%9B%BE%E5%AF%BB%E6%89%BE%E8%BF%9E%E9%80%9A%E5%88%86%E9%87%8F"><span class="toc-text">有向图寻找连通分量</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#PTA%E6%9C%89%E5%90%91%E5%9B%BE%E5%BC%BA%E8%BF%9E%E9%80%9A"><span class="toc-text">PTA有向图强连通</span></a></li></ol>
+              <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#%E6%A0%91"><span class="toc-text">树</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E6%B7%B1%E5%BA%A6%E4%BC%98%E5%85%88%E6%90%9C%E7%B4%A2"><span class="toc-text">深度优先搜索</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E5%8F%8C%E8%81%94%E9%80%9A"><span class="toc-text">双联通</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E8%8E%B7%E5%BE%97%E5%89%B2%E7%82%B9"><span class="toc-text">获得割点</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#DFS%E6%89%BE%E7%8E%AF-Taijan%E7%AE%97%E6%B3%95"><span class="toc-text">DFS找环(Taijan算法)</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E6%AC%A7%E6%8B%89%E5%9B%9E%E8%B7%AF"><span class="toc-text">欧拉回路</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E6%97%A0%E5%90%91%E5%9B%BE%E7%9A%84%E5%8F%8C%E8%BF%9E%E9%80%9A%E5%88%86%E9%87%8F"><span class="toc-text">无向图的双连通分量</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E6%9C%89%E5%90%91%E5%9B%BE%E5%AF%BB%E6%89%BE%E8%BF%9E%E9%80%9A%E5%88%86%E9%87%8F"><span class="toc-text">有向图寻找连通分量</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#PTA%E6%9C%89%E5%90%91%E5%9B%BE%E5%BC%BA%E8%BF%9E%E9%80%9A"><span class="toc-text">PTA有向图强连通</span></a></li></ol>
             </div>
           </div>
          -->
@@ -235,7 +235,7 @@
         
           <div id="toc" class="toc-article">
             <strong class="toc-title">目录</strong>
-            <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#%E6%B7%B1%E5%BA%A6%E4%BC%98%E5%85%88%E6%90%9C%E7%B4%A2"><span class="toc-text">深度优先搜索</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E5%8F%8C%E8%81%94%E9%80%9A"><span class="toc-text">双联通</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E8%8E%B7%E5%BE%97%E5%89%B2%E7%82%B9"><span class="toc-text">获得割点</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#DFS%E6%89%BE%E7%8E%AF-Taijan%E7%AE%97%E6%B3%95"><span class="toc-text">DFS找环(Taijan算法)</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E6%AC%A7%E6%8B%89%E5%9B%9E%E8%B7%AF"><span class="toc-text">欧拉回路</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E6%97%A0%E5%90%91%E5%9B%BE%E7%9A%84%E5%8F%8C%E8%BF%9E%E9%80%9A%E5%88%86%E9%87%8F"><span class="toc-text">无向图的双连通分量</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E6%9C%89%E5%90%91%E5%9B%BE%E5%AF%BB%E6%89%BE%E8%BF%9E%E9%80%9A%E5%88%86%E9%87%8F"><span class="toc-text">有向图寻找连通分量</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#PTA%E6%9C%89%E5%90%91%E5%9B%BE%E5%BC%BA%E8%BF%9E%E9%80%9A"><span class="toc-text">PTA有向图强连通</span></a></li></ol>
+            <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#%E6%A0%91"><span class="toc-text">树</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E6%B7%B1%E5%BA%A6%E4%BC%98%E5%85%88%E6%90%9C%E7%B4%A2"><span class="toc-text">深度优先搜索</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E5%8F%8C%E8%81%94%E9%80%9A"><span class="toc-text">双联通</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E8%8E%B7%E5%BE%97%E5%89%B2%E7%82%B9"><span class="toc-text">获得割点</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#DFS%E6%89%BE%E7%8E%AF-Taijan%E7%AE%97%E6%B3%95"><span class="toc-text">DFS找环(Taijan算法)</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E6%AC%A7%E6%8B%89%E5%9B%9E%E8%B7%AF"><span class="toc-text">欧拉回路</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E6%97%A0%E5%90%91%E5%9B%BE%E7%9A%84%E5%8F%8C%E8%BF%9E%E9%80%9A%E5%88%86%E9%87%8F"><span class="toc-text">无向图的双连通分量</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E6%9C%89%E5%90%91%E5%9B%BE%E5%AF%BB%E6%89%BE%E8%BF%9E%E9%80%9A%E5%88%86%E9%87%8F"><span class="toc-text">有向图寻找连通分量</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#PTA%E6%9C%89%E5%90%91%E5%9B%BE%E5%BC%BA%E8%BF%9E%E9%80%9A"><span class="toc-text">PTA有向图强连通</span></a></li></ol>
           </div>
         
         <!--Table of Contents end -->
@@ -245,6 +245,11 @@
 
 
         <p>[toc]</p>
+<h1 id="树"><a href="#树" class="headerlink" title="树"></a>树</h1><hr>
+<ul>
+<li>DFS树可以判断回边</li>
+<li>BFS树可以判断交叉边</li>
+</ul>
 <h1 id="深度优先搜索"><a href="#深度优先搜索" class="headerlink" title="深度优先搜索"></a>深度优先搜索</h1><ul>
 <li>图的深度优先需要避免重复访问</li>
 <li>因为跟树不一样的地方是，图是对称的</li>
@@ -433,18 +438,18 @@
     
 <nav id="article-nav">
   
-    <a href="/2021/12/07/Taijan%E7%AE%97%E6%B3%95%E7%BB%83%E4%B9%A0/" id="article-nav-newer" class="article-nav-link-wrap">
+    <a href="/2021/12/06/%E5%9B%BE%E7%9A%84%E9%81%8D%E5%8E%86/" id="article-nav-newer" class="article-nav-link-wrap">
       <strong class="article-nav-caption">&lt;</strong>
       <div class="article-nav-title">
         
-          Taijan算法练习
+          图
         
       </div>
     </a>
   
   
-    <a href="/2021/12/06/%E5%9B%BE%E7%9A%84%E9%81%8D%E5%8E%86/" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">图</div>
+    <a href="/2021/12/06/%E7%BD%91%E7%BB%9C%E5%B1%82408/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">网络层</div>
       <strong class="article-nav-caption">&gt;</strong>
     </a>
   

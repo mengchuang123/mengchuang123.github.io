@@ -17,7 +17,7 @@
 <meta property="og:description" content="[toc] 链路层功能  为网络层提供服务：有连接就一定要确认 链路管理 帧定界、帧同步、透明传输 流量控制 这是对 差错控制 循环冗余校验CRC 自动重传请求ARQ     差错控制主要靠：循环冗余校验和计时器及时发现帧错和丢失，然后ARQ发送很小的控制信号要求重传  组帧  帧是网络传输中的最小单位，因此需要同时加尾部和首部  1. 字符技术法 首部加上字符个数，但是如果出错会导致后续所有的帧">
 <meta property="og:locale" content="en_US">
 <meta property="article:published_time" content="2021-12-26T16:00:02.000Z">
-<meta property="article:modified_time" content="2021-12-28T09:31:40.146Z">
+<meta property="article:modified_time" content="2022-01-01T09:04:47.495Z">
 <meta property="article:author" content="绘梨衣">
 <meta property="article:tag" content="计算机网络">
 <meta name="twitter:card" content="summary">
@@ -213,7 +213,7 @@
             <strong class="toc-title">目录</strong>
             <a class="js-toggle-toc" href="javascript:void(0)"></a>
             <div class="toc-content">
-              <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#%E9%93%BE%E8%B7%AF%E5%B1%82%E5%8A%9F%E8%83%BD"><span class="toc-text">链路层功能</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E7%BB%84%E5%B8%A7"><span class="toc-text">组帧</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#1-%E5%AD%97%E7%AC%A6%E6%8A%80%E6%9C%AF%E6%B3%95"><span class="toc-text">1. 字符技术法</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2-%E5%AD%97%E7%AC%A6%E5%A1%AB%E5%85%85"><span class="toc-text">2. 字符填充</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#3-0%E6%AF%94%E7%89%B9%E5%A1%AB%E5%85%85%E7%9A%84%E9%A6%96%E4%BD%8D%E6%A0%87%E8%AE%B0%E6%B3%95"><span class="toc-text">3. 0比特填充的首位标记法</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#4-%E8%BF%9D%E8%A7%84%E7%BC%96%E7%A0%81%E6%B3%95"><span class="toc-text">4. 违规编码法</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#5-%E4%B9%A0%E9%A2%98"><span class="toc-text">5. 习题</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E5%B7%AE%E9%94%99%E6%8E%A7%E5%88%B6"><span class="toc-text">差错控制</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#1-%E5%A5%87%E5%81%B6%E6%A0%A1%E9%AA%8C%E7%A0%81"><span class="toc-text">1. 奇偶校验码</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2-%E5%BE%AA%E7%8E%AF%E5%86%97%E4%BD%99%E7%A0%81"><span class="toc-text">2.循环冗余码</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E6%B5%81%E9%87%8F%E6%8E%A7%E5%88%B6"><span class="toc-text">流量控制</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#1-%E5%9F%BA%E6%9C%AC%E5%8E%9F%E7%90%86"><span class="toc-text">1. 基本原理</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2-%E5%A4%9A%E5%B8%A7%E7%AA%97%E5%8F%A3%E5%92%8C%E5%90%8E%E9%80%80N%E5%B8%A7%E5%8D%8F%E8%AE%AE%EF%BC%88GBN%EF%BC%89"><span class="toc-text">2.多帧窗口和后退N帧协议（GBN）</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#3-%E5%A4%9A%E5%B8%A7%E7%AA%97%E5%8F%A3%E5%92%8C%E9%80%89%E6%8B%A9%E9%87%8D%E4%BC%A0%E5%8D%8F%E8%AE%AE%EF%BC%88SR%EF%BC%89"><span class="toc-text">3.多帧窗口和选择重传协议（SR）</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#4-%E4%B9%A0%E9%A2%98"><span class="toc-text">4. 习题</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E4%BB%8B%E8%B4%A8%E8%AE%BF%E9%97%AE%E6%8E%A7%E5%88%B6"><span class="toc-text">介质访问控制</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#1-%E7%A0%81%E5%88%86%E5%A4%8D%E7%94%A8CDM"><span class="toc-text">1.码分复用CDM</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2-%E9%9A%8F%E6%9C%BA%E8%AE%BF%E9%97%AE%E4%BB%8B%E8%B4%A8%E6%8E%A7%E5%88%B6"><span class="toc-text">2.随机访问介质控制</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#3-ALHOA"><span class="toc-text">3.ALHOA</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#4-CSMA"><span class="toc-text">4.CSMA</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#5-CSMA-CD"><span class="toc-text">5.CSMA&#x2F;CD</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#6-CSMA-CA"><span class="toc-text">6.CSMA&#x2F;CA</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#7-%E4%B9%A0%E9%A2%98"><span class="toc-text">7.习题</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E5%B1%80%E5%9F%9F%E7%BD%91"><span class="toc-text">局域网</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#1-%E4%B9%A0%E9%A2%98"><span class="toc-text">1.习题</span></a></li></ol></li></ol>
+              <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#%E9%93%BE%E8%B7%AF%E5%B1%82%E5%8A%9F%E8%83%BD"><span class="toc-text">链路层功能</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E7%BB%84%E5%B8%A7"><span class="toc-text">组帧</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#1-%E5%AD%97%E7%AC%A6%E6%8A%80%E6%9C%AF%E6%B3%95"><span class="toc-text">1. 字符技术法</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2-%E5%AD%97%E7%AC%A6%E5%A1%AB%E5%85%85"><span class="toc-text">2. 字符填充</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#3-0%E6%AF%94%E7%89%B9%E5%A1%AB%E5%85%85%E7%9A%84%E9%A6%96%E4%BD%8D%E6%A0%87%E8%AE%B0%E6%B3%95"><span class="toc-text">3. 0比特填充的首位标记法</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#4-%E8%BF%9D%E8%A7%84%E7%BC%96%E7%A0%81%E6%B3%95"><span class="toc-text">4. 违规编码法</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#5-%E4%B9%A0%E9%A2%98"><span class="toc-text">5. 习题</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E5%B7%AE%E9%94%99%E6%8E%A7%E5%88%B6"><span class="toc-text">差错控制</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#1-%E5%A5%87%E5%81%B6%E6%A0%A1%E9%AA%8C%E7%A0%81"><span class="toc-text">1. 奇偶校验码</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2-%E5%BE%AA%E7%8E%AF%E5%86%97%E4%BD%99%E7%A0%81"><span class="toc-text">2.循环冗余码</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E6%B5%81%E9%87%8F%E6%8E%A7%E5%88%B6"><span class="toc-text">流量控制</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#1-%E5%9F%BA%E6%9C%AC%E5%8E%9F%E7%90%86"><span class="toc-text">1. 基本原理</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2-%E5%A4%9A%E5%B8%A7%E7%AA%97%E5%8F%A3%E5%92%8C%E5%90%8E%E9%80%80N%E5%B8%A7%E5%8D%8F%E8%AE%AE%EF%BC%88GBN%EF%BC%89"><span class="toc-text">2.多帧窗口和后退N帧协议（GBN）</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#3-%E5%A4%9A%E5%B8%A7%E7%AA%97%E5%8F%A3%E5%92%8C%E9%80%89%E6%8B%A9%E9%87%8D%E4%BC%A0%E5%8D%8F%E8%AE%AE%EF%BC%88SR%EF%BC%89"><span class="toc-text">3.多帧窗口和选择重传协议（SR）</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#4-%E4%B9%A0%E9%A2%98"><span class="toc-text">4. 习题</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E4%BB%8B%E8%B4%A8%E8%AE%BF%E9%97%AE%E6%8E%A7%E5%88%B6"><span class="toc-text">介质访问控制</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#1-%E7%A0%81%E5%88%86%E5%A4%8D%E7%94%A8CDM"><span class="toc-text">1.码分复用CDM</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2-%E9%9A%8F%E6%9C%BA%E8%AE%BF%E9%97%AE%E4%BB%8B%E8%B4%A8%E6%8E%A7%E5%88%B6"><span class="toc-text">2.随机访问介质控制</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#3-ALHOA"><span class="toc-text">3.ALHOA</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#4-CSMA"><span class="toc-text">4.CSMA</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#5-CSMA-CD"><span class="toc-text">5.CSMA&#x2F;CD</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#6-CSMA-CA"><span class="toc-text">6.CSMA&#x2F;CA</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#7-%E4%B9%A0%E9%A2%98"><span class="toc-text">7.习题</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E5%B1%80%E5%9F%9F%E7%BD%91"><span class="toc-text">局域网</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#1-%E4%B9%A0%E9%A2%98"><span class="toc-text">1.习题</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E5%B9%BF%E5%9F%9F%E7%BD%91"><span class="toc-text">广域网</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#1-%E6%8E%A7%E5%88%B6%E5%8D%8F%E8%AE%AE"><span class="toc-text">1. 控制协议</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2-PPP%E5%8D%8F%E8%AE%AE"><span class="toc-text">2. PPP协议</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#3-HDLC%E5%8D%8F%E8%AE%AE"><span class="toc-text">3. HDLC协议</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#4-%E4%B9%A0%E9%A2%98-1"><span class="toc-text">4. 习题</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E9%93%BE%E8%B7%AF%E5%B1%82%E8%AE%BE%E5%A4%87"><span class="toc-text">链路层设备</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#1-%E7%BD%91%E6%A1%A5"><span class="toc-text">1. 网桥</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2-%E9%80%8F%E6%98%8E%E7%BD%91%E6%A1%A5"><span class="toc-text">2.透明网桥</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#3-%E6%BA%90%E8%B7%AF%E7%94%B1%E7%BD%91%E6%A1%A5"><span class="toc-text">3.源路由网桥</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#4-%E5%B1%80%E5%9F%9F%E7%BD%91%E4%BA%A4%E6%8D%A2%E6%9C%BA"><span class="toc-text">4.局域网交换机</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#5-%E4%B9%A0%E9%A2%98-1"><span class="toc-text">5.习题</span></a></li></ol></li></ol>
             </div>
           </div>
          -->
@@ -221,7 +221,7 @@
         
           <div id="toc" class="toc-article">
             <strong class="toc-title">目录</strong>
-            <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#%E9%93%BE%E8%B7%AF%E5%B1%82%E5%8A%9F%E8%83%BD"><span class="toc-text">链路层功能</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E7%BB%84%E5%B8%A7"><span class="toc-text">组帧</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#1-%E5%AD%97%E7%AC%A6%E6%8A%80%E6%9C%AF%E6%B3%95"><span class="toc-text">1. 字符技术法</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2-%E5%AD%97%E7%AC%A6%E5%A1%AB%E5%85%85"><span class="toc-text">2. 字符填充</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#3-0%E6%AF%94%E7%89%B9%E5%A1%AB%E5%85%85%E7%9A%84%E9%A6%96%E4%BD%8D%E6%A0%87%E8%AE%B0%E6%B3%95"><span class="toc-text">3. 0比特填充的首位标记法</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#4-%E8%BF%9D%E8%A7%84%E7%BC%96%E7%A0%81%E6%B3%95"><span class="toc-text">4. 违规编码法</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#5-%E4%B9%A0%E9%A2%98"><span class="toc-text">5. 习题</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E5%B7%AE%E9%94%99%E6%8E%A7%E5%88%B6"><span class="toc-text">差错控制</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#1-%E5%A5%87%E5%81%B6%E6%A0%A1%E9%AA%8C%E7%A0%81"><span class="toc-text">1. 奇偶校验码</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2-%E5%BE%AA%E7%8E%AF%E5%86%97%E4%BD%99%E7%A0%81"><span class="toc-text">2.循环冗余码</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E6%B5%81%E9%87%8F%E6%8E%A7%E5%88%B6"><span class="toc-text">流量控制</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#1-%E5%9F%BA%E6%9C%AC%E5%8E%9F%E7%90%86"><span class="toc-text">1. 基本原理</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2-%E5%A4%9A%E5%B8%A7%E7%AA%97%E5%8F%A3%E5%92%8C%E5%90%8E%E9%80%80N%E5%B8%A7%E5%8D%8F%E8%AE%AE%EF%BC%88GBN%EF%BC%89"><span class="toc-text">2.多帧窗口和后退N帧协议（GBN）</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#3-%E5%A4%9A%E5%B8%A7%E7%AA%97%E5%8F%A3%E5%92%8C%E9%80%89%E6%8B%A9%E9%87%8D%E4%BC%A0%E5%8D%8F%E8%AE%AE%EF%BC%88SR%EF%BC%89"><span class="toc-text">3.多帧窗口和选择重传协议（SR）</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#4-%E4%B9%A0%E9%A2%98"><span class="toc-text">4. 习题</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E4%BB%8B%E8%B4%A8%E8%AE%BF%E9%97%AE%E6%8E%A7%E5%88%B6"><span class="toc-text">介质访问控制</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#1-%E7%A0%81%E5%88%86%E5%A4%8D%E7%94%A8CDM"><span class="toc-text">1.码分复用CDM</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2-%E9%9A%8F%E6%9C%BA%E8%AE%BF%E9%97%AE%E4%BB%8B%E8%B4%A8%E6%8E%A7%E5%88%B6"><span class="toc-text">2.随机访问介质控制</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#3-ALHOA"><span class="toc-text">3.ALHOA</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#4-CSMA"><span class="toc-text">4.CSMA</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#5-CSMA-CD"><span class="toc-text">5.CSMA&#x2F;CD</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#6-CSMA-CA"><span class="toc-text">6.CSMA&#x2F;CA</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#7-%E4%B9%A0%E9%A2%98"><span class="toc-text">7.习题</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E5%B1%80%E5%9F%9F%E7%BD%91"><span class="toc-text">局域网</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#1-%E4%B9%A0%E9%A2%98"><span class="toc-text">1.习题</span></a></li></ol></li></ol>
+            <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#%E9%93%BE%E8%B7%AF%E5%B1%82%E5%8A%9F%E8%83%BD"><span class="toc-text">链路层功能</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E7%BB%84%E5%B8%A7"><span class="toc-text">组帧</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#1-%E5%AD%97%E7%AC%A6%E6%8A%80%E6%9C%AF%E6%B3%95"><span class="toc-text">1. 字符技术法</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2-%E5%AD%97%E7%AC%A6%E5%A1%AB%E5%85%85"><span class="toc-text">2. 字符填充</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#3-0%E6%AF%94%E7%89%B9%E5%A1%AB%E5%85%85%E7%9A%84%E9%A6%96%E4%BD%8D%E6%A0%87%E8%AE%B0%E6%B3%95"><span class="toc-text">3. 0比特填充的首位标记法</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#4-%E8%BF%9D%E8%A7%84%E7%BC%96%E7%A0%81%E6%B3%95"><span class="toc-text">4. 违规编码法</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#5-%E4%B9%A0%E9%A2%98"><span class="toc-text">5. 习题</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E5%B7%AE%E9%94%99%E6%8E%A7%E5%88%B6"><span class="toc-text">差错控制</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#1-%E5%A5%87%E5%81%B6%E6%A0%A1%E9%AA%8C%E7%A0%81"><span class="toc-text">1. 奇偶校验码</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2-%E5%BE%AA%E7%8E%AF%E5%86%97%E4%BD%99%E7%A0%81"><span class="toc-text">2.循环冗余码</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E6%B5%81%E9%87%8F%E6%8E%A7%E5%88%B6"><span class="toc-text">流量控制</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#1-%E5%9F%BA%E6%9C%AC%E5%8E%9F%E7%90%86"><span class="toc-text">1. 基本原理</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2-%E5%A4%9A%E5%B8%A7%E7%AA%97%E5%8F%A3%E5%92%8C%E5%90%8E%E9%80%80N%E5%B8%A7%E5%8D%8F%E8%AE%AE%EF%BC%88GBN%EF%BC%89"><span class="toc-text">2.多帧窗口和后退N帧协议（GBN）</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#3-%E5%A4%9A%E5%B8%A7%E7%AA%97%E5%8F%A3%E5%92%8C%E9%80%89%E6%8B%A9%E9%87%8D%E4%BC%A0%E5%8D%8F%E8%AE%AE%EF%BC%88SR%EF%BC%89"><span class="toc-text">3.多帧窗口和选择重传协议（SR）</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#4-%E4%B9%A0%E9%A2%98"><span class="toc-text">4. 习题</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E4%BB%8B%E8%B4%A8%E8%AE%BF%E9%97%AE%E6%8E%A7%E5%88%B6"><span class="toc-text">介质访问控制</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#1-%E7%A0%81%E5%88%86%E5%A4%8D%E7%94%A8CDM"><span class="toc-text">1.码分复用CDM</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2-%E9%9A%8F%E6%9C%BA%E8%AE%BF%E9%97%AE%E4%BB%8B%E8%B4%A8%E6%8E%A7%E5%88%B6"><span class="toc-text">2.随机访问介质控制</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#3-ALHOA"><span class="toc-text">3.ALHOA</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#4-CSMA"><span class="toc-text">4.CSMA</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#5-CSMA-CD"><span class="toc-text">5.CSMA&#x2F;CD</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#6-CSMA-CA"><span class="toc-text">6.CSMA&#x2F;CA</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#7-%E4%B9%A0%E9%A2%98"><span class="toc-text">7.习题</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E5%B1%80%E5%9F%9F%E7%BD%91"><span class="toc-text">局域网</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#1-%E4%B9%A0%E9%A2%98"><span class="toc-text">1.习题</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E5%B9%BF%E5%9F%9F%E7%BD%91"><span class="toc-text">广域网</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#1-%E6%8E%A7%E5%88%B6%E5%8D%8F%E8%AE%AE"><span class="toc-text">1. 控制协议</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2-PPP%E5%8D%8F%E8%AE%AE"><span class="toc-text">2. PPP协议</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#3-HDLC%E5%8D%8F%E8%AE%AE"><span class="toc-text">3. HDLC协议</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#4-%E4%B9%A0%E9%A2%98-1"><span class="toc-text">4. 习题</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E9%93%BE%E8%B7%AF%E5%B1%82%E8%AE%BE%E5%A4%87"><span class="toc-text">链路层设备</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#1-%E7%BD%91%E6%A1%A5"><span class="toc-text">1. 网桥</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2-%E9%80%8F%E6%98%8E%E7%BD%91%E6%A1%A5"><span class="toc-text">2.透明网桥</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#3-%E6%BA%90%E8%B7%AF%E7%94%B1%E7%BD%91%E6%A1%A5"><span class="toc-text">3.源路由网桥</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#4-%E5%B1%80%E5%9F%9F%E7%BD%91%E4%BA%A4%E6%8D%A2%E6%9C%BA"><span class="toc-text">4.局域网交换机</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#5-%E4%B9%A0%E9%A2%98-1"><span class="toc-text">5.习题</span></a></li></ol></li></ol>
           </div>
         
         <!--Table of Contents end -->
@@ -429,17 +429,115 @@
 </li>
 </ul>
 <h2 id="1-习题"><a href="#1-习题" class="headerlink" title="1.习题"></a>1.习题</h2><ul>
-<li><p>局域网工作于物理层和数据链路层</p>
-</li>
-<li><p>广域网工作于下三层</p>
-</li>
-<li><p>只有当以太网工作于半双工时才需要CSDM/CD避免冲突，工作与全双工时不存在冲突问题</p>
-</li>
-<li><p>10BASE-T 10BASE-F 10BASE-2  其中的2/5代表光缆最长长度500m 200m T代表双绞线，F代表光纤</p>
-</li>
-<li><p>optical fiber光纤 Twisted pair双绞线  Coaxial cable同轴电缆 </p>
-</li>
+<li>局域网工作于物理层和数据链路层</li>
+<li>广域网工作于下三层</li>
+<li>只有当以太网工作于半双工时才需要CSDM/CD避免冲突，工作与全双工时不存在冲突问题</li>
+<li>10BASE-T 10BASE-F 10BASE-2  其中的2/5代表光缆最长长度500m 200m T代表双绞线，F代表光纤</li>
+<li>optical fiber光纤 Twisted pair双绞线  Coaxial cable同轴电缆 </li>
+<li>静态地址的系统中，如果有重复的硬件地址，那么这两个设备不能正常通信</li>
+<li>10Gbit以太网，工作在全双工下，没有冲突问题，因此没有用CDMA/CD</li>
+<li>给帧加序号：LLC层</li>
+<li>无线局域网使用CSDM/CA的原因是：不需要在发送过程进行冲突检测</li>
+<li>IEEE802.11数据帧有1中子类型 IBSS , From AP,To AP, WDS   ????3.6 17题</li>
+<li>G bit以太网：同时支持全双工和半双工、半双工下使用CSDM/CD，不一定使用光纤通信</li>
 <li></li>
+</ul>
+<h1 id="广域网"><a href="#广域网" class="headerlink" title="广域网"></a>广域网</h1><hr>
+<h2 id="1-控制协议"><a href="#1-控制协议" class="headerlink" title="1. 控制协议"></a>1. 控制协议</h2><p>采用的广域网数据链路层的控制协议如下：</p>
+<ul>
+<li>PPP协议</li>
+<li>HDLC协议</li>
+</ul>
+<h2 id="2-PPP协议"><a href="#2-PPP协议" class="headerlink" title="2. PPP协议"></a>2. PPP协议</h2><ul>
+<li>ppp是点对点的，不是总线型的，不需要采用CSDM/CA，同时不需要短帧，一个帧携带的信息是1-1500bit</li>
+<li>ppp提供差错检测，不通过纠正错误，是不可靠的传输协议</li>
+<li><strong>仅仅支持全双工</strong></li>
+<li>两端可以运行不同的网络协议</li>
+<li>面向字节</li>
+</ul>
+<p>组成：</p>
+<ul>
+<li>LCP：建立、调试、测试、管理数据链路</li>
+<li>NCP：选择不同的网络层协议</li>
+<li>将IP封装到链路</li>
+</ul>
+<h2 id="3-HDLC协议"><a href="#3-HDLC协议" class="headerlink" title="3. HDLC协议"></a>3. HDLC协议</h2><ul>
+<li>面向bit</li>
+<li>PPP协议不采用编号和确认机制，HDLC采用编号和确认机制</li>
+<li>HDLC组合帧：当发现5个1时，就在后面加上一个0，原因为：界定帧开始和结束的：01111110</li>
+<li>bit填充的首位标记法</li>
+</ul>
+<p>控制字段：</p>
+<ul>
+<li>信息帧</li>
+<li>监督帧</li>
+<li>无编号帧  ：没有确认帧</li>
+</ul>
+<p>三种数据操作方式：</p>
+<ul>
+<li>正常响应：只有主站允许才行</li>
+<li>异步平衡：每一个站都可以向另外的站发送</li>
+<li>异步响应：从站没有主站允许也可以发送</li>
+</ul>
+<h2 id="4-习题-1"><a href="#4-习题-1" class="headerlink" title="4. 习题"></a>4. 习题</h2><ul>
+<li>广域网的通信子网：采用分株交换；使用的传输方式：存储转发</li>
+<li>PPP不仅仅支持IP协议</li>
+</ul>
+<h1 id="链路层设备"><a href="#链路层设备" class="headerlink" title="链路层设备"></a>链路层设备</h1><hr>
+<h2 id="1-网桥"><a href="#1-网桥" class="headerlink" title="1. 网桥"></a>1. 网桥</h2><ul>
+<li>网桥工作在链路层的MAC子层</li>
+<li>网桥处理的帧，属于链路层设备；中继器处理的是信号，属于物理层设备</li>
+<li>MAC子层没有流量控制，流量控制需要用到编号，编号是在LLC子层</li>
+</ul>
+<h2 id="2-透明网桥"><a href="#2-透明网桥" class="headerlink" title="2.透明网桥"></a>2.透明网桥</h2><hr>
+<ul>
+<li>选择的不是最佳路由</li>
+<li>最开始转发表是空的，采用自学习的方式进行学习</li>
+</ul>
+<h2 id="3-源路由网桥"><a href="#3-源路由网桥" class="headerlink" title="3.源路由网桥"></a>3.源路由网桥</h2><ul>
+<li>选择的最佳罗友，对主机不是透明的</li>
+</ul>
+<h2 id="4-局域网交换机"><a href="#4-局域网交换机" class="headerlink" title="4.局域网交换机"></a>4.局域网交换机</h2><ul>
+<li>可以实现VLAN</li>
+</ul>
+<p>两种交换模式：</p>
+<ul>
+<li>直连接：虚拟链路，可靠性低，延迟小</li>
+<li>存储转发：可靠性高，延迟大    </li>
+</ul>
+<h2 id="5-习题-1"><a href="#5-习题-1" class="headerlink" title="5.习题"></a>5.习题</h2><ul>
+<li><p>vlan可以同时隔离冲突域和广播域</p>
+</li>
+<li><p>使用网桥的好处：减小冲突域，但是不能减小广播域，可以增大网络带宽</p>
+</li>
+<li><p>网桥转递所有广播信息，难以实现广播风暴</p>
+</li>
+<li><p><strong>必考点</strong> 物理层集线器无法分割冲突域，链路层网桥和交换机可以分割冲突域，但是不能分割广播域，网络层路由器可以分割冲突域，又可以分割广播域</p>
+</li>
+<li><p>交换机比集线器hub提供更好的网络性能是：交换机支持对多用户进行通信</p>
+</li>
+<li><p>但是交换机的时延比集线器的时延大</p>
+</li>
+<li><p>通过交换机连接的一组工作站，是一个广播域，不是一个冲突域</p>
+</li>
+<li><p>以太网交换机本质是一个多端口的网桥，交换机每一个端口所连接的网络构成一个冲突域，通过交换机互联的网络形成一个广播域</p>
+</li>
+<li><p>集线器不能分割冲突域，因此确认帧，可以通过hub，但是不能通过交换机和网桥，因为是单发射的</p>
+</li>
+<li><p>通过交换机广播时，或广播到出了源端口外的所有端口，但是源主机是可以收到自己发送的信息的</p>
+</li>
+<li><p>交换机根MAC地址转发，而不是LLC,交换机多个端口可以并行传输</p>
+</li>
+<li><p>帧大小 1500Byte</p>
+</li>
+<li><p>直链交换机，仅仅检查目的地址 48bit的MAC地址，</p>
+</li>
+<li><p><strong>MAC地址：48bit 6Byte</strong></p>
+</li>
+<li><p>对于10Mb/s的交换机端口，半双工是带宽10Mb/s,全双工时，带宽是20M/s</p>
+</li>
+<li><p>以太网A的通信量大，需要使用交换机将不同的网段通信分割开，使用hub会使得网络效率减低，也就是大的时候使用交换机</p>
+</li>
 </ul>
 
       
