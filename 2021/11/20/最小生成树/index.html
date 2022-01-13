@@ -17,7 +17,7 @@
 <meta property="og:description" content="Prim算法 选取一个顶点作为已选择的顶点，加入已选结点集合  选出未选结点集合中选出一个和已选结点集合中的距离最小的结点  该结点加入已选结点集合   证明： 用归纳法（反证法）证明形成的MST  假设一个最短，但是不是最优的结点，和另外一个最优但是不是最短的边， 两个不可能同时存在，必然只能选择一个 明显最短的那个就是最优的。  效率：  权重矩阵表示： $O(|V|^2)$  邻接链表表示：">
 <meta property="og:locale" content="en_US">
 <meta property="article:published_time" content="2021-11-19T16:01:00.000Z">
-<meta property="article:modified_time" content="2021-12-01T10:21:58.975Z">
+<meta property="article:modified_time" content="2022-01-12T11:31:12.118Z">
 <meta property="article:author" content="绘梨衣">
 <meta property="article:tag" content="算法">
 <meta name="twitter:card" content="summary">
@@ -39,9 +39,9 @@
 
 
   
-<meta name="generator" content="Hexo 5.4.0">
+<meta name="generator" content="Hexo 5.4.0"><link rel="alternate" href="/atom.xml" title="绘梨衣" type="application/atom+xml">
+
 <style>.github-emoji { position: relative; display: inline-block; width: 1.2em; min-height: 1.2em; overflow: hidden; vertical-align: top; color: transparent; }  .github-emoji > span { position: relative; z-index: 10; }  .github-emoji img, .github-emoji .fancybox { margin: 0 !important; padding: 0 !important; border: none !important; outline: none !important; text-decoration: none !important; user-select: none !important; cursor: auto !important; }  .github-emoji img { height: 1.2em !important; width: 1.2em !important; position: absolute !important; left: 50% !important; top: 50% !important; transform: translate(-50%, -50%) !important; user-select: none !important; cursor: auto !important; } .github-emoji-fallback { color: inherit; } .github-emoji-fallback img { opacity: 0 !important; }</style>
-<link rel="alternate" href="/atom.xml" title="绘梨衣" type="application/atom+xml">
 </head>
 <body>
   <div id="container">
@@ -327,6 +327,9 @@
 <blockquote>
 <p> C语言用Prim，java，C++用Kruskal算法</p>
 </blockquote>
+<figure class="highlight matlab"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br></pre></td><td class="code"><pre><span class="line">N = <span class="number">256</span>;</span><br><span class="line"><span class="comment">% 采用quantize函数进行量化，量化级别为8</span></span><br><span class="line">quantize_num = <span class="built_in">linspace</span>(<span class="number">-0.4</span>,<span class="number">0.4</span>,N);</span><br><span class="line">quantize_val = <span class="built_in">linspace</span>(<span class="number">-0.4</span>,<span class="number">0.4</span>,N+<span class="number">1</span>);</span><br><span class="line">[quantize_out,quants] = quantiz(source_sound, quantize_num,quantize_val);</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment">%冗余码长度 r=4</span></span><br><span class="line">r = <span class="number">4</span>;</span><br><span class="line"><span class="comment">%编码长度 </span></span><br><span class="line">n = <span class="number">7</span>;</span><br><span class="line"><span class="comment">%循环码冗余项</span></span><br><span class="line">re = <span class="built_in">rem</span>(len_code, r);</span><br><span class="line"><span class="comment">% 生成多项式</span></span><br><span class="line">Pol = cyclpoly(n,r);</span><br><span class="line"><span class="comment">%计算监督矩阵</span></span><br><span class="line">[h, g] = cyclgen(n,Pol);</span><br><span class="line"><span class="comment">%生成多项式矩阵</span></span><br><span class="line">GenMat = gen2par(h);</span><br><span class="line"><span class="comment">%编码</span></span><br><span class="line">encode_data= encode(encode_data,n,r,<span class="string">'linear/binary'</span>,GenMat);</span><br><span class="line"></span><br><span class="line"><span class="comment">% QPSK调制</span></span><br><span class="line">yout = pskmod(encode_Data,<span class="number">4</span>);</span><br><span class="line"><span class="comment">% QPSK解调</span></span><br><span class="line">yin=pskdemod(yout,<span class="number">4</span>);</span><br><span class="line"></span><br><span class="line"><span class="comment">% 信道解码</span></span><br><span class="line">CRC_dec_out = decode(encode_data,n,r,<span class="string">'linear/binary'</span>,GenMat);</span><br><span class="line"></span><br><span class="line"><span class="comment">%% 信源解码结果</span></span><br><span class="line"></span><br><span class="line">huffman_deout = huffmandeco(huffman_out, result_dict);</span><br></pre></td></tr></tbody></table></figure>
+
+<p>$m(x)$</p>
 
       
     </div>
