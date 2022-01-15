@@ -34,9 +34,9 @@
 
 
   
-<meta name="generator" content="Hexo 5.4.0">
+<meta name="generator" content="Hexo 5.4.0"><link rel="alternate" href="/atom.xml" title="绘梨衣" type="application/atom+xml">
+
 <style>.github-emoji { position: relative; display: inline-block; width: 1.2em; min-height: 1.2em; overflow: hidden; vertical-align: top; color: transparent; }  .github-emoji > span { position: relative; z-index: 10; }  .github-emoji img, .github-emoji .fancybox { margin: 0 !important; padding: 0 !important; border: none !important; outline: none !important; text-decoration: none !important; user-select: none !important; cursor: auto !important; }  .github-emoji img { height: 1.2em !important; width: 1.2em !important; position: absolute !important; left: 50% !important; top: 50% !important; transform: translate(-50%, -50%) !important; user-select: none !important; cursor: auto !important; } .github-emoji-fallback { color: inherit; } .github-emoji-fallback img { opacity: 0 !important; }</style>
-<link rel="alternate" href="/atom.xml" title="绘梨衣" type="application/atom+xml">
 </head>
 <body>
   <div id="container">
@@ -95,7 +95,7 @@
 				
 				<section class="switch-part switch-part2">
 					<div class="widget tagcloud" id="js-tagcloud">
-						<a href="/tags/%E4%BF%A1%E6%81%AF%E8%AE%BA/" style="font-size: 10px;">信息论</a> <a href="/tags/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F/" style="font-size: 10px;">操作系统</a> <a href="/tags/%E7%AE%97%E6%B3%95/" style="font-size: 20px;">算法</a> <a href="/tags/%E8%AE%A1%E5%88%92/" style="font-size: 10px;">计划</a> <a href="/tags/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BB%84%E6%88%90/" style="font-size: 13.33px;">计算机组成</a> <a href="/tags/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/" style="font-size: 16.67px;">计算机网络</a> <a href="/tags/%E8%AE%B8%E6%84%BF/" style="font-size: 10px;">许愿</a> <a href="/tags/%E9%9D%A2%E8%AF%95/" style="font-size: 10px;">面试</a>
+						<a href="/tags/Leetcode/" style="font-size: 13.33px;">Leetcode</a> <a href="/tags/%E4%BF%A1%E6%81%AF%E8%AE%BA/" style="font-size: 10px;">信息论</a> <a href="/tags/%E5%8A%A8%E6%80%81%E8%A7%84%E5%88%92/" style="font-size: 10px;">动态规划</a> <a href="/tags/%E5%9B%BE%E8%AE%BA/" style="font-size: 10px;">图论</a> <a href="/tags/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F/" style="font-size: 10px;">操作系统</a> <a href="/tags/%E7%AE%97%E6%B3%95/" style="font-size: 20px;">算法</a> <a href="/tags/%E8%AE%A1%E5%88%92/" style="font-size: 10px;">计划</a> <a href="/tags/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BB%84%E6%88%90/" style="font-size: 13.33px;">计算机组成</a> <a href="/tags/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/" style="font-size: 16.67px;">计算机网络</a> <a href="/tags/%E8%AE%B8%E6%84%BF/" style="font-size: 10px;">许愿</a> <a href="/tags/%E9%9D%A2%E8%AF%95/" style="font-size: 10px;">面试</a>
 					</div>
 				</section>
 				
@@ -164,6 +164,358 @@
 	</div>
 </nav>
       <div class="body-wrap">
+  
+    <article id="post-最小生成树" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2021/11/20/%E6%9C%80%E5%B0%8F%E7%94%9F%E6%88%90%E6%A0%91/" class="article-date">
+  	<time datetime="2021-11-19T16:01:00.000Z" itemprop="datePublished">2021-11-20</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2021/11/20/%E6%9C%80%E5%B0%8F%E7%94%9F%E6%88%90%E6%A0%91/">
+        最小生成树
+        
+      </a>
+    </h1>
+  
+
+      </header>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <!--Table of Contents begin-->
+        <!-- 
+          <div id="toc" class="toc-article">
+            <strong class="toc-title">目录</strong>
+            <a class="js-toggle-toc" href="javascript:void(0)"></a>
+            <div class="toc-content">
+              <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#Prim%E7%AE%97%E6%B3%95"><span class="toc-text">Prim算法</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Kruskal"><span class="toc-text">Kruskal</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E5%A6%82%E4%BD%95%E5%88%A4%E6%96%AD%E6%98%AF%E5%90%A6%E5%AD%98%E5%9C%A8%E6%9C%80%E5%B0%8F%E7%94%9F%E6%88%90%E6%A0%91"><span class="toc-text">如何判断是否存在最小生成树</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E5%A6%82%E4%BD%95%E5%88%A4%E6%96%AD%E6%9C%80%E5%B0%8F%E7%94%9F%E6%88%90%E6%A0%91%E6%98%AF%E4%B8%8D%E6%98%AF%E5%94%AF%E4%B8%80%E7%9A%84%E5%91%A2"><span class="toc-text">如何判断最小生成树是不是唯一的呢</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E5%A6%82%E4%BD%95%E8%8E%B7%E5%BE%97%E6%9C%80%E5%B0%8F%E7%94%9F%E6%88%90%E6%A0%91%E7%9A%84%E6%95%B0%E9%87%8F%E5%91%A2"><span class="toc-text">如何获得最小生成树的数量呢</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#POJ1679"><span class="toc-text">POJ1679</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Prim%E5%92%8CKruskal%E6%80%8E%E4%B9%88%E9%80%89%E6%8B%A9"><span class="toc-text">Prim和Kruskal怎么选择</span></a></li></ol>
+            </div>
+          </div>
+         -->
+          <!-- Table of Contents -->
+        
+          <div id="toc" class="toc-article">
+            <strong class="toc-title">目录</strong>
+            <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#Prim%E7%AE%97%E6%B3%95"><span class="toc-text">Prim算法</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Kruskal"><span class="toc-text">Kruskal</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E5%A6%82%E4%BD%95%E5%88%A4%E6%96%AD%E6%98%AF%E5%90%A6%E5%AD%98%E5%9C%A8%E6%9C%80%E5%B0%8F%E7%94%9F%E6%88%90%E6%A0%91"><span class="toc-text">如何判断是否存在最小生成树</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E5%A6%82%E4%BD%95%E5%88%A4%E6%96%AD%E6%9C%80%E5%B0%8F%E7%94%9F%E6%88%90%E6%A0%91%E6%98%AF%E4%B8%8D%E6%98%AF%E5%94%AF%E4%B8%80%E7%9A%84%E5%91%A2"><span class="toc-text">如何判断最小生成树是不是唯一的呢</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E5%A6%82%E4%BD%95%E8%8E%B7%E5%BE%97%E6%9C%80%E5%B0%8F%E7%94%9F%E6%88%90%E6%A0%91%E7%9A%84%E6%95%B0%E9%87%8F%E5%91%A2"><span class="toc-text">如何获得最小生成树的数量呢</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#POJ1679"><span class="toc-text">POJ1679</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Prim%E5%92%8CKruskal%E6%80%8E%E4%B9%88%E9%80%89%E6%8B%A9"><span class="toc-text">Prim和Kruskal怎么选择</span></a></li></ol>
+          </div>
+        
+        <!--Table of Contents end -->
+        
+
+
+
+
+        <h1 id="Prim算法"><a href="#Prim算法" class="headerlink" title="Prim算法"></a>Prim算法</h1><ul>
+<li><p>选取一个顶点作为已选择的顶点，加入<strong>已选结点集合</strong></p>
+</li>
+<li><p>选出<strong>未选结点集合</strong>中选出一个<strong>和已选结点集合中的距离最小</strong>的结点</p>
+</li>
+<li><p>该结点加入<strong>已选结点集合</strong></p>
+</li>
+</ul>
+<p><strong>证明：</strong></p>
+<p>用归纳法（反证法）证明形成的MST</p>
+<ul>
+<li>假设一个最短，但是不是最优的结点，和另外一个最优但是不是最短的边，</li>
+<li>两个不可能同时存在，必然只能选择一个</li>
+<li>明显最短的那个就是最优的。</li>
+</ul>
+<p><strong>效率：</strong></p>
+<ul>
+<li><strong>权重矩阵表示：</strong> $O(|V|^2)$ </li>
+<li><strong>邻接链表表示：</strong> $(|V|-1+|E|)O(log|V|)=O(|E|log|V|)$   </li>
+</ul>
+<p><strong>代码：</strong></p>
+<ul>
+<li>维护一个<code>lowcost</code>数组，可以同时实现标记和求每次的贪心步骤</li>
+<li>最后求出来的最小值大于等于inf，那么就是不存在最小生成树</li>
+</ul>
+<figure class="highlight java"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">Prim</span><span class="params">(<span class="keyword">int</span> graph[][MAX], <span class="keyword">int</span> n)</span></span></span><br><span class="line"><span class="function"></span>{</span><br><span class="line">    <span class="keyword">int</span> lowcost[MAX];</span><br><span class="line">    <span class="keyword">int</span> i, j, min, minid, sum = <span class="number">0</span>;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">for</span> (i = <span class="number">2</span>; i &lt;= n; i++)  lowcost[i] = graph[<span class="number">1</span>][i];</span><br><span class="line">    lowcost[<span class="number">1</span>] = <span class="number">0</span>;</span><br><span class="line">    </span><br><span class="line">    <span class="keyword">for</span> (i = <span class="number">2</span>; i &lt;= n; i++)</span><br><span class="line">    {</span><br><span class="line">        <span class="comment">//取值</span></span><br><span class="line">        取出lowcost中不为<span class="number">0</span>的最小值</span><br><span class="line">        <span class="comment">//标记    </span></span><br><span class="line">        sum += min;</span><br><span class="line">        lowcost[minid] = <span class="number">0</span>;<span class="comment">//相当于know[minid] = 1;</span></span><br><span class="line">        </span><br><span class="line">        <span class="comment">//松弛----这个很棒</span></span><br><span class="line">        <span class="keyword">for</span> (j = <span class="number">2</span>; j &lt;= n; j++)</span><br><span class="line">            <span class="keyword">if</span> (graph[minid][j] &lt; lowcost[j])  lowcost[j] = graph[minid][j];</span><br><span class="line">    }</span><br><span class="line">    <span class="keyword">return</span> sum;</span><br><span class="line">}</span><br></pre></td></tr></tbody></table></figure>
+
+<p><strong>保存路径</strong></p>
+<p><code> mst[j] = minid;  //更新最小权值边的起点</code></p>
+<figure class="highlight java"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">Prim</span><span class="params">(<span class="keyword">int</span> graph[][MAX], <span class="keyword">int</span> n)</span></span></span><br><span class="line"><span class="function"></span>{</span><br><span class="line">    <span class="keyword">int</span> lowcost[MAX],mst[MAX];</span><br><span class="line">    <span class="keyword">int</span> i, j, min, minid, sum = <span class="number">0</span>;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">for</span> (i = <span class="number">2</span>; i &lt;= n; i++)  {</span><br><span class="line">        lowcost[i] = graph[<span class="number">1</span>][i];</span><br><span class="line">        mst[i] = <span class="number">1</span>;  <span class="comment">//标记所有节点的起点皆为默认的1号节点</span></span><br><span class="line">    }</span><br><span class="line">    lowcost[<span class="number">1</span>] = <span class="number">0</span>;</span><br><span class="line">    mst[<span class="number">1</span>] = <span class="number">0</span>;  <span class="comment">//标记1号节点加入生成树</span></span><br><span class="line">    <span class="keyword">for</span> (i = <span class="number">2</span>; i &lt;= n; i++)</span><br><span class="line">    {</span><br><span class="line">        <span class="comment">//取值</span></span><br><span class="line">        取出lowcost中不为<span class="number">0</span>的最小值</span><br><span class="line">        <span class="comment">//标记    </span></span><br><span class="line">        sum += min;</span><br><span class="line">        lowcost[minid] = <span class="number">0</span>;<span class="comment">//相当于know[minid] = 1;  </span></span><br><span class="line">	      printf(<span class="string">"%c - %c : %d\n"</span>, mst[minid] + <span class="string">'A'</span> - <span class="number">1</span>, minid + <span class="string">'A'</span> - <span class="number">1</span>, min);  <span class="comment">//输出生成树边的信息:起点，终点，权值</span></span><br><span class="line">  </span><br><span class="line">        <span class="comment">//松弛----这个很棒</span></span><br><span class="line">        <span class="keyword">for</span> (j = <span class="number">2</span>; j &lt;= n; j++){</span><br><span class="line">            <span class="keyword">if</span> (graph[minid][j] &lt; lowcost[j])  lowcost[j] = graph[minid][j];</span><br><span class="line">			mst[j] = minid;  <span class="comment">//更新最小权值边的起点</span></span><br><span class="line">        }</span><br><span class="line">    }</span><br><span class="line">    <span class="keyword">return</span> sum;</span><br><span class="line">}</span><br></pre></td></tr></tbody></table></figure>
+
+
+
+<h1 id="Kruskal"><a href="#Kruskal" class="headerlink" title="Kruskal"></a>Kruskal</h1><hr>
+<p>思想：对边的操作</p>
+<ul>
+<li><p>将所有的边按照权重来进行排序</p>
+</li>
+<li><p>按照排序的顺序依次判断排序好的边是否可以加入结果中（是否构成回路）</p>
+</li>
+<li><p>难点：需要检查是否属于一个回路</p>
+</li>
+</ul>
+<blockquote>
+<p>用查并集来判断是否两个结点属于同一个树</p>
+</blockquote>
+<p><strong>实现</strong></p>
+<figure class="highlight java"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//m是边的数量</span></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">Kruskal</span><span class="params">()</span></span>{</span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">0</span>;i&lt;m;i++){     <span class="comment">//遍历所有的边</span></span><br><span class="line">		<span class="keyword">int</span> e = r[i];         <span class="comment">//第i条边</span></span><br><span class="line">        <span class="keyword">if</span>(find(u(e))!=find(v(e))){</span><br><span class="line">			ans+=w(e);</span><br><span class="line">            union(u(e),v(e)); <span class="comment">//合并</span></span><br><span class="line">        }</span><br><span class="line">    }</span><br><span class="line">     <span class="keyword">return</span> ans;</span><br><span class="line">}</span><br></pre></td></tr></tbody></table></figure>
+
+<h1 id="如何判断是否存在最小生成树"><a href="#如何判断是否存在最小生成树" class="headerlink" title="如何判断是否存在最小生成树"></a>如何判断是否存在最小生成树</h1><hr>
+<ul>
+<li>采用<code>Kruasal</code>，最后所有的点是否都被包含进一个类别即可</li>
+<li>先判断连通性，由于结点数比较少，可以通过<code>dfs</code>直接判断连通块的个数</li>
+</ul>
+<h1 id="如何判断最小生成树是不是唯一的呢"><a href="#如何判断最小生成树是不是唯一的呢" class="headerlink" title="如何判断最小生成树是不是唯一的呢"></a>如何判断最小生成树是不是唯一的呢</h1><hr>
+<ul>
+<li>如果全部的边都是不一样的，那么生成树就是唯一的。</li>
+<li>无向图中存在相同权值的边是最小生成树不唯一的必要条件（但不是充分条件）</li>
+</ul>
+<p><code>判定最小生成树唯一的算法思路</code></p>
+<ul>
+<li>求次小生成树，判断次小生成树的大小是否等于最小生成树</li>
+</ul>
+<p><code>次小生成树</code></p>
+<ul>
+<li>求第二小生成树的时候，一般采用的是求出最小生成树后，</li>
+<li>依次删除最小生成树上的每一条边，然后生成n-1次最小生成树，</li>
+<li>记录下这个过程中的最小的生成树的值，那么这个就是第二小生成树了。</li>
+</ul>
+<h1 id="如何获得最小生成树的数量呢"><a href="#如何获得最小生成树的数量呢" class="headerlink" title="如何获得最小生成树的数量呢"></a>如何获得最小生成树的数量呢</h1><hr>
+<blockquote>
+<p> Kruskal+Matrix_Tree 定理实现最小生成树计数问题</p>
+</blockquote>
+<p><code>问题：</code></p>
+<ul>
+<li>给定一个含有 N 个结点 M 条边的无向图，求它最小生成树的个数 t (G);</li>
+</ul>
+<p><code>算法流程：</code></p>
+<ul>
+<li>。。。比较麻烦</li>
+</ul>
+<h1 id="POJ1679"><a href="#POJ1679" class="headerlink" title="POJ1679"></a>POJ1679</h1><hr>
+<p><strong>思路：</strong> 我们可能先判断连通性，由于结点数比较少，可以通过dfs直接判断连通块的个数，对于最小生成树的唯一性，我们可以通过求出次小生成的权值，在于最小生成树的权值进行比较即可。</p>
+<ul>
+<li>采用查并集查看存在多少个组件集合，也就是多少棵生成树</li>
+<li>采用Prim算法求解最短路</li>
+<li>一次删除最短路中的每一条边，得到次短路</li>
+</ul>
+<p><strong>代码：</strong></p>
+<figure class="highlight java"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br><span class="line">108</span><br><span class="line">109</span><br><span class="line">110</span><br><span class="line">111</span><br><span class="line">112</span><br><span class="line">113</span><br><span class="line">114</span><br><span class="line">115</span><br><span class="line">116</span><br><span class="line">117</span><br><span class="line">118</span><br><span class="line">119</span><br><span class="line">120</span><br><span class="line">121</span><br><span class="line">122</span><br><span class="line">123</span><br><span class="line">124</span><br><span class="line">125</span><br><span class="line">126</span><br><span class="line">127</span><br><span class="line">128</span><br><span class="line">129</span><br><span class="line">130</span><br><span class="line">131</span><br><span class="line">132</span><br><span class="line">133</span><br><span class="line">134</span><br><span class="line">135</span><br><span class="line">136</span><br><span class="line">137</span><br><span class="line">138</span><br><span class="line">139</span><br><span class="line">140</span><br><span class="line">141</span><br><span class="line">142</span><br><span class="line">143</span><br><span class="line">144</span><br><span class="line">145</span><br><span class="line">146</span><br><span class="line">147</span><br><span class="line">148</span><br><span class="line">149</span><br><span class="line">150</span><br><span class="line">151</span><br><span class="line">152</span><br><span class="line">153</span><br><span class="line">154</span><br><span class="line">155</span><br><span class="line">156</span><br><span class="line">157</span><br><span class="line">158</span><br><span class="line">159</span><br><span class="line">160</span><br><span class="line">161</span><br><span class="line">162</span><br><span class="line">163</span><br><span class="line">164</span><br><span class="line">165</span><br><span class="line">166</span><br><span class="line">167</span><br></pre></td><td class="code"><pre><span class="line">#include&lt;stdio.h&gt;</span><br><span class="line">#include&lt;string.h&gt;</span><br><span class="line"><span class="comment">// int s[501]; </span></span><br><span class="line"><span class="keyword">int</span> M=<span class="number">0</span>;</span><br><span class="line"><span class="keyword">int</span> N=<span class="number">0</span>;</span><br><span class="line"><span class="keyword">int</span> d[<span class="number">500</span>][<span class="number">500</span>];</span><br><span class="line"><span class="keyword">int</span> INF = <span class="number">100000</span>;</span><br><span class="line"><span class="keyword">int</span> path[<span class="number">500</span>];</span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">Prim2</span><span class="params">()</span></span>{</span><br><span class="line">    <span class="keyword">int</span> LowCost[N];</span><br><span class="line">    <span class="keyword">int</span> res= <span class="number">0</span>;</span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">0</span>;i&lt;N;i++){</span><br><span class="line">        LowCost[i] = d[<span class="number">0</span>][i];</span><br><span class="line">    }</span><br><span class="line">    LowCost[<span class="number">0</span>] = <span class="number">0</span>;</span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">1</span>;i&lt;N;i++){</span><br><span class="line">        <span class="keyword">int</span> min = INF;</span><br><span class="line">        <span class="keyword">int</span> index =-<span class="number">1</span>;</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> j=<span class="number">1</span>;j&lt;N;j++){</span><br><span class="line">            <span class="keyword">if</span>(LowCost[j]&lt;min&amp;&amp;LowCost[j]!=<span class="number">0</span>){</span><br><span class="line">                min = LowCost[j];</span><br><span class="line">                index= j;</span><br><span class="line">            }</span><br><span class="line">        }</span><br><span class="line">        res +=min;</span><br><span class="line">        LowCost[index]=<span class="number">0</span>;</span><br><span class="line"></span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> j=<span class="number">1</span>;j&lt;N;j++){</span><br><span class="line">            <span class="keyword">if</span>(LowCost[j]&gt;d[index][j]){</span><br><span class="line">                LowCost[j] = d[index][j];</span><br><span class="line">            }</span><br><span class="line">        }</span><br><span class="line">    }</span><br><span class="line">    <span class="keyword">return</span> res;</span><br><span class="line">}</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">Prim</span><span class="params">(<span class="keyword">int</span> mst[])</span></span>{</span><br><span class="line">    <span class="keyword">int</span> LowCost[N];</span><br><span class="line">    <span class="keyword">int</span> res= <span class="number">0</span>;</span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">0</span>;i&lt;N;i++){</span><br><span class="line">        LowCost[i] = d[<span class="number">0</span>][i];</span><br><span class="line">        mst[i] =<span class="number">0</span>;</span><br><span class="line">        path[i] =<span class="number">0</span>;</span><br><span class="line">    }</span><br><span class="line">    LowCost[<span class="number">0</span>] = <span class="number">0</span>;</span><br><span class="line">    mst[<span class="number">0</span>] = -<span class="number">1</span>;</span><br><span class="line">    path[<span class="number">0</span>] = -<span class="number">1</span>;</span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">1</span>;i&lt;N;i++){</span><br><span class="line">        <span class="keyword">int</span> min = INF;</span><br><span class="line">        <span class="keyword">int</span> index =-<span class="number">1</span>;</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> j=<span class="number">1</span>;j&lt;N;j++){</span><br><span class="line">            <span class="keyword">if</span>(LowCost[j]&lt;min&amp;&amp;LowCost[j]!=<span class="number">0</span>){</span><br><span class="line">                min = LowCost[j];</span><br><span class="line">                index= j;</span><br><span class="line">            }</span><br><span class="line">        }</span><br><span class="line">        res +=min;</span><br><span class="line">        LowCost[index]=<span class="number">0</span>;</span><br><span class="line">        path[index] = mst[index];</span><br><span class="line"></span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> j=<span class="number">1</span>;j&lt;N;j++){</span><br><span class="line">            <span class="keyword">if</span>(LowCost[j]&gt;d[index][j]){</span><br><span class="line">                LowCost[j] = d[index][j];</span><br><span class="line">                mst[j] = index;</span><br><span class="line">            }</span><br><span class="line">        }</span><br><span class="line">    }</span><br><span class="line">    <span class="keyword">return</span> res;</span><br><span class="line">}</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">Find</span><span class="params">(<span class="keyword">int</span> s[],<span class="keyword">int</span> x)</span></span></span><br><span class="line"><span class="function"></span>{</span><br><span class="line">    <span class="keyword">if</span>(x==s[x]) <span class="keyword">return</span> x;</span><br><span class="line">    <span class="keyword">if</span>(s[x] == <span class="number">0</span>) {</span><br><span class="line">        <span class="comment">// printf("%d",x);   </span></span><br><span class="line">        <span class="keyword">return</span> x;</span><br><span class="line">    }</span><br><span class="line">    <span class="keyword">else</span> {</span><br><span class="line">        <span class="comment">// printf("%d",x);   </span></span><br><span class="line"></span><br><span class="line">        <span class="keyword">return</span> Find(s,s[x]);</span><br><span class="line">    }</span><br><span class="line">}</span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">(<span class="keyword">void</span>)</span></span></span><br><span class="line"><span class="function"></span>{</span><br><span class="line"></span><br><span class="line">    scanf(<span class="string">"%d %d"</span>,&amp;N,&amp;M);</span><br><span class="line">    <span class="keyword">int</span> edge[M][<span class="number">3</span>];</span><br><span class="line"></span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">0</span>;i&lt;N;i++){</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> j=<span class="number">0</span>;j&lt;N;j++){</span><br><span class="line">            d[i][j] = INF;</span><br><span class="line">            <span class="keyword">if</span>(i==j) d[i][j] =<span class="number">0</span>;</span><br><span class="line">        }</span><br><span class="line">    }</span><br><span class="line"></span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">0</span>;i&lt;M;i++){</span><br><span class="line">        <span class="keyword">int</span> v= <span class="number">0</span>;</span><br><span class="line">        <span class="keyword">int</span> u =<span class="number">0</span>;</span><br><span class="line">        <span class="keyword">int</span> cost = <span class="number">0</span>;</span><br><span class="line"></span><br><span class="line">        scanf(<span class="string">"%d %d %d"</span>,&amp;v,&amp;u,&amp;cost);</span><br><span class="line">        v--;</span><br><span class="line">        u--;</span><br><span class="line">        d[v][u] = cost;</span><br><span class="line">        d[u][v] = cost;</span><br><span class="line">        edge[i][<span class="number">0</span>] =v;</span><br><span class="line">        edge[i][<span class="number">1</span>] =u;</span><br><span class="line">        edge[i][<span class="number">2</span>] =cost;</span><br><span class="line">    }</span><br><span class="line">    <span class="keyword">int</span> mst[N];</span><br><span class="line">    <span class="keyword">int</span> s[N+<span class="number">1</span>];</span><br><span class="line"></span><br><span class="line">    <span class="keyword">int</span> res = Prim(mst);</span><br><span class="line">    <span class="keyword">if</span>(res&lt;INF){</span><br><span class="line">        printf(<span class="string">"%d"</span>,res);</span><br><span class="line">    }</span><br><span class="line">    <span class="keyword">else</span> {</span><br><span class="line">        printf(<span class="string">"No MST"</span>);</span><br><span class="line">        <span class="keyword">int</span> cnt = <span class="number">0</span>;</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">0</span>;i&lt;=N;i++){</span><br><span class="line">            s[i] =<span class="number">0</span>;</span><br><span class="line">        }</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">0</span>;i&lt;M;i++){</span><br><span class="line">            <span class="keyword">if</span>(Find(s,edge[i][<span class="number">0</span>]+<span class="number">1</span>)!=Find(s,edge[i][<span class="number">1</span>]+<span class="number">1</span>))    <span class="comment">//这个判断条件一定要加入，不然会出错</span></span><br><span class="line">                s[Find(s,edge[i][<span class="number">0</span>]+<span class="number">1</span>)] = Find(s,edge[i][<span class="number">1</span>]+<span class="number">1</span>);</span><br><span class="line">        }</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">1</span>;i&lt;=N;i++){</span><br><span class="line">            <span class="keyword">if</span>(s[i] ==<span class="number">0</span>)cnt++;</span><br><span class="line">        }</span><br><span class="line">        <span class="comment">// printf("%d",cnt);</span></span><br><span class="line">        printf(<span class="string">"\n%d"</span>,cnt);</span><br><span class="line">        <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">    }</span><br><span class="line">    <span class="comment">// printf("%d",res);</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line">    <span class="keyword">int</span> min = <span class="number">20</span>*INF;</span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> i=N-<span class="number">1</span>;i&gt;=<span class="number">1</span>;i--){</span><br><span class="line">        <span class="keyword">int</span> v = i;</span><br><span class="line">        <span class="keyword">int</span> u = path[v];</span><br><span class="line">        <span class="keyword">int</span> cost = d[u][v];</span><br><span class="line">        d[u][v] = INF;</span><br><span class="line">        d[v][u] = INF;</span><br><span class="line">        <span class="keyword">int</span> temp = Prim2();</span><br><span class="line">        <span class="keyword">if</span>(min&gt;temp)min = temp;</span><br><span class="line">        d[u][v] = cost;</span><br><span class="line">        d[v][u] = cost;   </span><br><span class="line">    }</span><br><span class="line"></span><br><span class="line">    <span class="keyword">if</span>(min==res) printf(<span class="string">"\nNo"</span>);</span><br><span class="line">    <span class="keyword">else</span> printf(<span class="string">"\nYes"</span>);</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">}</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment">// 5 5</span></span><br><span class="line"><span class="comment">// 1 2 1</span></span><br><span class="line"><span class="comment">// 2 3 1</span></span><br><span class="line"><span class="comment">// 3 4 2</span></span><br><span class="line"><span class="comment">// 4 1 2</span></span><br><span class="line"><span class="comment">// 3 1 3</span></span><br></pre></td></tr></tbody></table></figure>
+
+
+
+<h1 id="Prim和Kruskal怎么选择"><a href="#Prim和Kruskal怎么选择" class="headerlink" title="Prim和Kruskal怎么选择"></a>Prim和Kruskal怎么选择</h1><hr>
+<blockquote>
+<p> C语言用Prim，java，C++用Kruskal算法</p>
+</blockquote>
+<figure class="highlight matlab"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br></pre></td><td class="code"><pre><span class="line">N = <span class="number">256</span>;</span><br><span class="line"><span class="comment">% 采用quantize函数进行量化，量化级别为8</span></span><br><span class="line">quantize_num = <span class="built_in">linspace</span>(<span class="number">-0.4</span>,<span class="number">0.4</span>,N);</span><br><span class="line">quantize_val = <span class="built_in">linspace</span>(<span class="number">-0.4</span>,<span class="number">0.4</span>,N+<span class="number">1</span>);</span><br><span class="line">[quantize_out,quants] = quantiz(source_sound, quantize_num,quantize_val);</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment">%冗余码长度 r=4</span></span><br><span class="line">r = <span class="number">4</span>;</span><br><span class="line"><span class="comment">%编码长度 </span></span><br><span class="line">n = <span class="number">7</span>;</span><br><span class="line"><span class="comment">%循环码冗余项</span></span><br><span class="line">re = <span class="built_in">rem</span>(len_code, r);</span><br><span class="line"><span class="comment">% 生成多项式</span></span><br><span class="line">Pol = cyclpoly(n,r);</span><br><span class="line"><span class="comment">%计算监督矩阵</span></span><br><span class="line">[h, g] = cyclgen(n,Pol);</span><br><span class="line"><span class="comment">%生成多项式矩阵</span></span><br><span class="line">GenMat = gen2par(h);</span><br><span class="line"><span class="comment">%编码</span></span><br><span class="line">encode_data= encode(encode_data,n,r,<span class="string">'linear/binary'</span>,GenMat);</span><br><span class="line"></span><br><span class="line"><span class="comment">% QPSK调制</span></span><br><span class="line">yout = pskmod(encode_Data,<span class="number">4</span>);</span><br><span class="line"><span class="comment">% QPSK解调</span></span><br><span class="line">yin=pskdemod(yout,<span class="number">4</span>);</span><br><span class="line"></span><br><span class="line"><span class="comment">% 信道解码</span></span><br><span class="line">CRC_dec_out = decode(encode_data,n,r,<span class="string">'linear/binary'</span>,GenMat);</span><br><span class="line"></span><br><span class="line"><span class="comment">%% 信源解码结果</span></span><br><span class="line"></span><br><span class="line">huffman_deout = huffmandeco(huffman_out, result_dict);</span><br></pre></td></tr></tbody></table></figure>
+
+<p>$m(x)$</p>
+
+      
+    </div>
+    
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E7%AE%97%E6%B3%95/" rel="tag">算法</a></li></ul>
+	</div>
+
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+      
+    
+  </div>
+  
+</article>
+
+
+
+
+
+
+
+  
+    <article id="post-HTTP协议" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2021/11/18/HTTP%E5%8D%8F%E8%AE%AE/" class="article-date">
+  	<time datetime="2021-11-17T16:00:02.000Z" itemprop="datePublished">2021-11-18</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2021/11/18/HTTP%E5%8D%8F%E8%AE%AE/">
+        HTTP协议和HTTPS
+        
+      </a>
+    </h1>
+  
+
+      </header>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <!--Table of Contents begin-->
+        <!-- 
+          <div id="toc" class="toc-article">
+            <strong class="toc-title">目录</strong>
+            <a class="js-toggle-toc" href="javascript:void(0)"></a>
+            <div class="toc-content">
+              <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#HTTP"><span class="toc-text">HTTP</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#1-HTTP%E7%89%B9%E6%80%A7"><span class="toc-text">1.HTTP特性</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2-HTTP%E6%8A%A5%E6%96%87"><span class="toc-text">2.HTTP报文</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#2-1%E8%AF%B7%E6%B1%82%E6%8A%A5%E6%96%87"><span class="toc-text">2.1请求报文</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-2%E5%93%8D%E5%BA%94%E6%8A%A5%E6%96%87"><span class="toc-text">2.2响应报文</span></a></li></ol></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#HTTP%E6%8A%A5%E6%96%87%E7%BB%93%E6%9E%84%E7%BB%84%E6%88%90"><span class="toc-text">HTTP报文结构组成</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#HTTPS%E6%8A%A5%E6%96%87"><span class="toc-text">HTTPS报文</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#1-HTTP%E5%92%8CHTTPS%E7%9A%84%E5%8C%BA%E5%88%AB"><span class="toc-text">1.HTTP和HTTPS的区别</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2-HTTPS%E5%B7%A5%E4%BD%9C%E6%B5%81%E7%A8%8B"><span class="toc-text">2.HTTPS工作流程</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#3-HTTPS%E5%B7%A5%E4%BD%9C%E6%B5%81%E7%A8%8B"><span class="toc-text">3.HTTPS工作流程</span></a></li></ol></li></ol>
+            </div>
+          </div>
+         -->
+          <!-- Table of Contents -->
+        
+          <div id="toc" class="toc-article">
+            <strong class="toc-title">目录</strong>
+            <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#HTTP"><span class="toc-text">HTTP</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#1-HTTP%E7%89%B9%E6%80%A7"><span class="toc-text">1.HTTP特性</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2-HTTP%E6%8A%A5%E6%96%87"><span class="toc-text">2.HTTP报文</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#2-1%E8%AF%B7%E6%B1%82%E6%8A%A5%E6%96%87"><span class="toc-text">2.1请求报文</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-2%E5%93%8D%E5%BA%94%E6%8A%A5%E6%96%87"><span class="toc-text">2.2响应报文</span></a></li></ol></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#HTTP%E6%8A%A5%E6%96%87%E7%BB%93%E6%9E%84%E7%BB%84%E6%88%90"><span class="toc-text">HTTP报文结构组成</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#HTTPS%E6%8A%A5%E6%96%87"><span class="toc-text">HTTPS报文</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#1-HTTP%E5%92%8CHTTPS%E7%9A%84%E5%8C%BA%E5%88%AB"><span class="toc-text">1.HTTP和HTTPS的区别</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2-HTTPS%E5%B7%A5%E4%BD%9C%E6%B5%81%E7%A8%8B"><span class="toc-text">2.HTTPS工作流程</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#3-HTTPS%E5%B7%A5%E4%BD%9C%E6%B5%81%E7%A8%8B"><span class="toc-text">3.HTTPS工作流程</span></a></li></ol></li></ol>
+          </div>
+        
+        <!--Table of Contents end -->
+        
+
+
+
+
+        <p>[toc]</p>
+<h1 id="HTTP"><a href="#HTTP" class="headerlink" title="HTTP"></a>HTTP</h1><hr>
+<p>参考资料：<a target="_blank" rel="noopener" href="https://hit-alibaba.github.io/interview/basic/network/HTTP.html?q=">https://hit-alibaba.github.io/interview/basic/network/HTTP.html?q=</a></p>
+<p>参考：<a target="_blank" rel="noopener" href="https://www.jianshu.com/p/8fe93a14754c">HTTP协议格式详解 - 简书 (jianshu.com)</a></p>
+<h2 id="1-HTTP特性"><a href="#1-HTTP特性" class="headerlink" title="1.HTTP特性"></a>1.HTTP特性</h2><ul>
+<li>HTTP建立在TCP/IP上的应用层协议，默认端口为80</li>
+<li>HTTP协议是<strong>无状态，无连接</strong>的，通信双方无需建立连接；</li>
+<li>HTTP协议是一种请求-应答式的协议——客户端发送一个请求，服务器返回该请求的应答，所有的请求与应答都是HTTP包</li>
+</ul>
+<h2 id="2-HTTP报文"><a href="#2-HTTP报文" class="headerlink" title="2.HTTP报文"></a>2.HTTP报文</h2><h3 id="2-1请求报文"><a href="#2-1请求报文" class="headerlink" title="2.1请求报文"></a>2.1请求报文</h3><ul>
+<li><p>HTTP协议以ASCII码传输，请求包括三个部分：<strong>状态行、请求头、消息主体</strong></p>
+</li>
+<li><p>HTTP定义了与服务器交互的不同方式：GET,POST,PUT,DELETE</p>
+</li>
+</ul>
+<p>GET报文</p>
+<figure class="highlight http"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">GET</span> <span class="string">/books/?sex=man&amp;name=Professional</span> <span class="meta">HTTP/1.1</span></span><br><span class="line"><span class="attribute">Host</span><span class="punctuation">: </span>www.example.com</span><br><span class="line"><span class="attribute">User-Agent</span><span class="punctuation">: </span>Mozilla/5.0 (Windows; U; Windows NT 5.1; en-US; rv:1.7.6)</span><br><span class="line">Gecko/20050225 Firefox/1.0.1</span><br><span class="line"><span class="attribute">Connection</span><span class="punctuation">: </span>Keep-Alive</span><br></pre></td></tr></tbody></table></figure>
+
+<p>POST可能修改服务器资源请求</p>
+<figure class="highlight http"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">POST</span> <span class="string">/</span> <span class="meta">HTTP/1.1</span></span><br><span class="line"><span class="attribute">Host</span><span class="punctuation">: </span>www.example.com</span><br><span class="line"><span class="attribute">User-Agent</span><span class="punctuation">: </span>Mozilla/5.0 (Windows; U; Windows NT 5.1; en-US; rv:1.7.6)</span><br><span class="line">Gecko/20050225 Firefox/1.0.1</span><br><span class="line"><span class="attribute">Content-Type</span><span class="punctuation">: </span>application/x-www-form-urlencoded</span><br><span class="line"><span class="attribute">Content-Length</span><span class="punctuation">: </span>40</span><br><span class="line"><span class="attribute">Connection</span><span class="punctuation">: </span>Keep-Alive</span><br><span class="line"></span><br><span class="line"><span class="ini"><span class="attr">sex</span>=man&amp;name=Professional  </span></span><br></pre></td></tr></tbody></table></figure>
+
+<blockquote>
+<p>GET POST的数据内容是一样的，就是位置不同，一个在URL里面，一个在HTTP包里面</p>
+</blockquote>
+<p><strong>POST提交数据的方式</strong></p>
+<p>服务端通常是根据请求头（headers）中的 Content-Type 字段来获知请求中的消息主体是用何种方式编码，再对主体进行解析。所以说到 POST 提交数据方案，包含了 <strong>Content-Type</strong> 和<strong>消息主体编码方式</strong>两部分</p>
+<ul>
+<li><p>```<br>application/x-www-form-urlencoded</p>
+<figure class="highlight plaintext"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">  默认的原生提交方式</span><br><span class="line"></span><br><span class="line">- ```</span><br><span class="line">  multipart/form-data</span><br></pre></td></tr></tbody></table></figure>
+
+<p>常见的 POST 数据提交的方式。我们使用表单上传文件时，必须让 <code>&lt;form&gt;</code> 表单的 enctype 等于 <code>multipart/form-data</code></p>
+</li>
+</ul>
+<h3 id="2-2响应报文"><a href="#2-2响应报文" class="headerlink" title="2.2响应报文"></a>2.2响应报文</h3><p>HTTP响应由3个部分组成：<strong>状态行</strong>、<strong>响应头</strong>、<strong>响应正文</strong></p>
+<p>其中：</p>
+<ul>
+<li><strong>状态行由协议版本、数字形式的状态代码、及相应的状态描述，各元素之间以空格分隔。</strong></li>
+</ul>
+<figure class="highlight plaintext"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">HTTP/1.1 200 OK</span><br><span class="line"></span><br><span class="line">Server:Apache Tomcat/5.0.12</span><br><span class="line">Date:Mon,6Oct2003 13:23:42 GMT</span><br><span class="line">Content-Length:112</span><br><span class="line"></span><br><span class="line">&lt;html&gt;...</span><br></pre></td></tr></tbody></table></figure>
+
+
+
+<h1 id="HTTP报文结构组成"><a href="#HTTP报文结构组成" class="headerlink" title="HTTP报文结构组成"></a>HTTP报文结构组成</h1><hr>
+<ul>
+<li><p>请求报文和消息报文都由三部分组成</p>
+<ul>
+<li>状态行 ： 用来区分请求报文（GET, POST,CONNECT）、响应报文；</li>
+<li>首部行：      <code>[ 首部字段名：值 ]</code> </li>
+<li>消息主体：</li>
+</ul>
+<blockquote>
+<p>消息主体和前面两部分是用两个回车换行隔开</p>
+</blockquote>
+</li>
+</ul>
+<h1 id="HTTPS报文"><a href="#HTTPS报文" class="headerlink" title="HTTPS报文"></a>HTTPS报文</h1><hr>
+<blockquote>
+<p>HTTPS在HTTP上面加上SSL</p>
+</blockquote>
+<h2 id="1-HTTP和HTTPS的区别"><a href="#1-HTTP和HTTPS的区别" class="headerlink" title="1.HTTP和HTTPS的区别"></a>1.HTTP和HTTPS的区别</h2><ul>
+<li>HTTP 协议以明文方式发送内容，不提供任何方式的数据加密</li>
+<li>HTTPS 经由 HTTP 进行通信，但利用 SSL/TLS 来加密数据包。</li>
+<li>HTTP 明文传输，数据都是未加密的，安全性较差，HTTPS（SSL+HTTP） 数据传输过程是加密的，安全性较好</li>
+<li>使用 HTTPS 协议需要到 CA（Certificate Authority，数字证书认证机构） 申请证书，一般免费证书较少，因而需要一定费用。</li>
+</ul>
+<blockquote>
+<ul>
+<li>HTTP 页面响应速度比 HTTPS 快，主要是因为 HTTP 使用 TCP 三次握手建立连接，客户端和服务器需要交换 3 个包，而 HTTPS除了 TCP 的三个包，还要加上 ssl 握手需要的 9 个包，所以一共是 12 个包。</li>
+<li>http 和 https 使用的是完全不同的连接方式，用的端口也不一样，前者是 80，后者是 443。</li>
+<li>HTTPS 其实就是建构在 SSL/TLS 之上的 HTTP 协议，所以，要比较 HTTPS 比 HTTP 要更耗费服务器资源</li>
+</ul>
+</blockquote>
+<h2 id="2-HTTPS工作流程"><a href="#2-HTTPS工作流程" class="headerlink" title="2.HTTPS工作流程"></a>2.HTTPS工作流程</h2><blockquote>
+<p>HTTPS 默认工作在 TCP 协议443端口</p>
+</blockquote>
+<ul>
+<li>TCP 三次同步握手</li>
+<li>HTTPS处理TCP创建连接后，需要加上SSL握手的9个包</li>
+</ul>
+<h2 id="3-HTTPS工作流程"><a href="#3-HTTPS工作流程" class="headerlink" title="3.HTTPS工作流程"></a>3.HTTPS工作流程</h2><blockquote>
+<p>客户端https —-&gt; 服务器配置证书传送证书—&gt;服务器发送加密信息—&gt;客户机解密 </p>
+</blockquote>
+<ol>
+<li><p>客户端发起https请求</p>
+</li>
+<li><p>服务器配置。<strong>采用 HTTPS 协议的服务器必须要有一套数字证书，可以自己制作，也可以向组织申请，区别就是自己颁发的证书需要客户端验证通过，才可以继续访问，而使用受信任的公司申请的证书则不会弹出提示页面(startssl 就是个不错的选择，有 1 年的免费服务)。这套证书其实就是一对公钥和私钥。</strong></p>
+</li>
+<li><p>服务端用私钥解密后，得到了客户端传过来的随机值(私钥)，然后把内容通过该值进行对称加密，所谓对称加密就是，将信息和私钥通过某种算法混合在一起，这</p>
+</li>
+</ol>
+
+      
+    </div>
+    
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/" rel="tag">计算机网络</a></li></ul>
+	</div>
+
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+      
+    
+  </div>
+  
+</article>
+
+
+
+
+
+
+
   
     <article id="post-cache" class="article article-type-post" itemscope itemprop="blogPost">
   

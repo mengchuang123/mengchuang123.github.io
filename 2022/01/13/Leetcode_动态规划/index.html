@@ -1,0 +1,434 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <title>Leetcode_动态规划 | 绘梨衣</title>
+
+  <!-- keywords -->
+  
+
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="[toc] 309. 最佳买卖股票时机含冷冻期 给定一个整数数组，其中第 i 个元素代表了第 i 天的股票价格 。 设计一个算法计算出最大利润。在满足以下约束条件下，你可以尽可能地完成更多的交易（多次买卖一支股票）:  你不能同时参与多笔交易（你必须在再次购买前出售掉之前的股票）。 卖出股票后，你无法在第二天买入股票 (即冷冻期为 1 天)。  示例 123输入: [1,2,3,0,2]输出: 3">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Leetcode_动态规划">
+<meta property="og:url" content="http://example.com/2022/01/13/Leetcode_%E5%8A%A8%E6%80%81%E8%A7%84%E5%88%92/index.html">
+<meta property="og:site_name" content="绘梨衣">
+<meta property="og:description" content="[toc] 309. 最佳买卖股票时机含冷冻期 给定一个整数数组，其中第 i 个元素代表了第 i 天的股票价格 。 设计一个算法计算出最大利润。在满足以下约束条件下，你可以尽可能地完成更多的交易（多次买卖一支股票）:  你不能同时参与多笔交易（你必须在再次购买前出售掉之前的股票）。 卖出股票后，你无法在第二天买入股票 (即冷冻期为 1 天)。  示例 123输入: [1,2,3,0,2]输出: 3">
+<meta property="og:locale" content="en_US">
+<meta property="og:image" content="https://gitee.com/mymengchuang/blog_img/raw/master/image-20220115193945939.png">
+<meta property="article:published_time" content="2022-01-12T16:00:02.000Z">
+<meta property="article:modified_time" content="2022-01-15T13:08:05.995Z">
+<meta property="article:author" content="绘梨衣">
+<meta property="article:tag" content="Leetcode">
+<meta property="article:tag" content="动态规划">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://gitee.com/mymengchuang/blog_img/raw/master/image-20220115193945939.png">
+  
+  
+    <link rel="icon" href="/img/favicon.ico">
+  
+  
+<link rel="stylesheet" href="/css/style.css">
+
+  
+  
+
+  
+<script src="//cdn.bootcss.com/require.js/2.3.2/require.min.js"></script>
+
+  
+<script src="//cdn.bootcss.com/jquery/3.1.1/jquery.min.js"></script>
+
+
+  
+<meta name="generator" content="Hexo 5.4.0"><link rel="alternate" href="/atom.xml" title="绘梨衣" type="application/atom+xml">
+
+<style>.github-emoji { position: relative; display: inline-block; width: 1.2em; min-height: 1.2em; overflow: hidden; vertical-align: top; color: transparent; }  .github-emoji > span { position: relative; z-index: 10; }  .github-emoji img, .github-emoji .fancybox { margin: 0 !important; padding: 0 !important; border: none !important; outline: none !important; text-decoration: none !important; user-select: none !important; cursor: auto !important; }  .github-emoji img { height: 1.2em !important; width: 1.2em !important; position: absolute !important; left: 50% !important; top: 50% !important; transform: translate(-50%, -50%) !important; user-select: none !important; cursor: auto !important; } .github-emoji-fallback { color: inherit; } .github-emoji-fallback img { opacity: 0 !important; }</style>
+</head>
+<body>
+  <div id="container">
+    <div id="particles-js"></div>
+    <div class="left-col">
+    <div class="overlay"></div>
+<div class="intrude-less">
+	<header id="header" class="inner">
+		<a href="/" class="profilepic">
+			
+				<img lazy-src="/img/touxiang2.png" class="js-avatar">
+			
+		</a>
+
+		<hgroup>
+			<h1 class="header-author"><a href="/">绘梨衣</a></h1>
+		</hgroup>
+
+		
+
+		<div class="switch-area">
+			<div class="switch-wrap">
+				<section class="switch-part switch-part1">
+					<nav class="header-menu">
+						<ul>
+						
+							<li><a href="/">Home</a></li>
+				        
+							<li><a href="/archives">Archives</a></li>
+				        
+						</ul>
+					</nav>
+					<nav class="half-header-menu">
+						<a class="hide">Home</a>
+						<a>Tags</a>
+						<a>Links</a>
+						<a>About</a>
+					</nav>
+					<nav class="header-nav">
+						<div class="social">
+							
+								<a class="github" target="_blank" href="#" title="github">github</a>
+					        
+								<a class="mail" target="_blank" href="#" title="mail">mail</a>
+					        
+								<a class="rss" target="_blank" href="/atom.xml" title="rss">rss</a>
+					        
+								<a class="zhihu" target="_blank" href="#" title="zhihu">zhihu</a>
+					        
+						</div>
+						<!-- music -->
+						
+					</nav>
+				</section>
+				
+				
+				<section class="switch-part switch-part2">
+					<div class="widget tagcloud" id="js-tagcloud">
+						<a href="/tags/Leetcode/" style="font-size: 13.33px;">Leetcode</a> <a href="/tags/%E4%BF%A1%E6%81%AF%E8%AE%BA/" style="font-size: 10px;">信息论</a> <a href="/tags/%E5%8A%A8%E6%80%81%E8%A7%84%E5%88%92/" style="font-size: 10px;">动态规划</a> <a href="/tags/%E5%9B%BE%E8%AE%BA/" style="font-size: 10px;">图论</a> <a href="/tags/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F/" style="font-size: 10px;">操作系统</a> <a href="/tags/%E7%AE%97%E6%B3%95/" style="font-size: 20px;">算法</a> <a href="/tags/%E8%AE%A1%E5%88%92/" style="font-size: 10px;">计划</a> <a href="/tags/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BB%84%E6%88%90/" style="font-size: 13.33px;">计算机组成</a> <a href="/tags/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/" style="font-size: 16.67px;">计算机网络</a> <a href="/tags/%E8%AE%B8%E6%84%BF/" style="font-size: 10px;">许愿</a> <a href="/tags/%E9%9D%A2%E8%AF%95/" style="font-size: 10px;">面试</a>
+					</div>
+				</section>
+				
+				
+				
+				<section class="switch-part switch-part3">
+					<div id="js-friends">
+					
+			          <a target="_blank" class="main-nav-link switch-friends-link" href="https://github.com/mengchuang123/">github</a>
+			        
+			        </div>
+				</section>
+				
+
+				
+				
+				<section class="switch-part switch-part4">
+				
+					<div id="js-aboutme">My study log.</div>
+				</section>
+				
+			</div>
+		</div>
+	</header>				
+</div>
+    </div>
+    <div class="mid-col">
+      <nav id="mobile-nav">
+  	<div class="overlay">
+  		<div class="slider-trigger"></div>
+  		<h1 class="header-author js-mobile-header hide"></h1>
+  	</div>
+	<div class="intrude-less">
+		<header id="header" class="inner">
+			<div class="profilepic">
+				<img lazy-src="/img/touxiang2.png" class="js-avatar">
+			</div>
+			<hgroup>
+			  <h1 class="header-author"></h1>
+			</hgroup>
+			
+			<nav class="header-menu">
+				<ul>
+				
+					<li><a href="/">Home</a></li>
+		        
+					<li><a href="/archives">Archives</a></li>
+		        
+		        <div class="clearfix"></div>
+				</ul>
+			</nav>
+			<nav class="header-nav">
+				<div class="social">
+					
+						<a class="github" target="_blank" href="#" title="github">github</a>
+			        
+						<a class="mail" target="_blank" href="#" title="mail">mail</a>
+			        
+						<a class="rss" target="_blank" href="/atom.xml" title="rss">rss</a>
+			        
+						<a class="zhihu" target="_blank" href="#" title="zhihu">zhihu</a>
+			        
+				</div>
+			</nav>
+		</header>				
+	</div>
+</nav>
+      <div class="body-wrap"><article id="post-Leetcode_动态规划" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2022/01/13/Leetcode_%E5%8A%A8%E6%80%81%E8%A7%84%E5%88%92/" class="article-date">
+  	<time datetime="2022-01-12T16:00:02.000Z" itemprop="datePublished">2022-01-13</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      Leetcode_动态规划
+      
+    </h1>
+  
+
+      </header>
+      
+      <div class="article-info article-info-post">
+        
+	<div class="article-tag tagcloud">
+		<ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Leetcode/" rel="tag">Leetcode</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E5%8A%A8%E6%80%81%E8%A7%84%E5%88%92/" rel="tag">动态规划</a></li></ul>
+	</div>
+
+        
+
+        
+        <div class="clearfix"></div>
+      </div>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <!--Table of Contents begin-->
+        <!-- 
+          <div id="toc" class="toc-article">
+            <strong class="toc-title">目录</strong>
+            <a class="js-toggle-toc" href="javascript:void(0)"></a>
+            <div class="toc-content">
+              <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#309-%E6%9C%80%E4%BD%B3%E4%B9%B0%E5%8D%96%E8%82%A1%E7%A5%A8%E6%97%B6%E6%9C%BA%E5%90%AB%E5%86%B7%E5%86%BB%E6%9C%9F"><span class="toc-text">309. 最佳买卖股票时机含冷冻期</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#122-%E4%B9%B0%E5%8D%96%E8%82%A1%E7%A5%A8%E7%9A%84%E6%9C%80%E4%BD%B3%E6%97%B6%E6%9C%BA-II"><span class="toc-text">122. 买卖股票的最佳时机 II</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#72-%E7%BC%96%E8%BE%91%E8%B7%9D%E7%A6%BB"><span class="toc-text">72. 编辑距离</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#124-%E4%BA%8C%E5%8F%89%E6%A0%91%E4%B8%AD%E7%9A%84%E6%9C%80%E5%A4%A7%E8%B7%AF%E5%BE%84%E5%92%8C"><span class="toc-text">124. 二叉树中的最大路径和</span></a></li></ol>
+            </div>
+          </div>
+         -->
+          <!-- Table of Contents -->
+        
+          <div id="toc" class="toc-article">
+            <strong class="toc-title">目录</strong>
+            <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#309-%E6%9C%80%E4%BD%B3%E4%B9%B0%E5%8D%96%E8%82%A1%E7%A5%A8%E6%97%B6%E6%9C%BA%E5%90%AB%E5%86%B7%E5%86%BB%E6%9C%9F"><span class="toc-text">309. 最佳买卖股票时机含冷冻期</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#122-%E4%B9%B0%E5%8D%96%E8%82%A1%E7%A5%A8%E7%9A%84%E6%9C%80%E4%BD%B3%E6%97%B6%E6%9C%BA-II"><span class="toc-text">122. 买卖股票的最佳时机 II</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#72-%E7%BC%96%E8%BE%91%E8%B7%9D%E7%A6%BB"><span class="toc-text">72. 编辑距离</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#124-%E4%BA%8C%E5%8F%89%E6%A0%91%E4%B8%AD%E7%9A%84%E6%9C%80%E5%A4%A7%E8%B7%AF%E5%BE%84%E5%92%8C"><span class="toc-text">124. 二叉树中的最大路径和</span></a></li></ol>
+          </div>
+        
+        <!--Table of Contents end -->
+        
+
+
+
+
+        <p>[toc]</p>
+<h1 id="309-最佳买卖股票时机含冷冻期"><a href="#309-最佳买卖股票时机含冷冻期" class="headerlink" title="309. 最佳买卖股票时机含冷冻期"></a>309. 最佳买卖股票时机含冷冻期</h1><hr>
+<p>给定一个整数数组，其中第 <em>i</em> 个元素代表了第 <em>i</em> 天的股票价格 。</p>
+<p>设计一个算法计算出最大利润。在满足以下约束条件下，你可以尽可能地完成更多的交易（多次买卖一支股票）:</p>
+<ul>
+<li>你不能同时参与多笔交易（你必须在再次购买前出售掉之前的股票）。</li>
+<li>卖出股票后，你无法在第二天买入股票 (即冷冻期为 1 天)。</li>
+</ul>
+<p><strong>示例</strong></p>
+<figure class="highlight java"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">输入: [<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>,<span class="number">0</span>,<span class="number">2</span>]</span><br><span class="line">输出: <span class="number">3</span> </span><br><span class="line">解释: 对应的交易状态为: [买入, 卖出, 冷冻期, 买入, 卖出]</span><br></pre></td></tr></tbody></table></figure>
+
+<p><strong>思路：</strong></p>
+<ul>
+<li><p>一种常用的方法是将「买入」和「卖出」分开进行考虑：「买入」为负收益，而「卖出」为正收益。</p>
+</li>
+<li><p>采用的动态规划思路：</p>
+<ul>
+<li><p><code>dp[i]</code><strong>代表第<code>i</code>天结束以后的所有累积收益</strong></p>
+</li>
+<li><p><code>dp[i][0]</code>代表我们目前持有一支股票，对应的「累计最大收益」</p>
+</li>
+<li><p><code>dp[i][1]</code>代表目前不持有任何股票，并且处于冷冻期中，对应的「累计最大收益」</p>
+</li>
+<li><p><code>dp[i][2]</code>代表目前不持有任何股票，并且不处于冷冻期中，对应的「累计最大收益」</p>
+</li>
+</ul>
+</li>
+<li><p>动态规划转移方程：</p>
+<ul>
+<li><code>dp[i][0] = max(dp[i-1][2]-num[i],dp[i-1][0])</code></li>
+<li><code>dp[i][1] = dp[i-1][0]-num[i]</code></li>
+<li><code>dp[i][2] = max(dp[i-1][1],dp[i-1][2])</code></li>
+</ul>
+</li>
+<li><p>最后结果：<code>res = max(dp[n-1][1],dp[n-1][2])</code></p>
+</li>
+</ul>
+<p><strong>代码</strong></p>
+<figure class="highlight java"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> </span>{</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">maxProfit</span><span class="params">(<span class="keyword">int</span>[] prices)</span> </span>{</span><br><span class="line">        <span class="keyword">int</span> len = prices.length;</span><br><span class="line">        <span class="keyword">int</span> res = <span class="number">0</span>;</span><br><span class="line">        <span class="keyword">int</span> [][]dp=<span class="keyword">new</span> <span class="keyword">int</span> [len][<span class="number">3</span>] ;</span><br><span class="line">        <span class="comment">//初始化</span></span><br><span class="line">        dp[<span class="number">0</span>][<span class="number">0</span>] = -prices[<span class="number">0</span>];</span><br><span class="line">        dp[<span class="number">0</span>][<span class="number">1</span>] = <span class="number">0</span>;</span><br><span class="line">        dp[<span class="number">0</span>][<span class="number">2</span>] = <span class="number">0</span>;</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">1</span>;i&lt;len;i++){</span><br><span class="line">            dp[i][<span class="number">0</span>] = Math.max(dp[i-<span class="number">1</span>][<span class="number">0</span>],dp[i-<span class="number">1</span>][<span class="number">2</span>]-prices[i]);</span><br><span class="line">            dp[i][<span class="number">1</span>] = dp[i-<span class="number">1</span>][<span class="number">0</span>]+prices[i];</span><br><span class="line">            dp[i][<span class="number">2</span>] = Math.max(dp[i-<span class="number">1</span>][<span class="number">1</span>],dp[i-<span class="number">1</span>][<span class="number">2</span>]);</span><br><span class="line">        }</span><br><span class="line">        res = Math.max(dp[len-<span class="number">1</span>][<span class="number">1</span>],dp[len-<span class="number">1</span>][<span class="number">2</span>]);</span><br><span class="line">        <span class="keyword">return</span> res;</span><br><span class="line">    }</span><br><span class="line">}</span><br><span class="line"></span><br></pre></td></tr></tbody></table></figure>
+
+<h1 id="122-买卖股票的最佳时机-II"><a href="#122-买卖股票的最佳时机-II" class="headerlink" title="122. 买卖股票的最佳时机 II"></a>122. 买卖股票的最佳时机 II</h1><hr>
+<p>给定一个数组 <code>prices</code> ，其中 <code>prices[i]</code> 是一支给定股票第 <code>i</code> 天的价格。</p>
+<p>设计一个算法来计算你所能获取的最大利润。你可以尽可能地完成更多的交易（多次买卖一支股票）</p>
+<p><strong>注意：</strong>你不能同时参与多笔交易（你必须在再次购买前出售掉之前的股票）。</p>
+<p><strong>示例一：</strong></p>
+<figure class="highlight java"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">输入: prices = [<span class="number">7</span>,<span class="number">1</span>,<span class="number">5</span>,<span class="number">3</span>,<span class="number">6</span>,<span class="number">4</span>]</span><br><span class="line">输出: <span class="number">7</span></span><br><span class="line">解释: 在第 <span class="number">2</span> 天（股票价格 = <span class="number">1</span>）的时候买入，在第 <span class="number">3</span> 天（股票价格 = <span class="number">5</span>）的时候卖出, 这笔交易所能获得利润 = <span class="number">5</span>-<span class="number">1</span> = <span class="number">4</span> 。</span><br><span class="line">&nbsp;    随后，在第 <span class="number">4</span> 天（股票价格 = <span class="number">3</span>）的时候买入，在第 <span class="number">5</span> 天（股票价格 = <span class="number">6</span>）的时候卖出, 这笔交易所能获得利润 = <span class="number">6</span>-<span class="number">3</span> = <span class="number">3</span> 。</span><br></pre></td></tr></tbody></table></figure>
+
+<p> <strong>思路：</strong></p>
+<ul>
+<li><p>状态表示：<code>dp[i][0],dp[i][1]</code></p>
+<ul>
+<li><code>dp[i][0] </code>代表第i天结束以后，持有股票的累计收益</li>
+<li><code>dp[i][1] </code>代表第i天结束以后，没有此由股票的累计收益</li>
+</ul>
+</li>
+<li><p>状态转移：</p>
+<ul>
+<li><p><code>dp[i][0] = Math.max(dp[i-1][0],dp[i-1][1]-prices[i]);</code></p>
+</li>
+<li><p><code>dp[i][1] = Math.max(dp[i-1][1],dp[i-1][0]+prices[i]);</code></p>
+</li>
+</ul>
+</li>
+</ul>
+<p><strong>代码：</strong></p>
+<figure class="highlight java"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> </span>{</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">maxProfit</span><span class="params">(<span class="keyword">int</span>[] prices)</span> </span>{</span><br><span class="line">        <span class="keyword">int</span> len = prices.length;</span><br><span class="line">        <span class="keyword">int</span> [][]dp = <span class="keyword">new</span> <span class="keyword">int</span>[len][<span class="number">2</span>];</span><br><span class="line">        <span class="comment">//dp[i][0] 代表第i天结束以后，持有股票的累计收益</span></span><br><span class="line">        <span class="comment">//dp[i][1] 代表第i天结束以后，没有此由股票的累计收益</span></span><br><span class="line">        dp[<span class="number">0</span>][<span class="number">0</span>] = -prices[<span class="number">0</span>];</span><br><span class="line">        dp[<span class="number">0</span>][<span class="number">1</span>] = <span class="number">0</span>;</span><br><span class="line">        <span class="keyword">int</span> res = <span class="number">0</span>;</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">1</span>;i&lt;len;i++){</span><br><span class="line">            dp[i][<span class="number">0</span>] = Math.max(dp[i-<span class="number">1</span>][<span class="number">0</span>],dp[i-<span class="number">1</span>][<span class="number">1</span>]-prices[i]);</span><br><span class="line">            dp[i][<span class="number">1</span>] = Math.max(dp[i-<span class="number">1</span>][<span class="number">1</span>],dp[i-<span class="number">1</span>][<span class="number">0</span>]+prices[i]);</span><br><span class="line"></span><br><span class="line">        }</span><br><span class="line">        res= dp[len-<span class="number">1</span>][<span class="number">1</span>];</span><br><span class="line"></span><br><span class="line">        <span class="keyword">return</span> res;</span><br><span class="line">    }</span><br><span class="line">}</span><br></pre></td></tr></tbody></table></figure>
+
+<h1 id="72-编辑距离"><a href="#72-编辑距离" class="headerlink" title="72. 编辑距离"></a>72. 编辑距离</h1><hr>
+<p>给你两个单词 <code>word1</code> 和 <code>word2</code>，请你计算出将 <code>word1</code> 转换成 <code>word2</code> 所使用的最少操作数 。</p>
+<p>你可以对一个单词进行如下三种操作：</p>
+<ul>
+<li>插入一个字符</li>
+<li>删除一个字符</li>
+<li>替换一个字符</li>
+</ul>
+<p><strong>示例一：</strong></p>
+<figure class="highlight java"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">输入：word1 = <span class="string">"horse"</span>, word2 = <span class="string">"ros"</span></span><br><span class="line">输出：<span class="number">3</span></span><br><span class="line">解释：</span><br><span class="line">horse -&gt; rorse (将 <span class="string">'h'</span> 替换为 <span class="string">'r'</span>)</span><br><span class="line">rorse -&gt; rose (删除 <span class="string">'r'</span>)</span><br><span class="line">rose -&gt; ros (删除 <span class="string">'e'</span>)</span><br></pre></td></tr></tbody></table></figure>
+
+<p><strong>思考：</strong></p>
+<ul>
+<li><code>dp[i][j]</code>代表<code>word1[0:i]</code>和<code>word2[0:j]</code>之间的最小操作数量</li>
+<li>递归关系如下：<ul>
+<li><code>if(word1[i]==word2[j]) dp[i][j] = dp[i-1][j-1];</code></li>
+<li><code>if(word1[i]!=word2[j]) dp[i][j] = min(dp[i][j-1],dp[i-1][j],dp[i][j])+1;</code></li>
+<li>关键在于如何处理边界条件，也就是处理<code>i=0</code>和<code>j=0</code>的特殊情况，具体处理看代码</li>
+</ul>
+</li>
+</ul>
+<figure class="highlight java"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> </span>{</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">minDistance</span><span class="params">(String word1, String word2)</span> </span>{</span><br><span class="line">        <span class="keyword">int</span> len1 = word1.length();</span><br><span class="line">        <span class="keyword">int</span> len2 = word2.length();</span><br><span class="line">        <span class="keyword">if</span>(len1==<span class="number">0</span>)<span class="keyword">return</span> len2;</span><br><span class="line">        <span class="keyword">if</span>(len2==<span class="number">0</span>) <span class="keyword">return</span> len1;</span><br><span class="line">        <span class="keyword">int</span> [][]dp=  <span class="keyword">new</span> <span class="keyword">int</span> [len1][len2];</span><br><span class="line">        <span class="keyword">if</span>(word1.charAt(<span class="number">0</span>)==word2.charAt(<span class="number">0</span>)) dp[<span class="number">0</span>][<span class="number">0</span>] = <span class="number">0</span>;</span><br><span class="line">        <span class="keyword">else</span> dp[<span class="number">0</span>][<span class="number">0</span>] = <span class="number">1</span>;</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">0</span>;i&lt;len1;i++){</span><br><span class="line">            <span class="keyword">for</span>(<span class="keyword">int</span> j=<span class="number">0</span>;j&lt;len2;j++){</span><br><span class="line"></span><br><span class="line">                <span class="keyword">if</span>(i==<span class="number">0</span>&amp;&amp;j==<span class="number">0</span>) <span class="keyword">continue</span>;</span><br><span class="line">                dp[i][j] = <span class="number">1000</span>;</span><br><span class="line">                <span class="keyword">if</span>(word1.charAt(i)==word2.charAt(j)) {</span><br><span class="line">                    <span class="keyword">if</span>(i-<span class="number">1</span>&gt;=<span class="number">0</span>&amp;&amp;j-<span class="number">1</span>&gt;=<span class="number">0</span>)</span><br><span class="line">                        dp[i][j] = dp[i-<span class="number">1</span>][j-<span class="number">1</span>];</span><br><span class="line">                    <span class="keyword">else</span> <span class="keyword">if</span>(i==<span class="number">0</span>) dp[i][j] = j;</span><br><span class="line">                    <span class="keyword">else</span> dp[i][j] = i;</span><br><span class="line"></span><br><span class="line">                }</span><br><span class="line">                <span class="keyword">else</span> {</span><br><span class="line">                    <span class="keyword">if</span>(j-<span class="number">1</span>&gt;=<span class="number">0</span>) dp[i][j]= Math.min(dp[i][j],dp[i][j-<span class="number">1</span>]+<span class="number">1</span>);</span><br><span class="line">                    <span class="keyword">if</span>(i-<span class="number">1</span>&gt;=<span class="number">0</span>) dp[i][j]= Math.min(dp[i][j],dp[i-<span class="number">1</span>][j]+<span class="number">1</span>);</span><br><span class="line">                    <span class="keyword">if</span>(j-<span class="number">1</span>&gt;=<span class="number">0</span>&amp;&amp;i-<span class="number">1</span>&gt;=<span class="number">0</span>) dp[i][j]= Math.min(dp[i][j],dp[i-<span class="number">1</span>][j-<span class="number">1</span>]+<span class="number">1</span>);</span><br><span class="line">                }</span><br><span class="line">                </span><br><span class="line">            }</span><br><span class="line">        }</span><br><span class="line">        <span class="keyword">int</span> res = dp[len1-<span class="number">1</span>][len2-<span class="number">1</span>];</span><br><span class="line">        <span class="keyword">return</span> res;</span><br><span class="line"></span><br><span class="line">    }</span><br><span class="line">}</span><br><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment">word1[0:i]</span></span><br><span class="line"><span class="comment">word2[0:j]</span></span><br><span class="line"><span class="comment">dp[i][j] = </span></span><br><span class="line"><span class="comment">if(word1[i]==word2[j]) dp[i][j] = dp[i-1][j-1];</span></span><br><span class="line"><span class="comment">if(word1[i]!=word2[j]) dp[i][j] = min(dp[i][j-1],dp[i-1][j],dp[i][j])+1;</span></span><br><span class="line"><span class="comment"></span></span><br><span class="line"><span class="comment">初始化</span></span><br><span class="line"><span class="comment">dp[0][0] = 0/1</span></span><br><span class="line"><span class="comment"></span></span><br><span class="line"><span class="comment"> */</span></span><br></pre></td></tr></tbody></table></figure>
+
+
+
+<h1 id="124-二叉树中的最大路径和"><a href="#124-二叉树中的最大路径和" class="headerlink" title="124. 二叉树中的最大路径和"></a>124. 二叉树中的最大路径和</h1><hr>
+<p>路径 被定义为一条从树中任意节点出发，沿父节点-子节点连接，达到任意节点的序列。同一个节点在一条路径序列中 至多出现一次 。该路径 至少包含一个 节点，且不一定经过根节点。</p>
+<p><strong>路径和</strong> 是路径中各节点值的总和。</p>
+<p>给你一个二叉树的根节点 <code>root</code> ，返回其 <strong>最大路径和</strong> 。</p>
+<img src="https://gitee.com/mymengchuang/blog_img/raw/master/image-20220115193945939.png" alt="image-20220115193945939" style="zoom:80%;">
+
+<p><strong>示例：</strong></p>
+<figure class="highlight java"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">输入：root = [-<span class="number">10</span>,<span class="number">9</span>,<span class="number">20</span>,<span class="keyword">null</span>,<span class="keyword">null</span>,<span class="number">15</span>,<span class="number">7</span>]</span><br><span class="line">输出：<span class="number">42</span></span><br><span class="line">解释：最优路径是 <span class="number">15</span> -&gt; <span class="number">20</span> -&gt; <span class="number">7</span> ，路径和为 <span class="number">15</span> + <span class="number">20</span> + <span class="number">7</span> = <span class="number">42</span></span><br></pre></td></tr></tbody></table></figure>
+
+<p><strong>思路：</strong></p>
+<ul>
+<li><p><code>dp[root][0]</code>代表以<code>root</code>为父节点到根节点的最大路径</p>
+</li>
+<li><p><code>dp[root][1]</code>代表以<code>roo</code>t为父节点到根节点的最大路径</p>
+</li>
+<li><p>递推关系如下：</p>
+<ul>
+<li><code>dp[root][0] = root.val+max(dp[root.left][0],dp[root.left][1],0);</code></li>
+<li><code>dp[root][1] = root.val+max(dp[root.right][0],dp[root.right][1],0);</code></li>
+</ul>
+</li>
+<li><p>最终结果应该是在每一次<code>dfs</code>搜索的时候获得：</p>
+<ul>
+<li><code>res = max(dp[root],dp[root][0],dp[root][1],dp[root][0]+dp[root][1]-root.val);</code></li>
+</ul>
+</li>
+<li><p>关键点在于表示<code>dp[root][0]</code>和<code>dp[root][1]</code>和采用深度优先搜索算法求解</p>
+</li>
+</ul>
+<figure class="highlight java"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Node</span></span>{</span><br><span class="line">    <span class="keyword">int</span> left=<span class="number">0</span>;</span><br><span class="line">    <span class="keyword">int</span> right=<span class="number">0</span>;</span><br><span class="line">    Node(<span class="keyword">int</span> x,<span class="keyword">int</span> y){</span><br><span class="line">        left = x;</span><br><span class="line">        right =y;</span><br><span class="line">    }</span><br><span class="line">    Node(){</span><br><span class="line"></span><br><span class="line">    }</span><br><span class="line">}</span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> </span>{</span><br><span class="line">    <span class="keyword">int</span> res = -<span class="number">100000</span>;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">maxPathSum</span><span class="params">(TreeNode root)</span> </span>{</span><br><span class="line">        dfs(root);</span><br><span class="line">        <span class="keyword">return</span> res;</span><br><span class="line">    }</span><br><span class="line">    <span class="function"><span class="keyword">public</span> Node <span class="title">dfs</span><span class="params">(TreeNode root)</span></span>{</span><br><span class="line">        <span class="keyword">if</span>(root==<span class="keyword">null</span>) <span class="keyword">return</span> <span class="keyword">new</span> Node();</span><br><span class="line">        <span class="keyword">if</span>(root.left==<span class="keyword">null</span>&amp;&amp;root.right==<span class="keyword">null</span>) {</span><br><span class="line">            res = Math.max(res,root.val);</span><br><span class="line">            <span class="keyword">return</span> <span class="keyword">new</span> Node(root.val,root.val);</span><br><span class="line">        }</span><br><span class="line">        Node node_cur = <span class="keyword">new</span> Node();</span><br><span class="line">        Node node_left = dfs(root.left);</span><br><span class="line">        Node node_right = dfs(root.right);</span><br><span class="line">        <span class="keyword">if</span>(root.left==<span class="keyword">null</span>){</span><br><span class="line">            node_cur.left =root.val;</span><br><span class="line">        }</span><br><span class="line">        <span class="keyword">else</span> {</span><br><span class="line">            node_cur.left = root.val+Math.max(<span class="number">0</span>,Math.max(node_left.left,node_left.right));</span><br><span class="line">        }</span><br><span class="line">        <span class="keyword">if</span>(root.right==<span class="keyword">null</span>)</span><br><span class="line">            node_cur.right = root.val;</span><br><span class="line">        <span class="keyword">else</span> </span><br><span class="line">            node_cur.right = root.val+Math.max(<span class="number">0</span>,Math.max(node_right.left,node_right.right));</span><br><span class="line">        </span><br><span class="line">        res = Math.max(res,root.val);</span><br><span class="line">        res = Math.max(res,node_cur.left&gt;node_cur.right?node_cur.left:node_cur.right);</span><br><span class="line">        res = Math.max(res,node_cur.left+node_cur.right-root.val);</span><br><span class="line"></span><br><span class="line">        <span class="keyword">return</span> node_cur;    </span><br><span class="line">    }</span><br><span class="line">}</span><br><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment">dp[root] </span></span><br><span class="line"><span class="comment">dp[root.left] </span></span><br><span class="line"><span class="comment">dp[root.right]</span></span><br><span class="line"><span class="comment"></span></span><br><span class="line"><span class="comment">dp[root][0]代表以root为父节点的到根节点的最大路径</span></span><br><span class="line"><span class="comment">dp[root][1]代表以root为父节点到根节点的最大路径</span></span><br><span class="line"><span class="comment"></span></span><br><span class="line"><span class="comment">dp[root][0] = root.val+max(dp[root.left][0],dp[root.left][1],0);</span></span><br><span class="line"><span class="comment"></span></span><br><span class="line"><span class="comment">dp[root][1] = root.val+max(dp[root.right][0],dp[root.right][1],0);</span></span><br><span class="line"><span class="comment"></span></span><br><span class="line"><span class="comment"></span></span><br><span class="line"><span class="comment">res = max(dp[root],dp[root][0],dp[root][1],dp[root][0]+dp[root][1]-root.val);</span></span><br><span class="line"><span class="comment"></span></span><br><span class="line"><span class="comment"></span></span><br><span class="line"><span class="comment"></span></span><br><span class="line"><span class="comment"> */</span></span><br></pre></td></tr></tbody></table></figure>
+
+
+      
+    </div>
+    
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/2050/01/24/%E6%AF%8F%E6%97%A5%E8%AE%A1%E5%88%92/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">&lt;</strong>
+      <div class="article-nav-title">
+        
+          每日计划
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2022/01/13/Leetcode_%E5%9B%BE%E8%AE%BA/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">Leetcode_图论</div>
+      <strong class="article-nav-caption">&gt;</strong>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+
+
+
+
+
+</div>
+      <footer id="footer">
+  <div class="outer">
+    <div id="footer-info">
+      <div class="footer-left">
+        &copy; 2022 绘梨衣
+      </div>
+        <div class="footer-right">
+          <a href="http://hexo.io/" target="_blank">Hexo</a>  Theme <a href="https://github.com/preccrep/hexo-theme-jelly" target="_blank">Jelly</a>
+        </div>
+    </div>
+  </div>
+</footer>
+    </div>
+    
+  
+<link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+
+
+
+<script>
+	var yiliaConfig = {
+		fancybox: true,
+		mathjax: false,
+		animate: true,
+		isHome: false,
+		isPost: true,
+		isArchive: false,
+		isTag: false,
+		isCategory: false,
+		open_in_new: false
+	}
+</script>
+
+<script src="/js/main.js"></script>
+
+
+
+
+  </div>
+</body>
+</html>
