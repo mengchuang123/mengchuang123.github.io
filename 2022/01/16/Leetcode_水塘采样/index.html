@@ -1,0 +1,360 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <title>Leetcode_水塘采样 | 绘梨衣</title>
+
+  <!-- keywords -->
+  
+
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="[toc] 382. 链表随机节点 给你一个单链表，随机选择链表的一个节点，并返回相应的节点值。每个节点 被选中的概率一样 。 实现 Solution 类：  Solution(ListNode head) 使用整数数组初始化对象。 int getRandom() 从链表中随机选择一个节点并返回该节点的值。链表中所有节点被选中的概率相等。  思路：  蓄水池采样定理  12345678910111">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Leetcode_水塘采样">
+<meta property="og:url" content="http://example.com/2022/01/16/Leetcode_%E6%B0%B4%E5%A1%98%E9%87%87%E6%A0%B7/index.html">
+<meta property="og:site_name" content="绘梨衣">
+<meta property="og:description" content="[toc] 382. 链表随机节点 给你一个单链表，随机选择链表的一个节点，并返回相应的节点值。每个节点 被选中的概率一样 。 实现 Solution 类：  Solution(ListNode head) 使用整数数组初始化对象。 int getRandom() 从链表中随机选择一个节点并返回该节点的值。链表中所有节点被选中的概率相等。  思路：  蓄水池采样定理  12345678910111">
+<meta property="og:locale" content="en_US">
+<meta property="article:published_time" content="2022-01-15T16:00:02.000Z">
+<meta property="article:modified_time" content="2022-01-16T08:51:44.113Z">
+<meta property="article:author" content="绘梨衣">
+<meta property="article:tag" content="Leetcode">
+<meta property="article:tag" content="水塘采样">
+<meta name="twitter:card" content="summary">
+  
+  
+    <link rel="icon" href="/img/favicon.ico">
+  
+  
+<link rel="stylesheet" href="/css/style.css">
+
+  
+  
+
+  
+<script src="//cdn.bootcss.com/require.js/2.3.2/require.min.js"></script>
+
+  
+<script src="//cdn.bootcss.com/jquery/3.1.1/jquery.min.js"></script>
+
+
+  
+<meta name="generator" content="Hexo 5.4.0">
+<style>.github-emoji { position: relative; display: inline-block; width: 1.2em; min-height: 1.2em; overflow: hidden; vertical-align: top; color: transparent; }  .github-emoji > span { position: relative; z-index: 10; }  .github-emoji img, .github-emoji .fancybox { margin: 0 !important; padding: 0 !important; border: none !important; outline: none !important; text-decoration: none !important; user-select: none !important; cursor: auto !important; }  .github-emoji img { height: 1.2em !important; width: 1.2em !important; position: absolute !important; left: 50% !important; top: 50% !important; transform: translate(-50%, -50%) !important; user-select: none !important; cursor: auto !important; } .github-emoji-fallback { color: inherit; } .github-emoji-fallback img { opacity: 0 !important; }</style>
+<link rel="alternate" href="/atom.xml" title="绘梨衣" type="application/atom+xml">
+</head>
+<body>
+  <div id="container">
+    <div id="particles-js"></div>
+    <div class="left-col">
+    <div class="overlay"></div>
+<div class="intrude-less">
+	<header id="header" class="inner">
+		<a href="/" class="profilepic">
+			
+				<img lazy-src="/img/touxiang2.jpg" class="js-avatar">
+			
+		</a>
+
+		<hgroup>
+			<h1 class="header-author"><a href="/">绘梨衣</a></h1>
+		</hgroup>
+
+		
+
+		<div class="switch-area">
+			<div class="switch-wrap">
+				<section class="switch-part switch-part1">
+					<nav class="header-menu">
+						<ul>
+						
+							<li><a href="/">Home</a></li>
+				        
+							<li><a href="/archives">Archives</a></li>
+				        
+						</ul>
+					</nav>
+					<nav class="half-header-menu">
+						<a class="hide">Home</a>
+						<a>Tags</a>
+						<a>Links</a>
+						<a>About</a>
+					</nav>
+					<nav class="header-nav">
+						<div class="social">
+							
+								<a class="github" target="_blank" href="#" title="github">github</a>
+					        
+								<a class="mail" target="_blank" href="#" title="mail">mail</a>
+					        
+								<a class="rss" target="_blank" href="/atom.xml" title="rss">rss</a>
+					        
+								<a class="zhihu" target="_blank" href="#" title="zhihu">zhihu</a>
+					        
+						</div>
+						<!-- music -->
+						
+					</nav>
+				</section>
+				
+				
+				<section class="switch-part switch-part2">
+					<div class="widget tagcloud" id="js-tagcloud">
+						<a href="/tags/Leetcode/" style="font-size: 15px;">Leetcode</a> <a href="/tags/Summary/" style="font-size: 12.5px;">Summary</a> <a href="/tags/%E4%BF%A1%E6%81%AF%E8%AE%BA/" style="font-size: 10px;">信息论</a> <a href="/tags/%E5%8A%A8%E6%80%81%E8%A7%84%E5%88%92/" style="font-size: 10px;">动态规划</a> <a href="/tags/%E5%9B%BE%E8%AE%BA/" style="font-size: 10px;">图论</a> <a href="/tags/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F/" style="font-size: 10px;">操作系统</a> <a href="/tags/%E6%B0%B4%E5%A1%98%E9%87%87%E6%A0%B7/" style="font-size: 10px;">水塘采样</a> <a href="/tags/%E7%AE%97%E6%B3%95/" style="font-size: 20px;">算法</a> <a href="/tags/%E8%AE%A1%E5%88%92/" style="font-size: 10px;">计划</a> <a href="/tags/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BB%84%E6%88%90/" style="font-size: 12.5px;">计算机组成</a> <a href="/tags/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/" style="font-size: 17.5px;">计算机网络</a> <a href="/tags/%E8%AE%B8%E6%84%BF/" style="font-size: 10px;">许愿</a> <a href="/tags/%E9%9D%A2%E8%AF%95/" style="font-size: 10px;">面试</a> <a href="/tags/%E9%AB%98%E9%A2%91%E9%A2%98/" style="font-size: 10px;">高频题</a>
+					</div>
+				</section>
+				
+				
+				
+				<section class="switch-part switch-part3">
+					<div id="js-friends">
+					
+			          <a target="_blank" class="main-nav-link switch-friends-link" href="https://github.com/mengchuang123/">github</a>
+			        
+			        </div>
+				</section>
+				
+
+				
+				
+				<section class="switch-part switch-part4">
+				
+					<div id="js-aboutme">My study log.</div>
+				</section>
+				
+			</div>
+		</div>
+	</header>				
+</div>
+    </div>
+    <div class="mid-col">
+      <nav id="mobile-nav">
+  	<div class="overlay">
+  		<div class="slider-trigger"></div>
+  		<h1 class="header-author js-mobile-header hide"></h1>
+  	</div>
+	<div class="intrude-less">
+		<header id="header" class="inner">
+			<div class="profilepic">
+				<img lazy-src="/img/touxiang2.jpg" class="js-avatar">
+			</div>
+			<hgroup>
+			  <h1 class="header-author"></h1>
+			</hgroup>
+			
+			<nav class="header-menu">
+				<ul>
+				
+					<li><a href="/">Home</a></li>
+		        
+					<li><a href="/archives">Archives</a></li>
+		        
+		        <div class="clearfix"></div>
+				</ul>
+			</nav>
+			<nav class="header-nav">
+				<div class="social">
+					
+						<a class="github" target="_blank" href="#" title="github">github</a>
+			        
+						<a class="mail" target="_blank" href="#" title="mail">mail</a>
+			        
+						<a class="rss" target="_blank" href="/atom.xml" title="rss">rss</a>
+			        
+						<a class="zhihu" target="_blank" href="#" title="zhihu">zhihu</a>
+			        
+				</div>
+			</nav>
+		</header>				
+	</div>
+</nav>
+      <div class="body-wrap"><article id="post-Leetcode_水塘采样" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2022/01/16/Leetcode_%E6%B0%B4%E5%A1%98%E9%87%87%E6%A0%B7/" class="article-date">
+  	<time datetime="2022-01-15T16:00:02.000Z" itemprop="datePublished">2022-01-16</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      Leetcode_水塘采样
+      
+    </h1>
+  
+
+      </header>
+      
+      <div class="article-info article-info-post">
+        
+	<div class="article-tag tagcloud">
+		<ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Leetcode/" rel="tag">Leetcode</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E6%B0%B4%E5%A1%98%E9%87%87%E6%A0%B7/" rel="tag">水塘采样</a></li></ul>
+	</div>
+
+        
+
+        
+        <div class="clearfix"></div>
+      </div>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <!--Table of Contents begin-->
+        <!-- 
+          <div id="toc" class="toc-article">
+            <strong class="toc-title">目录</strong>
+            <a class="js-toggle-toc" href="javascript:void(0)"></a>
+            <div class="toc-content">
+              <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#382-%E9%93%BE%E8%A1%A8%E9%9A%8F%E6%9C%BA%E8%8A%82%E7%82%B9"><span class="toc-text">382. 链表随机节点</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#398-%E9%9A%8F%E6%9C%BA%E6%95%B0%E7%B4%A2%E5%BC%95"><span class="toc-text">398. 随机数索引</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#519-%E9%9A%8F%E6%9C%BA%E7%BF%BB%E8%BD%AC%E7%9F%A9%E9%98%B5"><span class="toc-text">519. 随机翻转矩阵</span></a></li></ol>
+            </div>
+          </div>
+         -->
+          <!-- Table of Contents -->
+        
+          <div id="toc" class="toc-article">
+            <strong class="toc-title">目录</strong>
+            <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#382-%E9%93%BE%E8%A1%A8%E9%9A%8F%E6%9C%BA%E8%8A%82%E7%82%B9"><span class="toc-text">382. 链表随机节点</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#398-%E9%9A%8F%E6%9C%BA%E6%95%B0%E7%B4%A2%E5%BC%95"><span class="toc-text">398. 随机数索引</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#519-%E9%9A%8F%E6%9C%BA%E7%BF%BB%E8%BD%AC%E7%9F%A9%E9%98%B5"><span class="toc-text">519. 随机翻转矩阵</span></a></li></ol>
+          </div>
+        
+        <!--Table of Contents end -->
+        
+
+
+
+
+        <p>[toc]</p>
+<h1 id="382-链表随机节点"><a href="#382-链表随机节点" class="headerlink" title="382. 链表随机节点"></a>382. 链表随机节点</h1><hr>
+<p>给你一个单链表，随机选择链表的一个节点，并返回相应的节点值。每个节点 <strong>被选中的概率一样</strong> 。</p>
+<p>实现 <code>Solution</code> 类：</p>
+<ul>
+<li><code>Solution(ListNode head)</code> 使用整数数组初始化对象。</li>
+<li><code>int getRandom()</code> 从链表中随机选择一个节点并返回该节点的值。链表中所有节点被选中的概率相等。</li>
+</ul>
+<p><strong>思路：</strong></p>
+<ul>
+<li>蓄水池采样定理</li>
+</ul>
+<figure class="highlight java"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> </span>{</span><br><span class="line">    ListNode head;</span><br><span class="line">    Random random = <span class="keyword">new</span> Random(<span class="number">2022</span>);</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="title">Solution</span><span class="params">(ListNode _head)</span> </span>{</span><br><span class="line">        head = _head;</span><br><span class="line">    }</span><br><span class="line">    </span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">getRandom</span><span class="params">()</span> </span>{</span><br><span class="line">        <span class="keyword">int</span> index = <span class="number">1</span>;</span><br><span class="line">        ListNode temp = head;</span><br><span class="line">        <span class="keyword">int</span> res = -<span class="number">1</span>;</span><br><span class="line">        <span class="keyword">while</span>(temp!=<span class="keyword">null</span>){</span><br><span class="line">            <span class="keyword">if</span>(random.nextInt(index)==<span class="number">0</span>) res = temp.val;</span><br><span class="line">            index++;</span><br><span class="line">            temp = temp.next;</span><br><span class="line"></span><br><span class="line">        }</span><br><span class="line">        <span class="keyword">return</span> res;</span><br><span class="line">    }</span><br><span class="line">}</span><br></pre></td></tr></tbody></table></figure>
+
+<h1 id="398-随机数索引"><a href="#398-随机数索引" class="headerlink" title="398. 随机数索引"></a>398. 随机数索引</h1><hr>
+<p>给定一个可能含有重复元素的整数数组，要求随机输出给定的数字的索引。 您可以假设给定的数字一定存在于数组中。</p>
+<p><strong>注意：</strong><br>数组大小可能非常大。 使用太多额外空间的解决方案将不会通过测试</p>
+<p><strong>示例一：</strong></p>
+<figure class="highlight java"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">int</span>[] nums = <span class="keyword">new</span> <span class="keyword">int</span>[] {<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>,<span class="number">3</span>,<span class="number">3</span>};</span><br><span class="line">Solution solution = <span class="keyword">new</span> Solution(nums);</span><br><span class="line"></span><br><span class="line"><span class="comment">// pick(3) 应该返回索引 2,3 或者 4。每个索引的返回概率应该相等。</span></span><br><span class="line">solution.pick(<span class="number">3</span>);</span><br><span class="line"></span><br><span class="line"><span class="comment">// pick(1) 应该返回 0。因为只有nums[0]等于1。</span></span><br><span class="line">solution.pick(<span class="number">1</span>);</span><br><span class="line"></span><br></pre></td></tr></tbody></table></figure>
+
+<p><strong>思路：</strong></p>
+<ul>
+<li><p>数据流只有一个数据。我们接收数据，发现数据流结束了，直接返回该数据，该数据返回的概率为1。</p>
+</li>
+<li><p>也就是将水塘采样算法看成是一个数据流来处理</p>
+</li>
+</ul>
+<figure class="highlight java"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> </span>{</span><br><span class="line">    <span class="keyword">int</span> [] nums;</span><br><span class="line">    <span class="keyword">int</span> len = <span class="number">0</span>;</span><br><span class="line">    Random random = <span class="keyword">new</span> Random(<span class="number">2022</span>);</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="title">Solution</span><span class="params">(<span class="keyword">int</span>[] _nums)</span> </span>{</span><br><span class="line">        nums = _nums;</span><br><span class="line">        len = _nums.length;</span><br><span class="line">    }</span><br><span class="line">    </span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">pick</span><span class="params">(<span class="keyword">int</span> target)</span> </span>{</span><br><span class="line">        <span class="keyword">int</span> res = -<span class="number">1</span>;</span><br><span class="line">        <span class="keyword">int</span> index =<span class="number">1</span>;</span><br><span class="line">        <span class="keyword">int</span> point = <span class="number">0</span>;</span><br><span class="line">        <span class="keyword">while</span>(point&lt;len){</span><br><span class="line">            <span class="keyword">if</span>(nums[point]==target){</span><br><span class="line">                <span class="keyword">if</span>(random.nextInt(index)==<span class="number">0</span>) res = point;</span><br><span class="line">                index++;</span><br><span class="line">            }</span><br><span class="line">            point++;</span><br><span class="line">        }   </span><br><span class="line">        <span class="keyword">return</span> res;</span><br><span class="line">    }</span><br><span class="line">}</span><br></pre></td></tr></tbody></table></figure>
+
+
+
+
+
+<h1 id="519-随机翻转矩阵"><a href="#519-随机翻转矩阵" class="headerlink" title="519. 随机翻转矩阵"></a>519. 随机翻转矩阵</h1><hr>
+<p>给你一个 <code>m x n</code> 的二元矩阵 <code>matrix</code> ，且所有值被初始化为 <code>0</code> 。请你设计一个算法，随机选取一个满足 <code>matrix[i][j] == 0</code> 的下标 <code>(i, j)</code> ，并将它的值变为 <code>1</code> 。所有满足 <code>matrix[i][j] ==``0</code> 的下标 <code>(i, j)</code> 被选取的概率应当均等。</p>
+<p>实现 <code>Solution</code> 类：</p>
+<ul>
+<li><code>Solution(int m, int n)</code> 使用二元矩阵的大小 <code>m</code> 和 <code>n</code> 初始化该对象</li>
+<li><code>int[] flip()</code> 返回一个满足 <code>matrix[i][j] == 0</code> 的随机下标 <code>[i, j]</code> ，并将其对应格子中的值变为 <code>1</code></li>
+<li><code>void reset()</code> 将矩阵中所有的值重置为 <code>0</code></li>
+</ul>
+<p><strong>示例：</strong></p>
+<figure class="highlight java"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">输入</span><br><span class="line">[<span class="string">"Solution"</span>, <span class="string">"flip"</span>, <span class="string">"flip"</span>, <span class="string">"flip"</span>, <span class="string">"reset"</span>, <span class="string">"flip"</span>]</span><br><span class="line">[[<span class="number">3</span>, <span class="number">1</span>], [], [], [], [], []]</span><br><span class="line">输出</span><br><span class="line">[<span class="keyword">null</span>, [<span class="number">1</span>, <span class="number">0</span>], [<span class="number">2</span>, <span class="number">0</span>], [<span class="number">0</span>, <span class="number">0</span>], <span class="keyword">null</span>, [<span class="number">2</span>, <span class="number">0</span>]]</span><br><span class="line"></span><br><span class="line">解释</span><br><span class="line">Solution solution = <span class="keyword">new</span> Solution(<span class="number">3</span>, <span class="number">1</span>);</span><br><span class="line">solution.flip();  <span class="comment">// 返回 [1, 0]，此时返回 [0,0]、[1,0] 和 [2,0] 的概率应当相同</span></span><br><span class="line">solution.flip();  <span class="comment">// 返回 [2, 0]，因为 [1,0] 已经返回过了，此时返回 [2,0] 和 [0,0] 的概率应当相同</span></span><br><span class="line">solution.flip();  <span class="comment">// 返回 [0, 0]，根据前面已经返回过的下标，此时只能返回 [0,0]</span></span><br><span class="line">solution.reset(); <span class="comment">// 所有值都重置为 0 ，并可以再次选择下标返回</span></span><br><span class="line">solution.flip();  <span class="comment">// 返回 [2, 0]，此时返回 [0,0]、[1,0] 和 [2,0] 的概率应当相同</span></span><br></pre></td></tr></tbody></table></figure>
+
+<p><strong>思路：</strong></p>
+<ul>
+<li>遍历每一个矩阵中的元素作为数据流会超时</li>
+<li>需要采用一个链表来存储数据</li>
+</ul>
+<figure class="highlight java"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> </span>{</span><br><span class="line">    <span class="keyword">int</span> [][] matrix;</span><br><span class="line">    <span class="keyword">int</span> m = <span class="number">0</span>;</span><br><span class="line">    <span class="keyword">int</span> n=<span class="number">0</span>;</span><br><span class="line">    Random random = <span class="keyword">new</span> Random(<span class="number">1000</span>);</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="title">Solution</span><span class="params">(<span class="keyword">int</span> _m, <span class="keyword">int</span> _n)</span> </span>{</span><br><span class="line">        m = _m;</span><br><span class="line">        n=_n;</span><br><span class="line">        matrix = <span class="keyword">new</span> <span class="keyword">int</span> [m][n];</span><br><span class="line"></span><br><span class="line">    }</span><br><span class="line">    </span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">int</span>[] flip() {</span><br><span class="line">        <span class="keyword">int</span> index = <span class="number">1</span>;</span><br><span class="line">        <span class="keyword">int</span> [] res = <span class="keyword">new</span> <span class="keyword">int</span>[<span class="number">2</span>];</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">0</span>;i&lt;m;i++){</span><br><span class="line">            <span class="keyword">for</span>(<span class="keyword">int</span> j=<span class="number">0</span>;j&lt;n;j++){</span><br><span class="line">                <span class="keyword">if</span>(matrix[i][j]==<span class="number">0</span>){</span><br><span class="line">                    <span class="keyword">if</span>(random.nextInt(index)==<span class="number">0</span>) {</span><br><span class="line">                        res[<span class="number">0</span>] = i; res[<span class="number">1</span>] = j;</span><br><span class="line">                    }</span><br><span class="line">                    index++;</span><br><span class="line">                }</span><br><span class="line">            }</span><br><span class="line">        }</span><br><span class="line">        matrix[res[<span class="number">0</span>]][res[<span class="number">1</span>]] = <span class="number">1</span>;</span><br><span class="line">        <span class="keyword">return</span> res;</span><br><span class="line">    }</span><br><span class="line">    </span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">reset</span><span class="params">()</span> </span>{</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">0</span>;i&lt;m;i++){</span><br><span class="line">            <span class="keyword">for</span>(<span class="keyword">int</span> j=<span class="number">0</span>;j&lt;n;j++){</span><br><span class="line">                matrix[i][j] = <span class="number">0</span>;</span><br><span class="line">            }</span><br><span class="line">        }</span><br><span class="line">    }</span><br><span class="line">}</span><br><span class="line"></span><br></pre></td></tr></tbody></table></figure>
+
+
+      
+    </div>
+    
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/2022/01/17/Leetcode_%E9%AB%98%E9%A2%91/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">&lt;</strong>
+      <div class="article-nav-title">
+        
+          Leetcode_高频题
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2022/01/14/Leetcode_%E5%9B%BE%E8%AE%BA/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">Leetcode_图论</div>
+      <strong class="article-nav-caption">&gt;</strong>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+
+
+
+
+
+</div>
+      <footer id="footer">
+  <div class="outer">
+    <div id="footer-info">
+      <div class="footer-left">
+        &copy; 2022 绘梨衣
+      </div>
+        <div class="footer-right">
+          <a href="http://hexo.io/" target="_blank">Hexo</a>  Theme <a href="https://github.com/preccrep/hexo-theme-jelly" target="_blank">Jelly</a>
+        </div>
+    </div>
+  </div>
+</footer>
+    </div>
+    
+  
+<link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+
+
+
+<script>
+	var yiliaConfig = {
+		fancybox: true,
+		mathjax: false,
+		animate: true,
+		isHome: false,
+		isPost: true,
+		isArchive: false,
+		isTag: false,
+		isCategory: false,
+		open_in_new: false
+	}
+</script>
+
+<script src="/js/main.js"></script>
+
+
+
+
+  </div>
+</body>
+</html>

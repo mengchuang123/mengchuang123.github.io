@@ -34,9 +34,9 @@
 
 
   
-<meta name="generator" content="Hexo 5.4.0"><link rel="alternate" href="/atom.xml" title="绘梨衣" type="application/atom+xml">
-
+<meta name="generator" content="Hexo 5.4.0">
 <style>.github-emoji { position: relative; display: inline-block; width: 1.2em; min-height: 1.2em; overflow: hidden; vertical-align: top; color: transparent; }  .github-emoji > span { position: relative; z-index: 10; }  .github-emoji img, .github-emoji .fancybox { margin: 0 !important; padding: 0 !important; border: none !important; outline: none !important; text-decoration: none !important; user-select: none !important; cursor: auto !important; }  .github-emoji img { height: 1.2em !important; width: 1.2em !important; position: absolute !important; left: 50% !important; top: 50% !important; transform: translate(-50%, -50%) !important; user-select: none !important; cursor: auto !important; } .github-emoji-fallback { color: inherit; } .github-emoji-fallback img { opacity: 0 !important; }</style>
+<link rel="alternate" href="/atom.xml" title="绘梨衣" type="application/atom+xml">
 </head>
 <body>
   <div id="container">
@@ -95,7 +95,7 @@
 				
 				<section class="switch-part switch-part2">
 					<div class="widget tagcloud" id="js-tagcloud">
-						<a href="/tags/Leetcode/" style="font-size: 13.33px;">Leetcode</a> <a href="/tags/%E4%BF%A1%E6%81%AF%E8%AE%BA/" style="font-size: 10px;">信息论</a> <a href="/tags/%E5%8A%A8%E6%80%81%E8%A7%84%E5%88%92/" style="font-size: 10px;">动态规划</a> <a href="/tags/%E5%9B%BE%E8%AE%BA/" style="font-size: 10px;">图论</a> <a href="/tags/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F/" style="font-size: 10px;">操作系统</a> <a href="/tags/%E7%AE%97%E6%B3%95/" style="font-size: 20px;">算法</a> <a href="/tags/%E8%AE%A1%E5%88%92/" style="font-size: 10px;">计划</a> <a href="/tags/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BB%84%E6%88%90/" style="font-size: 13.33px;">计算机组成</a> <a href="/tags/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/" style="font-size: 16.67px;">计算机网络</a> <a href="/tags/%E8%AE%B8%E6%84%BF/" style="font-size: 10px;">许愿</a> <a href="/tags/%E9%9D%A2%E8%AF%95/" style="font-size: 10px;">面试</a>
+						<a href="/tags/Leetcode/" style="font-size: 15px;">Leetcode</a> <a href="/tags/Summary/" style="font-size: 12.5px;">Summary</a> <a href="/tags/%E4%BF%A1%E6%81%AF%E8%AE%BA/" style="font-size: 10px;">信息论</a> <a href="/tags/%E5%8A%A8%E6%80%81%E8%A7%84%E5%88%92/" style="font-size: 10px;">动态规划</a> <a href="/tags/%E5%9B%BE%E8%AE%BA/" style="font-size: 10px;">图论</a> <a href="/tags/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F/" style="font-size: 10px;">操作系统</a> <a href="/tags/%E6%B0%B4%E5%A1%98%E9%87%87%E6%A0%B7/" style="font-size: 10px;">水塘采样</a> <a href="/tags/%E7%AE%97%E6%B3%95/" style="font-size: 20px;">算法</a> <a href="/tags/%E8%AE%A1%E5%88%92/" style="font-size: 10px;">计划</a> <a href="/tags/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BB%84%E6%88%90/" style="font-size: 12.5px;">计算机组成</a> <a href="/tags/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/" style="font-size: 17.5px;">计算机网络</a> <a href="/tags/%E8%AE%B8%E6%84%BF/" style="font-size: 10px;">许愿</a> <a href="/tags/%E9%9D%A2%E8%AF%95/" style="font-size: 10px;">面试</a> <a href="/tags/%E9%AB%98%E9%A2%91%E9%A2%98/" style="font-size: 10px;">高频题</a>
 					</div>
 				</section>
 				
@@ -164,6 +164,451 @@
 	</div>
 </nav>
       <div class="body-wrap">
+  
+    <article id="post-异常处理过程" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2021/12/02/%E5%BC%82%E5%B8%B8%E5%A4%84%E7%90%86%E8%BF%87%E7%A8%8B/" class="article-date">
+  	<time datetime="2021-12-01T16:10:02.000Z" itemprop="datePublished">2021-12-02</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2021/12/02/%E5%BC%82%E5%B8%B8%E5%A4%84%E7%90%86%E8%BF%87%E7%A8%8B/">
+        异常处理
+        
+      </a>
+    </h1>
+  
+
+      </header>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <!--Table of Contents begin-->
+        <!-- 
+          <div id="toc" class="toc-article">
+            <strong class="toc-title">目录</strong>
+            <a class="js-toggle-toc" href="javascript:void(0)"></a>
+            <div class="toc-content">
+              <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#%E9%97%AE%E9%A2%98"><span class="toc-text">问题</span></a></li></ol>
+            </div>
+          </div>
+         -->
+          <!-- Table of Contents -->
+        
+          <div id="toc" class="toc-article">
+            <strong class="toc-title">目录</strong>
+            <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#%E9%97%AE%E9%A2%98"><span class="toc-text">问题</span></a></li></ol>
+          </div>
+        
+        <!--Table of Contents end -->
+        
+
+
+
+
+        <p>[toc]</p>
+<h1 id="问题"><a href="#问题" class="headerlink" title="问题"></a>问题</h1><hr>
+<ul>
+<li>操作系统怎么进行异常处理</li>
+<li>异常处理的原理和机制是什么</li>
+</ul>
+
+      
+    </div>
+    
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F/" rel="tag">操作系统</a></li></ul>
+	</div>
+
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+      
+    
+  </div>
+  
+</article>
+
+
+
+
+
+
+
+  
+    <article id="post-信息论" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2021/12/02/%E4%BF%A1%E6%81%AF%E8%AE%BA/" class="article-date">
+  	<time datetime="2021-12-01T16:00:02.000Z" itemprop="datePublished">2021-12-02</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2021/12/02/%E4%BF%A1%E6%81%AF%E8%AE%BA/">
+        信息论复习
+        
+      </a>
+    </h1>
+  
+
+      </header>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <!--Table of Contents begin-->
+        <!-- 
+          <div id="toc" class="toc-article">
+            <strong class="toc-title">目录</strong>
+            <a class="js-toggle-toc" href="javascript:void(0)"></a>
+            <div class="toc-content">
+              <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#%E4%B8%89%E7%A7%8D%E7%BC%96%E7%A0%81%E5%AE%9A%E7%90%86%E6%80%BB%E7%BB%93"><span class="toc-text">三种编码定理总结</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#1-%E4%BF%A1%E6%BA%90%E7%BC%96%E7%A0%81%E5%AE%9A%E7%90%86"><span class="toc-text">1.信源编码定理</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2-%E4%BF%A1%E9%81%93%E7%BC%96%E7%A0%81%E5%AE%9A%E7%90%86"><span class="toc-text">2.信道编码定理</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#3-%E4%BF%A1%E6%BA%90%E4%BF%A1%E9%81%93%E5%88%86%E7%A6%BB%E5%AE%9A%E7%90%86"><span class="toc-text">3.信源信道分离定理</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E7%A6%BB%E6%95%A3%E6%97%A0%E8%AE%B0%E5%BF%86%E4%BF%A1%E6%BA%90%E7%BC%96%E7%A0%81"><span class="toc-text">离散无记忆信源编码</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#1-%E7%AD%89%E9%95%BF%E7%BC%96%E7%A0%81"><span class="toc-text">1.等长编码</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2-%E4%B8%8D%E7%AD%89%E9%95%BF%E7%BC%96%E7%A0%81%E5%AE%9A%E7%90%86"><span class="toc-text">2.不等长编码定理</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#3-%E4%B8%8D%E5%AE%9A%E9%95%BF%E7%BC%96%E7%A0%81%E7%9A%84%E4%BE%8B%E5%AD%90"><span class="toc-text">3.不定长编码的例子</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E4%BF%A1%E9%81%93%E7%BC%96%E7%A0%81%E5%AE%9A%E7%90%86%EF%BC%88%E9%A6%99%E5%86%9C%E7%AC%AC%E4%BA%8C%E5%AE%9A%E7%90%86%EF%BC%89"><span class="toc-text">信道编码定理（香农第二定理）</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E7%AC%AC%E4%B8%80%E7%AB%A0"><span class="toc-text">第一章</span></a></li></ol>
+            </div>
+          </div>
+         -->
+          <!-- Table of Contents -->
+        
+          <div id="toc" class="toc-article">
+            <strong class="toc-title">目录</strong>
+            <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#%E4%B8%89%E7%A7%8D%E7%BC%96%E7%A0%81%E5%AE%9A%E7%90%86%E6%80%BB%E7%BB%93"><span class="toc-text">三种编码定理总结</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#1-%E4%BF%A1%E6%BA%90%E7%BC%96%E7%A0%81%E5%AE%9A%E7%90%86"><span class="toc-text">1.信源编码定理</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2-%E4%BF%A1%E9%81%93%E7%BC%96%E7%A0%81%E5%AE%9A%E7%90%86"><span class="toc-text">2.信道编码定理</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#3-%E4%BF%A1%E6%BA%90%E4%BF%A1%E9%81%93%E5%88%86%E7%A6%BB%E5%AE%9A%E7%90%86"><span class="toc-text">3.信源信道分离定理</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E7%A6%BB%E6%95%A3%E6%97%A0%E8%AE%B0%E5%BF%86%E4%BF%A1%E6%BA%90%E7%BC%96%E7%A0%81"><span class="toc-text">离散无记忆信源编码</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#1-%E7%AD%89%E9%95%BF%E7%BC%96%E7%A0%81"><span class="toc-text">1.等长编码</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2-%E4%B8%8D%E7%AD%89%E9%95%BF%E7%BC%96%E7%A0%81%E5%AE%9A%E7%90%86"><span class="toc-text">2.不等长编码定理</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#3-%E4%B8%8D%E5%AE%9A%E9%95%BF%E7%BC%96%E7%A0%81%E7%9A%84%E4%BE%8B%E5%AD%90"><span class="toc-text">3.不定长编码的例子</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E4%BF%A1%E9%81%93%E7%BC%96%E7%A0%81%E5%AE%9A%E7%90%86%EF%BC%88%E9%A6%99%E5%86%9C%E7%AC%AC%E4%BA%8C%E5%AE%9A%E7%90%86%EF%BC%89"><span class="toc-text">信道编码定理（香农第二定理）</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E7%AC%AC%E4%B8%80%E7%AB%A0"><span class="toc-text">第一章</span></a></li></ol>
+          </div>
+        
+        <!--Table of Contents end -->
+        
+
+
+
+
+        <p>[toc]</p>
+<h1 id="三种编码定理总结"><a href="#三种编码定理总结" class="headerlink" title="三种编码定理总结"></a>三种编码定理总结</h1><hr>
+<h2 id="1-信源编码定理"><a href="#1-信源编码定理" class="headerlink" title="1.信源编码定理"></a>1.信源编码定理</h2><p>​    用典型列的语言：对于熵率H的稳定平稳信源，在所有长度为<code>n</code>的信源序列中，存在一个大小约为$2^{nH}$ 的子集，这个子集中序列出现的概率几乎相等，这些序列出现的概率和接近1.如果用每信元符号$R_{s}(bit)$ 的速率进行无损压缩编码，只$R_{s}&gt;H$,则信源编码误差随$n-&gt;inf$而趋于0.</p>
+<h2 id="2-信道编码定理"><a href="#2-信道编码定理" class="headerlink" title="2.信道编码定理"></a>2.信道编码定理</h2><p><a target="_blank" rel="noopener" href="https://blog.csdn.net/m0_37795244/article/details/105846561">信道编码</a></p>
+<p>​    码长长度很长时，只要满足传输速率$R_{c}&lt;C$,传输误码率接近于0</p>
+<h2 id="3-信源信道分离定理"><a href="#3-信源信道分离定理" class="headerlink" title="3.信源信道分离定理"></a>3.信源信道分离定理</h2><blockquote>
+<p>​    只要满足$H&lt;R_{s}&lt;R_{c}&lt;C$,就可以实现信源，信道分开编码实现误码率接近于0</p>
+<p>​    $R_{s}=n00log(D)$</p>
+</blockquote>
+<p>​    如果要使得系统误码率为0，就必有$C&gt;H_{inf}$ 因此联合编码无法改变香农极限，但是可以改进性能。</p>
+<h1 id="离散无记忆信源编码"><a href="#离散无记忆信源编码" class="headerlink" title="离散无记忆信源编码"></a>离散无记忆信源编码</h1><h2 id="1-等长编码"><a href="#1-等长编码" class="headerlink" title="1.等长编码"></a>1.等长编码</h2><h2 id="2-不等长编码定理"><a href="#2-不等长编码定理" class="headerlink" title="2.不等长编码定理"></a>2.不等长编码定理</h2><h2 id="3-不定长编码的例子"><a href="#3-不定长编码的例子" class="headerlink" title="3.不定长编码的例子"></a>3.不定长编码的例子</h2><h1 id="信道编码定理（香农第二定理）"><a href="#信道编码定理（香农第二定理）" class="headerlink" title="信道编码定理（香农第二定理）"></a>信道编码定理（香农第二定理）</h1><hr>
+<h1 id="第一章"><a href="#第一章" class="headerlink" title="第一章"></a>第一章</h1><hr>
+
+      
+    </div>
+    
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E4%BF%A1%E6%81%AF%E8%AE%BA/" rel="tag">信息论</a></li></ul>
+	</div>
+
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+      
+    
+  </div>
+  
+</article>
+
+
+
+
+
+
+
+  
+    <article id="post-啊问题待选择" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2021/12/02/%E5%95%8A%E9%97%AE%E9%A2%98%E5%BE%85%E9%80%89%E6%8B%A9/" class="article-date">
+  	<time datetime="2021-12-01T16:00:02.000Z" itemprop="datePublished">2021-12-02</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2021/12/02/%E5%95%8A%E9%97%AE%E9%A2%98%E5%BE%85%E9%80%89%E6%8B%A9/">
+        问题
+        
+      </a>
+    </h1>
+  
+
+      </header>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <!--Table of Contents begin-->
+        <!-- 
+          <div id="toc" class="toc-article">
+            <strong class="toc-title">目录</strong>
+            <a class="js-toggle-toc" href="javascript:void(0)"></a>
+            <div class="toc-content">
+              
+            </div>
+          </div>
+         -->
+          <!-- Table of Contents -->
+        
+          <div id="toc" class="toc-article">
+            <strong class="toc-title">目录</strong>
+            
+          </div>
+        
+        <!--Table of Contents end -->
+        
+
+
+
+
+        <p>[toc]</p>
+<ul>
+<li></li>
+</ul>
+
+      
+    </div>
+    
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E9%9D%A2%E8%AF%95/" rel="tag">面试</a></li></ul>
+	</div>
+
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+      
+    
+  </div>
+  
+</article>
+
+
+
+
+
+
+
+  
+    <article id="post-虚拟内存" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2021/12/02/%E8%99%9A%E6%8B%9F%E5%86%85%E5%AD%98/" class="article-date">
+  	<time datetime="2021-12-01T16:00:02.000Z" itemprop="datePublished">2021-12-02</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2021/12/02/%E8%99%9A%E6%8B%9F%E5%86%85%E5%AD%98/">
+        虚拟内存
+        
+      </a>
+    </h1>
+  
+
+      </header>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <!--Table of Contents begin-->
+        <!-- 
+          <div id="toc" class="toc-article">
+            <strong class="toc-title">目录</strong>
+            <a class="js-toggle-toc" href="javascript:void(0)"></a>
+            <div class="toc-content">
+              <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#%E9%97%AE%E9%A2%98"><span class="toc-text">问题</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E4%BB%80%E4%B9%88%E6%98%AF%E8%99%9A%E6%8B%9F%E5%86%85%E5%AD%98"><span class="toc-text">什么是虚拟内存</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E8%99%9A%E6%8B%9F%E5%AD%98%E5%82%A8%E7%9A%84%E7%9B%AE%E7%9A%84"><span class="toc-text">虚拟存储的目的</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E8%99%9A%E6%8B%9F%E5%AD%98%E5%82%A8%E5%8E%9F%E7%90%86"><span class="toc-text">虚拟存储原理</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#1-%E5%86%85%E5%AD%98%E6%98%A0%E5%B0%84%E7%9A%84%E5%8E%9F%E7%90%86"><span class="toc-text">1.内存映射的原理</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2-%E9%A1%B5%E7%9A%84%E6%9F%A5%E6%89%BE"><span class="toc-text">2.页的查找</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#3-%E7%BC%BA%E9%A1%B5%E6%95%85%E9%9A%9C"><span class="toc-text">3.缺页故障</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#4-%E8%99%9A%E6%8B%9F%E5%AD%98%E5%82%A8%E7%9A%84%E5%86%99%E6%93%8D%E4%BD%9C"><span class="toc-text">4.虚拟存储的写操作</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E5%BF%AB%E8%A1%A8TLB"><span class="toc-text">快表TLB</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#1-%E7%9B%AE%E7%9A%84"><span class="toc-text">1.目的</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2-%E7%BB%93%E6%9E%84"><span class="toc-text">2.结构</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#3-TLB%E7%BC%BA%E9%A1%B5%E5%A4%84%E7%90%86"><span class="toc-text">3.TLB缺页处理</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#cache%E5%92%8CTLB%E4%B9%8B%E9%97%B4%E7%9A%84%E5%8D%8F%E5%90%8C"><span class="toc-text">cache和TLB之间的协同</span></a></li></ol>
+            </div>
+          </div>
+         -->
+          <!-- Table of Contents -->
+        
+          <div id="toc" class="toc-article">
+            <strong class="toc-title">目录</strong>
+            <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#%E9%97%AE%E9%A2%98"><span class="toc-text">问题</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E4%BB%80%E4%B9%88%E6%98%AF%E8%99%9A%E6%8B%9F%E5%86%85%E5%AD%98"><span class="toc-text">什么是虚拟内存</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E8%99%9A%E6%8B%9F%E5%AD%98%E5%82%A8%E7%9A%84%E7%9B%AE%E7%9A%84"><span class="toc-text">虚拟存储的目的</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E8%99%9A%E6%8B%9F%E5%AD%98%E5%82%A8%E5%8E%9F%E7%90%86"><span class="toc-text">虚拟存储原理</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#1-%E5%86%85%E5%AD%98%E6%98%A0%E5%B0%84%E7%9A%84%E5%8E%9F%E7%90%86"><span class="toc-text">1.内存映射的原理</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2-%E9%A1%B5%E7%9A%84%E6%9F%A5%E6%89%BE"><span class="toc-text">2.页的查找</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#3-%E7%BC%BA%E9%A1%B5%E6%95%85%E9%9A%9C"><span class="toc-text">3.缺页故障</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#4-%E8%99%9A%E6%8B%9F%E5%AD%98%E5%82%A8%E7%9A%84%E5%86%99%E6%93%8D%E4%BD%9C"><span class="toc-text">4.虚拟存储的写操作</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E5%BF%AB%E8%A1%A8TLB"><span class="toc-text">快表TLB</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#1-%E7%9B%AE%E7%9A%84"><span class="toc-text">1.目的</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2-%E7%BB%93%E6%9E%84"><span class="toc-text">2.结构</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#3-TLB%E7%BC%BA%E9%A1%B5%E5%A4%84%E7%90%86"><span class="toc-text">3.TLB缺页处理</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#cache%E5%92%8CTLB%E4%B9%8B%E9%97%B4%E7%9A%84%E5%8D%8F%E5%90%8C"><span class="toc-text">cache和TLB之间的协同</span></a></li></ol>
+          </div>
+        
+        <!--Table of Contents end -->
+        
+
+
+
+
+        <p>[toc]</p>
+<h1 id="问题"><a href="#问题" class="headerlink" title="问题"></a>问题</h1><hr>
+<ul>
+<li>什么是虚拟内存</li>
+<li>虚拟内存原理</li>
+<li>虚拟内存怎么进行也置换</li>
+<li>两个进程数据如何共享（物理地址页共享，页表分开，fork()）</li>
+<li>如何实现进程中的内存是可变的：分段</li>
+<li>分页存储的好处：利用内存空间，防止碎片化</li>
+<li>虚拟内存和物理内存地址如何映射，页表结构？位置在哪？</li>
+<li>为什么说虚拟内存可以提供保护机制</li>
+<li>快表？每一个程序都有一个页表吗</li>
+</ul>
+<h1 id="什么是虚拟内存"><a href="#什么是虚拟内存" class="headerlink" title="什么是虚拟内存"></a>什么是虚拟内存</h1><hr>
+<ul>
+<li>虚拟存储实际上就是一个页表，更进一步的就是一个快表</li>
+<li>将主存作为磁盘cache</li>
+</ul>
+<h1 id="虚拟存储的目的"><a href="#虚拟存储的目的" class="headerlink" title="虚拟存储的目的"></a>虚拟存储的目的</h1><hr>
+<ul>
+<li>可以<strong>弥补物理内存大小的不足</strong>，看上去程序就像拥有很大的内存空间</li>
+<li>充分利用磁盘空间，<strong>解决零碎化的问题：分页</strong></li>
+<li>加强各个程序之间的<strong>地址保护</strong></li>
+</ul>
+<h1 id="虚拟存储原理"><a href="#虚拟存储原理" class="headerlink" title="虚拟存储原理"></a>虚拟存储原理</h1><hr>
+<blockquote>
+<p>主要原理就是采用页表进行虚拟地址到物理地址的映射</p>
+</blockquote>
+<h2 id="1-内存映射的原理"><a href="#1-内存映射的原理" class="headerlink" title="1.内存映射的原理"></a>1.内存映射的原理</h2><img src="https://gitee.com/mymengchuang/blog_img/raw/master/image-20211204225306513.png" alt="image-20211204225306513" style="zoom:80%;">
+
+
+
+<h2 id="2-页的查找"><a href="#2-页的查找" class="headerlink" title="2.页的查找"></a>2.页的查找</h2><p><code>实现物理地址到虚拟地址的映射流程如下：</code></p>
+<img src="https://gitee.com/mymengchuang/blog_img/raw/master/image-20211204225017393.png" alt="image-20211204225017393" style="zoom:80%;">
+
+
+
+<p><code>注意：</code></p>
+<ul>
+<li><p>Page table Register 指向页表，页表存放在</p>
+</li>
+<li><p>虚拟地址的<code>page offser</code>和物理地址的是一样的</p>
+</li>
+<li><p>页表同时指向内存和磁盘</p>
+</li>
+<li><p>问题：需要访问两次主存，因为页表存在主存中，因此可以引入快表，作为页表的cache</p>
+</li>
+<li><p>虚拟存储都是采用写回策略</p>
+</li>
+<li><p>允许页以全相联的方式放置</p>
+</li>
+<li><p>控制页表查询的是MMU（硬件，也就是MMU查询页表，获得虚拟地址到物理地址的映射）</p>
+</li>
+</ul>
+<blockquote>
+<p>程序分段，存储分页</p>
+</blockquote>
+<h2 id="3-缺页故障"><a href="#3-缺页故障" class="headerlink" title="3.缺页故障"></a>3.缺页故障</h2><blockquote>
+<p>主要是MMU实现对虚拟地址到内存地址之间的映射。引入快表以后，优先查询快表</p>
+<p><strong>页表存在于进程的内存之中，MMU收到虚拟地址之后查询Page Table来获取物理地址。</strong></p>
+</blockquote>
+<ul>
+<li><p>CPU给MMU的虚拟地址，在TLB和 Page Table都没有找到对应的物理页帧</p>
+</li>
+<li><p><strong>缺页异常Page Fault，它是一个由硬件中断触发的可以由软件逻辑纠正的错误</strong></p>
+</li>
+</ul>
+<p><code>处理流程</code></p>
+<p>​        <strong>由于CPU没有数据就无法进行计算，CPU罢工了用户进程也就出现了缺页中断，进程会从用户态切换到内核态，并将缺页中断交给内核的 Page Fault Handler 处理。</strong></p>
+<h2 id="4-虚拟存储的写操作"><a href="#4-虚拟存储的写操作" class="headerlink" title="4.虚拟存储的写操作"></a>4.虚拟存储的写操作</h2><p>​        虚拟存储系统必须采用写回操作，对主存中的页进行单独的写操作，在该页被替换出主存以后，在复制到磁盘中。</p>
+<h1 id="快表TLB"><a href="#快表TLB" class="headerlink" title="快表TLB"></a>快表TLB</h1><hr>
+<h2 id="1-目的"><a href="#1-目的" class="headerlink" title="1.目的"></a>1.目的</h2><p><strong>加快地址转化</strong></p>
+<h2 id="2-结构"><a href="#2-结构" class="headerlink" title="2.结构"></a>2.结构</h2><ul>
+<li>TLB包含脏位、引用位，标记位（虚拟页号），物理地址页面</li>
+<li>采用写回操作</li>
+<li>全相连查找</li>
+</ul>
+<img src="https://gitee.com/mymengchuang/blog_img/raw/master/image-20211204232811380.png" alt="image-20211204232811380" style="zoom:80%;">
+
+
+
+
+
+<h2 id="3-TLB缺页处理"><a href="#3-TLB缺页处理" class="headerlink" title="3.TLB缺页处理"></a>3.TLB缺页处理</h2><ul>
+<li><p>MMU无法查询到TLB中合适的地址，查询页表</p>
+</li>
+<li><p>查询页表查询到了，在reload到TLB中；查询不到，操作系统启动中断</p>
+</li>
+<li><p>采用软件和硬件来处理的速度是差不多的</p>
+</li>
+</ul>
+<h1 id="cache和TLB之间的协同"><a href="#cache和TLB之间的协同" class="headerlink" title="cache和TLB之间的协同"></a>cache和TLB之间的协同</h1><hr>
+<img src="https://gitee.com/mymengchuang/blog_img/raw/master/image-20211204233140918.png" alt="image-20211204233140918" style="zoom:80%;">
+
+<p><strong>结构示意图：</strong></p>
+<img src="https://gitee.com/mymengchuang/blog_img/raw/master/image-20211204233343917.png" alt="image-20211204233343917" style="zoom:80%;">
+
+<img src="https://gitee.com/mymengchuang/blog_img/raw/master/image-20211204233623570.png" alt="image-20211204233623570" style="zoom:80%;">
+
+
+      
+    </div>
+    
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BB%84%E6%88%90/" rel="tag">计算机组成</a></li></ul>
+	</div>
+
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+      
+    
+  </div>
+  
+</article>
+
+
+
+
+
+
+
   
     <article id="post-二分图最大匹配" class="article article-type-post" itemscope itemprop="blogPost">
   
@@ -1002,703 +1447,6 @@
 
 <p><strong>代码：</strong></p>
 <figure class="highlight java"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br></pre></td><td class="code"><pre><span class="line">#include&lt;iostream&gt;</span><br><span class="line">#include&lt;cstdio&gt;</span><br><span class="line">#include&lt;algorithm&gt;</span><br><span class="line">#include&lt;cstring&gt;</span><br><span class="line">#include&lt;queue&gt;</span><br><span class="line">#define INF <span class="number">0x3f3f3f3f</span></span><br><span class="line">using namespace std;</span><br><span class="line"><span class="keyword">int</span> dis[<span class="number">5500</span>];</span><br><span class="line"><span class="keyword">int</span> dis2[<span class="number">5500</span>];</span><br><span class="line"><span class="keyword">int</span> vis[<span class="number">5500</span>];</span><br><span class="line"><span class="keyword">int</span> head[<span class="number">200100</span>],cnt;</span><br><span class="line">struct node</span><br><span class="line">{</span><br><span class="line">    <span class="keyword">int</span> v,w;</span><br><span class="line">    <span class="keyword">int</span> nxt;</span><br><span class="line">} edge[<span class="number">200100</span>];</span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">add</span><span class="params">(<span class="keyword">int</span> x,<span class="keyword">int</span> y,<span class="keyword">int</span> w)</span></span></span><br><span class="line"><span class="function"></span>{</span><br><span class="line">    edge[++cnt].nxt=head[x];</span><br><span class="line">    edge[cnt].v=y;</span><br><span class="line">    edge[cnt].w=w;</span><br><span class="line">    head[x]=cnt;</span><br><span class="line">}</span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">Dijkstra</span><span class="params">(<span class="keyword">int</span> x)</span></span></span><br><span class="line"><span class="function"></span>{</span><br><span class="line">    queue&lt;<span class="keyword">int</span>&gt;qu;</span><br><span class="line">    memset(vis,<span class="number">0</span>,sizeof(vis));</span><br><span class="line">    memset(dis,INF,sizeof(dis));</span><br><span class="line">    memset(dis2,INF,sizeof(dis2));</span><br><span class="line">    dis[x]=<span class="number">0</span>;</span><br><span class="line">    vis[x]=<span class="number">1</span>;</span><br><span class="line">    qu.push(x);</span><br><span class="line">    <span class="keyword">while</span>(!qu.empty( ))</span><br><span class="line">    {</span><br><span class="line">        <span class="keyword">int</span> u=qu.front( );</span><br><span class="line">        qu.pop( );</span><br><span class="line">        vis[u]=<span class="number">0</span>;</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> i=head[u]; i!=-<span class="number">1</span>; i=edge[i].nxt)</span><br><span class="line">        {</span><br><span class="line">            <span class="keyword">int</span> v=edge[i].v;</span><br><span class="line">            <span class="keyword">int</span> w=edge[i].w;</span><br><span class="line">            <span class="keyword">if</span>(dis[v]&gt;dis[u]+w)<span class="comment">//最短路更新，原来的最短路变成次短路</span></span><br><span class="line">            {</span><br><span class="line">                dis2[v]=dis[v];</span><br><span class="line">                dis[v]=dis[u]+w;</span><br><span class="line">                <span class="keyword">if</span>(!vis[v])</span><br><span class="line">                {</span><br><span class="line">                    qu.push(v);</span><br><span class="line">                    vis[v]=<span class="number">1</span>;</span><br><span class="line">                }</span><br><span class="line">            }</span><br><span class="line">            <span class="keyword">if</span>(dis2[v]&gt;dis2[u]+w)<span class="comment">//次短路直接更新(通常是最短路确定后才进行）</span></span><br><span class="line">            {</span><br><span class="line">                dis2[v]=dis2[u]+w;</span><br><span class="line">                <span class="keyword">if</span>(!vis[v])</span><br><span class="line">                {</span><br><span class="line">                    qu.push(v);</span><br><span class="line">                    vis[v]=<span class="number">1</span>;</span><br><span class="line">                }</span><br><span class="line">            }</span><br><span class="line">            <span class="keyword">if</span>(dis2[v]&gt;dis[u]+w&amp;&amp;dis[v]&lt;dis[u]+w)<span class="comment">//最短路不更新，但距离比次短路小</span></span><br><span class="line">            {</span><br><span class="line">                dis2[v]=dis[u]+w;</span><br><span class="line">                <span class="keyword">if</span>(!vis[v])</span><br><span class="line">                {</span><br><span class="line">                    qu.push(v);</span><br><span class="line">                    vis[v]=<span class="number">1</span>;</span><br><span class="line">                }</span><br><span class="line">            }</span><br><span class="line">        }</span><br><span class="line">    }</span><br><span class="line">}</span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">( )</span></span></span><br><span class="line"><span class="function"></span>{</span><br><span class="line">    <span class="keyword">int</span> n,r,x,y,w;</span><br><span class="line">    memset(head,-<span class="number">1</span>,sizeof(head));</span><br><span class="line">    cnt=<span class="number">0</span>;</span><br><span class="line">    scanf(<span class="string">"%d%d"</span>,&amp;n,&amp;r);</span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">1</span>; i&lt;=r; i++)</span><br><span class="line">    {</span><br><span class="line">        scanf(<span class="string">"%d%d%d"</span>,&amp;x,&amp;y,&amp;w);</span><br><span class="line">        add(x,y,w);</span><br><span class="line">        add(y,x,w);</span><br><span class="line">    }</span><br><span class="line">    Dijkstra(<span class="number">1</span>);</span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">1</span>;i&lt;=n;i++)</span><br><span class="line">    {</span><br><span class="line">        printf(<span class="string">"%d "</span>,dis[i]);</span><br><span class="line">    }</span><br><span class="line">    cout&lt;&lt;endl;</span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">1</span>;i&lt;=n;i++)</span><br><span class="line">    {</span><br><span class="line">        printf(<span class="string">"%d "</span>,dis2[i]);</span><br><span class="line">    }</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">}</span><br></pre></td></tr></tbody></table></figure>
-
-
-      
-    </div>
-    
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E7%AE%97%E6%B3%95/" rel="tag">算法</a></li></ul>
-	</div>
-
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-      
-    
-  </div>
-  
-</article>
-
-
-
-
-
-
-
-  
-    <article id="post-最短路算法" class="article article-type-post" itemscope itemprop="blogPost">
-  
-    <div class="article-meta">
-      <a href="/2021/11/26/%E6%9C%80%E7%9F%AD%E8%B7%AF%E7%AE%97%E6%B3%95/" class="article-date">
-  	<time datetime="2021-11-26T11:00:00.000Z" itemprop="datePublished">2021-11-26</time>
-</a>
-    </div>
-  
-  <div class="article-inner">
-    
-      <input type="hidden" class="isFancy" />
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2021/11/26/%E6%9C%80%E7%9F%AD%E8%B7%AF%E7%AE%97%E6%B3%95/">
-        最短路算法
-        
-      </a>
-    </h1>
-  
-
-      </header>
-      
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <!--Table of Contents begin-->
-        <!-- 
-          <div id="toc" class="toc-article">
-            <strong class="toc-title">目录</strong>
-            <a class="js-toggle-toc" href="javascript:void(0)"></a>
-            <div class="toc-content">
-              <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#%E6%97%A0%E6%9D%83%E6%9C%80%E7%9F%AD%E8%B7%AF%E7%AE%97%E6%B3%95"><span class="toc-text">无权最短路算法</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E9%98%9F%E5%88%97%E8%A1%A8%E7%A4%BA%E7%9A%84%E6%97%A0%E6%9D%83%E6%9C%80%E7%9F%AD%E8%B7%AF%E7%AE%97%E6%B3%95"><span class="toc-text">队列表示的无权最短路算法</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#dijkstra%E7%AE%97%E6%B3%95"><span class="toc-text">dijkstra算法</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E5%A0%86%E4%BC%98%E5%8C%96%E7%9A%84dijkstra%E7%AE%97%E6%B3%95"><span class="toc-text">堆优化的dijkstra算法</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E8%B4%9F%E8%BE%B9%E6%9D%83%E9%87%8D%E5%9B%BE%E7%9A%84%E6%9C%80%E7%9F%AD%E8%B7%AF"><span class="toc-text">负边权重图的最短路</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E6%8B%93%E6%89%91%E6%8E%92%E5%BA%8F%E5%A4%84%E7%90%86%E6%97%A0%E7%8E%AF%E5%9B%BE"><span class="toc-text">拓扑排序处理无环图</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E6%9C%80%E6%97%A9%E5%AE%8C%E6%88%90%E6%97%B6%E9%97%B4%E5%92%8C%E6%9C%80%E8%BF%9F%E5%AE%8C%E6%88%90%E6%97%B6%E9%97%B4%E8%AE%A1%E7%AE%97"><span class="toc-text">最早完成时间和最迟完成时间计算</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E9%97%AE%E9%A2%98%E6%80%9D%E8%80%83"><span class="toc-text">问题思考</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#8-1%E5%A6%82%E4%BD%95%E6%B1%82source%E5%88%B0%E5%85%B6%E4%BB%96%E6%89%80%E6%9C%89%E7%82%B9%E7%9A%84%E6%9C%80%E7%9F%AD%E8%B7%9D%E7%A6%BB"><span class="toc-text">8.1如何求source到其他所有点的最短距离</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#8-2%E5%A6%82%E4%BD%95%E6%B1%82%E8%A7%A3%E5%85%B6%E4%BB%96%E6%89%80%E6%9C%89%E9%A1%B6%E7%82%B9%E5%88%B0dst%E7%9A%84%E6%9C%80%E7%9F%AD%E8%B7%9D%E7%A6%BB"><span class="toc-text">8.2如何求解其他所有顶点到dst的最短距离</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#8-3%E5%A6%82%E4%BD%95%E6%B1%82%E8%A7%A3%E5%88%B0%E8%BE%BE%E9%A1%B6%E7%82%B9V%E7%9A%84%E6%9C%80%E7%9F%AD%E8%B7%AF%E5%BE%84%E6%95%B0%E9%87%8F"><span class="toc-text">8.3如何求解到达顶点V的最短路径数量</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#8-4%E5%A6%82%E4%BD%95%E6%B1%82%E8%A7%A3k%E6%9C%80%E7%9F%AD%E8%B7%AF%EF%BC%88KSP%EF%BC%89"><span class="toc-text">8.4如何求解k最短路（KSP）</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#8-5%E5%A6%82%E4%BD%95%E8%8E%B7%E5%BE%97src%E5%88%B0dist%E7%9A%84%E6%89%80%E6%9C%89%E8%B7%AF%E5%BE%84"><span class="toc-text">8.5如何获得src到dist的所有路径</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#8-6%E4%B8%8D%E8%B6%85%E8%BF%87k%E6%9D%A1%E8%BE%B9%E7%9A%84%E8%B7%AF%E5%BE%84%E6%9C%80%E7%9F%AD%E8%B7%9D%E7%A6%BB"><span class="toc-text">8.6不超过k条边的路径最短距离</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E7%BB%83%E4%B9%A0"><span class="toc-text">练习</span></a></li></ol>
-            </div>
-          </div>
-         -->
-          <!-- Table of Contents -->
-        
-          <div id="toc" class="toc-article">
-            <strong class="toc-title">目录</strong>
-            <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#%E6%97%A0%E6%9D%83%E6%9C%80%E7%9F%AD%E8%B7%AF%E7%AE%97%E6%B3%95"><span class="toc-text">无权最短路算法</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E9%98%9F%E5%88%97%E8%A1%A8%E7%A4%BA%E7%9A%84%E6%97%A0%E6%9D%83%E6%9C%80%E7%9F%AD%E8%B7%AF%E7%AE%97%E6%B3%95"><span class="toc-text">队列表示的无权最短路算法</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#dijkstra%E7%AE%97%E6%B3%95"><span class="toc-text">dijkstra算法</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E5%A0%86%E4%BC%98%E5%8C%96%E7%9A%84dijkstra%E7%AE%97%E6%B3%95"><span class="toc-text">堆优化的dijkstra算法</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E8%B4%9F%E8%BE%B9%E6%9D%83%E9%87%8D%E5%9B%BE%E7%9A%84%E6%9C%80%E7%9F%AD%E8%B7%AF"><span class="toc-text">负边权重图的最短路</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E6%8B%93%E6%89%91%E6%8E%92%E5%BA%8F%E5%A4%84%E7%90%86%E6%97%A0%E7%8E%AF%E5%9B%BE"><span class="toc-text">拓扑排序处理无环图</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E6%9C%80%E6%97%A9%E5%AE%8C%E6%88%90%E6%97%B6%E9%97%B4%E5%92%8C%E6%9C%80%E8%BF%9F%E5%AE%8C%E6%88%90%E6%97%B6%E9%97%B4%E8%AE%A1%E7%AE%97"><span class="toc-text">最早完成时间和最迟完成时间计算</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E9%97%AE%E9%A2%98%E6%80%9D%E8%80%83"><span class="toc-text">问题思考</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#8-1%E5%A6%82%E4%BD%95%E6%B1%82source%E5%88%B0%E5%85%B6%E4%BB%96%E6%89%80%E6%9C%89%E7%82%B9%E7%9A%84%E6%9C%80%E7%9F%AD%E8%B7%9D%E7%A6%BB"><span class="toc-text">8.1如何求source到其他所有点的最短距离</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#8-2%E5%A6%82%E4%BD%95%E6%B1%82%E8%A7%A3%E5%85%B6%E4%BB%96%E6%89%80%E6%9C%89%E9%A1%B6%E7%82%B9%E5%88%B0dst%E7%9A%84%E6%9C%80%E7%9F%AD%E8%B7%9D%E7%A6%BB"><span class="toc-text">8.2如何求解其他所有顶点到dst的最短距离</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#8-3%E5%A6%82%E4%BD%95%E6%B1%82%E8%A7%A3%E5%88%B0%E8%BE%BE%E9%A1%B6%E7%82%B9V%E7%9A%84%E6%9C%80%E7%9F%AD%E8%B7%AF%E5%BE%84%E6%95%B0%E9%87%8F"><span class="toc-text">8.3如何求解到达顶点V的最短路径数量</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#8-4%E5%A6%82%E4%BD%95%E6%B1%82%E8%A7%A3k%E6%9C%80%E7%9F%AD%E8%B7%AF%EF%BC%88KSP%EF%BC%89"><span class="toc-text">8.4如何求解k最短路（KSP）</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#8-5%E5%A6%82%E4%BD%95%E8%8E%B7%E5%BE%97src%E5%88%B0dist%E7%9A%84%E6%89%80%E6%9C%89%E8%B7%AF%E5%BE%84"><span class="toc-text">8.5如何获得src到dist的所有路径</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#8-6%E4%B8%8D%E8%B6%85%E8%BF%87k%E6%9D%A1%E8%BE%B9%E7%9A%84%E8%B7%AF%E5%BE%84%E6%9C%80%E7%9F%AD%E8%B7%9D%E7%A6%BB"><span class="toc-text">8.6不超过k条边的路径最短距离</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E7%BB%83%E4%B9%A0"><span class="toc-text">练习</span></a></li></ol>
-          </div>
-        
-        <!--Table of Contents end -->
-        
-
-
-
-
-        <p>[toc]</p>
-<h1 id="无权最短路算法"><a href="#无权最短路算法" class="headerlink" title="无权最短路算法"></a>无权最短路算法</h1><hr>
-<p>最简单最短路算法图示：</p>
-<img src="https://gitee.com/mymengchuang/blog_img/raw/master/image-20211126200020320.png" alt="image-20211126200020320" style="zoom:80%;">
-
-<p>用于判断记录的数组：</p>
-<img src="https://gitee.com/mymengchuang/blog_img/raw/master/image-20211126200052873.png" alt="image-20211126200052873" style="zoom:80%;">
-
-<p><strong>思路：</strong></p>
-<ul>
-<li>广度优先遍历，找到下一个续编check的结点</li>
-<li>想办法更新dist数组</li>
-<li>复杂度： <code>T = O( |V|^2 )</code></li>
-</ul>
-<img src="https://gitee.com/mymengchuang/blog_img/raw/master/image-20211126200323732.png" alt="image-20211126200323732" style="zoom:80%;">
-
-<h1 id="队列表示的无权最短路算法"><a href="#队列表示的无权最短路算法" class="headerlink" title="队列表示的无权最短路算法"></a>队列表示的无权最短路算法</h1><hr>
-<ul>
-<li>复杂度：<code>T = O( |V| + |E| )</code></li>
-</ul>
-<figure class="highlight java"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">Unweighted</span><span class="params">(Table T)</span></span>{</span><br><span class="line">	Queue q;</span><br><span class="line">    <span class="keyword">int</span> []dist;</span><br><span class="line">    <span class="keyword">int</span> []konw;</span><br><span class="line">    <span class="keyword">int</span> []path;</span><br><span class="line">    <span class="comment">//source加入队列</span></span><br><span class="line">    q.offer(src);</span><br><span class="line">    dist[src] = <span class="number">0</span>;</span><br><span class="line">    <span class="keyword">while</span>(!q.isEmpty()){</span><br><span class="line">		<span class="comment">//取点，没有用贪心算法，意味着会遍历所有的路径</span></span><br><span class="line">        <span class="keyword">int</span> V = q.poll();</span><br><span class="line">        </span><br><span class="line">        <span class="comment">//更新dist</span></span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> W :the adjacent of V){  <span class="comment">//这样更新会符合负边存在的最短路算法</span></span><br><span class="line">			<span class="keyword">if</span>( dist[W]&gt;dist[V]+Cvw){</span><br><span class="line">				dist[W] = dist[V]+Cvw；</span><br><span class="line">                path[W] = V;</span><br><span class="line">				q。offer(w);</span><br><span class="line">            }</span><br><span class="line">        }</span><br><span class="line">    }</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">}</span><br></pre></td></tr></tbody></table></figure>
-
-<blockquote>
-<p>堆优化不需要使用konw来记录哪些点被访问</p>
-</blockquote>
-<img src="https://gitee.com/mymengchuang/blog_img/raw/master/image-20211129081625589.png" alt="image-20211129081625589" style="zoom:80%;">
-
-<h1 id="dijkstra算法"><a href="#dijkstra算法" class="headerlink" title="dijkstra算法"></a>dijkstra算法</h1><hr>
-<figure class="highlight java"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">dijkstra</span><span class="params">()</span></span>{</span><br><span class="line">	<span class="keyword">int</span> []dis ;</span><br><span class="line">    konw[];<span class="comment">//用来判断当前结点是否被遍历过了，e点被遍历过，v[e]=1;</span></span><br><span class="line">    konw[<span class="number">1</span>]=<span class="number">1</span>;</span><br><span class="line">    dist[<span class="number">1</span>]=<span class="number">0</span>;</span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">1</span>;i&lt;=n;i++) {  <span class="comment">//遍历所有的结点</span></span><br><span class="line">        <span class="comment">//取点</span></span><br><span class="line">        V = min(dist[k]); (konw[k]==<span class="number">0</span>) <span class="comment">//找到最小值</span></span><br><span class="line">        konw[V] = <span class="number">1</span>;<span class="comment">//加入路径</span></span><br><span class="line">        </span><br><span class="line">        <span class="comment">//松弛</span></span><br><span class="line">        <span class="keyword">for</span>(each W adjacent to V){</span><br><span class="line">			<span class="keyword">if</span>(!konw[W]&amp;&amp;dist[V]+C[V][W]&lt;dist[W])</span><br><span class="line">                dist[W] = dist[V]+C[V][W]	</span><br><span class="line">                path[W] = V;</span><br><span class="line">        }</span><br><span class="line">    }</span><br><span class="line">}</span><br></pre></td></tr></tbody></table></figure>
-
-
-
-<p><strong>实际题目用的算法：</strong></p>
-<figure class="highlight java"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">dijkstra</span><span class="params">()</span> </span>{</span><br><span class="line">    <span class="comment">// 起始先将所有的点标记为「未更新」和「距离为正无穷」</span></span><br><span class="line">    Arrays.fill(vis, <span class="keyword">false</span>);</span><br><span class="line">    Arrays.fill(dist, INF);</span><br><span class="line">    dist[k] = <span class="number">0</span>;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> p = <span class="number">1</span>; p &lt;= n; p++) {</span><br><span class="line">        <span class="comment">// 每次找到「最短距离最小」且「未被更新」的点 t</span></span><br><span class="line">        <span class="keyword">int</span> t = -<span class="number">1</span>;</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">1</span>; i &lt;= n; i++) {</span><br><span class="line">            <span class="keyword">if</span> (!vis[i] &amp;&amp; (t == -<span class="number">1</span> || dist[i] &lt; dist[t])) t = i;</span><br><span class="line">        }</span><br><span class="line">        vis[t] = <span class="keyword">true</span>;</span><br><span class="line"></span><br><span class="line">        <span class="comment">// 用点 t 的「最小距离」更新其他点</span></span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">1</span>; i &lt;= n; i++) {</span><br><span class="line">            dist[i] = Math.min(dist[i], dist[t] + w[t][i]);</span><br><span class="line">        }</span><br><span class="line"></span><br><span class="line">    }</span><br><span class="line">}</span><br><span class="line"></span><br></pre></td></tr></tbody></table></figure>
-
-
-
-<h1 id="堆优化的dijkstra算法"><a href="#堆优化的dijkstra算法" class="headerlink" title="堆优化的dijkstra算法"></a>堆优化的dijkstra算法</h1><hr>
-<figure class="highlight java"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">dijkstra</span><span class="params">()</span> </span>{</span><br><span class="line">    <span class="comment">// 起始先将所有的点标记为「未更新」和「距离为正无穷」</span></span><br><span class="line">    Arrays.fill(vis, <span class="keyword">false</span>);</span><br><span class="line">    Arrays.fill(dist, INF);</span><br><span class="line">    dist[k] = <span class="number">0</span>;</span><br><span class="line">    <span class="comment">// 使用「优先队列」存储所有可用于更新的点</span></span><br><span class="line">    <span class="comment">// 以 (点编号, 到起点的距离) 进行存储，优先弹出「最短距离」较小的点</span></span><br><span class="line">    PriorityQueue&lt;<span class="keyword">int</span>[]&gt; q = <span class="keyword">new</span> PriorityQueue&lt;&gt;((a,b)-&gt;a[<span class="number">1</span>]-b[<span class="number">1</span>]);</span><br><span class="line">    q.add(<span class="keyword">new</span> <span class="keyword">int</span>[]{k, <span class="number">0</span>});</span><br><span class="line">    </span><br><span class="line">    <span class="keyword">while</span> (!q.isEmpty()) {</span><br><span class="line">        <span class="comment">// 每次从「优先队列」中弹出</span></span><br><span class="line">        <span class="keyword">int</span>[] poll = q.poll();</span><br><span class="line">        <span class="keyword">int</span> V = poll[<span class="number">0</span>];</span><br><span class="line">        <span class="keyword">if</span> (vis[V]) <span class="keyword">continue</span>;<span class="comment">// 如果弹出的点被标记「已更新」，则跳过</span></span><br><span class="line">        vis[V] = <span class="keyword">true</span>;<span class="comment">// 标记该点「已更新」，并使用该点更新其他点的「最短距离」</span></span><br><span class="line">        </span><br><span class="line">        <span class="comment">//更新</span></span><br><span class="line">        <span class="keyword">for</span> (each W adjacent to V ) {</span><br><span class="line">            <span class="keyword">if</span> (dist[W] &gt; dist[V] + w[V][W]) {</span><br><span class="line">                dist[W] = dist[V] + w[V][W];</span><br><span class="line">                q.add(<span class="keyword">new</span> <span class="keyword">int</span>[]{W, dist[W]});</span><br><span class="line">            }</span><br><span class="line">        }</span><br><span class="line">    }</span><br><span class="line">}</span><br><span class="line"></span><br></pre></td></tr></tbody></table></figure>
-
-<img src="https://gitee.com/mymengchuang/blog_img/raw/master/image-20211126205707888.png" alt="image-20211126205707888" style="zoom:80%;">
-
-
-
-<h1 id="负边权重图的最短路"><a href="#负边权重图的最短路" class="headerlink" title="负边权重图的最短路"></a>负边权重图的最短路</h1><hr>
-<p><strong>问题：</strong></p>
-<ul>
-<li>由于负边的存在，在为访问的集合中选取最小的未知边是有问题的，也不是正数，没有办法满足贪心算法条件的</li>
-</ul>
-<p><strong>代码:</strong></p>
-<figure class="highlight java"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">Unweighted</span><span class="params">(Table T)</span></span>{</span><br><span class="line">	Queue q;</span><br><span class="line">    <span class="keyword">int</span> []dist;</span><br><span class="line">    <span class="keyword">int</span> []konw;</span><br><span class="line">    <span class="keyword">int</span> []path;</span><br><span class="line">    <span class="comment">//source加入队列</span></span><br><span class="line">    q.offer(src);</span><br><span class="line">    dist[src] = <span class="number">0</span>;</span><br><span class="line">    <span class="keyword">while</span>(!q.isEmpty()){</span><br><span class="line">		<span class="comment">//取点，没有用贪心算法，意味着会遍历所有的路径</span></span><br><span class="line">        <span class="keyword">int</span> V = q.poll();</span><br><span class="line">        </span><br><span class="line">        <span class="comment">//更新dist</span></span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> W :the adjacent of V){  <span class="comment">//这样更新会符合负边存在的最短路算法</span></span><br><span class="line">			<span class="keyword">if</span>( dist[W]&gt;dist[V]+Cvw){</span><br><span class="line">				dist[W] = dist[V]+Cvw；</span><br><span class="line">                path[W] = V;</span><br><span class="line">				q。offer(w);</span><br><span class="line">            }</span><br><span class="line">        }</span><br><span class="line">    }</span><br><span class="line">}</span><br></pre></td></tr></tbody></table></figure>
-
-<p><strong>算法流程：</strong></p>
-<img src="https://gitee.com/mymengchuang/blog_img/raw/master/image-20211129081735650.png" alt="image-20211129081735650" style="zoom:80%;">
-
-
-
-
-
-<blockquote>
-<p>负环判断：也就是每个点最多dequeue |V|次数，也就是距离每个顶点出队的次数，也就存在负环存在，是无解的。</p>
-</blockquote>
-<h1 id="拓扑排序处理无环图"><a href="#拓扑排序处理无环图" class="headerlink" title="拓扑排序处理无环图"></a>拓扑排序处理无环图</h1><img src="https://gitee.com/mymengchuang/blog_img/raw/master/image-20211126213231297.png" alt="image-20211126213231297" style="zoom: 67%;">
-
-<p><a target="_blank" rel="noopener" href="https://www.geeksforgeeks.org/shortest-path-for-directed-acyclic-graphs/">https://www.geeksforgeeks.org/shortest-path-for-directed-acyclic-graphs/</a></p>
-<img src="https://gitee.com/mymengchuang/blog_img/raw/master/image-20211129082336833.png" alt="image-20211129082336833" style="zoom: 67%;">
-
-<p><strong>应用：</strong></p>
-<ul>
-<li>AOE Network</li>
-</ul>
-<h1 id="最早完成时间和最迟完成时间计算"><a href="#最早完成时间和最迟完成时间计算" class="headerlink" title="最早完成时间和最迟完成时间计算"></a>最早完成时间和最迟完成时间计算</h1><ul>
-<li><p>每一个结点同时包含<code>index,EC,LC</code> </p>
-<ul>
-<li><code>EC</code>是工程到该节点最快的时间是多少</li>
-<li><code>LC</code>是工程到当前结点最迟应该在什么时间点完成，你规定整个工期以后反推的</li>
-</ul>
-</li>
-<li><p>边的<strong>Slack time</strong> <code>LC[w]-EC[v]-Cvw</code></p>
-</li>
-<li><p>关键路径问题：改路上不存在<code>Slack time</code></p>
-</li>
-</ul>
-<img src="https://gitee.com/mymengchuang/blog_img/raw/master/image-20211129084414469.png" alt="image-20211129084414469" style="zoom: 67%;">
-
-
-
-<img src="https://gitee.com/mymengchuang/blog_img/raw/master/image-20211129084703677.png" alt="image-20211129084703677" style="zoom:80%;">
-
-<h1 id="问题思考"><a href="#问题思考" class="headerlink" title="问题思考"></a>问题思考</h1><hr>
-<h2 id="8-1如何求source到其他所有点的最短距离"><a href="#8-1如何求source到其他所有点的最短距离" class="headerlink" title="8.1如何求source到其他所有点的最短距离"></a>8.1如何求source到其他所有点的最短距离</h2><ul>
-<li>用<code>dijkstra</code>将<code>dist</code>数组填满即可</li>
-</ul>
-<h2 id="8-2如何求解其他所有顶点到dst的最短距离"><a href="#8-2如何求解其他所有顶点到dst的最短距离" class="headerlink" title="8.2如何求解其他所有顶点到dst的最短距离"></a>8.2如何求解其他所有顶点到dst的最短距离</h2><ul>
-<li>.。。</li>
-</ul>
-<h2 id="8-3如何求解到达顶点V的最短路径数量"><a href="#8-3如何求解到达顶点V的最短路径数量" class="headerlink" title="8.3如何求解到达顶点V的最短路径数量"></a>8.3如何求解到达顶点V的最短路径数量</h2><ul>
-<li>add an array <code>count[]</code> so that <code>count[V]</code> records the number of different shortest paths from <code>S</code> to <code>V</code></li>
-<li><code>dijkatra</code>变体 <a target="_blank" rel="noopener" href="https://leetcode-cn.com/problems/number-of-ways-to-arrive-at-destination/">1976. 到达目的地的方案数</a></li>
-</ul>
-<p><strong>思路：</strong></p>
-<figure class="highlight java"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 记录最短路径的数组，初始为 INF</span></span><br><span class="line"><span class="keyword">int</span>[] dist = <span class="keyword">new</span> <span class="keyword">int</span>[n];</span><br><span class="line"><span class="comment">// 统计最短路径数量的数组</span></span><br><span class="line"><span class="keyword">int</span>[] cnt = <span class="keyword">new</span> <span class="keyword">int</span>[n];</span><br><span class="line"><span class="comment">// 从 0 -&gt; 0 的最短路径有 1 条</span></span><br><span class="line">cnt[<span class="number">0</span>] = <span class="number">1</span>;</span><br><span class="line"></span><br><span class="line"><span class="comment">// ... Dijkstra 松弛操作，从 u -&gt; v，走消耗为 w 的路 </span></span><br><span class="line"><span class="keyword">if</span> (dist[v] &gt; dist[u] + w) {</span><br><span class="line">    cnt[v] = cnt[u];</span><br><span class="line">    <span class="comment">// ... 更新最短距离，加入优先队列</span></span><br><span class="line">} <span class="keyword">else</span> <span class="keyword">if</span> (dist[v] == dist[u] + w) {</span><br><span class="line">    cnt[v] += cnt[u];</span><br><span class="line">}</span><br><span class="line"></span><br><span class="line"><span class="comment">// cnt[n - 1] 即为答案</span></span><br></pre></td></tr></tbody></table></figure>
-
-<blockquote>
-<p>注意：一定要添加  <code>know[j]==0</code>这个判断条件<code>if(g[V][j]!=Integer.MAX_VALUE/2&amp;&amp;know[j]==0)</code></p>
-</blockquote>
-<figure class="highlight java"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">for</span>(<span class="keyword">int</span> j=<span class="number">0</span>;j&lt;n;j++){</span><br><span class="line">    <span class="keyword">if</span>(g[V][j]!=Integer.MAX_VALUE/<span class="number">2</span>&amp;&amp;know[j]==<span class="number">0</span>){</span><br><span class="line">        <span class="keyword">if</span>(dist[j]&gt;dist[V]+g[V][j]){</span><br><span class="line">            dist[j]=dist[V]+g[V][j];</span><br><span class="line">            count[j] = count[V];</span><br><span class="line">        }</span><br><span class="line">        <span class="keyword">else</span> <span class="keyword">if</span>(dist[j]==dist[V]+g[V][j]){</span><br><span class="line">            count[j] +=count[V];</span><br><span class="line">        }</span><br><span class="line">    }</span><br><span class="line">}</span><br><span class="line"></span><br></pre></td></tr></tbody></table></figure>
-
-
-
-<h2 id="8-4如何求解k最短路（KSP）"><a href="#8-4如何求解k最短路（KSP）" class="headerlink" title="8.4如何求解k最短路（KSP）"></a>8.4如何求解k最短路（KSP）</h2><ul>
-<li><code>Yen算法</code></li>
-<li><code>A*算法</code></li>
-<li><code>dijkstra算法</code>:维护一个出来最短路外的另外一个数组<code>dist2</code></li>
-</ul>
-<blockquote>
-<p>具体见另外一篇博客</p>
-</blockquote>
-<h2 id="8-5如何获得src到dist的所有路径"><a href="#8-5如何获得src到dist的所有路径" class="headerlink" title="8.5如何获得src到dist的所有路径"></a>8.5如何获得<code>src</code>到<code>dist</code>的所有路径</h2><ul>
-<li>深度优先搜索</li>
-<li>广度优先搜索</li>
-</ul>
-<h2 id="8-6不超过k条边的路径最短距离"><a href="#8-6不超过k条边的路径最短距离" class="headerlink" title="8.6不超过k条边的路径最短距离"></a>8.6不超过k条边的路径最短距离</h2><ul>
-<li><p><a target="_blank" rel="noopener" href="https://www.bbsmax.com/A/Vx5MDOkmJN/">BF算法</a></p>
-</li>
-<li><p>动态规划+dijsktra思路</p>
-</li>
-</ul>
-<h1 id="练习"><a href="#练习" class="headerlink" title="练习"></a>练习</h1><hr>
-<p><strong>Dijkstra 增强练习</strong></p>
-<p> <a target="_blank" rel="noopener" href="https://leetcode-cn.com/problems/number-of-ways-to-arrive-at-destination/">到达目的地的方案数</a></p>
-<p><a target="_blank" rel="noopener" href="https://leetcode-cn.com/problems/path-with-maximum-probability">概率最大的路径</a></p>
-<p><a target="_blank" rel="noopener" href="https://leetcode-cn.com/problems/path-with-minimum-effort">最小体力消耗路径</a></p>
-<p><a target="_blank" rel="noopener" href="https://leetcode-cn.com/problems/cheapest-flights-within-k-stops">K 站中转内最便宜的航班</a></p>
-<p><a target="_blank" rel="noopener" href="https://leetcode-cn.com/problems/minimum-cost-to-reach-destination-in-time">规定时间内到达终点的最小花费</a></p>
-<p><a target="_blank" rel="noopener" href="https://leetcode-cn.com/problems/number-of-restricted-paths-from-first-to-last-node">从第一个节点出发到最后一个节点的受限路径数</a></p>
-
-      
-    </div>
-    
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E7%AE%97%E6%B3%95/" rel="tag">算法</a></li></ul>
-	</div>
-
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-      
-    
-  </div>
-  
-</article>
-
-
-
-
-
-
-
-  
-    <article id="post-迭代改进" class="article article-type-post" itemscope itemprop="blogPost">
-  
-    <div class="article-meta">
-      <a href="/2021/11/26/%E8%BF%AD%E4%BB%A3%E6%94%B9%E8%BF%9B/" class="article-date">
-  	<time datetime="2021-11-26T02:00:00.000Z" itemprop="datePublished">2021-11-26</time>
-</a>
-    </div>
-  
-  <div class="article-inner">
-    
-      <input type="hidden" class="isFancy" />
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2021/11/26/%E8%BF%AD%E4%BB%A3%E6%94%B9%E8%BF%9B/">
-        算法集合
-        
-      </a>
-    </h1>
-  
-
-      </header>
-      
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <!--Table of Contents begin-->
-        <!-- 
-          <div id="toc" class="toc-article">
-            <strong class="toc-title">目录</strong>
-            <a class="js-toggle-toc" href="javascript:void(0)"></a>
-            <div class="toc-content">
-              <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#%E5%8D%95%E7%BA%AF%E5%BD%A2%E6%B3%95"><span class="toc-text">单纯形法</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%AE%97%E6%B3%95%E6%B5%81%E7%A8%8B"><span class="toc-text">算法流程</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%AE%97%E6%B3%95%E9%97%AE%E9%A2%98"><span class="toc-text">算法问题</span></a></li></ol></li></ol>
-            </div>
-          </div>
-         -->
-          <!-- Table of Contents -->
-        
-          <div id="toc" class="toc-article">
-            <strong class="toc-title">目录</strong>
-            <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#%E5%8D%95%E7%BA%AF%E5%BD%A2%E6%B3%95"><span class="toc-text">单纯形法</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%AE%97%E6%B3%95%E6%B5%81%E7%A8%8B"><span class="toc-text">算法流程</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%AE%97%E6%B3%95%E9%97%AE%E9%A2%98"><span class="toc-text">算法问题</span></a></li></ol></li></ol>
-          </div>
-        
-        <!--Table of Contents end -->
-        
-
-
-
-
-        <h1 id="单纯形法"><a href="#单纯形法" class="headerlink" title="单纯形法"></a>单纯形法</h1><hr>
-<h2 id="算法流程"><a href="#算法流程" class="headerlink" title="算法流程"></a>算法流程</h2><ul>
-<li>初始化矩阵：寻找一个基本可行解</li>
-<li>主元列：找最后一行最小值</li>
-<li>主元行：主元列中的比率越小越好（主元列值/最后一列的值）</li>
-<li>主元行更新：<code>row_new</code>主元行每一个元素/主元</li>
-<li>更新表格：每一行 <code>row-c(row_new)</code>  其中<code>c</code>是每一行的对应主元值</li>
-</ul>
-<h2 id="算法问题"><a href="#算法问题" class="headerlink" title="算法问题"></a>算法问题</h2><ul>
-<li>最差复杂度可能是指数的</li>
-<li>迭代可能是在m到3m之间</li>
-</ul>
-
-      
-    </div>
-    
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E7%AE%97%E6%B3%95/" rel="tag">算法</a></li></ul>
-	</div>
-
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-      
-    
-  </div>
-  
-</article>
-
-
-
-
-
-
-
-  
-    <article id="post-每日一题" class="article article-type-post" itemscope itemprop="blogPost">
-  
-    <div class="article-meta">
-      <a href="/2021/11/24/%E6%AF%8F%E6%97%A5%E4%B8%80%E9%A2%98/" class="article-date">
-  	<time datetime="2021-11-23T16:00:00.000Z" itemprop="datePublished">2021-11-24</time>
-</a>
-    </div>
-  
-  <div class="article-inner">
-    
-      <input type="hidden" class="isFancy" />
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2021/11/24/%E6%AF%8F%E6%97%A5%E4%B8%80%E9%A2%98/">
-        每日一题
-        
-      </a>
-    </h1>
-  
-
-      </header>
-      
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <!--Table of Contents begin-->
-        <!-- 
-          <div id="toc" class="toc-article">
-            <strong class="toc-title">目录</strong>
-            <a class="js-toggle-toc" href="javascript:void(0)"></a>
-            <div class="toc-content">
-              <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#423-%E4%BB%8E%E8%8B%B1%E6%96%87%E4%B8%AD%E9%87%8D%E5%BB%BA%E6%95%B0%E5%AD%97-%E6%A8%A1%E6%8B%9F"><span class="toc-text">423. 从英文中重建数字(模拟)</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#458-%E5%8F%AF%E6%80%9C%E7%9A%84%E5%B0%8F%E7%8C%AA%EF%BC%88%E6%99%BA%E5%8A%9B%EF%BC%89"><span class="toc-text">458. 可怜的小猪（智力）</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#1349-%E5%8F%82%E5%8A%A0%E8%80%83%E8%AF%95%E7%9A%84%E6%9C%80%E5%A4%A7%E5%AD%A6%E7%94%9F%E6%95%B0%EF%BC%88%E7%8A%B6%E6%80%81%E5%8E%8B%E7%BC%A9DP%EF%BC%89"><span class="toc-text">1349. 参加考试的最大学生数（状态压缩DP）</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#67-%E4%BA%8C%E8%BF%9B%E5%88%B6%E6%B1%82%E5%92%8C-%E6%95%B0%E5%AD%A6"><span class="toc-text">67. 二进制求和(数学)</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#1005-K-%E6%AC%A1%E5%8F%96%E5%8F%8D%E5%90%8E%E6%9C%80%E5%A4%A7%E5%8C%96%E7%9A%84%E6%95%B0%E7%BB%84%E5%92%8C%EF%BC%88%E8%B4%AA%E5%BF%83%EF%BC%89"><span class="toc-text">1005. K 次取反后最大化的数组和（贪心）</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#435-%E6%97%A0%E9%87%8D%E5%8F%A0%E5%8C%BA%E9%97%B4%EF%BC%88%E8%B4%AA%E5%BF%83%EF%BC%89"><span class="toc-text">435. 无重叠区间（贪心）</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E9%9D%A2%E8%AF%95%E9%A2%98-17-09-%E7%AC%AC-k-%E4%B8%AA%E6%95%B0%EF%BC%88%E5%93%88%E5%B8%8C%EF%BC%89"><span class="toc-text">面试题 17.09. 第 k 个数（哈希）</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#123-%E4%B9%B0%E5%8D%96%E8%82%A1%E7%A5%A8%E7%9A%84%E6%9C%80%E4%BD%B3%E6%97%B6%E6%9C%BA-III%EF%BC%88DP%EF%BC%89"><span class="toc-text">123. 买卖股票的最佳时机 III（DP）</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#1340-%E8%B7%B3%E8%B7%83%E6%B8%B8%E6%88%8F-V"><span class="toc-text">1340. 跳跃游戏 V</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#462-%E6%9C%80%E5%B0%91%E7%A7%BB%E5%8A%A8%E6%AC%A1%E6%95%B0%E4%BD%BF%E6%95%B0%E7%BB%84%E5%85%83%E7%B4%A0%E7%9B%B8%E7%AD%89-II"><span class="toc-text">462. 最少移动次数使数组元素相等 II</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#218-%E5%A4%A9%E9%99%85%E7%BA%BF%E9%97%AE%E9%A2%98"><span class="toc-text">218. 天际线问题</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#42-%E6%8E%A5%E9%9B%A8%E6%B0%B4"><span class="toc-text">42. 接雨水</span></a></li></ol>
-            </div>
-          </div>
-         -->
-          <!-- Table of Contents -->
-        
-          <div id="toc" class="toc-article">
-            <strong class="toc-title">目录</strong>
-            <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#423-%E4%BB%8E%E8%8B%B1%E6%96%87%E4%B8%AD%E9%87%8D%E5%BB%BA%E6%95%B0%E5%AD%97-%E6%A8%A1%E6%8B%9F"><span class="toc-text">423. 从英文中重建数字(模拟)</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#458-%E5%8F%AF%E6%80%9C%E7%9A%84%E5%B0%8F%E7%8C%AA%EF%BC%88%E6%99%BA%E5%8A%9B%EF%BC%89"><span class="toc-text">458. 可怜的小猪（智力）</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#1349-%E5%8F%82%E5%8A%A0%E8%80%83%E8%AF%95%E7%9A%84%E6%9C%80%E5%A4%A7%E5%AD%A6%E7%94%9F%E6%95%B0%EF%BC%88%E7%8A%B6%E6%80%81%E5%8E%8B%E7%BC%A9DP%EF%BC%89"><span class="toc-text">1349. 参加考试的最大学生数（状态压缩DP）</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#67-%E4%BA%8C%E8%BF%9B%E5%88%B6%E6%B1%82%E5%92%8C-%E6%95%B0%E5%AD%A6"><span class="toc-text">67. 二进制求和(数学)</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#1005-K-%E6%AC%A1%E5%8F%96%E5%8F%8D%E5%90%8E%E6%9C%80%E5%A4%A7%E5%8C%96%E7%9A%84%E6%95%B0%E7%BB%84%E5%92%8C%EF%BC%88%E8%B4%AA%E5%BF%83%EF%BC%89"><span class="toc-text">1005. K 次取反后最大化的数组和（贪心）</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#435-%E6%97%A0%E9%87%8D%E5%8F%A0%E5%8C%BA%E9%97%B4%EF%BC%88%E8%B4%AA%E5%BF%83%EF%BC%89"><span class="toc-text">435. 无重叠区间（贪心）</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E9%9D%A2%E8%AF%95%E9%A2%98-17-09-%E7%AC%AC-k-%E4%B8%AA%E6%95%B0%EF%BC%88%E5%93%88%E5%B8%8C%EF%BC%89"><span class="toc-text">面试题 17.09. 第 k 个数（哈希）</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#123-%E4%B9%B0%E5%8D%96%E8%82%A1%E7%A5%A8%E7%9A%84%E6%9C%80%E4%BD%B3%E6%97%B6%E6%9C%BA-III%EF%BC%88DP%EF%BC%89"><span class="toc-text">123. 买卖股票的最佳时机 III（DP）</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#1340-%E8%B7%B3%E8%B7%83%E6%B8%B8%E6%88%8F-V"><span class="toc-text">1340. 跳跃游戏 V</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#462-%E6%9C%80%E5%B0%91%E7%A7%BB%E5%8A%A8%E6%AC%A1%E6%95%B0%E4%BD%BF%E6%95%B0%E7%BB%84%E5%85%83%E7%B4%A0%E7%9B%B8%E7%AD%89-II"><span class="toc-text">462. 最少移动次数使数组元素相等 II</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#218-%E5%A4%A9%E9%99%85%E7%BA%BF%E9%97%AE%E9%A2%98"><span class="toc-text">218. 天际线问题</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#42-%E6%8E%A5%E9%9B%A8%E6%B0%B4"><span class="toc-text">42. 接雨水</span></a></li></ol>
-          </div>
-        
-        <!--Table of Contents end -->
-        
-
-
-
-
-        <p>[toc]</p>
-<h1 id="423-从英文中重建数字-模拟"><a href="#423-从英文中重建数字-模拟" class="headerlink" title="423. 从英文中重建数字(模拟)"></a>423. 从英文中重建数字(模拟)</h1><hr>
-<p>给你一个字符串 <code>s</code> ，其中包含字母顺序打乱的用英文单词表示的若干数字（<code>0-9</code>）。按 <strong>升序</strong> 返回原始的数字。</p>
-<p><strong>示例一：</strong></p>
-<figure class="highlight java"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">输入：s = <span class="string">"owoztneoer"</span></span><br><span class="line">输出：<span class="string">"012"</span></span><br></pre></td></tr></tbody></table></figure>
-
-<p><strong>思路：</strong></p>
-<p>模拟<br>题目要求我们将打乱的英文单词重建为数字。</p>
-<p>我们可以先对 s 进行词频统计，然后根据「英文单词中的字符唯一性」确定构建的顺序，最后再对答案进行排序即可。</p>
-<p>具体的，zero 中的 z 在其余所有单词中都没出现过，我们可以先统计 zero 的出现次数，并构建 00；然后观察剩余数字，其中 eight 中的 g 具有唯一性，构建 88；再发现 six 中的 x 具有唯一性，构建 66；发现 three 中的 h 具有唯一性（利用在此之前 eight 已经被删除干净，词频中仅存在 three 对应的 h)，构建 33 …</p>
-<p>最终可以确定一个可行的构建序列为 0, 8, 6, 3, 2, 7, 5, 9, 4, 1</p>
-<p><strong>代码：</strong></p>
-<figure class="highlight c++"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> {</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> String <span class="title">originalDigits</span><span class="params">(String s)</span> </span>{</span><br><span class="line">        <span class="keyword">int</span> []priority={ <span class="number">0</span>, <span class="number">8</span>, <span class="number">6</span>, <span class="number">3</span>, <span class="number">2</span>, <span class="number">7</span>, <span class="number">5</span>, <span class="number">9</span>, <span class="number">4</span>, <span class="number">1</span>};</span><br><span class="line">        String[] number = {<span class="string">"zero"</span>,<span class="string">"one"</span>,<span class="string">"two"</span>,<span class="string">"three"</span>,<span class="string">"four"</span>,<span class="string">"five"</span>,<span class="string">"six"</span>,<span class="string">"seven"</span>,<span class="string">"eight"</span>,<span class="string">"nine"</span>};</span><br><span class="line">        <span class="keyword">int</span> []res = <span class="keyword">new</span> <span class="keyword">int</span>[<span class="number">10</span>];</span><br><span class="line">        <span class="keyword">int</span> []num = <span class="keyword">new</span> <span class="keyword">int</span>[<span class="number">27</span>];</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">0</span>;i&lt;s.<span class="built_in">length</span>();i++){</span><br><span class="line">            num[(<span class="keyword">int</span>)(s.<span class="built_in">charAt</span>(i)-<span class="string">'a'</span>)+<span class="number">1</span>] ++;</span><br><span class="line">        }</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> item:priority){</span><br><span class="line">            <span class="keyword">int</span> min = num[(<span class="keyword">int</span>)(number[item].<span class="built_in">charAt</span>(<span class="number">0</span>)-<span class="string">'a'</span>)+<span class="number">1</span>];</span><br><span class="line">            <span class="keyword">for</span>(<span class="keyword">char</span> op:number[item].<span class="built_in">toCharArray</span>()){</span><br><span class="line">                min = Math.<span class="built_in">min</span>(min,num[(<span class="keyword">int</span>)(op-<span class="string">'a'</span>)+<span class="number">1</span>]);</span><br><span class="line">            }</span><br><span class="line">            <span class="keyword">if</span>(min==<span class="number">0</span>) <span class="keyword">continue</span>;</span><br><span class="line">            res[item] = min;</span><br><span class="line">            <span class="keyword">for</span>(<span class="keyword">char</span> op:number[item].<span class="built_in">toCharArray</span>()){</span><br><span class="line">                num[(<span class="keyword">int</span>)(op-<span class="string">'a'</span>)+<span class="number">1</span>] -=min;</span><br><span class="line">            }</span><br><span class="line"></span><br><span class="line">        }</span><br><span class="line">        StringBuffer ans = <span class="keyword">new</span> <span class="built_in">StringBuffer</span>();</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">0</span>;i&lt;res.length;i++){</span><br><span class="line">            <span class="keyword">if</span>(res[i]!=<span class="number">0</span>){</span><br><span class="line">                <span class="keyword">while</span>(res[i]!=<span class="number">0</span>){</span><br><span class="line">                    ans.<span class="built_in">append</span>((<span class="keyword">char</span>)(<span class="string">'0'</span>+i));</span><br><span class="line">                    res[i]--;</span><br><span class="line">                }</span><br><span class="line">            }</span><br><span class="line">        }</span><br><span class="line">        <span class="keyword">return</span> ans.<span class="built_in">toString</span>();</span><br><span class="line">    }</span><br><span class="line">}</span><br></pre></td></tr></tbody></table></figure>
-
-
-
-<h1 id="458-可怜的小猪（智力）"><a href="#458-可怜的小猪（智力）" class="headerlink" title="458. 可怜的小猪（智力）"></a>458. 可怜的小猪（智力）</h1><hr>
-<p>有 buckets 桶液体，其中 正好 有一桶含有毒药，其余装的都是水。它们从外观看起来都一样。为了弄清楚哪只水桶含有毒药，你可以喂一些猪喝，通过观察猪是否会死进行判断。不幸的是，你只有 minutesToTest 分钟时间来确定哪桶液体是有毒的。</p>
-<p>喂猪的规则如下：</p>
-<ul>
-<li><p>选择若干活猪进行喂养</p>
-</li>
-<li><p>可以允许小猪同时饮用任意数量的桶中的水，并且该过程不需要时间。</p>
-</li>
-<li><p>小猪喝完水后，必须有 minutesToDie 分钟的冷却时间。在这段时间里，你只能观察，而不允许继续喂猪。</p>
-</li>
-<li><p>过了 minutesToDie 分钟后，所有喝到毒药的猪都会死去，其他所有猪都会活下来。</p>
-</li>
-<li><p>重复这一过程，直到时间用完。</p>
-</li>
-</ul>
-<p>给你桶的数目 buckets ，minutesToDie 和 minutesToTest ，返回在规定时间内判断哪个桶有毒所需的 <strong>最小</strong> 猪数。</p>
-<p><strong>示例一：</strong></p>
-<figure class="highlight java"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">输入：buckets = <span class="number">1000</span>, minutesToDie = <span class="number">15</span>, minutesToTest = <span class="number">60</span></span><br><span class="line">输出：<span class="number">5</span></span><br></pre></td></tr></tbody></table></figure>
-
-<p><strong>示例二：</strong></p>
-<figure class="highlight java"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">输入：buckets = <span class="number">4</span>, minutesToDie = <span class="number">15</span>, minutesToTest = <span class="number">15</span></span><br><span class="line">输出：<span class="number">2</span></span><br></pre></td></tr></tbody></table></figure>
-
-<p><strong>示例二：</strong></p>
-<figure class="highlight java"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">输入：buckets = <span class="number">4</span>, minutesToDie = <span class="number">15</span>, minutesToTest = <span class="number">30</span></span><br><span class="line">输出：<span class="number">2</span></span><br></pre></td></tr></tbody></table></figure>
-
-<p><strong>思路：</strong></p>
-<ul>
-<li><p>我们用实验对象来代指题干的小动物。同时为了方便，我们使用 n代指有多少桶水，d 为实验对象的反应时间，t 为测试总时间。</p>
-<p>根据题意，最大测试次数为 <code>k  =t / d </code>.我们可以先考虑 k = 1<em>k</em>=1 的情况，最简单的情况是，我们使用与水同等数量的实验对象数量来进行测试.</p>
-</li>
-<li><p><strong>为减少实验对象数量，我们需要增大每个实验对象承载的信息量（让每个实验对象同时测试多桶水），然后从最终所有实验对象的状态（是否有所反应）来反推哪一桶水有问题。</strong></p>
-</li>
-<li><p>当 **只有一次测试机会<code>k=1</code>**，使用二进制的方式测试哪桶水有问题，我们至少需要 <code>m </code>个实验对象（其中 <code>m</code> 为 <code>n</code> 的二进制表示的长度），然后让编号为 <code>x</code> <code>（0 &lt;= x &lt;m）</code>的实验对象喝掉二进制表示中第 <code>x</code> 位为 1 的水。最终这 <code>m</code>个实验对象会对应一个结果序列</p>
-<ul>
-<li><p>如果编号 <code>x1</code> 的实验对象没有反应，说明有问题的水的二进制表示中第<code>x1 </code>位为0 </p>
-</li>
-<li><p>如果编号<code>x2</code>  的实验对象有反应，则说明有问题的水的二进制表示中第 <code>x2</code>位为1  。即根据最终每个实验对象的状态，我们可以完整地反推回有问题的水的编号是多少</p>
-</li>
-</ul>
-</li>
-<li><p>当 <strong><code>k&gt;1</code></strong> 时，相当于在原问题基础上，多考虑一层「轮数」维度，即不仅考虑某个实验对象是否有所反应，还需要考虑是在哪一轮有所反应。</p>
-</li>
-</ul>
-<p><strong>具体算法：</strong></p>
-<ul>
-<li><p>先使用 <code>k+1</code> 进制对所有水进行编号，此时每桶水都有唯一的进制表示编码。</p>
-</li>
-<li><p>计算所需的最小的位数<code>m</code></p>
-</li>
-</ul>
-<img src="https://gitee.com/mymengchuang/blog_img/raw/master/image-20211125213943593.png" alt="image-20211125213943593" style="zoom:80%;">
-
-<figure class="highlight java"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> </span>{</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">poorPigs</span><span class="params">(<span class="keyword">int</span> buckets, <span class="keyword">int</span> minutesToDie, <span class="keyword">int</span> minutesToTest)</span> </span>{</span><br><span class="line">        <span class="keyword">int</span> k = minutesToTest/minutesToDie;</span><br><span class="line">        <span class="keyword">return</span> (<span class="keyword">int</span>)Math.ceil(Math.log(buckets)/Math.log(k+<span class="number">1</span>));</span><br><span class="line">    }</span><br><span class="line">}</span><br></pre></td></tr></tbody></table></figure>
-
-
-
-<h1 id="1349-参加考试的最大学生数（状态压缩DP）"><a href="#1349-参加考试的最大学生数（状态压缩DP）" class="headerlink" title="1349. 参加考试的最大学生数（状态压缩DP）"></a>1349. 参加考试的最大学生数（状态压缩DP）</h1><p>给你一个 <code>m * n</code> 的矩阵 <code>seats</code> 表示教室中的座位分布。如果座位是坏的（不可用），就用 <code>'#'</code> 表示；否则，用 <code>'.'</code> 表示。</p>
-<p>学生可以看到左侧、右侧、左上、右上这四个方向上紧邻他的学生的答卷，但是看不到直接坐在他前面或者后面的学生的答卷。请你计算并返回该考场可以容纳的一起参加考试且无法作弊的最大学生人数。</p>
-<p>学生必须坐在状况良好的座位上。</p>
-<p><strong>示例一：</strong></p>
-<figure class="highlight java"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">输入：seats = [[<span class="string">"#"</span>,<span class="string">"."</span>,<span class="string">"#"</span>,<span class="string">"#"</span>,<span class="string">"."</span>,<span class="string">"#"</span>],</span><br><span class="line">&nbsp;             [<span class="string">"."</span>,<span class="string">"#"</span>,<span class="string">"#"</span>,<span class="string">"#"</span>,<span class="string">"#"</span>,<span class="string">"."</span>],</span><br><span class="line">&nbsp;             [<span class="string">"#"</span>,<span class="string">"."</span>,<span class="string">"#"</span>,<span class="string">"#"</span>,<span class="string">"."</span>,<span class="string">"#"</span>]]</span><br><span class="line">输出：<span class="number">4</span></span><br><span class="line">解释：教师可以让 <span class="number">4</span> 个学生坐在可用的座位上，这样他们就无法在考试中作弊。 </span><br><span class="line"></span><br></pre></td></tr></tbody></table></figure>
-
-<p><strong>示例二：</strong></p>
-<figure class="highlight java"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">输入：seats = [[<span class="string">"."</span>,<span class="string">"#"</span>],</span><br><span class="line">&nbsp;             [<span class="string">"#"</span>,<span class="string">"#"</span>],</span><br><span class="line">&nbsp;             [<span class="string">"#"</span>,<span class="string">"."</span>],</span><br><span class="line">&nbsp;             [<span class="string">"#"</span>,<span class="string">"#"</span>],</span><br><span class="line">&nbsp;             [<span class="string">"."</span>,<span class="string">"#"</span>]]</span><br><span class="line">输出：<span class="number">3</span></span><br><span class="line">解释：让所有学生坐在可用的座位上。</span><br></pre></td></tr></tbody></table></figure>
-
-<p><strong>思路：</strong></p>
-<ul>
-<li><p>有没有做位置用0 1来表示</p>
-</li>
-<li><p>$dp[i,j]$代表第<code>i</code>行的座位分布为<code>j</code>时前<code>i</code>行所有坐法集合中的最大值</p>
-</li>
-<li><p>是否符合条件，进行位运算判断</p>
-</li>
-<li><p>划分依据：倒数第二行是什么状态$dp[i-1,k]$ 其中$0 &lt;=k&lt; 1&lt;&lt;8$  </p>
-</li>
-</ul>
-<p><strong>代码</strong>：</p>
-<figure class="highlight java"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> </span>{</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">maxStudents</span><span class="params">(<span class="keyword">char</span>[][] seats)</span> </span>{</span><br><span class="line">        <span class="keyword">int</span> Len =seats.length;</span><br><span class="line">        <span class="keyword">int</span> len = seats[<span class="number">0</span>].length;</span><br><span class="line">        <span class="comment">//the binary of seats</span></span><br><span class="line">        <span class="keyword">int</span> [] check = <span class="keyword">new</span> <span class="keyword">int</span> [Len];</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">0</span>;i&lt;Len;i++){</span><br><span class="line">            <span class="keyword">int</span> sum = <span class="number">0</span>;</span><br><span class="line">            <span class="keyword">for</span>(<span class="keyword">int</span> j=<span class="number">0</span>;j&lt;len;j++){</span><br><span class="line">                <span class="keyword">int</span> flag = <span class="number">0</span>;</span><br><span class="line">                <span class="keyword">if</span>(seats[i][j]==<span class="string">'.'</span>) flag =<span class="number">1</span>;</span><br><span class="line">                <span class="keyword">else</span> flag=<span class="number">0</span>;</span><br><span class="line">                sum = ((sum&lt;&lt;<span class="number">1</span>) +flag);</span><br><span class="line">            }</span><br><span class="line">            check[i] = sum;</span><br><span class="line">        }</span><br><span class="line">        <span class="comment">//用于判断是否存在左右座位</span></span><br><span class="line">        <span class="keyword">int</span> [] leftOrright=  <span class="keyword">new</span> <span class="keyword">int</span> [(<span class="number">1</span>&lt;&lt;len)];</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">0</span>;i&lt;(<span class="number">1</span>&lt;&lt;len);i++){</span><br><span class="line">            <span class="keyword">int</span> item= i;</span><br><span class="line">            <span class="keyword">int</span> front = <span class="number">0</span>;</span><br><span class="line">            <span class="keyword">while</span>(item!=<span class="number">0</span>){</span><br><span class="line">                <span class="keyword">if</span>((item&amp;<span class="number">1</span>)==<span class="number">1</span>) {</span><br><span class="line">                    <span class="keyword">if</span>(front==<span class="number">0</span>) front = <span class="number">1</span>;</span><br><span class="line">                    <span class="keyword">else</span> {</span><br><span class="line">                        leftOrright[i] = <span class="number">1</span>;</span><br><span class="line">                        <span class="keyword">break</span>;</span><br><span class="line">                    }</span><br><span class="line">                }</span><br><span class="line">                <span class="keyword">else</span> {</span><br><span class="line">                    front = <span class="number">0</span>;</span><br><span class="line">                }</span><br><span class="line">                item = (item &gt;&gt;<span class="number">1</span>);</span><br><span class="line">            }</span><br><span class="line">        }</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line">        <span class="keyword">int</span> [][]dp = <span class="keyword">new</span> <span class="keyword">int</span> [Len][(<span class="number">1</span>&lt;&lt;len)];</span><br><span class="line">        <span class="comment">//inital dp[0][k]</span></span><br><span class="line">        <span class="keyword">int</span> []count =<span class="keyword">new</span> <span class="keyword">int</span> [<span class="number">1</span>&lt;&lt;len];</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">0</span>;i&lt;(<span class="number">1</span>&lt;&lt;len);i++){</span><br><span class="line">            <span class="keyword">int</span> item= i;</span><br><span class="line">            <span class="keyword">int</span> S = <span class="number">0</span>;</span><br><span class="line">            <span class="keyword">while</span>(item!=<span class="number">0</span>){</span><br><span class="line">                <span class="keyword">if</span>((item&amp;<span class="number">1</span>)==<span class="number">1</span>)S+=<span class="number">1</span>;</span><br><span class="line">                item = (item &gt;&gt;<span class="number">1</span>);</span><br><span class="line">            }</span><br><span class="line">            count[i] = S;</span><br><span class="line">            <span class="keyword">if</span>((check[<span class="number">0</span>]|i) ==check[<span class="number">0</span>] &amp;&amp; leftOrright[i] ==<span class="number">0</span>){</span><br><span class="line">                dp[<span class="number">0</span>][i] = S;</span><br><span class="line">            }</span><br><span class="line">        }</span><br><span class="line">        <span class="comment">//print for check</span></span><br><span class="line">        <span class="keyword">int</span> maxtest  =<span class="number">0</span>;</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">0</span>;i&lt;(<span class="number">1</span>&lt;&lt;len);i++)</span><br><span class="line">            maxtest = Math.max(dp[<span class="number">0</span>][i],maxtest);</span><br><span class="line">        System.out.println(maxtest);</span><br><span class="line">        System.out.println(check[<span class="number">0</span>]);</span><br><span class="line">        System.out.println();</span><br><span class="line">        </span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">1</span>;i&lt;Len;i++){</span><br><span class="line">            <span class="comment">//inital dp[i][k]</span></span><br><span class="line">            <span class="comment">// for(int ii=0;ii&lt;(1&lt;&lt;len);ii++){</span></span><br><span class="line">            <span class="comment">//     if((check[i]|ii) ==check[i]){</span></span><br><span class="line">            <span class="comment">//         dp[i][ii] = count[ii];</span></span><br><span class="line">            <span class="comment">//     }</span></span><br><span class="line">            <span class="comment">//     else dp[i][ii] = 0;</span></span><br><span class="line">            <span class="comment">// }</span></span><br><span class="line">            <span class="comment">//</span></span><br><span class="line">            <span class="keyword">for</span>(<span class="keyword">int</span> j=<span class="number">0</span>;j&lt;(<span class="number">1</span>&lt;&lt;len);j++){</span><br><span class="line">                <span class="keyword">if</span>((j|check[i])==check[i] &amp;&amp; leftOrright[j] ==<span class="number">0</span>)</span><br><span class="line">                    <span class="keyword">for</span>(<span class="keyword">int</span> k=<span class="number">0</span>;k&lt;(<span class="number">1</span>&lt;&lt;len);k++){</span><br><span class="line">                        <span class="keyword">if</span>(((j&lt;&lt;<span class="number">1</span>)&amp;k)==<span class="number">0</span>&amp;&amp;((j&gt;&gt;<span class="number">1</span>)&amp;k)==<span class="number">0</span>)</span><br><span class="line">                             dp[i][j] = Math.max(dp[i][j],dp[i-<span class="number">1</span>][k]+count[j]);</span><br><span class="line">                    }</span><br><span class="line">            }</span><br><span class="line">            </span><br><span class="line">        }</span><br><span class="line"></span><br><span class="line">        <span class="keyword">int</span> res = <span class="number">0</span>;</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">0</span>;i&lt;(<span class="number">1</span>&lt;&lt;len);i++)</span><br><span class="line">            res = Math.max(res,dp[Len-<span class="number">1</span>][i]);</span><br><span class="line">        <span class="keyword">return</span> res;</span><br><span class="line">    }</span><br><span class="line">}</span><br></pre></td></tr></tbody></table></figure>
-
-<h1 id="67-二进制求和-数学"><a href="#67-二进制求和-数学" class="headerlink" title="67. 二进制求和(数学)"></a>67. 二进制求和(数学)</h1><p>给你两个二进制字符串，返回它们的和（用二进制表示）。</p>
-<p>输入为 <strong>非空</strong> 字符串且只包含数字 <code>1</code> 和 <code>0</code>。</p>
-<p><strong>示例：</strong></p>
-<figure class="highlight java"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">输入: a = <span class="string">"1010"</span>, b = <span class="string">"1011"</span></span><br><span class="line">输出: <span class="string">"10101"</span></span><br></pre></td></tr></tbody></table></figure>
-
-<p><strong>思路一：</strong></p>
-<ul>
-<li>利用<code>Java</code>的高精度运算</li>
-</ul>
-<figure class="highlight java"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> </span>{</span><br><span class="line">    <span class="function"><span class="keyword">public</span> String <span class="title">addBinary</span><span class="params">(String a, String b)</span> </span>{</span><br><span class="line">        <span class="keyword">return</span> Integer.toBinaryString(</span><br><span class="line">            Integer.parseInt(a, <span class="number">2</span>) + Integer.parseInt(b, <span class="number">2</span>)</span><br><span class="line">        );</span><br><span class="line">    }</span><br><span class="line">}</span><br></pre></td></tr></tbody></table></figure>
-
-<p><strong>思路二：</strong></p>
-<ul>
-<li><p>二进制位运算，在超前进位加法器中学到的</p>
-</li>
-<li><p>计算当前 x<em>x</em> 和 y<em>y</em> 的无进位相加结果：<code>answer = x ^ y</code></p>
-</li>
-<li><p>计算当前 x<em>x</em> 和 y<em>y</em> 的进位：<code>carry = (x &amp; y) &lt;&lt; 1</code></p>
-</li>
-</ul>
-<h1 id="1005-K-次取反后最大化的数组和（贪心）"><a href="#1005-K-次取反后最大化的数组和（贪心）" class="headerlink" title="1005. K 次取反后最大化的数组和（贪心）"></a>1005. K 次取反后最大化的数组和（贪心）</h1><hr>
-<p>给你一个整数数组 <code>nums</code> 和一个整数 <code>k</code> ，按以下方法修改该数组：</p>
-<ul>
-<li>选择某个下标 <code>i</code> 并将 <code>nums[i]</code> 替换为 <code>-nums[i]</code> 。</li>
-</ul>
-<p>重复这个过程恰好 <code>k</code> 次。可以多次选择同一个下标 <code>i</code> 。</p>
-<p>以这种方式修改数组后，返回数组 <strong>可能的最大和</strong> </p>
-<p><strong>示例一：</strong></p>
-<figure class="highlight java"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">输入：nums = [<span class="number">4</span>,<span class="number">2</span>,<span class="number">3</span>], k = <span class="number">1</span></span><br><span class="line">输出：<span class="number">5</span></span><br><span class="line">解释：选择下标 <span class="number">1</span> ，nums 变为 [<span class="number">4</span>,-<span class="number">2</span>,<span class="number">3</span>] 。</span><br></pre></td></tr></tbody></table></figure>
-
-<p><strong>示例二：</strong></p>
-<figure class="highlight java"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">输入：nums = [<span class="number">3</span>,-<span class="number">1</span>,<span class="number">0</span>,<span class="number">2</span>], k = <span class="number">3</span></span><br><span class="line">输出：<span class="number">6</span></span><br><span class="line">解释：选择下标 (<span class="number">1</span>, <span class="number">2</span>, <span class="number">2</span>) ，nums 变为 [<span class="number">3</span>,<span class="number">1</span>,<span class="number">0</span>,<span class="number">2</span>] </span><br></pre></td></tr></tbody></table></figure>
-
-<p><strong>思路：</strong></p>
-<ul>
-<li>每次都调整最小的值</li>
-</ul>
-<figure class="highlight java"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> </span>{</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">largestSumAfterKNegations</span><span class="params">(<span class="keyword">int</span>[] nums, <span class="keyword">int</span> k)</span> </span>{</span><br><span class="line">        <span class="keyword">int</span> sum = <span class="number">0</span>;</span><br><span class="line">        Queue&lt;Integer&gt; queue = <span class="keyword">new</span> PriorityQueue&lt;&gt;();</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">0</span>;i&lt;nums.length;i++){</span><br><span class="line">            sum+=nums[i];</span><br><span class="line">            queue.offer(nums[i]);</span><br><span class="line">            System.out.println(nums[i]);</span><br><span class="line">        }</span><br><span class="line">        System.out.println(<span class="string">"---------"</span>);</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">0</span>;i&lt;k;i++){</span><br><span class="line">            <span class="keyword">int</span> v  = queue.poll();</span><br><span class="line">            v = - v;</span><br><span class="line">            queue.offer(v);</span><br><span class="line">            System.out.println(v);</span><br><span class="line">        }</span><br><span class="line">        sum = <span class="number">0</span>;</span><br><span class="line">        System.out.println(<span class="string">"-----------------"</span>);</span><br><span class="line">        <span class="keyword">int</span> len = queue.size();</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">0</span>;i&lt;len;i++){</span><br><span class="line">            <span class="keyword">int</span> v = queue.poll();</span><br><span class="line">            sum += v;</span><br><span class="line"></span><br><span class="line">            System.out.println(v);</span><br><span class="line">        }</span><br><span class="line"></span><br><span class="line">        <span class="keyword">return</span> sum;</span><br><span class="line">    }</span><br><span class="line">}</span><br><span class="line"></span><br><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * [3,-1,0,2]</span></span><br><span class="line"><span class="comment"> * [3,2,0,-1]</span></span><br><span class="line"><span class="comment"> * </span></span><br><span class="line"><span class="comment"> * k = 3</span></span><br><span class="line"><span class="comment"> * </span></span><br><span class="line"><span class="comment"> */</span></span><br></pre></td></tr></tbody></table></figure>
-
-
-
-
-
-<h1 id="435-无重叠区间（贪心）"><a href="#435-无重叠区间（贪心）" class="headerlink" title="435. 无重叠区间（贪心）"></a>435. 无重叠区间（贪心）</h1><hr>
-<p>给定一个区间的集合，找到需要移除区间的最小数量，使剩余区间互不重叠。</p>
-<p><strong>注意:</strong></p>
-<ol>
-<li>可以认为区间的终点总是大于它的起点。</li>
-<li>区间 [1,2] 和 [2,3] 的边界相互“接触”，但没有相互重叠。</li>
-</ol>
-<p><strong>示例一：</strong></p>
-<figure class="highlight java"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">输入: [ [<span class="number">1</span>,<span class="number">2</span>], [<span class="number">2</span>,<span class="number">3</span>], [<span class="number">3</span>,<span class="number">4</span>], [<span class="number">1</span>,<span class="number">3</span>] ]</span><br><span class="line"></span><br><span class="line">输出: <span class="number">1</span></span><br><span class="line"></span><br><span class="line">解释: 移除 [<span class="number">1</span>,<span class="number">3</span>] 后，剩下的区间没有重叠。</span><br></pre></td></tr></tbody></table></figure>
-
-<p><strong>示例二：</strong></p>
-<figure class="highlight java"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">输入: [ [<span class="number">1</span>,<span class="number">2</span>], [<span class="number">1</span>,<span class="number">2</span>], [<span class="number">1</span>,<span class="number">2</span>] ]</span><br><span class="line"></span><br><span class="line">输出: <span class="number">2</span></span><br><span class="line"></span><br><span class="line">解释: 你需要移除两个 [<span class="number">1</span>,<span class="number">2</span>] 来使剩下的区间没有重叠。</span><br></pre></td></tr></tbody></table></figure>
-
-<p><strong>思路：</strong></p>
-<ul>
-<li>优先按照坐标<code>y</code> 进行排序，任何在按照<code>x</code>进行排序</li>
-</ul>
-<figure class="highlight java"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">Queue&lt;node&gt; queue = <span class="keyword">new</span> PriorityQueue&lt;&gt;((a,b)-&gt;{</span><br><span class="line">    <span class="keyword">return</span> a.y==b.y?(a.x-b.x):(a.y-b.y);}</span><br><span class="line">    );</span><br></pre></td></tr></tbody></table></figure>
-
-<figure class="highlight java"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> </span>{</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">eraseOverlapIntervals</span><span class="params">(<span class="keyword">int</span>[][] intervals)</span> </span>{</span><br><span class="line">        Queue&lt;node&gt; queue = <span class="keyword">new</span> PriorityQueue&lt;&gt;((a,b)-&gt;{</span><br><span class="line">            <span class="keyword">return</span> a.y==b.y?(a.x-b.x):(a.y-b.y);}</span><br><span class="line">            );</span><br><span class="line">        </span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">0</span>;i&lt;intervals.length;i++){</span><br><span class="line">            queue.offer(<span class="keyword">new</span> node(intervals[i][<span class="number">0</span>],intervals[i][<span class="number">1</span>]));</span><br><span class="line">        }</span><br><span class="line">        <span class="keyword">int</span> min = Integer.MIN_VALUE;</span><br><span class="line">        <span class="keyword">int</span> res=  <span class="number">0</span>;</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">0</span>;i&lt;intervals.length;i++){</span><br><span class="line">            node temp = queue.poll();</span><br><span class="line">            <span class="keyword">if</span>( temp.x&lt; min){</span><br><span class="line">                res++;</span><br><span class="line">                <span class="keyword">continue</span>;</span><br><span class="line"></span><br><span class="line">            }</span><br><span class="line">            </span><br><span class="line">            min = Math.max(min,temp.y);</span><br><span class="line">        }</span><br><span class="line">        <span class="comment">// System.out.println("hello");</span></span><br><span class="line"></span><br><span class="line">        <span class="keyword">return</span> res;</span><br><span class="line">    }</span><br><span class="line"></span><br><span class="line">}</span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">node</span></span>{</span><br><span class="line">    <span class="keyword">int</span> x = <span class="number">0</span>;</span><br><span class="line">    <span class="keyword">int</span> y = <span class="number">0</span>;</span><br><span class="line">    node(<span class="keyword">int</span> x,<span class="keyword">int</span> y){</span><br><span class="line">        <span class="keyword">this</span>.x = x;</span><br><span class="line">        <span class="keyword">this</span>.y = y;</span><br><span class="line">    }</span><br><span class="line">}</span><br></pre></td></tr></tbody></table></figure>
-
-
-
-<h1 id="面试题-17-09-第-k-个数（哈希）"><a href="#面试题-17-09-第-k-个数（哈希）" class="headerlink" title="面试题 17.09. 第 k 个数（哈希）"></a>面试题 17.09. 第 k 个数（哈希）</h1><hr>
-<p>有些数的素因子只有 3，5，7，请设计一个算法找出第 k 个数。注意，不是必须有这些素因子，而是必须不包含其他的素因子。例如，前几个数按顺序应该是 1，3，5，7，9，15，21。</p>
-<p><strong>示例一：</strong></p>
-<figure class="highlight java"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">输入: k = <span class="number">5</span></span><br><span class="line"></span><br><span class="line">输出: <span class="number">9</span></span><br></pre></td></tr></tbody></table></figure>
-
-
-
-<ul>
-<li>Long类型转化为int类型 <code>int b  = a.intValue()</code></li>
-</ul>
-<p><strong>代码：</strong></p>
-<figure class="highlight java"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> </span>{</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">getKthMagicNumber</span><span class="params">(<span class="keyword">int</span> k)</span> </span>{</span><br><span class="line">        Queue&lt;Long&gt; queue=  <span class="keyword">new</span> PriorityQueue&lt;&gt;();</span><br><span class="line">        queue.offer(<span class="number">1L</span>);</span><br><span class="line">        Map&lt;Long,Integer&gt; map = <span class="keyword">new</span> HashMap&lt;&gt;();</span><br><span class="line">        map.put(<span class="number">1L</span>,<span class="number">1</span>);</span><br><span class="line">        Long item=<span class="number">0L</span>;</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">0</span>;i&lt;k;i++){</span><br><span class="line">            item = queue.poll();</span><br><span class="line">            System.out.println(item);</span><br><span class="line">            <span class="keyword">if</span>(map.getOrDefault(item*<span class="number">3L</span>,-<span class="number">1</span>)==-<span class="number">1</span>) {</span><br><span class="line">                queue.offer(item*<span class="number">3L</span>);</span><br><span class="line">                map.put(item*<span class="number">3L</span>,<span class="number">1</span>);</span><br><span class="line">            }</span><br><span class="line">            <span class="keyword">if</span>(map.getOrDefault(item*<span class="number">5L</span>,-<span class="number">1</span>)==-<span class="number">1</span>) {</span><br><span class="line">                queue.offer(item*<span class="number">5L</span>);</span><br><span class="line">                map.put(item*<span class="number">5L</span>,<span class="number">1</span>);</span><br><span class="line">            }</span><br><span class="line">            <span class="keyword">if</span>(map.getOrDefault(item*<span class="number">7L</span>,-<span class="number">1</span>)==-<span class="number">1</span>) {</span><br><span class="line">                queue.offer(item*<span class="number">7L</span>);</span><br><span class="line">                map.put(item*<span class="number">7L</span>,<span class="number">1</span>);</span><br><span class="line">            }</span><br><span class="line">        }</span><br><span class="line">        <span class="keyword">return</span> item.intValue();</span><br><span class="line">    }</span><br><span class="line">}</span><br></pre></td></tr></tbody></table></figure>
-
-
-
-<h1 id="123-买卖股票的最佳时机-III（DP）"><a href="#123-买卖股票的最佳时机-III（DP）" class="headerlink" title="123. 买卖股票的最佳时机 III（DP）"></a>123. 买卖股票的最佳时机 III（DP）</h1><hr>
-<p>给定一个数组，它的第 <code>i</code> 个元素是一支给定的股票在第 <code>i</code> 天的价格。</p>
-<p>设计一个算法来计算你所能获取的最大利润。你最多可以完成 <strong>两笔</strong> 交易</p>
-<p><strong>注意：</strong>你不能同时参与多笔交易（你必须在再次购买前出售掉之前的股票）。</p>
-<p><strong>示例一：</strong></p>
-<figure class="highlight java"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">输入：prices = [<span class="number">3</span>,<span class="number">3</span>,<span class="number">5</span>,<span class="number">0</span>,<span class="number">0</span>,<span class="number">3</span>,<span class="number">1</span>,<span class="number">4</span>]</span><br><span class="line">输出：<span class="number">6</span></span><br><span class="line">解释：在第 <span class="number">4</span> 天（股票价格 = <span class="number">0</span>）的时候买入，在第 <span class="number">6</span> 天（股票价格 = <span class="number">3</span>）的时候卖出，这笔交易所能获得利润 = <span class="number">3</span>-<span class="number">0</span> = <span class="number">3</span> 。</span><br><span class="line">&nbsp;    随后，在第 <span class="number">7</span> 天（股票价格 = <span class="number">1</span>）的时候买入，在第 <span class="number">8</span> 天 （股票价格 = <span class="number">4</span>）的时候卖出，这笔交易所能获得利润 = <span class="number">4</span>-<span class="number">1</span> = <span class="number">3</span> </span><br></pre></td></tr></tbody></table></figure>
-
-<p><strong>示例二：</strong></p>
-<figure class="highlight java"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">输入：prices = [<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>,<span class="number">4</span>,<span class="number">5</span>]</span><br><span class="line">输出：<span class="number">4</span></span><br><span class="line">解释：在第 <span class="number">1</span> 天（股票价格 = <span class="number">1</span>）的时候买入，在第 <span class="number">5</span> 天 （股票价格 = <span class="number">5</span>）的时候卖出, 这笔交易所能获得利润 = <span class="number">5</span>-<span class="number">1</span> = <span class="number">4</span> 。 &nbsp; </span><br><span class="line">&nbsp;    注意你不能在第 <span class="number">1</span> 天和第 <span class="number">2</span> 天接连购买股票，之后再将它们卖出。 &nbsp; </span><br><span class="line">&nbsp;    因为这样属于同时参与了多笔交易，你必须在再次购买前出售掉之前的股票。</span><br></pre></td></tr></tbody></table></figure>
-
-<p><strong>思考</strong></p>
-<ul>
-<li>想不到如何表示表达式应该是什么呢</li>
-<li>似乎可以思考<code>dfs</code>遍历所有的可能性，然后记忆化保存？</li>
-</ul>
-<p><strong>思路</strong></p>
-<ul>
-<li>第i天的情况一共有5种，第<code>i</code>天时的最大收益是需要分情况讨论的</li>
-<li><code>dp[i][0]</code>第i天结束优化什么都没干的收益一直为0</li>
-<li><code>dp[i][1]</code>第i天结束时，买入一次还没卖出的最大收益</li>
-<li><code>dp[i][2]</code>第i天结束时，买入一次卖出一次的最大收益</li>
-<li><code>dp[i][3]</code> 第i天结束时，买入两次，卖出一次，第二次还没卖出的最大收益</li>
-<li>·<code>dp[i][4]</code>第i天结束时，买入两次，卖出两次的最大收益</li>
-</ul>
-<p><strong>递推关系式</strong></p>
-<ul>
-<li><code>dp[i][1]=max(dp[i-1][1],-price[i])</code></li>
-<li><code>dp[i][2] = max(dp[i-1][1]+price[i],dp[i-1][2])</code></li>
-<li><code>dp[i][3] = max(dp[i-1][2]-price[i],dp[i-3][3])</code></li>
-<li><code>dp[i][4] = max(dp[i-1][4],dp[i-1][3]+price(i))</code> </li>
-</ul>
-<p><strong>注意：</strong></p>
-<ul>
-<li>初始化不仅仅要初始化<code>dp[0][1]=-prces[0]</code>,还要初始化<code>dp[0][3] = -prices[0]</code></li>
-</ul>
-<p><strong>代码：</strong></p>
-<figure class="highlight java"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> </span>{</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">maxProfit</span><span class="params">(<span class="keyword">int</span>[] prices)</span> </span>{</span><br><span class="line">        <span class="keyword">int</span> len = prices.length;</span><br><span class="line"></span><br><span class="line">        <span class="keyword">int</span> dp[][] = <span class="keyword">new</span> <span class="keyword">int</span> [len][<span class="number">5</span>];</span><br><span class="line">        dp[<span class="number">0</span>][<span class="number">1</span>] = -prices[<span class="number">0</span>];</span><br><span class="line">        dp[<span class="number">0</span>][<span class="number">3</span>] = -prices[<span class="number">0</span>];</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">1</span>;i&lt;len;i++){</span><br><span class="line">            dp[i][<span class="number">1</span>]=Math.max(dp[i-<span class="number">1</span>][<span class="number">1</span>],-prices[i]);</span><br><span class="line">            dp[i][<span class="number">2</span>] = Math.max(dp[i-<span class="number">1</span>][<span class="number">1</span>]+prices[i],dp[i-<span class="number">1</span>][<span class="number">2</span>]);</span><br><span class="line">            dp[i][<span class="number">3</span>] = Math.max(dp[i-<span class="number">1</span>][<span class="number">2</span>]-prices[i],dp[i-<span class="number">1</span>][<span class="number">3</span>]);</span><br><span class="line">            dp[i][<span class="number">4</span>] = Math.max(dp[i-<span class="number">1</span>][<span class="number">4</span>],dp[i-<span class="number">1</span>][<span class="number">3</span>]+prices[i]);</span><br><span class="line">            <span class="comment">// dp[i][4] = Math.max(dp[i][4],dp[i-1][1]+prices[i]); </span></span><br><span class="line">        }</span><br><span class="line">        <span class="comment">// int res = 0;</span></span><br><span class="line">        <span class="comment">// for(int i=0;i&lt;len;i++){</span></span><br><span class="line">        <span class="comment">//     res = Math.max(res,dp[i][4]);</span></span><br><span class="line">        <span class="comment">// }</span></span><br><span class="line">        <span class="keyword">return</span> dp[len-<span class="number">1</span>][<span class="number">4</span>];</span><br><span class="line">    }</span><br><span class="line">}</span><br><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment">第一笔交易和第二笔交易是有区别的</span></span><br><span class="line"><span class="comment">第二笔交易只要用贪心算法既可以--&gt;预处理</span></span><br><span class="line"><span class="comment"></span></span><br><span class="line"><span class="comment"> */</span></span><br></pre></td></tr></tbody></table></figure>
-
-<h1 id="1340-跳跃游戏-V"><a href="#1340-跳跃游戏-V" class="headerlink" title="1340. 跳跃游戏 V"></a>1340. 跳跃游戏 V</h1><hr>
-<h1 id="462-最少移动次数使数组元素相等-II"><a href="#462-最少移动次数使数组元素相等-II" class="headerlink" title="462. 最少移动次数使数组元素相等 II"></a>462. 最少移动次数使数组元素相等 II</h1><hr>
-<h1 id="218-天际线问题"><a href="#218-天际线问题" class="headerlink" title="218. 天际线问题"></a>218. 天际线问题</h1><hr>
-<h1 id="42-接雨水"><a href="#42-接雨水" class="headerlink" title="42. 接雨水"></a>42. 接雨水</h1><hr>
-
-      
-    </div>
-    
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E7%AE%97%E6%B3%95/" rel="tag">算法</a></li></ul>
-	</div>
-
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-      
-    
-  </div>
-  
-</article>
-
-
-
-
-
-
-
-  
-    <article id="post-算法集合" class="article article-type-post" itemscope itemprop="blogPost">
-  
-    <div class="article-meta">
-      <a href="/2021/11/22/%E7%AE%97%E6%B3%95%E9%9B%86%E5%90%88/" class="article-date">
-  	<time datetime="2021-11-21T16:00:00.000Z" itemprop="datePublished">2021-11-22</time>
-</a>
-    </div>
-  
-  <div class="article-inner">
-    
-      <input type="hidden" class="isFancy" />
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2021/11/22/%E7%AE%97%E6%B3%95%E9%9B%86%E5%90%88/">
-        算法集合
-        
-      </a>
-    </h1>
-  
-
-      </header>
-      
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <!--Table of Contents begin-->
-        <!-- 
-          <div id="toc" class="toc-article">
-            <strong class="toc-title">目录</strong>
-            <a class="js-toggle-toc" href="javascript:void(0)"></a>
-            <div class="toc-content">
-              <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#%E6%A0%BC%E9%9B%B7%E7%A0%81%E7%AE%97%E6%B3%95"><span class="toc-text">格雷码算法</span></a></li></ol>
-            </div>
-          </div>
-         -->
-          <!-- Table of Contents -->
-        
-          <div id="toc" class="toc-article">
-            <strong class="toc-title">目录</strong>
-            <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#%E6%A0%BC%E9%9B%B7%E7%A0%81%E7%AE%97%E6%B3%95"><span class="toc-text">格雷码算法</span></a></li></ol>
-          </div>
-        
-        <!--Table of Contents end -->
-        
-
-
-
-
-        <h1 id="格雷码算法"><a href="#格雷码算法" class="headerlink" title="格雷码算法"></a>格雷码算法</h1><hr>
-<p>要求生成 $[1,n]$的所有格雷码。</p>
-<p>生成整数n的格雷码为：$n 异或 n/2$</p>
-<figure class="highlight java"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Solution</span> </span>{</span><br><span class="line">    <span class="function"><span class="keyword">public</span> ArrayList&lt;Integer&gt; <span class="title">grayCode</span><span class="params">(<span class="keyword">int</span> n)</span> </span>{</span><br><span class="line">        ArrayList&lt;Integer&gt; result = <span class="keyword">new</span> ArrayList&lt;Integer&gt;();</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; (<span class="number">1</span> &lt;&lt; n); i++)</span><br><span class="line">            result.add(i ^ (i &gt;&gt; <span class="number">1</span>));</span><br><span class="line">        <span class="keyword">return</span> result;</span><br><span class="line">    }</span><br><span class="line">}</span><br></pre></td></tr></tbody></table></figure>
-
-
 
 
       

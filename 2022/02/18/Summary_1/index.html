@@ -1,0 +1,429 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <title>Summary_1 | 绘梨衣</title>
+
+  <!-- keywords -->
+  
+
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="[toc] 48. 旋转图像 给定一个 n × n 的二维矩阵 matrix 表示一个图像。请你将图像顺时针旋转 90 度。 你必须在** 原地** 旋转图像，这意味着你需要直接修改输入的二维矩阵。请不要 使用另一个矩阵来旋转图像。 示例一： 12输入：matrix &#x3D; [[1,2,3],[4,5,6],[7,8,9]]输出：[[7,4,1],[8,5,2],[9,6,3]]  思路：  从里向外">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Summary_1">
+<meta property="og:url" content="http://example.com/2022/02/18/Summary_1/index.html">
+<meta property="og:site_name" content="绘梨衣">
+<meta property="og:description" content="[toc] 48. 旋转图像 给定一个 n × n 的二维矩阵 matrix 表示一个图像。请你将图像顺时针旋转 90 度。 你必须在** 原地** 旋转图像，这意味着你需要直接修改输入的二维矩阵。请不要 使用另一个矩阵来旋转图像。 示例一： 12输入：matrix &#x3D; [[1,2,3],[4,5,6],[7,8,9]]输出：[[7,4,1],[8,5,2],[9,6,3]]  思路：  从里向外">
+<meta property="og:locale" content="en_US">
+<meta property="article:published_time" content="2022-02-18T11:32:02.000Z">
+<meta property="article:modified_time" content="2022-02-18T18:32:12.873Z">
+<meta property="article:author" content="绘梨衣">
+<meta property="article:tag" content="Summary">
+<meta name="twitter:card" content="summary">
+  
+  
+    <link rel="icon" href="/img/favicon.ico">
+  
+  
+<link rel="stylesheet" href="/css/style.css">
+
+  
+  
+
+  
+<script src="//cdn.bootcss.com/require.js/2.3.2/require.min.js"></script>
+
+  
+<script src="//cdn.bootcss.com/jquery/3.1.1/jquery.min.js"></script>
+
+
+  
+<meta name="generator" content="Hexo 5.4.0">
+<style>.github-emoji { position: relative; display: inline-block; width: 1.2em; min-height: 1.2em; overflow: hidden; vertical-align: top; color: transparent; }  .github-emoji > span { position: relative; z-index: 10; }  .github-emoji img, .github-emoji .fancybox { margin: 0 !important; padding: 0 !important; border: none !important; outline: none !important; text-decoration: none !important; user-select: none !important; cursor: auto !important; }  .github-emoji img { height: 1.2em !important; width: 1.2em !important; position: absolute !important; left: 50% !important; top: 50% !important; transform: translate(-50%, -50%) !important; user-select: none !important; cursor: auto !important; } .github-emoji-fallback { color: inherit; } .github-emoji-fallback img { opacity: 0 !important; }</style>
+<link rel="alternate" href="/atom.xml" title="绘梨衣" type="application/atom+xml">
+</head>
+<body>
+  <div id="container">
+    <div id="particles-js"></div>
+    <div class="left-col">
+    <div class="overlay"></div>
+<div class="intrude-less">
+	<header id="header" class="inner">
+		<a href="/" class="profilepic">
+			
+				<img lazy-src="/img/touxiang2.jpg" class="js-avatar">
+			
+		</a>
+
+		<hgroup>
+			<h1 class="header-author"><a href="/">绘梨衣</a></h1>
+		</hgroup>
+
+		
+
+		<div class="switch-area">
+			<div class="switch-wrap">
+				<section class="switch-part switch-part1">
+					<nav class="header-menu">
+						<ul>
+						
+							<li><a href="/">Home</a></li>
+				        
+							<li><a href="/archives">Archives</a></li>
+				        
+						</ul>
+					</nav>
+					<nav class="half-header-menu">
+						<a class="hide">Home</a>
+						<a>Tags</a>
+						<a>Links</a>
+						<a>About</a>
+					</nav>
+					<nav class="header-nav">
+						<div class="social">
+							
+								<a class="github" target="_blank" href="#" title="github">github</a>
+					        
+								<a class="mail" target="_blank" href="#" title="mail">mail</a>
+					        
+								<a class="rss" target="_blank" href="/atom.xml" title="rss">rss</a>
+					        
+								<a class="zhihu" target="_blank" href="#" title="zhihu">zhihu</a>
+					        
+						</div>
+						<!-- music -->
+						
+					</nav>
+				</section>
+				
+				
+				<section class="switch-part switch-part2">
+					<div class="widget tagcloud" id="js-tagcloud">
+						<a href="/tags/Leetcode/" style="font-size: 15px;">Leetcode</a> <a href="/tags/Summary/" style="font-size: 12.5px;">Summary</a> <a href="/tags/%E4%BF%A1%E6%81%AF%E8%AE%BA/" style="font-size: 10px;">信息论</a> <a href="/tags/%E5%8A%A8%E6%80%81%E8%A7%84%E5%88%92/" style="font-size: 10px;">动态规划</a> <a href="/tags/%E5%9B%BE%E8%AE%BA/" style="font-size: 10px;">图论</a> <a href="/tags/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F/" style="font-size: 10px;">操作系统</a> <a href="/tags/%E6%B0%B4%E5%A1%98%E9%87%87%E6%A0%B7/" style="font-size: 10px;">水塘采样</a> <a href="/tags/%E7%AE%97%E6%B3%95/" style="font-size: 20px;">算法</a> <a href="/tags/%E8%AE%A1%E5%88%92/" style="font-size: 10px;">计划</a> <a href="/tags/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BB%84%E6%88%90/" style="font-size: 12.5px;">计算机组成</a> <a href="/tags/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/" style="font-size: 17.5px;">计算机网络</a> <a href="/tags/%E8%AE%B8%E6%84%BF/" style="font-size: 10px;">许愿</a> <a href="/tags/%E9%9D%A2%E8%AF%95/" style="font-size: 10px;">面试</a> <a href="/tags/%E9%AB%98%E9%A2%91%E9%A2%98/" style="font-size: 10px;">高频题</a>
+					</div>
+				</section>
+				
+				
+				
+				<section class="switch-part switch-part3">
+					<div id="js-friends">
+					
+			          <a target="_blank" class="main-nav-link switch-friends-link" href="https://github.com/mengchuang123/">github</a>
+			        
+			        </div>
+				</section>
+				
+
+				
+				
+				<section class="switch-part switch-part4">
+				
+					<div id="js-aboutme">My study log.</div>
+				</section>
+				
+			</div>
+		</div>
+	</header>				
+</div>
+    </div>
+    <div class="mid-col">
+      <nav id="mobile-nav">
+  	<div class="overlay">
+  		<div class="slider-trigger"></div>
+  		<h1 class="header-author js-mobile-header hide"></h1>
+  	</div>
+	<div class="intrude-less">
+		<header id="header" class="inner">
+			<div class="profilepic">
+				<img lazy-src="/img/touxiang2.jpg" class="js-avatar">
+			</div>
+			<hgroup>
+			  <h1 class="header-author"></h1>
+			</hgroup>
+			
+			<nav class="header-menu">
+				<ul>
+				
+					<li><a href="/">Home</a></li>
+		        
+					<li><a href="/archives">Archives</a></li>
+		        
+		        <div class="clearfix"></div>
+				</ul>
+			</nav>
+			<nav class="header-nav">
+				<div class="social">
+					
+						<a class="github" target="_blank" href="#" title="github">github</a>
+			        
+						<a class="mail" target="_blank" href="#" title="mail">mail</a>
+			        
+						<a class="rss" target="_blank" href="/atom.xml" title="rss">rss</a>
+			        
+						<a class="zhihu" target="_blank" href="#" title="zhihu">zhihu</a>
+			        
+				</div>
+			</nav>
+		</header>				
+	</div>
+</nav>
+      <div class="body-wrap"><article id="post-Summary_1" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2022/02/18/Summary_1/" class="article-date">
+  	<time datetime="2022-02-18T11:32:02.000Z" itemprop="datePublished">2022-02-18</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      Summary_1
+      
+    </h1>
+  
+
+      </header>
+      
+      <div class="article-info article-info-post">
+        
+	<div class="article-tag tagcloud">
+		<ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Summary/" rel="tag">Summary</a></li></ul>
+	</div>
+
+        
+
+        
+        <div class="clearfix"></div>
+      </div>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <!--Table of Contents begin-->
+        <!-- 
+          <div id="toc" class="toc-article">
+            <strong class="toc-title">目录</strong>
+            <a class="js-toggle-toc" href="javascript:void(0)"></a>
+            <div class="toc-content">
+              <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#48-%E6%97%8B%E8%BD%AC%E5%9B%BE%E5%83%8F"><span class="toc-text">48. 旋转图像</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#200-%E5%B2%9B%E5%B1%BF%E6%95%B0%E9%87%8F"><span class="toc-text">200. 岛屿数量</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#463-%E5%B2%9B%E5%B1%BF%E7%9A%84%E5%91%A8%E9%95%BF"><span class="toc-text">463. 岛屿的周长</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#695-%E5%B2%9B%E5%B1%BF%E7%9A%84%E6%9C%80%E5%A4%A7%E9%9D%A2%E7%A7%AF"><span class="toc-text">695. 岛屿的最大面积</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#827-%E6%9C%80%E5%A4%A7%E4%BA%BA%E5%B7%A5%E5%B2%9B"><span class="toc-text">827. 最大人工岛</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#688-%E9%AA%91%E5%A3%AB%E5%9C%A8%E6%A3%8B%E7%9B%98%E4%B8%8A%E7%9A%84%E6%A6%82%E7%8E%87"><span class="toc-text">688. 骑士在棋盘上的概率</span></a></li></ol>
+            </div>
+          </div>
+         -->
+          <!-- Table of Contents -->
+        
+          <div id="toc" class="toc-article">
+            <strong class="toc-title">目录</strong>
+            <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#48-%E6%97%8B%E8%BD%AC%E5%9B%BE%E5%83%8F"><span class="toc-text">48. 旋转图像</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#200-%E5%B2%9B%E5%B1%BF%E6%95%B0%E9%87%8F"><span class="toc-text">200. 岛屿数量</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#463-%E5%B2%9B%E5%B1%BF%E7%9A%84%E5%91%A8%E9%95%BF"><span class="toc-text">463. 岛屿的周长</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#695-%E5%B2%9B%E5%B1%BF%E7%9A%84%E6%9C%80%E5%A4%A7%E9%9D%A2%E7%A7%AF"><span class="toc-text">695. 岛屿的最大面积</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#827-%E6%9C%80%E5%A4%A7%E4%BA%BA%E5%B7%A5%E5%B2%9B"><span class="toc-text">827. 最大人工岛</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#688-%E9%AA%91%E5%A3%AB%E5%9C%A8%E6%A3%8B%E7%9B%98%E4%B8%8A%E7%9A%84%E6%A6%82%E7%8E%87"><span class="toc-text">688. 骑士在棋盘上的概率</span></a></li></ol>
+          </div>
+        
+        <!--Table of Contents end -->
+        
+
+
+
+
+        <p>[toc]</p>
+<h1 id="48-旋转图像"><a href="#48-旋转图像" class="headerlink" title="48. 旋转图像"></a>48. 旋转图像</h1><hr>
+<p>给定一个 <em>n</em> × <em>n</em> 的二维矩阵 <code>matrix</code> 表示一个图像。请你将图像顺时针旋转 90 度。</p>
+<p>你必须在**<a target="_blank" rel="noopener" href="https://baike.baidu.com/item/%E5%8E%9F%E5%9C%B0%E7%AE%97%E6%B3%95"> 原地</a>** 旋转图像，这意味着你需要直接修改输入的二维矩阵。<strong>请不要</strong> 使用另一个矩阵来旋转图像。</p>
+<p><strong>示例一：</strong></p>
+<figure class="highlight java"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">输入：matrix = [[<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>],[<span class="number">4</span>,<span class="number">5</span>,<span class="number">6</span>],[<span class="number">7</span>,<span class="number">8</span>,<span class="number">9</span>]]</span><br><span class="line">输出：[[<span class="number">7</span>,<span class="number">4</span>,<span class="number">1</span>],[<span class="number">8</span>,<span class="number">5</span>,<span class="number">2</span>],[<span class="number">9</span>,<span class="number">6</span>,<span class="number">3</span>]]</span><br></pre></td></tr></tbody></table></figure>
+
+<p><strong>思路：</strong></p>
+<ul>
+<li>从里向外，一个壳一个壳拨开</li>
+<li>每一个壳都按照每四个进行一次交换来进行旋转</li>
+</ul>
+<p><strong>代码</strong></p>
+<figure class="highlight java"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> </span>{</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">rotate</span><span class="params">(<span class="keyword">int</span>[][] matrix)</span> </span>{</span><br><span class="line">        <span class="keyword">int</span> n = matrix.length;</span><br><span class="line">        <span class="keyword">int</span> size = n/<span class="number">2</span>;</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">0</span>;i&lt;size;i++){</span><br><span class="line">            <span class="keyword">int</span> len = n-<span class="number">2</span>*i-<span class="number">1</span>;</span><br><span class="line">            <span class="keyword">for</span>(<span class="keyword">int</span> j=<span class="number">0</span>;j&lt;len;j++){</span><br><span class="line">                <span class="keyword">int</span> temp = matrix[i][i+j];</span><br><span class="line">                matrix[i][i+j] = matrix[i+len-j][i];</span><br><span class="line">                matrix[i+len-j][i] = matrix[i+len][i+len-j];</span><br><span class="line">                matrix[i+len][i+len-j] = matrix[i+j][i+len];</span><br><span class="line">                matrix[i+j][i+len] = temp;</span><br><span class="line">            }</span><br><span class="line">        }</span><br><span class="line">        <span class="comment">// return ;</span></span><br><span class="line">    }</span><br><span class="line">}</span><br></pre></td></tr></tbody></table></figure>
+
+
+
+<h1 id="200-岛屿数量"><a href="#200-岛屿数量" class="headerlink" title="200. 岛屿数量"></a>200. 岛屿数量</h1><hr>
+<blockquote>
+<p> 用时 40min</p>
+</blockquote>
+<p>给你一个由 <code>'1'</code>（陆地）和 <code>'0'</code>（水）组成的的二维网格，请你计算网格中岛屿的数量。</p>
+<p>岛屿总是被水包围，并且每座岛屿只能由水平方向和/或竖直方向上相邻的陆地连接形成。</p>
+<p><strong>示例一:</strong></p>
+<figure class="highlight java"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">输入：grid = [</span><br><span class="line">  [<span class="string">"1"</span>,<span class="string">"1"</span>,<span class="string">"1"</span>,<span class="string">"1"</span>,<span class="string">"0"</span>],</span><br><span class="line">  [<span class="string">"1"</span>,<span class="string">"1"</span>,<span class="string">"0"</span>,<span class="string">"1"</span>,<span class="string">"0"</span>],</span><br><span class="line">  [<span class="string">"1"</span>,<span class="string">"1"</span>,<span class="string">"0"</span>,<span class="string">"0"</span>,<span class="string">"0"</span>],</span><br><span class="line">  [<span class="string">"0"</span>,<span class="string">"0"</span>,<span class="string">"0"</span>,<span class="string">"0"</span>,<span class="string">"0"</span>]</span><br><span class="line">]</span><br><span class="line">输出：<span class="number">1</span></span><br></pre></td></tr></tbody></table></figure>
+
+<p><strong>思路:</strong></p>
+<ul>
+<li><code>dfs</code>判断是否属于同一个岛屿</li>
+<li>需要遍历所有的岛屿,因此需要按照地图进行说有’1’的遍历</li>
+<li>相当于<code>dfs</code>外多一个循环</li>
+</ul>
+<p><strong>代码</strong></p>
+<figure class="highlight java"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> </span>{</span><br><span class="line">    <span class="keyword">int</span> row = <span class="number">0</span>;</span><br><span class="line">    <span class="keyword">int</span> col = <span class="number">0</span>;</span><br><span class="line">    <span class="keyword">int</span> sum = <span class="number">0</span>;</span><br><span class="line">    <span class="keyword">int</span> [][] visit;</span><br><span class="line">    Map&lt;Integer,Integer&gt; map ;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">numIslands</span><span class="params">(<span class="keyword">char</span>[][] grid)</span> </span>{</span><br><span class="line">        row = grid.length;</span><br><span class="line">        col = grid[<span class="number">0</span>].length;</span><br><span class="line">        <span class="keyword">int</span> res = <span class="number">0</span>;</span><br><span class="line">        visit = <span class="keyword">new</span> <span class="keyword">int</span>[row][col];</span><br><span class="line">        map = <span class="keyword">new</span> HashMap();</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">0</span>;i&lt;row;i++){</span><br><span class="line">            <span class="keyword">for</span>(<span class="keyword">int</span> j=<span class="number">0</span>;j&lt;col;j++){</span><br><span class="line">                <span class="keyword">if</span>(grid[i][j]==<span class="string">'1'</span>){</span><br><span class="line">                    map.put(getIndex(i,j),<span class="number">1</span>);</span><br><span class="line">                    sum++;</span><br><span class="line"></span><br><span class="line">                }</span><br><span class="line">            }</span><br><span class="line">        }</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> i:map.keySet()){</span><br><span class="line">            <span class="keyword">if</span>(map.get(i)==<span class="number">1</span>){</span><br><span class="line">                <span class="keyword">int</span> x=  i/col;</span><br><span class="line">                <span class="keyword">int</span> y = i - x*col;</span><br><span class="line">                dfs(x,y,grid);</span><br><span class="line">                res++;</span><br><span class="line">            }</span><br><span class="line">        }</span><br><span class="line">        <span class="keyword">return</span> res ;</span><br><span class="line">    }</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">getIndex</span><span class="params">(<span class="keyword">int</span> i,<span class="keyword">int</span> j)</span></span>{</span><br><span class="line">        <span class="keyword">return</span> i*col+j;</span><br><span class="line">    }</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">dfs</span><span class="params">(<span class="keyword">int</span> x,<span class="keyword">int</span> y,<span class="keyword">char</span> [][]grid)</span></span>{</span><br><span class="line">        <span class="keyword">if</span>(grid[x][y]==<span class="string">'0'</span>) <span class="keyword">return</span> ;</span><br><span class="line">        <span class="keyword">else</span>  sum--;</span><br><span class="line">        visit[x][y]=<span class="number">1</span>;</span><br><span class="line">        map.put(getIndex(x,y),<span class="number">0</span>);</span><br><span class="line">        <span class="keyword">if</span>(x+<span class="number">1</span>&lt;row&amp;&amp;grid[x+<span class="number">1</span>][y]==<span class="string">'1'</span>&amp;&amp;visit[x+<span class="number">1</span>][y]==<span class="number">0</span>) dfs(x+<span class="number">1</span>,y,grid);</span><br><span class="line">        <span class="keyword">if</span>(y+<span class="number">1</span>&lt;col&amp;&amp;grid[x][y+<span class="number">1</span>]==<span class="string">'1'</span>&amp;&amp;visit[x][y+<span class="number">1</span>]==<span class="number">0</span>) dfs(x,y+<span class="number">1</span>,grid);</span><br><span class="line">        <span class="keyword">if</span>(x-<span class="number">1</span>&gt;=<span class="number">0</span>&amp;&amp;grid[x-<span class="number">1</span>][y]==<span class="string">'1'</span>&amp;&amp;visit[x-<span class="number">1</span>][y]==<span class="number">0</span>) dfs(x-<span class="number">1</span>,y,grid);</span><br><span class="line">        <span class="keyword">if</span>(y-<span class="number">1</span>&gt;=<span class="number">0</span>&amp;&amp;grid[x][y-<span class="number">1</span>]==<span class="string">'1'</span>&amp;&amp;visit[x][y-<span class="number">1</span>]==<span class="number">0</span>) dfs(x,y-<span class="number">1</span>,grid);</span><br><span class="line">       </span><br><span class="line">    }</span><br><span class="line">}</span><br><span class="line"></span><br><span class="line"><span class="comment">/*</span></span><br><span class="line"><span class="comment">index = i*col+j;</span></span><br><span class="line"><span class="comment">i = index/col;</span></span><br><span class="line"><span class="comment">j = index -i*col;</span></span><br><span class="line"><span class="comment">*/</span></span><br></pre></td></tr></tbody></table></figure>
+
+
+
+<h1 id="463-岛屿的周长"><a href="#463-岛屿的周长" class="headerlink" title="463. 岛屿的周长"></a>463. 岛屿的周长</h1><hr>
+<blockquote>
+<p>用时15min</p>
+</blockquote>
+<p>给定一个 <code>row x col</code> 的二维网格地图 <code>grid</code> ，其中：<code>grid[i][j] = 1</code> 表示陆地， <code>grid[i][j] = 0</code> 表示水域。</p>
+<p>网格中的格子 <strong>水平和垂直</strong> 方向相连（对角线方向不相连）。整个网格被水完全包围，但其中恰好有一个岛屿（或者说，一个或多个表示陆地的格子相连组成的岛屿）。</p>
+<p><strong>示例1</strong></p>
+<figure class="highlight java"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">输入：grid = [[<span class="number">0</span>,<span class="number">1</span>,<span class="number">0</span>,<span class="number">0</span>],[<span class="number">1</span>,<span class="number">1</span>,<span class="number">1</span>,<span class="number">0</span>],[<span class="number">0</span>,<span class="number">1</span>,<span class="number">0</span>,<span class="number">0</span>],[<span class="number">1</span>,<span class="number">1</span>,<span class="number">0</span>,<span class="number">0</span>]]</span><br><span class="line">输出：<span class="number">16</span></span><br><span class="line">解释：它的周长是上面图片中的 <span class="number">16</span> 个黄色的边</span><br></pre></td></tr></tbody></table></figure>
+
+<p><strong>思路:</strong></p>
+<ul>
+<li>由于固定只有一个岛屿,因此找到随机一个岛屿进行<code>dfs</code>遍历即可</li>
+<li>遍历时注意添加<code>visit</code>判断</li>
+</ul>
+<p><strong>代码:</strong></p>
+<figure class="highlight java"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> </span>{</span><br><span class="line">    <span class="keyword">int</span> row=<span class="number">0</span>;</span><br><span class="line">    <span class="keyword">int</span> col=<span class="number">0</span>;</span><br><span class="line">    <span class="keyword">int</span> [][]visit;</span><br><span class="line">    <span class="keyword">int</span> res= <span class="number">0</span>;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">islandPerimeter</span><span class="params">(<span class="keyword">int</span>[][] grid)</span> </span>{</span><br><span class="line">        row = grid.length;</span><br><span class="line">        col = grid[<span class="number">0</span>].length;</span><br><span class="line">        visit = <span class="keyword">new</span> <span class="keyword">int</span>[row][col];</span><br><span class="line">        res = <span class="number">0</span>;</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">0</span>;i&lt;row;i++){</span><br><span class="line">            <span class="keyword">for</span>(<span class="keyword">int</span> j=<span class="number">0</span>;j&lt;col;j++){</span><br><span class="line">                <span class="keyword">if</span>(grid[i][j]==<span class="number">1</span>){</span><br><span class="line">                    dfs(i,j,grid);</span><br><span class="line">                    <span class="keyword">return</span> res;</span><br><span class="line">                }</span><br><span class="line"></span><br><span class="line">            }</span><br><span class="line">        }</span><br><span class="line">        <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">    }</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">dfs</span><span class="params">(<span class="keyword">int</span> x,<span class="keyword">int</span> y,<span class="keyword">int</span> [][]grid)</span></span>{</span><br><span class="line">        <span class="keyword">if</span>(grid[x][y]==<span class="number">0</span>)<span class="keyword">return</span> ;</span><br><span class="line">        <span class="keyword">else</span> visit[x][y]=<span class="number">1</span>;</span><br><span class="line">        </span><br><span class="line">        <span class="keyword">if</span>(y+<span class="number">1</span>&lt;col&amp;&amp;grid[x][y+<span class="number">1</span>]==<span class="number">1</span>&amp;&amp;visit[x][y+<span class="number">1</span>]==<span class="number">0</span>)dfs(x,y+<span class="number">1</span>,grid);</span><br><span class="line">        <span class="keyword">else</span> <span class="keyword">if</span>(y+<span class="number">1</span>&gt;=col||y+<span class="number">1</span>&lt;col&amp;&amp;grid[x][y+<span class="number">1</span>]==<span class="number">0</span>) res++;</span><br><span class="line">        <span class="keyword">if</span>(x+<span class="number">1</span>&lt;row&amp;&amp;grid[x+<span class="number">1</span>][y]==<span class="number">1</span>&amp;&amp;visit[x+<span class="number">1</span>][y]==<span class="number">0</span>)dfs(x+<span class="number">1</span>,y,grid);</span><br><span class="line">        <span class="keyword">else</span> <span class="keyword">if</span>(x+<span class="number">1</span>&gt;=row||x+<span class="number">1</span>&lt;row&amp;&amp;grid[x+<span class="number">1</span>][y]==<span class="number">0</span>) res++;</span><br><span class="line">        <span class="keyword">if</span>(x-<span class="number">1</span>&gt;=<span class="number">0</span>&amp;&amp;grid[x-<span class="number">1</span>][y]==<span class="number">1</span>&amp;&amp;visit[x-<span class="number">1</span>][y]==<span class="number">0</span>)dfs(x-<span class="number">1</span>,y,grid);</span><br><span class="line">        <span class="keyword">else</span> <span class="keyword">if</span>(x-<span class="number">1</span>&lt;<span class="number">0</span>||x-<span class="number">1</span>&gt;=<span class="number">0</span>&amp;&amp;grid[x-<span class="number">1</span>][y]==<span class="number">0</span>) res++;</span><br><span class="line">        <span class="keyword">if</span>(y-<span class="number">1</span>&gt;=<span class="number">0</span>&amp;&amp;grid[x][y-<span class="number">1</span>]==<span class="number">1</span>&amp;&amp;visit[x][y-<span class="number">1</span>]==<span class="number">0</span>)dfs(x,y-<span class="number">1</span>,grid);</span><br><span class="line">        <span class="keyword">else</span> <span class="keyword">if</span>(y-<span class="number">1</span>&lt;<span class="number">0</span>||y-<span class="number">1</span>&gt;=<span class="number">0</span>&amp;&amp;grid[x][y-<span class="number">1</span>]==<span class="number">0</span>) res++;</span><br><span class="line">        </span><br><span class="line">        <span class="keyword">return</span> ;</span><br><span class="line">    }</span><br><span class="line">}</span><br></pre></td></tr></tbody></table></figure>
+
+<h1 id="695-岛屿的最大面积"><a href="#695-岛屿的最大面积" class="headerlink" title="695. 岛屿的最大面积"></a>695. 岛屿的最大面积</h1><hr>
+<blockquote>
+<p>用时10min</p>
+</blockquote>
+<p>给你一个大小为 <code>m x n</code> 的二进制矩阵 <code>grid</code> 。</p>
+<p>岛屿 是由一些相邻的 1 (代表土地) 构成的组合，这里的「相邻」要求两个 1 必须在 水平或者竖直的四个方向上 相邻。你可以假设 grid 的四个边缘都被 0（代表水）包围着。</p>
+<p>岛屿的面积是岛上值为 <code>1</code> 的单元格的数目</p>
+<p><strong>示例一:</strong></p>
+<figure class="highlight java"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">输入：grid = [[<span class="number">0</span>,<span class="number">0</span>,<span class="number">1</span>,<span class="number">0</span>,<span class="number">0</span>,<span class="number">0</span>,<span class="number">0</span>,<span class="number">1</span>,<span class="number">0</span>,<span class="number">0</span>,<span class="number">0</span>,<span class="number">0</span>,<span class="number">0</span>],[<span class="number">0</span>,<span class="number">0</span>,<span class="number">0</span>,<span class="number">0</span>,<span class="number">0</span>,<span class="number">0</span>,<span class="number">0</span>,<span class="number">1</span>,<span class="number">1</span>,<span class="number">1</span>,<span class="number">0</span>,<span class="number">0</span>,<span class="number">0</span>],[<span class="number">0</span>,<span class="number">1</span>,<span class="number">1</span>,<span class="number">0</span>,<span class="number">1</span>,<span class="number">0</span>,<span class="number">0</span>,<span class="number">0</span>,<span class="number">0</span>,<span class="number">0</span>,<span class="number">0</span>,<span class="number">0</span>,<span class="number">0</span>],[<span class="number">0</span>,<span class="number">1</span>,<span class="number">0</span>,<span class="number">0</span>,<span class="number">1</span>,<span class="number">1</span>,<span class="number">0</span>,<span class="number">0</span>,<span class="number">1</span>,<span class="number">0</span>,<span class="number">1</span>,<span class="number">0</span>,<span class="number">0</span>],[<span class="number">0</span>,<span class="number">1</span>,<span class="number">0</span>,<span class="number">0</span>,<span class="number">1</span>,<span class="number">1</span>,<span class="number">0</span>,<span class="number">0</span>,<span class="number">1</span>,<span class="number">1</span>,<span class="number">1</span>,<span class="number">0</span>,<span class="number">0</span>],[<span class="number">0</span>,<span class="number">0</span>,<span class="number">0</span>,<span class="number">0</span>,<span class="number">0</span>,<span class="number">0</span>,<span class="number">0</span>,<span class="number">0</span>,<span class="number">0</span>,<span class="number">0</span>,<span class="number">1</span>,<span class="number">0</span>,<span class="number">0</span>],[<span class="number">0</span>,<span class="number">0</span>,<span class="number">0</span>,<span class="number">0</span>,<span class="number">0</span>,<span class="number">0</span>,<span class="number">0</span>,<span class="number">1</span>,<span class="number">1</span>,<span class="number">1</span>,<span class="number">0</span>,<span class="number">0</span>,<span class="number">0</span>],[<span class="number">0</span>,<span class="number">0</span>,<span class="number">0</span>,<span class="number">0</span>,<span class="number">0</span>,<span class="number">0</span>,<span class="number">0</span>,<span class="number">1</span>,<span class="number">1</span>,<span class="number">0</span>,<span class="number">0</span>,<span class="number">0</span>,<span class="number">0</span>]]</span><br><span class="line">输出：<span class="number">6</span></span><br><span class="line">解释：答案不应该是 <span class="number">11</span> ，因为岛屿只能包含水平或垂直这四个方向上的 <span class="number">1</span> 。</span><br></pre></td></tr></tbody></table></figure>
+
+<p><strong>思路:</strong></p>
+<ul>
+<li>全局进行深度优先搜索</li>
+<li>直接进行多重循环也行</li>
+<li>或者使用<code>map</code>先将是1的位置全部找出来,并利用<code>visit</code>进行剪枝</li>
+</ul>
+<p><strong>代码</strong></p>
+<figure class="highlight java"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> </span>{</span><br><span class="line">    <span class="keyword">int</span> row=<span class="number">0</span>;</span><br><span class="line">    <span class="keyword">int</span> col=<span class="number">0</span>;</span><br><span class="line">    <span class="keyword">int</span> [][]visit;</span><br><span class="line">    <span class="keyword">int</span> temp=<span class="number">0</span>;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">maxAreaOfIsland</span><span class="params">(<span class="keyword">int</span>[][] grid)</span> </span>{</span><br><span class="line">        row = grid.length;</span><br><span class="line">        col = grid[<span class="number">0</span>].length;</span><br><span class="line">        visit=  <span class="keyword">new</span> <span class="keyword">int</span> [row][col];</span><br><span class="line">        <span class="keyword">int</span> max= <span class="number">0</span>;</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">0</span>;i&lt;row;i++){</span><br><span class="line">            <span class="keyword">for</span>(<span class="keyword">int</span> j=<span class="number">0</span>;j&lt;col;j++){</span><br><span class="line">                temp = <span class="number">0</span>;</span><br><span class="line">                <span class="keyword">if</span>(grid[i][j]==<span class="number">0</span>|| visit[i][j]==<span class="number">1</span>) <span class="keyword">continue</span>;</span><br><span class="line">                <span class="keyword">else</span> {</span><br><span class="line">                    dfs(i,j,grid);</span><br><span class="line">                    max =Math.max(max,temp); </span><br><span class="line">                }</span><br><span class="line">            }</span><br><span class="line">        }</span><br><span class="line">        <span class="keyword">return</span> max;</span><br><span class="line">    }</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">dfs</span><span class="params">(<span class="keyword">int</span> x,<span class="keyword">int</span> y, <span class="keyword">int</span>[][]grid)</span></span>{</span><br><span class="line">        <span class="keyword">if</span>(grid[x][y]==<span class="number">0</span>||visit[x][y]==<span class="number">1</span>)<span class="keyword">return</span> ;</span><br><span class="line">        visit[x][y] = <span class="number">1</span>;</span><br><span class="line">        temp++;</span><br><span class="line">        <span class="keyword">if</span>(x+<span class="number">1</span>&lt;row&amp;&amp;grid[x+<span class="number">1</span>][y]==<span class="number">1</span>&amp;&amp;visit[x+<span class="number">1</span>][y]==<span class="number">0</span>) dfs(x+<span class="number">1</span>,y,grid);</span><br><span class="line">        <span class="keyword">if</span>(y+<span class="number">1</span>&lt;col&amp;&amp;grid[x][y+<span class="number">1</span>]==<span class="number">1</span>&amp;&amp;visit[x][y+<span class="number">1</span>]==<span class="number">0</span>) dfs(x,y+<span class="number">1</span>,grid);</span><br><span class="line">        <span class="keyword">if</span>(x-<span class="number">1</span>&gt;=<span class="number">0</span>&amp;&amp;grid[x-<span class="number">1</span>][y]==<span class="number">1</span>&amp;&amp;visit[x-<span class="number">1</span>][y]==<span class="number">0</span>) dfs(x-<span class="number">1</span>,y,grid);</span><br><span class="line">        <span class="keyword">if</span>(y-<span class="number">1</span>&gt;=<span class="number">0</span>&amp;&amp;grid[x][y-<span class="number">1</span>]==<span class="number">1</span>&amp;&amp;visit[x][y-<span class="number">1</span>]==<span class="number">0</span>) dfs(x,y-<span class="number">1</span>,grid);</span><br><span class="line">        <span class="keyword">return</span> ;</span><br><span class="line">    }</span><br><span class="line">}</span><br></pre></td></tr></tbody></table></figure>
+
+<h1 id="827-最大人工岛"><a href="#827-最大人工岛" class="headerlink" title="827. 最大人工岛"></a>827. 最大人工岛</h1><hr>
+<blockquote>
+<p>第一次不会做</p>
+</blockquote>
+<p>给你一个大小为 <code>n x n</code> 二进制矩阵 <code>grid</code> 。<strong>最多</strong> 只能将一格 <code>0</code> 变成 <code>1</code> 。</p>
+<p>返回执行此操作后，<code>grid</code> 中最大的岛屿面积是多少？</p>
+<p><strong>岛屿</strong> 由一组上、下、左、右四个方向相连的 <code>1</code> 形成。</p>
+<p> <strong>示例一:</strong></p>
+<figure class="highlight java"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">输入: grid = [[<span class="number">1</span>, <span class="number">0</span>], [<span class="number">0</span>, <span class="number">1</span>]]</span><br><span class="line">输出: <span class="number">3</span></span><br><span class="line">解释: 将一格<span class="number">0</span>变成<span class="number">1</span>，最终连通两个小岛得到面积为 <span class="number">3</span> 的岛屿。</span><br></pre></td></tr></tbody></table></figure>
+
+<p><strong>思路:</strong></p>
+<ul>
+<li>对于每个连通块，将所有格点赋值为 <code>index</code> 并记录他们的大小 <code>area[index] = dfs(...)</code></li>
+<li>然后对于每个 <code>0</code>，查看周围的邻居编号在 <code>seen</code> 并将这个区域的大小加入结果，改变 <code>seen</code> 的值。这就是当前节点的面积大小，在其中找到最大的。</li>
+<li>为了解决没有 <code>0</code> 的情况，我们只需要记录之前计算的最大面积并输出即可。</li>
+</ul>
+<p><strong>总结:</strong></p>
+<ul>
+<li>先全部统计所有连通块的面积大小,并为连通块进行编号</li>
+<li>遍历地图所有的0,判断0附近的连通块面积和的最大值是多少</li>
+</ul>
+<p><strong>代码:</strong></p>
+<figure class="highlight java"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> </span>{</span><br><span class="line">    <span class="keyword">int</span> n=<span class="number">0</span>;</span><br><span class="line">    <span class="keyword">int</span> [][]visit;</span><br><span class="line">    <span class="keyword">int</span> sum = <span class="number">0</span>;</span><br><span class="line">    <span class="keyword">int</span> temp = <span class="number">0</span>;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">largestIsland</span><span class="params">(<span class="keyword">int</span>[][] grid)</span> </span>{</span><br><span class="line">        n = grid.length;</span><br><span class="line">        visit = <span class="keyword">new</span> <span class="keyword">int</span> [n][n];</span><br><span class="line">        sum = <span class="number">1</span>;</span><br><span class="line">        <span class="keyword">int</span> max = <span class="number">0</span>;</span><br><span class="line">        Map&lt;Integer,Integer&gt; map = <span class="keyword">new</span> HashMap();</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">0</span>;i&lt;n;i++){</span><br><span class="line">            <span class="keyword">for</span>(<span class="keyword">int</span> j=<span class="number">0</span>;j&lt;n;j++){</span><br><span class="line">                temp = <span class="number">0</span>;</span><br><span class="line">                <span class="keyword">if</span>(grid[i][j]==<span class="number">1</span>&amp;&amp; visit[i][j]==<span class="number">0</span>){</span><br><span class="line">                    sum++;</span><br><span class="line">                    dfs(i,j,grid);</span><br><span class="line">                    max = Math.max(max,temp);</span><br><span class="line">                    map.put(sum,temp);</span><br><span class="line">                }</span><br><span class="line">            }</span><br><span class="line">        }</span><br><span class="line">        <span class="keyword">int</span> res = max;</span><br><span class="line">        <span class="keyword">if</span>(max!=n*n) res=  max+<span class="number">1</span>;</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">0</span>;i&lt;n;i++){</span><br><span class="line">            <span class="keyword">for</span>(<span class="keyword">int</span> j=<span class="number">0</span>;j&lt;n;j++){</span><br><span class="line">                <span class="keyword">if</span>(grid[i][j]==<span class="number">0</span>){</span><br><span class="line">                    <span class="keyword">int</span> []a = <span class="keyword">new</span> <span class="keyword">int</span> [<span class="number">4</span>];</span><br><span class="line">                    Map&lt;Integer,Integer&gt; teMap = <span class="keyword">new</span> HashMap();</span><br><span class="line">                    a[<span class="number">0</span>]=map.getOrDefault(i+<span class="number">1</span>&lt;n?grid[i+<span class="number">1</span>][j]:<span class="number">0</span>,<span class="number">0</span>);</span><br><span class="line">                    teMap.put(i+<span class="number">1</span>&lt;n?grid[i+<span class="number">1</span>][j]:<span class="number">0</span>,<span class="number">1</span>);</span><br><span class="line">                    <span class="keyword">if</span>(!teMap.containsKey(j+<span class="number">1</span>&lt;n?grid[i][j+<span class="number">1</span>]:<span class="number">0</span>)){</span><br><span class="line">                        a[<span class="number">1</span>]=map.getOrDefault(j+<span class="number">1</span>&lt;n?grid[i][j+<span class="number">1</span>]:<span class="number">0</span>,<span class="number">0</span>);</span><br><span class="line">                        teMap.put(j+<span class="number">1</span>&lt;n?grid[i][j+<span class="number">1</span>]:<span class="number">0</span>,<span class="number">1</span>);</span><br><span class="line">                    }</span><br><span class="line"></span><br><span class="line">                    <span class="keyword">if</span>(!teMap.containsKey(i-<span class="number">1</span>&gt;=<span class="number">0</span>?grid[i-<span class="number">1</span>][j]:<span class="number">0</span>)){</span><br><span class="line">                        a[<span class="number">2</span>]=map.getOrDefault(i-<span class="number">1</span>&gt;=<span class="number">0</span>?grid[i-<span class="number">1</span>][j]:<span class="number">0</span>,<span class="number">0</span>);</span><br><span class="line">                        teMap.put(i-<span class="number">1</span>&gt;=<span class="number">0</span>?grid[i-<span class="number">1</span>][j]:<span class="number">0</span>,<span class="number">1</span>);</span><br><span class="line">                    }</span><br><span class="line">                    <span class="keyword">if</span>(!teMap.containsKey(j-<span class="number">1</span>&gt;=<span class="number">0</span>?grid[i][j-<span class="number">1</span>]:<span class="number">0</span>))</span><br><span class="line">                        a[<span class="number">3</span>]=map.getOrDefault(j-<span class="number">1</span>&gt;=<span class="number">0</span>?grid[i][j-<span class="number">1</span>]:<span class="number">0</span>,<span class="number">0</span>);</span><br><span class="line">                    Arrays.sort(a);</span><br><span class="line">                    res = Math.max(res,a[<span class="number">0</span>]+a[<span class="number">1</span>]+a[<span class="number">2</span>]+a[<span class="number">3</span>]+<span class="number">1</span>);</span><br><span class="line">                    <span class="comment">//要避免同一个编号的值相加两次</span></span><br><span class="line"></span><br><span class="line">                }</span><br><span class="line">            }</span><br><span class="line">        }</span><br><span class="line"></span><br><span class="line">        <span class="keyword">return</span> res;</span><br><span class="line">    }</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">dfs</span><span class="params">(<span class="keyword">int</span> x,<span class="keyword">int</span> y,<span class="keyword">int</span> [][]grid)</span></span>{</span><br><span class="line">        <span class="keyword">if</span>(grid[x][y]!=<span class="number">1</span>||visit[x][y]==<span class="number">1</span>)<span class="keyword">return</span> ;</span><br><span class="line">        visit[x][y]=<span class="number">1</span>;</span><br><span class="line">        temp++;</span><br><span class="line">        grid[x][y] = sum;</span><br><span class="line">        <span class="comment">//&amp;&amp;grid[x+1][y]==1&amp;&amp;visit[x][y]==0</span></span><br><span class="line">        <span class="keyword">if</span>(x+<span class="number">1</span>&lt;n) dfs(x+<span class="number">1</span>,y,grid);</span><br><span class="line">        <span class="keyword">if</span>(y+<span class="number">1</span>&lt;n) dfs(x,y+<span class="number">1</span>,grid);</span><br><span class="line">        <span class="keyword">if</span>(y-<span class="number">1</span>&gt;=<span class="number">0</span>) dfs(x,y-<span class="number">1</span>,grid);</span><br><span class="line">        <span class="keyword">if</span>(x-<span class="number">1</span>&gt;=<span class="number">0</span>) dfs(x-<span class="number">1</span>,y,grid);</span><br><span class="line">        </span><br><span class="line">        <span class="keyword">return</span> ;</span><br><span class="line">    }</span><br><span class="line">}</span><br></pre></td></tr></tbody></table></figure>
+
+<h1 id="688-骑士在棋盘上的概率"><a href="#688-骑士在棋盘上的概率" class="headerlink" title="688. 骑士在棋盘上的概率"></a>688. 骑士在棋盘上的概率</h1><hr>
+<blockquote>
+<p>用时30分钟, 有思路,但是依然参考三叶的代码</p>
+</blockquote>
+<p>在一个 <code>n x n</code> 的国际象棋棋盘上，一个骑士从单元格 <code>(row, column)</code> 开始，并尝试进行 <code>k</code> 次移动。行和列是 <strong>从 0 开始</strong> 的，所以左上单元格是 <code>(0,0)</code> ，右下单元格是 <code>(n - 1, n - 1)</code> 。</p>
+<p>象棋骑士有8种可能的走法，如下图所示。每次移动在基本方向上是两个单元格，然后在正交方向上是一个单元格。</p>
+<p>每次骑士要移动时，它都会随机从8种可能的移动中选择一种(即使棋子会离开棋盘)，然后移动到那里。</p>
+<p>骑士继续移动，直到它走了 <code>k</code> 步或离开了棋盘</p>
+<p>返回 <em>骑士在棋盘停止移动后仍留在棋盘上的概率</em> 。</p>
+<p><strong>示例一:</strong></p>
+<figure class="highlight java"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">输入: n = <span class="number">3</span>, k = <span class="number">2</span>, row = <span class="number">0</span>, column = <span class="number">0</span></span><br><span class="line">输出: <span class="number">0.0625</span></span><br><span class="line">解释: 有两步(到(<span class="number">1</span>,<span class="number">2</span>)，(<span class="number">2</span>,<span class="number">1</span>))可以让骑士留在棋盘上。</span><br><span class="line">在每一个位置上，也有两种移动可以让骑士留在棋盘上。</span><br><span class="line">骑士留在棋盘上的总概率是<span class="number">0.0625</span>。</span><br></pre></td></tr></tbody></table></figure>
+
+<p><strong>示例二:</strong></p>
+<figure class="highlight java"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">输入: n = <span class="number">1</span>, k = <span class="number">0</span>, row = <span class="number">0</span>, column = <span class="number">0</span></span><br><span class="line">输出: <span class="number">1.00000</span></span><br></pre></td></tr></tbody></table></figure>
+
+<p><strong>思路:</strong></p>
+<ul>
+<li>其中一个难度在于想到采用<code>dp</code>的思路</li>
+<li>学习对于多路变换时,也就是棋盘时应该如何进行简化表示的方法</li>
+<li>采用数组表示,可以极度简化判断模式</li>
+</ul>
+<p><strong>代码:</strong></p>
+<figure class="highlight java"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> </span>{</span><br><span class="line">    <span class="keyword">int</span> [][] dir = <span class="keyword">new</span> <span class="keyword">int</span> [][]{{<span class="number">1</span>,<span class="number">2</span>},{-<span class="number">1</span>,<span class="number">2</span>},{<span class="number">1</span>,-<span class="number">2</span>},{-<span class="number">1</span>,-<span class="number">2</span>},{<span class="number">2</span>,<span class="number">1</span>},{<span class="number">2</span>,-<span class="number">1</span>},{-<span class="number">2</span>,-<span class="number">1</span>},{-<span class="number">2</span>,<span class="number">1</span>}};</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">double</span> <span class="title">knightProbability</span><span class="params">(<span class="keyword">int</span> n, <span class="keyword">int</span> p, <span class="keyword">int</span> row, <span class="keyword">int</span> column)</span> </span>{</span><br><span class="line">        <span class="keyword">double</span> [][][]dp=<span class="keyword">new</span> <span class="keyword">double</span> [n][n][p+<span class="number">1</span>];<span class="comment">//易错</span></span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">0</span>;i&lt;n;i++){</span><br><span class="line">            <span class="keyword">for</span>(<span class="keyword">int</span> j=<span class="number">0</span>;j&lt;n;j++)</span><br><span class="line">                dp[i][j][<span class="number">0</span>] = <span class="number">1</span>; </span><br><span class="line">        }</span><br><span class="line"></span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> k=<span class="number">1</span>;k&lt;=p;k++){</span><br><span class="line">            <span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">0</span>;i&lt;n;i++){</span><br><span class="line">                <span class="keyword">for</span>(<span class="keyword">int</span> j=<span class="number">0</span>;j&lt;n;j++){</span><br><span class="line">                    <span class="keyword">for</span>(<span class="keyword">int</span> []d:dir){</span><br><span class="line">                        <span class="keyword">int</span> nx = i+d[<span class="number">0</span>];</span><br><span class="line">                        <span class="keyword">int</span> ny = j+d[<span class="number">1</span>];</span><br><span class="line">                        <span class="keyword">if</span>(nx&gt;=<span class="number">0</span>&amp;&amp;nx&lt;n&amp;&amp;ny&gt;=<span class="number">0</span>&amp;&amp;ny&lt;n)</span><br><span class="line">                            dp[i][j][k] +=(dp[nx][ny][k-<span class="number">1</span>]/<span class="number">8</span>);</span><br><span class="line">                    }</span><br><span class="line">                }</span><br><span class="line">            }</span><br><span class="line">        }</span><br><span class="line">        <span class="keyword">return</span> dp[row][column][p];</span><br><span class="line">    }</span><br><span class="line">}</span><br></pre></td></tr></tbody></table></figure>
+
+
+      
+    </div>
+    
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/2022/02/19/Summary_2/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">&lt;</strong>
+      <div class="article-nav-title">
+        
+          Summary_2
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2022/01/17/Leetcode_%E9%AB%98%E9%A2%91/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">Leetcode_高频题</div>
+      <strong class="article-nav-caption">&gt;</strong>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+
+
+
+
+
+</div>
+      <footer id="footer">
+  <div class="outer">
+    <div id="footer-info">
+      <div class="footer-left">
+        &copy; 2022 绘梨衣
+      </div>
+        <div class="footer-right">
+          <a href="http://hexo.io/" target="_blank">Hexo</a>  Theme <a href="https://github.com/preccrep/hexo-theme-jelly" target="_blank">Jelly</a>
+        </div>
+    </div>
+  </div>
+</footer>
+    </div>
+    
+  
+<link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+
+
+
+<script>
+	var yiliaConfig = {
+		fancybox: true,
+		mathjax: false,
+		animate: true,
+		isHome: false,
+		isPost: true,
+		isArchive: false,
+		isTag: false,
+		isCategory: false,
+		open_in_new: false
+	}
+</script>
+
+<script src="/js/main.js"></script>
+
+
+
+
+  </div>
+</body>
+</html>
