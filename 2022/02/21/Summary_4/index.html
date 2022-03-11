@@ -1,0 +1,353 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <title>Summary_4 | 绘梨衣</title>
+
+  <!-- keywords -->
+  
+
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="[toc] 838. 推多米诺  不会做，有思路做不出来  n 张多米诺骨牌排成一行，将每张多米诺骨牌垂直竖立。在开始时，同时把一些多米诺骨牌向左或向右推。 每过一秒，倒向左边的多米诺骨牌会推动其左侧相邻的多米诺骨牌。同样地，倒向右边的多米诺骨牌也会推动竖立在其右侧的相邻多米诺骨牌。 如果一张垂直竖立的多米诺骨牌的两侧同时有多米诺骨牌倒下时，由于受力平衡， 该骨牌仍然保持不变。 就这个问题而言，我">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Summary_4">
+<meta property="og:url" content="http://example.com/2022/02/21/Summary_4/index.html">
+<meta property="og:site_name" content="绘梨衣">
+<meta property="og:description" content="[toc] 838. 推多米诺  不会做，有思路做不出来  n 张多米诺骨牌排成一行，将每张多米诺骨牌垂直竖立。在开始时，同时把一些多米诺骨牌向左或向右推。 每过一秒，倒向左边的多米诺骨牌会推动其左侧相邻的多米诺骨牌。同样地，倒向右边的多米诺骨牌也会推动竖立在其右侧的相邻多米诺骨牌。 如果一张垂直竖立的多米诺骨牌的两侧同时有多米诺骨牌倒下时，由于受力平衡， 该骨牌仍然保持不变。 就这个问题而言，我">
+<meta property="og:locale" content="en_US">
+<meta property="article:published_time" content="2022-02-20T16:09:02.000Z">
+<meta property="article:modified_time" content="2022-02-21T14:22:02.008Z">
+<meta property="article:author" content="绘梨衣">
+<meta property="article:tag" content="Summary">
+<meta name="twitter:card" content="summary">
+  
+  
+    <link rel="icon" href="/img/favicon.ico">
+  
+  
+<link rel="stylesheet" href="/css/style.css">
+
+  
+  
+
+  
+<script src="//cdn.bootcss.com/require.js/2.3.2/require.min.js"></script>
+
+  
+<script src="//cdn.bootcss.com/jquery/3.1.1/jquery.min.js"></script>
+
+
+  
+<meta name="generator" content="Hexo 5.4.0">
+<style>.github-emoji { position: relative; display: inline-block; width: 1.2em; min-height: 1.2em; overflow: hidden; vertical-align: top; color: transparent; }  .github-emoji > span { position: relative; z-index: 10; }  .github-emoji img, .github-emoji .fancybox { margin: 0 !important; padding: 0 !important; border: none !important; outline: none !important; text-decoration: none !important; user-select: none !important; cursor: auto !important; }  .github-emoji img { height: 1.2em !important; width: 1.2em !important; position: absolute !important; left: 50% !important; top: 50% !important; transform: translate(-50%, -50%) !important; user-select: none !important; cursor: auto !important; } .github-emoji-fallback { color: inherit; } .github-emoji-fallback img { opacity: 0 !important; }</style>
+<link rel="alternate" href="/atom.xml" title="绘梨衣" type="application/atom+xml">
+</head>
+<body>
+  <div id="container">
+    <div id="particles-js"></div>
+    <div class="left-col">
+    <div class="overlay"></div>
+<div class="intrude-less">
+	<header id="header" class="inner">
+		<a href="/" class="profilepic">
+			
+				<img lazy-src="/img/touxiang2.jpg" class="js-avatar">
+			
+		</a>
+
+		<hgroup>
+			<h1 class="header-author"><a href="/">绘梨衣</a></h1>
+		</hgroup>
+
+		
+
+		<div class="switch-area">
+			<div class="switch-wrap">
+				<section class="switch-part switch-part1">
+					<nav class="header-menu">
+						<ul>
+						
+							<li><a href="/">Home</a></li>
+				        
+							<li><a href="/archives">Archives</a></li>
+				        
+						</ul>
+					</nav>
+					<nav class="half-header-menu">
+						<a class="hide">Home</a>
+						<a>Tags</a>
+						<a>Links</a>
+						<a>About</a>
+					</nav>
+					<nav class="header-nav">
+						<div class="social">
+							
+								<a class="github" target="_blank" href="#" title="github">github</a>
+					        
+								<a class="mail" target="_blank" href="#" title="mail">mail</a>
+					        
+								<a class="rss" target="_blank" href="/atom.xml" title="rss">rss</a>
+					        
+								<a class="zhihu" target="_blank" href="#" title="zhihu">zhihu</a>
+					        
+						</div>
+						<!-- music -->
+						
+					</nav>
+				</section>
+				
+				
+				<section class="switch-part switch-part2">
+					<div class="widget tagcloud" id="js-tagcloud">
+						<a href="/tags/Java/" style="font-size: 10px;">Java</a> <a href="/tags/Leetcode/" style="font-size: 14px;">Leetcode</a> <a href="/tags/Summary/" style="font-size: 16px;">Summary</a> <a href="/tags/%E4%BF%A1%E6%81%AF%E8%AE%BA/" style="font-size: 10px;">信息论</a> <a href="/tags/%E5%8A%A8%E6%80%81%E8%A7%84%E5%88%92/" style="font-size: 10px;">动态规划</a> <a href="/tags/%E5%9B%BE%E8%AE%BA/" style="font-size: 10px;">图论</a> <a href="/tags/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F/" style="font-size: 18px;">操作系统</a> <a href="/tags/%E6%95%B0%E6%8D%AE%E5%BA%93/" style="font-size: 10px;">数据库</a> <a href="/tags/%E6%B0%B4%E5%A1%98%E9%87%87%E6%A0%B7/" style="font-size: 10px;">水塘采样</a> <a href="/tags/%E7%AE%97%E6%B3%95/" style="font-size: 20px;">算法</a> <a href="/tags/%E7%BC%96%E8%AF%91/" style="font-size: 10px;">编译</a> <a href="/tags/%E8%AE%A1%E5%88%92/" style="font-size: 10px;">计划</a> <a href="/tags/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BB%84%E6%88%90/" style="font-size: 12px;">计算机组成</a> <a href="/tags/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/" style="font-size: 18px;">计算机网络</a> <a href="/tags/%E8%AE%B8%E6%84%BF/" style="font-size: 10px;">许愿</a> <a href="/tags/%E9%9D%A2%E8%AF%95/" style="font-size: 10px;">面试</a> <a href="/tags/%E9%AB%98%E9%A2%91%E9%A2%98/" style="font-size: 10px;">高频题</a>
+					</div>
+				</section>
+				
+				
+				
+				<section class="switch-part switch-part3">
+					<div id="js-friends">
+					
+			          <a target="_blank" class="main-nav-link switch-friends-link" href="https://github.com/mengchuang123/">github</a>
+			        
+			        </div>
+				</section>
+				
+
+				
+				
+				<section class="switch-part switch-part4">
+				
+					<div id="js-aboutme">My study log.</div>
+				</section>
+				
+			</div>
+		</div>
+	</header>				
+</div>
+    </div>
+    <div class="mid-col">
+      <nav id="mobile-nav">
+  	<div class="overlay">
+  		<div class="slider-trigger"></div>
+  		<h1 class="header-author js-mobile-header hide"></h1>
+  	</div>
+	<div class="intrude-less">
+		<header id="header" class="inner">
+			<div class="profilepic">
+				<img lazy-src="/img/touxiang2.jpg" class="js-avatar">
+			</div>
+			<hgroup>
+			  <h1 class="header-author"></h1>
+			</hgroup>
+			
+			<nav class="header-menu">
+				<ul>
+				
+					<li><a href="/">Home</a></li>
+		        
+					<li><a href="/archives">Archives</a></li>
+		        
+		        <div class="clearfix"></div>
+				</ul>
+			</nav>
+			<nav class="header-nav">
+				<div class="social">
+					
+						<a class="github" target="_blank" href="#" title="github">github</a>
+			        
+						<a class="mail" target="_blank" href="#" title="mail">mail</a>
+			        
+						<a class="rss" target="_blank" href="/atom.xml" title="rss">rss</a>
+			        
+						<a class="zhihu" target="_blank" href="#" title="zhihu">zhihu</a>
+			        
+				</div>
+			</nav>
+		</header>				
+	</div>
+</nav>
+      <div class="body-wrap"><article id="post-Summary_4" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2022/02/21/Summary_4/" class="article-date">
+  	<time datetime="2022-02-20T16:09:02.000Z" itemprop="datePublished">2022-02-21</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      Summary_4
+      
+    </h1>
+  
+
+      </header>
+      
+      <div class="article-info article-info-post">
+        
+	<div class="article-tag tagcloud">
+		<ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Summary/" rel="tag">Summary</a></li></ul>
+	</div>
+
+        
+
+        
+        <div class="clearfix"></div>
+      </div>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <!--Table of Contents begin-->
+        <!-- 
+          <div id="toc" class="toc-article">
+            <strong class="toc-title">目录</strong>
+            <a class="js-toggle-toc" href="javascript:void(0)"></a>
+            <div class="toc-content">
+              <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#838-%E6%8E%A8%E5%A4%9A%E7%B1%B3%E8%AF%BA"><span class="toc-text">838. 推多米诺</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#8-%E5%AD%97%E7%AC%A6%E4%B8%B2%E8%BD%AC%E6%8D%A2%E6%95%B4%E6%95%B0-atoi"><span class="toc-text">8. 字符串转换整数 (atoi)</span></a></li></ol>
+            </div>
+          </div>
+         -->
+          <!-- Table of Contents -->
+        
+          <div id="toc" class="toc-article">
+            <strong class="toc-title">目录</strong>
+            <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#838-%E6%8E%A8%E5%A4%9A%E7%B1%B3%E8%AF%BA"><span class="toc-text">838. 推多米诺</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#8-%E5%AD%97%E7%AC%A6%E4%B8%B2%E8%BD%AC%E6%8D%A2%E6%95%B4%E6%95%B0-atoi"><span class="toc-text">8. 字符串转换整数 (atoi)</span></a></li></ol>
+          </div>
+        
+        <!--Table of Contents end -->
+        
+
+
+
+
+        <p>[toc]</p>
+<h1 id="838-推多米诺"><a href="#838-推多米诺" class="headerlink" title="838. 推多米诺"></a>838. 推多米诺</h1><hr>
+<blockquote>
+<p>不会做，有思路做不出来</p>
+</blockquote>
+<p><code>n</code> 张多米诺骨牌排成一行，将每张多米诺骨牌垂直竖立。在开始时，同时把一些多米诺骨牌向左或向右推。</p>
+<p>每过一秒，倒向左边的多米诺骨牌会推动其左侧相邻的多米诺骨牌。同样地，倒向右边的多米诺骨牌也会推动竖立在其右侧的相邻多米诺骨牌。</p>
+<p>如果一张垂直竖立的多米诺骨牌的两侧同时有多米诺骨牌倒下时，由于受力平衡， 该骨牌仍然保持不变。</p>
+<p>就这个问题而言，我们会认为一张正在倒下的多米诺骨牌不会对其它正在倒下或已经倒下的多米诺骨牌施加额外的力。</p>
+<p>给你一个字符串 <code>dominoes</code> 表示这一行多米诺骨牌的初始状态，其中：</p>
+<ul>
+<li><code>dominoes[i] = 'L'</code>，表示第 <code>i</code> 张多米诺骨牌被推向左侧，</li>
+<li><code>dominoes[i] = 'R'</code>，表示第 <code>i</code> 张多米诺骨牌被推向右侧，</li>
+<li><code>dominoes[i] = '.'</code>，表示没有推动第 <code>i</code> 张多米诺骨牌。</li>
+</ul>
+<p><strong>示例一：</strong></p>
+<figure class="highlight java"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">输入：dominoes = <span class="string">"RR.L"</span></span><br><span class="line">输出：<span class="string">"RR.L"</span></span><br><span class="line">解释：第一张多米诺骨牌没有给第二张施加额外的力。</span><br></pre></td></tr></tbody></table></figure>
+
+<p><strong>示例二：</strong></p>
+<figure class="highlight java"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">输入：dominoes = <span class="string">".L.R...LR..L.."</span></span><br><span class="line">输出：<span class="string">"LL.RR.LLRRLL.."</span></span><br></pre></td></tr></tbody></table></figure>
+
+<p><strong>思路：</strong></p>
+<ul>
+<li><p>应该要想到宽度优先搜索,类似于多源BFS</p>
+<ul>
+<li><code>BFS</code>采用队列来处理，但是存入队列的东西应该与<code>DFS</code>的参数一样经过一定的设计</li>
+<li>在这道题中，传入队列的是一个<strong>三元组</strong> <code>（index,time,dir）</code></li>
+</ul>
+</li>
+<li><p>难度大，技巧多，很难</p>
+</li>
+</ul>
+<p><strong>代码：</strong></p>
+<figure class="highlight java"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> </span>{</span><br><span class="line">    <span class="function"><span class="keyword">public</span> String <span class="title">pushDominoes</span><span class="params">(String dominoes)</span> </span>{</span><br><span class="line">        <span class="keyword">int</span> len = dominoes.length();</span><br><span class="line">        <span class="keyword">char</span> [] op = dominoes.toCharArray();</span><br><span class="line">        Queue&lt;<span class="keyword">int</span>[]&gt; queue = <span class="keyword">new</span> LinkedList&lt;&gt;();</span><br><span class="line">        <span class="comment">// queue.offer(new int[]{1,2,3});</span></span><br><span class="line">        <span class="keyword">int</span> []visit = <span class="keyword">new</span> <span class="keyword">int</span>[len];</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">0</span>;i&lt;len;i++){</span><br><span class="line">            <span class="keyword">if</span>(op[i]==<span class="string">'R'</span>){</span><br><span class="line">                queue.offer(<span class="keyword">new</span> <span class="keyword">int</span>[]{i,<span class="number">1</span>,<span class="number">1</span>});</span><br><span class="line">                visit[i] = <span class="number">1</span>;</span><br><span class="line">            }</span><br><span class="line">            <span class="keyword">else</span> <span class="keyword">if</span>(op[i]==<span class="string">'L'</span>){</span><br><span class="line">                queue.offer(<span class="keyword">new</span> <span class="keyword">int</span>[]{i,<span class="number">1</span>,-<span class="number">1</span>});</span><br><span class="line">                visit[i] = <span class="number">1</span>;</span><br><span class="line">            }</span><br><span class="line">          </span><br><span class="line">        }</span><br><span class="line">        <span class="keyword">while</span>(!queue.isEmpty()){</span><br><span class="line">            <span class="keyword">int</span> [] temp = queue.poll();</span><br><span class="line">            <span class="keyword">int</span> index = temp[<span class="number">0</span>],time=temp[<span class="number">1</span>],dir = temp[<span class="number">2</span>];</span><br><span class="line">            <span class="keyword">int</span> newI = index+dir;</span><br><span class="line">            <span class="keyword">if</span>(index+dir&lt;<span class="number">0</span>||index+dir&gt;=len||op[index]==<span class="string">'.'</span>) <span class="keyword">continue</span>;</span><br><span class="line">            </span><br><span class="line">            <span class="keyword">if</span>(visit[newI]==<span class="number">0</span>){</span><br><span class="line">                queue.offer(<span class="keyword">new</span> <span class="keyword">int</span> []{newI,time+<span class="number">1</span>,dir});</span><br><span class="line">                visit[newI] = time+<span class="number">1</span>;</span><br><span class="line">                op[newI] = op[index];</span><br><span class="line">            }</span><br><span class="line">            <span class="keyword">else</span> <span class="keyword">if</span>(time+<span class="number">1</span>==visit[newI]){</span><br><span class="line">                op[newI] = <span class="string">'.'</span>;</span><br><span class="line">            }</span><br><span class="line">                  </span><br><span class="line">        }</span><br><span class="line">        <span class="keyword">return</span> String.valueOf(op);</span><br><span class="line"></span><br><span class="line">    }</span><br><span class="line">}</span><br></pre></td></tr></tbody></table></figure>
+
+<h1 id="8-字符串转换整数-atoi"><a href="#8-字符串转换整数-atoi" class="headerlink" title="8. 字符串转换整数 (atoi)"></a>8. 字符串转换整数 (atoi)</h1><hr>
+<blockquote>
+<p>30min,是非多</p>
+</blockquote>
+<p><strong>示例一：</strong></p>
+<figure class="highlight java"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">输入：s = <span class="string">"4193 with words"</span></span><br><span class="line">输出：<span class="number">4193</span></span><br><span class="line">解释：</span><br><span class="line">第 <span class="number">1</span> 步：<span class="string">"4193 with words"</span>（当前没有读入字符，因为没有前导空格）</span><br><span class="line">         ^</span><br><span class="line">第 <span class="number">2</span> 步：<span class="string">"4193 with words"</span>（当前没有读入字符，因为这里不存在 <span class="string">'-'</span> 或者 <span class="string">'+'</span>）</span><br><span class="line">         ^</span><br><span class="line">第 <span class="number">3</span> 步：<span class="string">"4193 with words"</span>（读入 <span class="string">"4193"</span>；由于下一个字符不是一个数字，所以读入停止）</span><br><span class="line">             ^</span><br><span class="line">解析得到整数 <span class="number">4193</span> 。</span><br><span class="line">由于 <span class="string">"4193"</span> 在范围 [-<span class="number">231</span>, <span class="number">231</span> - <span class="number">1</span>] 内，最终结果为 <span class="number">4193</span> 。</span><br></pre></td></tr></tbody></table></figure>
+
+<p><strong>代码：</strong></p>
+<figure class="highlight java"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> </span>{</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">myAtoi</span><span class="params">(String s)</span> </span>{</span><br><span class="line">        Set&lt;Character&gt; set = <span class="keyword">new</span> HashSet&lt;&gt;();</span><br><span class="line">        set.add(<span class="string">'1'</span>);set.add(<span class="string">'0'</span>);set.add(<span class="string">'2'</span>);set.add(<span class="string">'3'</span>);set.add(<span class="string">'4'</span>);set.add(<span class="string">'5'</span>);set.add(<span class="string">'6'</span>);set.add(<span class="string">'7'</span>);set.add(<span class="string">'8'</span>);set.add(<span class="string">'9'</span>);</span><br><span class="line">        <span class="keyword">long</span> temp = <span class="number">0l</span>;</span><br><span class="line">        <span class="keyword">char</span> [] op =s.toCharArray();</span><br><span class="line">        <span class="keyword">int</span> index = <span class="number">0</span>;</span><br><span class="line">        <span class="keyword">int</span> flag = <span class="number">1</span>;</span><br><span class="line">        <span class="keyword">int</span> len = s.length();</span><br><span class="line">        <span class="keyword">if</span>(len==<span class="number">0</span>)<span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">        <span class="keyword">while</span>(index&lt;len&amp;&amp;op[index]==<span class="string">' '</span>)</span><br><span class="line">            index++;</span><br><span class="line">        <span class="keyword">if</span>(index==len) <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">        <span class="keyword">if</span>(op[index]==<span class="string">'-'</span>)</span><br><span class="line">            flag = -<span class="number">1</span>;</span><br><span class="line">        <span class="keyword">if</span>(op[index]==<span class="string">'-'</span>||op[index]==<span class="string">'+'</span>)</span><br><span class="line">            index++;</span><br><span class="line">        <span class="keyword">int</span> sum =<span class="number">0</span>;</span><br><span class="line">        <span class="keyword">while</span>(index&lt;len &amp;&amp; (temp&lt;=(<span class="number">2l</span>&lt;&lt;<span class="number">31</span>-<span class="number">1l</span>)&amp;&amp;set.contains(op[index])))</span><br><span class="line">        {</span><br><span class="line">            temp= temp*<span class="number">10</span>+(<span class="keyword">int</span>)(op[index]-<span class="string">'0'</span>);</span><br><span class="line">            index++;</span><br><span class="line">            sum++;</span><br><span class="line">        }</span><br><span class="line">        System.out.println(flag);</span><br><span class="line">        <span class="keyword">if</span>(temp&gt;=(<span class="number">2l</span>&lt;&lt;<span class="number">31</span>-<span class="number">1l</span>)) {</span><br><span class="line">            <span class="keyword">if</span>(flag==-<span class="number">1</span>) <span class="keyword">return</span> (<span class="number">2</span>&lt;&lt;<span class="number">31</span>-<span class="number">1</span>);</span><br><span class="line">            <span class="keyword">else</span> <span class="keyword">return</span> <span class="number">2147483647</span>;</span><br><span class="line">        }</span><br><span class="line"></span><br><span class="line">        <span class="keyword">if</span>(flag==-<span class="number">1</span>) temp = -temp;</span><br><span class="line">        <span class="keyword">return</span> Integer.parseInt(String.valueOf(temp));</span><br><span class="line">    }</span><br><span class="line">}</span><br></pre></td></tr></tbody></table></figure>
+
+
+      
+    </div>
+    
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/2022/02/21/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F%E6%A6%82%E5%BF%B5_3/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">&lt;</strong>
+      <div class="article-nav-title">
+        
+          操作系统概念_3
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2022/02/20/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F%E6%A6%82%E5%BF%B5_1/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">操作系统概念_1</div>
+      <strong class="article-nav-caption">&gt;</strong>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+
+
+
+
+
+</div>
+      <footer id="footer">
+  <div class="outer">
+    <div id="footer-info">
+      <div class="footer-left">
+        &copy; 2022 绘梨衣
+      </div>
+        <div class="footer-right">
+          <a href="http://hexo.io/" target="_blank">Hexo</a>  Theme <a href="https://github.com/preccrep/hexo-theme-jelly" target="_blank">Jelly</a>
+        </div>
+    </div>
+  </div>
+</footer>
+    </div>
+    
+  
+<link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+
+
+
+<script>
+	var yiliaConfig = {
+		fancybox: true,
+		mathjax: false,
+		animate: true,
+		isHome: false,
+		isPost: true,
+		isArchive: false,
+		isTag: false,
+		isCategory: false,
+		open_in_new: false
+	}
+</script>
+
+<script src="/js/main.js"></script>
+
+
+
+
+  </div>
+</body>
+</html>
