@@ -1,0 +1,479 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <title>操作系统概念_1 | 绘梨衣</title>
+
+  <!-- keywords -->
+  
+
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="[toc] 操作系统结构内核结构使用系统调用提供服务 微内核 内核进行模块化,删除不必要的功能. 其他部件看成程序来实现 各个模块采用消息传递进行通信  优点:x  内核变小 拓展性高,移植性高  可加载的内核模块 在现在操作系统中很常用Linux Windws  主内核知道如何加载模块和使得各个模块通信,不需要用消息机制  动态加载内核模块   进程概念引入 并发执行,就是各个进程轮流使用CPU">
+<meta property="og:type" content="article">
+<meta property="og:title" content="操作系统概念_1">
+<meta property="og:url" content="http://example.com/2022/03/20/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F%E6%A6%82%E5%BF%B5_1/index.html">
+<meta property="og:site_name" content="绘梨衣">
+<meta property="og:description" content="[toc] 操作系统结构内核结构使用系统调用提供服务 微内核 内核进行模块化,删除不必要的功能. 其他部件看成程序来实现 各个模块采用消息传递进行通信  优点:x  内核变小 拓展性高,移植性高  可加载的内核模块 在现在操作系统中很常用Linux Windws  主内核知道如何加载模块和使得各个模块通信,不需要用消息机制  动态加载内核模块   进程概念引入 并发执行,就是各个进程轮流使用CPU">
+<meta property="og:locale" content="en_US">
+<meta property="article:published_time" content="2022-03-20T15:00:00.000Z">
+<meta property="article:modified_time" content="2022-04-06T17:06:40.827Z">
+<meta property="article:author" content="绘梨衣">
+<meta property="article:tag" content="操作系统">
+<meta name="twitter:card" content="summary">
+  
+  
+    <link rel="icon" href="/img/favicon.ico">
+  
+  
+<link rel="stylesheet" href="/css/style.css">
+
+  
+  
+
+  
+<script src="//cdn.bootcss.com/require.js/2.3.2/require.min.js"></script>
+
+  
+<script src="//cdn.bootcss.com/jquery/3.1.1/jquery.min.js"></script>
+
+
+  
+<meta name="generator" content="Hexo 5.4.0">
+<style>.github-emoji { position: relative; display: inline-block; width: 1.2em; min-height: 1.2em; overflow: hidden; vertical-align: top; color: transparent; }  .github-emoji > span { position: relative; z-index: 10; }  .github-emoji img, .github-emoji .fancybox { margin: 0 !important; padding: 0 !important; border: none !important; outline: none !important; text-decoration: none !important; user-select: none !important; cursor: auto !important; }  .github-emoji img { height: 1.2em !important; width: 1.2em !important; position: absolute !important; left: 50% !important; top: 50% !important; transform: translate(-50%, -50%) !important; user-select: none !important; cursor: auto !important; } .github-emoji-fallback { color: inherit; } .github-emoji-fallback img { opacity: 0 !important; }</style>
+<link rel="alternate" href="/atom.xml" title="绘梨衣" type="application/atom+xml">
+</head>
+<body>
+  <div id="container">
+    <div id="particles-js"></div>
+    <div class="left-col">
+    <div class="overlay"></div>
+<div class="intrude-less">
+	<header id="header" class="inner">
+		<a href="/" class="profilepic">
+			
+				<img lazy-src="/img/touxiang2.jpg" class="js-avatar">
+			
+		</a>
+
+		<hgroup>
+			<h1 class="header-author"><a href="/">绘梨衣</a></h1>
+		</hgroup>
+
+		
+
+		<div class="switch-area">
+			<div class="switch-wrap">
+				<section class="switch-part switch-part1">
+					<nav class="header-menu">
+						<ul>
+						
+							<li><a href="/">Home</a></li>
+				        
+							<li><a href="/archives">Archives</a></li>
+				        
+						</ul>
+					</nav>
+					<nav class="half-header-menu">
+						<a class="hide">Home</a>
+						<a>Tags</a>
+						<a>Links</a>
+						<a>About</a>
+					</nav>
+					<nav class="header-nav">
+						<div class="social">
+							
+								<a class="github" target="_blank" href="#" title="github">github</a>
+					        
+								<a class="mail" target="_blank" href="#" title="mail">mail</a>
+					        
+								<a class="rss" target="_blank" href="/atom.xml" title="rss">rss</a>
+					        
+								<a class="zhihu" target="_blank" href="#" title="zhihu">zhihu</a>
+					        
+						</div>
+						<!-- music -->
+						
+					</nav>
+				</section>
+				
+				
+				<section class="switch-part switch-part2">
+					<div class="widget tagcloud" id="js-tagcloud">
+						<a href="/tags/JVM/" style="font-size: 10px;">JVM</a> <a href="/tags/Java/" style="font-size: 10px;">Java</a> <a href="/tags/Leetcode/" style="font-size: 14px;">Leetcode</a> <a href="/tags/MySQL-%E6%95%B0%E6%8D%AE%E5%BA%93/" style="font-size: 10px;">MySQL,数据库</a> <a href="/tags/Summary/" style="font-size: 16px;">Summary</a> <a href="/tags/%E4%BF%A1%E6%81%AF%E8%AE%BA/" style="font-size: 10px;">信息论</a> <a href="/tags/%E5%8A%A8%E6%80%81%E8%A7%84%E5%88%92/" style="font-size: 10px;">动态规划</a> <a href="/tags/%E5%9B%BE%E8%AE%BA/" style="font-size: 10px;">图论</a> <a href="/tags/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F/" style="font-size: 18px;">操作系统</a> <a href="/tags/%E6%95%B0%E6%8D%AE%E5%BA%93/" style="font-size: 10px;">数据库</a> <a href="/tags/%E6%B0%B4%E5%A1%98%E9%87%87%E6%A0%B7/" style="font-size: 10px;">水塘采样</a> <a href="/tags/%E7%AE%97%E6%B3%95/" style="font-size: 20px;">算法</a> <a href="/tags/%E7%BC%96%E8%AF%91/" style="font-size: 10px;">编译</a> <a href="/tags/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BB%84%E6%88%90/" style="font-size: 12px;">计算机组成</a> <a href="/tags/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/" style="font-size: 18px;">计算机网络</a> <a href="/tags/%E8%AE%B8%E6%84%BF/" style="font-size: 10px;">许愿</a> <a href="/tags/%E9%9D%A2%E7%BB%8F/" style="font-size: 10px;">面经</a> <a href="/tags/%E9%AB%98%E9%A2%91%E9%A2%98/" style="font-size: 10px;">高频题</a>
+					</div>
+				</section>
+				
+				
+				
+				<section class="switch-part switch-part3">
+					<div id="js-friends">
+					
+			          <a target="_blank" class="main-nav-link switch-friends-link" href="https://github.com/mengchuang123/">github</a>
+			        
+			        </div>
+				</section>
+				
+
+				
+				
+				<section class="switch-part switch-part4">
+				
+					<div id="js-aboutme">My study log.</div>
+				</section>
+				
+			</div>
+		</div>
+	</header>				
+</div>
+    </div>
+    <div class="mid-col">
+      <nav id="mobile-nav">
+  	<div class="overlay">
+  		<div class="slider-trigger"></div>
+  		<h1 class="header-author js-mobile-header hide"></h1>
+  	</div>
+	<div class="intrude-less">
+		<header id="header" class="inner">
+			<div class="profilepic">
+				<img lazy-src="/img/touxiang2.jpg" class="js-avatar">
+			</div>
+			<hgroup>
+			  <h1 class="header-author"></h1>
+			</hgroup>
+			
+			<nav class="header-menu">
+				<ul>
+				
+					<li><a href="/">Home</a></li>
+		        
+					<li><a href="/archives">Archives</a></li>
+		        
+		        <div class="clearfix"></div>
+				</ul>
+			</nav>
+			<nav class="header-nav">
+				<div class="social">
+					
+						<a class="github" target="_blank" href="#" title="github">github</a>
+			        
+						<a class="mail" target="_blank" href="#" title="mail">mail</a>
+			        
+						<a class="rss" target="_blank" href="/atom.xml" title="rss">rss</a>
+			        
+						<a class="zhihu" target="_blank" href="#" title="zhihu">zhihu</a>
+			        
+				</div>
+			</nav>
+		</header>				
+	</div>
+</nav>
+      <div class="body-wrap"><article id="post-操作系统概念_1" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2022/03/20/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F%E6%A6%82%E5%BF%B5_1/" class="article-date">
+  	<time datetime="2022-03-20T15:00:00.000Z" itemprop="datePublished">2022-03-20</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      操作系统概念_1
+      
+    </h1>
+  
+
+      </header>
+      
+      <div class="article-info article-info-post">
+        
+	<div class="article-tag tagcloud">
+		<ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F/" rel="tag">操作系统</a></li></ul>
+	</div>
+
+        
+
+        
+        <div class="clearfix"></div>
+      </div>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <!--Table of Contents begin-->
+        <!-- 
+          <div id="toc" class="toc-article">
+            <strong class="toc-title">目录</strong>
+            <a class="js-toggle-toc" href="javascript:void(0)"></a>
+            <div class="toc-content">
+              <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F%E7%BB%93%E6%9E%84"><span class="toc-text">操作系统结构</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%86%85%E6%A0%B8%E7%BB%93%E6%9E%84"><span class="toc-text">内核结构</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%BE%AE%E5%86%85%E6%A0%B8"><span class="toc-text">微内核</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%8F%AF%E5%8A%A0%E8%BD%BD%E7%9A%84%E5%86%85%E6%A0%B8%E6%A8%A1%E5%9D%97"><span class="toc-text">可加载的内核模块</span></a></li></ol></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E8%BF%9B%E7%A8%8B"><span class="toc-text">进程</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%A6%82%E5%BF%B5"><span class="toc-text">概念</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#%E5%BC%95%E5%85%A5"><span class="toc-text">引入</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#%E8%BF%9B%E7%A8%8B%E7%9A%84%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84"><span class="toc-text">进程的数据结构</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#%E8%BF%9B%E7%A8%8B%E6%8E%A7%E5%88%B6%E5%9D%97"><span class="toc-text">进程控制块</span></a></li></ol></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E8%BF%9B%E7%A8%8B%E8%B0%83%E5%BA%A6%E5%99%A8"><span class="toc-text">进程调度器</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#%E7%9B%AE%E7%9A%84"><span class="toc-text">目的</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#%E8%B0%83%E5%BA%A6%E9%98%9F%E5%88%97"><span class="toc-text">调度队列</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#%E8%B0%83%E5%BA%A6%E7%A8%8B%E5%BA%8F%E5%88%86%E7%B1%BB"><span class="toc-text">调度程序分类</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#%E4%B8%8A%E4%B8%8B%E6%96%87%E5%88%87%E6%8D%A2"><span class="toc-text">上下文切换</span></a></li></ol></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E8%BF%9B%E7%A8%8B%E7%9A%84%E8%BF%90%E8%A1%8C"><span class="toc-text">进程的运行</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#%E9%82%A3%E4%B9%88%E5%A6%82%E6%9E%9C%E6%88%91%E7%9A%84%E7%A8%8B%E5%BA%8F%E6%83%B3%E5%90%AF%E5%8A%A8%E5%8F%A6%E4%B8%80%E7%A8%8B%E5%BA%8F%E7%9A%84%E6%89%A7%E8%A1%8C%E4%BD%86%E8%87%AA%E5%B7%B1%E4%BB%8D%E6%83%B3%E7%BB%A7%E7%BB%AD%E8%BF%90%E8%A1%8C%E7%9A%84%E8%AF%9D%EF%BC%8C%E6%80%8E%E4%B9%88%E5%8A%9E%E5%91%A2%EF%BC%9F%E9%82%A3%E5%B0%B1%E6%98%AF%E7%BB%93%E5%90%88fork%E4%B8%8Eexec%E7%9A%84%E4%BD%BF%E7%94%A8"><span class="toc-text">那么如果我的程序想启动另一程序的执行但自己仍想继续运行的话，怎么办呢？那就是结合fork与exec的使用</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#%E8%BF%9B%E7%A8%8B%E7%BB%88%E6%AD%A2"><span class="toc-text">进程终止</span></a></li></ol></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E8%BF%9B%E7%A8%8B%E9%97%B4%E7%9A%84%E9%80%9A%E4%BF%A1"><span class="toc-text">进程间的通信</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#%E4%B8%A4%E7%A7%8D%E5%9F%BA%E6%9C%AC%E6%96%B9%E5%BC%8F"><span class="toc-text">两种基本方式</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#%E5%AE%A2%E6%88%B7%E6%9C%BA-%E6%9C%8D%E5%8A%A1%E5%99%A8%E8%B0%83%E7%94%A8"><span class="toc-text">客户机&#x2F;服务器调用</span></a></li></ol></li></ol></li></ol></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E7%BA%BF%E7%A8%8B"><span class="toc-text">线程</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%A6%82%E5%BF%B5-1"><span class="toc-text">概念</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%A4%9A%E6%A0%B8%E7%BC%96%E7%A8%8B"><span class="toc-text">多核编程</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%A4%9A%E7%BA%BF%E7%A8%8B%E6%A8%A1%E5%9E%8B"><span class="toc-text">多线程模型</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%BA%BF%E7%A8%8B%E6%B1%A0"><span class="toc-text">线程池</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%A4%9A%E7%BA%BF%E7%A8%8B%E9%97%AE%E9%A2%98"><span class="toc-text">多线程问题</span></a></li></ol></li></ol></li></ol>
+            </div>
+          </div>
+         -->
+          <!-- Table of Contents -->
+        
+          <div id="toc" class="toc-article">
+            <strong class="toc-title">目录</strong>
+            <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F%E7%BB%93%E6%9E%84"><span class="toc-text">操作系统结构</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%86%85%E6%A0%B8%E7%BB%93%E6%9E%84"><span class="toc-text">内核结构</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%BE%AE%E5%86%85%E6%A0%B8"><span class="toc-text">微内核</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%8F%AF%E5%8A%A0%E8%BD%BD%E7%9A%84%E5%86%85%E6%A0%B8%E6%A8%A1%E5%9D%97"><span class="toc-text">可加载的内核模块</span></a></li></ol></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E8%BF%9B%E7%A8%8B"><span class="toc-text">进程</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%A6%82%E5%BF%B5"><span class="toc-text">概念</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#%E5%BC%95%E5%85%A5"><span class="toc-text">引入</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#%E8%BF%9B%E7%A8%8B%E7%9A%84%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84"><span class="toc-text">进程的数据结构</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#%E8%BF%9B%E7%A8%8B%E6%8E%A7%E5%88%B6%E5%9D%97"><span class="toc-text">进程控制块</span></a></li></ol></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E8%BF%9B%E7%A8%8B%E8%B0%83%E5%BA%A6%E5%99%A8"><span class="toc-text">进程调度器</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#%E7%9B%AE%E7%9A%84"><span class="toc-text">目的</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#%E8%B0%83%E5%BA%A6%E9%98%9F%E5%88%97"><span class="toc-text">调度队列</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#%E8%B0%83%E5%BA%A6%E7%A8%8B%E5%BA%8F%E5%88%86%E7%B1%BB"><span class="toc-text">调度程序分类</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#%E4%B8%8A%E4%B8%8B%E6%96%87%E5%88%87%E6%8D%A2"><span class="toc-text">上下文切换</span></a></li></ol></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E8%BF%9B%E7%A8%8B%E7%9A%84%E8%BF%90%E8%A1%8C"><span class="toc-text">进程的运行</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#%E9%82%A3%E4%B9%88%E5%A6%82%E6%9E%9C%E6%88%91%E7%9A%84%E7%A8%8B%E5%BA%8F%E6%83%B3%E5%90%AF%E5%8A%A8%E5%8F%A6%E4%B8%80%E7%A8%8B%E5%BA%8F%E7%9A%84%E6%89%A7%E8%A1%8C%E4%BD%86%E8%87%AA%E5%B7%B1%E4%BB%8D%E6%83%B3%E7%BB%A7%E7%BB%AD%E8%BF%90%E8%A1%8C%E7%9A%84%E8%AF%9D%EF%BC%8C%E6%80%8E%E4%B9%88%E5%8A%9E%E5%91%A2%EF%BC%9F%E9%82%A3%E5%B0%B1%E6%98%AF%E7%BB%93%E5%90%88fork%E4%B8%8Eexec%E7%9A%84%E4%BD%BF%E7%94%A8"><span class="toc-text">那么如果我的程序想启动另一程序的执行但自己仍想继续运行的话，怎么办呢？那就是结合fork与exec的使用</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#%E8%BF%9B%E7%A8%8B%E7%BB%88%E6%AD%A2"><span class="toc-text">进程终止</span></a></li></ol></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E8%BF%9B%E7%A8%8B%E9%97%B4%E7%9A%84%E9%80%9A%E4%BF%A1"><span class="toc-text">进程间的通信</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#%E4%B8%A4%E7%A7%8D%E5%9F%BA%E6%9C%AC%E6%96%B9%E5%BC%8F"><span class="toc-text">两种基本方式</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#%E5%AE%A2%E6%88%B7%E6%9C%BA-%E6%9C%8D%E5%8A%A1%E5%99%A8%E8%B0%83%E7%94%A8"><span class="toc-text">客户机&#x2F;服务器调用</span></a></li></ol></li></ol></li></ol></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E7%BA%BF%E7%A8%8B"><span class="toc-text">线程</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%A6%82%E5%BF%B5-1"><span class="toc-text">概念</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%A4%9A%E6%A0%B8%E7%BC%96%E7%A8%8B"><span class="toc-text">多核编程</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%A4%9A%E7%BA%BF%E7%A8%8B%E6%A8%A1%E5%9E%8B"><span class="toc-text">多线程模型</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%BA%BF%E7%A8%8B%E6%B1%A0"><span class="toc-text">线程池</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%A4%9A%E7%BA%BF%E7%A8%8B%E9%97%AE%E9%A2%98"><span class="toc-text">多线程问题</span></a></li></ol></li></ol></li></ol>
+          </div>
+        
+        <!--Table of Contents end -->
+        
+
+
+
+
+        <p>[toc]</p>
+<h1 id="操作系统结构"><a href="#操作系统结构" class="headerlink" title="操作系统结构"></a>操作系统结构</h1><h3 id="内核结构"><a href="#内核结构" class="headerlink" title="内核结构"></a>内核结构</h3><p>使用系统调用提供服务</p>
+<h3 id="微内核"><a href="#微内核" class="headerlink" title="微内核"></a>微内核</h3><ul>
+<li>内核进行模块化,删除不必要的功能.</li>
+<li>其他部件看成程序来实现</li>
+<li>各个模块采用消息传递进行通信</li>
+</ul>
+<p><code>优点:</code>x</p>
+<ul>
+<li>内核变小</li>
+<li>拓展性高,移植性高</li>
+</ul>
+<h3 id="可加载的内核模块"><a href="#可加载的内核模块" class="headerlink" title="可加载的内核模块"></a>可加载的内核模块</h3><ul>
+<li><p>在现在操作系统中很常用Linux Windws</p>
+</li>
+<li><p>主内核知道如何加载模块和使得各个模块通信,不需要用消息机制</p>
+</li>
+<li><p><code>动态加载内核模块</code></p>
+</li>
+</ul>
+<h1 id="进程"><a href="#进程" class="headerlink" title="进程"></a>进程</h1><h3 id="概念"><a href="#概念" class="headerlink" title="概念"></a>概念</h3><h5 id="引入"><a href="#引入" class="headerlink" title="引入"></a>引入</h5><ul>
+<li>并发执行,就是各个进程轮流使用CPU</li>
+<li>并行执行,需要多个CPU</li>
+<li><code>进程是执行中的程序实体,是操作系统进行资源分配和调度的基本单位</code></li>
+</ul>
+<h5 id="进程的数据结构"><a href="#进程的数据结构" class="headerlink" title="进程的数据结构"></a>进程的数据结构</h5><ul>
+<li>表示进程的数据结构是<code>PCB</code>  , 所有的进程用双向链表进行连接,<strong>PCB保存进程上下文</strong></li>
+<li>内核采用一个指针current,指向当前进程</li>
+<li>CPU上下文切换实际上是PCB切换</li>
+</ul>
+<h5 id="进程控制块"><a href="#进程控制块" class="headerlink" title="进程控制块"></a>进程控制块</h5><ul>
+<li>进程状态(5个状态)与编号</li>
+<li>程序计数器,记录下一条指令的地址</li>
+<li>各种CPU寄存器</li>
+<li>各种堆栈信息,内存</li>
+</ul>
+<blockquote>
+<p>操作系统中的进程实际上就是进程控制块</p>
+</blockquote>
+<h3 id="进程调度器"><a href="#进程调度器" class="headerlink" title="进程调度器"></a>进程调度器</h3><h5 id="目的"><a href="#目的" class="headerlink" title="目的"></a>目的</h5><ul>
+<li>提高CPU使用效率,在进程之间快速切换CPU</li>
+<li>进程调度器选择一个可用进程到CPU执行</li>
+</ul>
+<h5 id="调度队列"><a href="#调度队列" class="headerlink" title="调度队列"></a>调度队列</h5><ul>
+<li><p>就绪队列:<strong>保存内存</strong>中<strong>就绪</strong>和<strong>等待</strong>的进程,用<strong>链表</strong>组织PCB</p>
+</li>
+<li><p>设备队列:IO使用的队列</p>
+</li>
+</ul>
+<h5 id="调度程序分类"><a href="#调度程序分类" class="headerlink" title="调度程序分类"></a>调度程序分类</h5><blockquote>
+<p>根据提交程序的多少来进行划分,如果以下提交的程序太多,调度效率就很低</p>
+</blockquote>
+<ul>
+<li>长期调度程序: 提交的进程太多,先保存在磁盘中(缓冲池)</li>
+<li>短期调度程序:PCB较少,直接在内存中进行调度即可</li>
+<li>中期调度程序: 将一部分PCB移到磁盘中,减低PCB来调度,之后再把磁盘中的重新调入内存中  </li>
+</ul>
+<blockquote>
+<p>第三种方式是交换swap</p>
+</blockquote>
+<h5 id="上下文切换"><a href="#上下文切换" class="headerlink" title="上下文切换"></a>上下文切换</h5><ul>
+<li><strong>进程的上下文</strong>采用<strong>PCB</strong>表示</li>
+<li>CPU的上下文切换就是PCB切换</li>
+</ul>
+<h3 id="进程的运行"><a href="#进程的运行" class="headerlink" title="进程的运行"></a>进程的运行</h3><h5 id="那么如果我的程序想启动另一程序的执行但自己仍想继续运行的话，怎么办呢？那就是结合fork与exec的使用"><a href="#那么如果我的程序想启动另一程序的执行但自己仍想继续运行的话，怎么办呢？那就是结合fork与exec的使用" class="headerlink" title="那么如果我的程序想启动另一程序的执行但自己仍想继续运行的话，怎么办呢？那就是结合fork与exec的使用"></a>那么如果我的程序想启动另一程序的执行但自己仍想继续运行的话，怎么办呢？那就是结合fork与exec的使用</h5><ul>
+<li>每一个进程可以创建一个新的进程,父进程,子进程,最终形成<strong>进程树</strong></li>
+<li>每个进程用唯一标识符<code>pid</code>识别</li>
+</ul>
+<p><code>fork</code>和<code>exec</code>函数的区别</p>
+<ul>
+<li><code>fork</code>创建一个新的进程, ,<ul>
+<li>新进程复制父进程的地址空间</li>
+<li>这两个进程都继续执行<code>fork</code>后面的指令, 但是子进程<code>fork</code>返回值是0,父进程返回子进程的pid</li>
+</ul>
+</li>
+</ul>
+<figure class="highlight java"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"> <span class="number">1</span> <span class="function"><span class="keyword">void</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"> 2</span>{</span><br><span class="line"> <span class="number">3</span>    <span class="keyword">int</span> i;</span><br><span class="line"> <span class="number">4</span>    <span class="keyword">if</span> ( fork() == <span class="number">0</span> ) </span><br><span class="line"> <span class="number">5</span>    {</span><br><span class="line"> <span class="number">6</span>       <span class="comment">/* 子进程程序 */</span></span><br><span class="line"> <span class="number">7</span>       <span class="keyword">for</span> ( i = <span class="number">1</span>; i &lt;<span class="number">1000</span>; i ++ ) </span><br><span class="line"> <span class="number">8</span>          printf(<span class="string">"This is child process\n"</span>);</span><br><span class="line"> <span class="number">9</span>    }</span><br><span class="line"><span class="number">10</span>    <span class="keyword">else</span> </span><br><span class="line"><span class="number">11</span>    {</span><br><span class="line"><span class="number">12</span>       <span class="comment">/* 父进程程序*/</span></span><br><span class="line"><span class="number">13</span>       <span class="keyword">for</span> ( i = <span class="number">1</span>; i &lt;<span class="number">1000</span>; i ++ ) </span><br><span class="line"><span class="number">14</span>       printf(<span class="string">"This is process process\n"</span>);</span><br><span class="line"><span class="number">15</span>    }</span><br><span class="line"><span class="number">16</span>}</span><br><span class="line"><span class="comment">//屏幕上交替出现子进程与父进程各打印出的一千条信息了。如果程序还在运行中，你用ps命令就能看到系统中有两个它在运行了</span></span><br></pre></td></tr></tbody></table></figure>
+
+<p>​    如果一个大程序在运行中，它的数据段和堆栈都很大，一次fork就要复制一次，那么fork的系统开销不是很大吗？其实UNIX自有其解决的办法，大家知道，一般CPU都是以”页”为单位来分配内存空间的，每一个页都是实际物理内存的一个映像，象INTEL的CPU，其一页在通常情况下是 4086字节大小，而无论是数据段还是堆栈段都是由许多”页”构成的，fork函数复制这两个段，只是”逻辑”上的，并非”物理”上的，也就是说，实际执行fork时，物理空间上两个进程的数据段和堆栈段都还是共享着的，当有一个进程写了某个数据时，这时两个进程之间的数据才有了区别，系统就将有区别的” 页”从物理上也分开。系统在空间上的开销就可以达到最小。</p>
+<ul>
+<li><code>exec</code>启动另外的进程以取代当前运行的进程。<ul>
+<li>一个进程一旦调用exec类函数，它本身就”死亡”了，系统把<strong>代码段替换成新的程序的代码</strong>，<strong>废弃原有的数据段和堆栈段，并为新程序分配新的数据段与堆栈段</strong>，唯一留下的，<strong>就是进程号</strong></li>
+</ul>
+</li>
+</ul>
+<blockquote>
+<p>那么如果我的程序想启动另一程序的执行但自己仍想继续运行的话，怎么办呢？那就是结合fork与exec的使用</p>
+</blockquote>
+<h5 id="进程终止"><a href="#进程终止" class="headerlink" title="进程终止"></a>进程终止</h5><ul>
+<li><strong>系统调用exit</strong>删除进程自己,并释放资源</li>
+</ul>
+<p>系统调用<code>wait()</code></p>
+<ul>
+<li>调用<code>wait()</code>,用来等待子进程的终止, 这个系统调用返回的是子进程的pid</li>
+<li><code>僵尸进程</code>: 子进程终止,父进程还没掉用<code>wait()</code>进入的过度状态</li>
+<li><code>孤儿进程:</code> 父进程没调用wait就终止了.此时处理方法: <code>init()</code>作为孤儿进程的父进程,并定时调用<code>wait()</code></li>
+</ul>
+<h3 id="进程间的通信"><a href="#进程间的通信" class="headerlink" title="进程间的通信"></a>进程间的通信</h3><h5 id="两种基本方式"><a href="#两种基本方式" class="headerlink" title="两种基本方式"></a>两种基本方式</h5><ul>
+<li>共享内存  <strong>信号量来实现,信号量代表资源的使用情况</strong></li>
+<li>消息传递</li>
+</ul>
+<h5 id="客户机-服务器调用"><a href="#客户机-服务器调用" class="headerlink" title="客户机/服务器调用"></a>客户机/服务器调用</h5><ul>
+<li><p>套接字 : 由一个五元组决定 ip和端口号确定 进行交换无结构的字节流,需要固定协议</p>
+</li>
+<li><p>远程调用RPC : A客户机直接调用B客户机中的函数,最后得到B运行得到的值</p>
+</li>
+<li><p><strong>管道:进行进程间数据通信的一种简单方式</strong></p>
+<ul>
+<li>普通管道 <code>pipe()</code>  单向通行,只有进程相互通信时,管道才存在,通信结束就不存在</li>
+<li>命名管道:双向的,不需要父子关系,同时多个线程也可以同他通信,不是实时性的.</li>
+</ul>
+<blockquote>
+<p>前者用于父进程和子进程间的通信，后者用于运行于同一台机器上的任意两个进程间的通信</p>
+</blockquote>
+</li>
+</ul>
+<h1 id="线程"><a href="#线程" class="headerlink" title="线程"></a>线程</h1><h3 id="概念-1"><a href="#概念-1" class="headerlink" title="概念"></a>概念</h3><ul>
+<li>进程类似于从资源分配和调度的角度看</li>
+<li>线程是从代码执行的角度看，一个进程往往具有多个线程，</li>
+</ul>
+<p><code>区别：</code></p>
+<ul>
+<li><p>进程是操作系统进行资源分配和调度的基本单位</p>
+</li>
+<li><p>线程是CPU使用的基本单元，线程是处理器调度的基本单位</p>
+</li>
+</ul>
+<p><code>相关概念</code></p>
+<ul>
+<li>进程中的多个线程<ul>
+<li>共用代码段，数据段等资源</li>
+<li>具有自己的寄存器、堆栈、线程id</li>
+</ul>
+</li>
+<li>一个进程一半具有多个线程，进程就可以同时执行多个任务</li>
+</ul>
+<p><code>优势：</code></p>
+<ul>
+<li>一个多线程的程序响应时间快</li>
+<li>资源共享，上下文切换快</li>
+<li>进程的信息传递比较复杂</li>
+</ul>
+<h3 id="多核编程"><a href="#多核编程" class="headerlink" title="多核编程"></a>多核编程</h3><ul>
+<li>多核：并行，依赖于多核同时运行多任务</li>
+<li>单核：并发，依赖于CPU上下文切换</li>
+</ul>
+<h3 id="多线程模型"><a href="#多线程模型" class="headerlink" title="多线程模型"></a>多线程模型</h3><p><code>用户级线程和内核级线程</code></p>
+<ul>
+<li>用户级进程不需要通过内核管理</li>
+<li>内核级线程需要经过操作系统来管理</li>
+</ul>
+<blockquote>
+<p>用户级线程和内核级线程是存 在对应关系的</p>
+</blockquote>
+<h3 id="线程池"><a href="#线程池" class="headerlink" title="线程池"></a>线程池</h3><p>在进程开始时，就创建一定数量的线程，并加入池中等待工作</p>
+<p><code>优点：</code></p>
+<ul>
+<li>使用已经存在的线程请求比等待创建一个快</li>
+<li>线程池限制创建线程的数量</li>
+<li>将执行任务和创建任务分离</li>
+</ul>
+<h3 id="多线程问题"><a href="#多线程问题" class="headerlink" title="多线程问题"></a>多线程问题</h3><p><code>fork()和exec()</code></p>
+<ul>
+<li><p><code>exec()</code>会覆盖替换进程中的所有线程</p>
+</li>
+<li><p>需要一个轻量级进程（LWP）来处理用户线程和内核线程</p>
+</li>
+</ul>
+<blockquote>
+<p>如果内核线程阻塞，LWP也会阻塞，导致用户线程也会阻塞</p>
+</blockquote>
+
+      
+    </div>
+    
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/2022/03/21/MySQL/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">&lt;</strong>
+      <div class="article-nav-title">
+        
+          MySQL
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2022/03/18/JVM/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">JVM内存模型</div>
+      <strong class="article-nav-caption">&gt;</strong>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+
+
+
+
+
+</div>
+      <footer id="footer">
+  <div class="outer">
+    <div id="footer-info">
+      <div class="footer-left">
+        &copy; 2022 绘梨衣
+      </div>
+        <div class="footer-right">
+          <a href="http://hexo.io/" target="_blank">Hexo</a>  Theme <a href="https://github.com/preccrep/hexo-theme-jelly" target="_blank">Jelly</a>
+        </div>
+    </div>
+  </div>
+</footer>
+    </div>
+    
+  
+<link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+
+
+
+<script>
+	var yiliaConfig = {
+		fancybox: true,
+		mathjax: false,
+		animate: true,
+		isHome: false,
+		isPost: true,
+		isArchive: false,
+		isTag: false,
+		isCategory: false,
+		open_in_new: false
+	}
+</script>
+
+<script src="/js/main.js"></script>
+
+
+
+
+  </div>
+</body>
+</html>
