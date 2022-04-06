@@ -6,7 +6,7 @@
   <link href="http://example.com/atom.xml" rel="self"/>
   
   <link href="http://example.com/"/>
-  <updated>2022-03-27T14:58:13.215Z</updated>
+  <updated>2022-04-06T17:06:37.593Z</updated>
   <id>http://example.com/</id>
   
   <author>
@@ -17,78 +17,25 @@
   <generator uri="https://hexo.io/">Hexo</generator>
   
   <entry>
-    <title></title>
-    <link href="http://example.com/2022/03/27/%E7%BE%8E%E5%9B%A2%E4%B8%80%E9%9D%A2/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/"/>
-    <id>http://example.com/2022/03/27/%E7%BE%8E%E5%9B%A2%E4%B8%80%E9%9D%A2/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/</id>
-    <published>2022-03-27T14:58:13.215Z</published>
-    <updated>2022-03-27T14:58:13.215Z</updated>
+    <title>操作系统概念_2</title>
+    <link href="http://example.com/2022/03/21/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F%E6%A6%82%E5%BF%B5_2/"/>
+    <id>http://example.com/2022/03/21/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F%E6%A6%82%E5%BF%B5_2/</id>
+    <published>2022-03-21T15:00:00.000Z</published>
+    <updated>2022-04-06T17:06:37.593Z</updated>
     
-    
-    
-    
-    
-  </entry>
-  
-  <entry>
-    <title></title>
-    <link href="http://example.com/2022/03/27/%E7%BE%8E%E5%9B%A2%E4%B8%80%E9%9D%A2/%E7%BA%BF%E7%A8%8B%E6%B1%A0/"/>
-    <id>http://example.com/2022/03/27/%E7%BE%8E%E5%9B%A2%E4%B8%80%E9%9D%A2/%E7%BA%BF%E7%A8%8B%E6%B1%A0/</id>
-    <published>2022-03-27T14:58:06.623Z</published>
-    <updated>2022-03-29T17:46:06.162Z</updated>
-    
-    <content type="html"><![CDATA[<p><img src="https://gitee.com/mymengchuang/blog_img/raw/master/images/202203300146169.png" alt="线程池"></p>]]></content>
-    
-    
-      
-      
-    <summary type="html">&lt;p&gt;&lt;img src=&quot;https://gitee.com/mymengchuang/blog_img/raw/master/images/202203300146169.png&quot; alt=&quot;线程池&quot;&gt;&lt;/p&gt;
-</summary>
-      
-    
-    
-    
-    
-  </entry>
-  
-  <entry>
-    <title></title>
-    <link href="http://example.com/2022/03/27/%E7%BE%8E%E5%9B%A2%E4%B8%80%E9%9D%A2/JVM/"/>
-    <id>http://example.com/2022/03/27/%E7%BE%8E%E5%9B%A2%E4%B8%80%E9%9D%A2/JVM/</id>
-    <published>2022-03-27T14:57:06.987Z</published>
-    <updated>2022-03-27T14:58:04.674Z</updated>
-    
-    <content type="html"><![CDATA[<p>[toc]</p><h3 id="JMM内存模型"><a href="#JMM内存模型" class="headerlink" title="JMM内存模型"></a>JMM内存模型</h3><h4 id="内存结构"><a href="#内存结构" class="headerlink" title="内存结构"></a>内存结构</h4><ul><li>线程可见性</li><li>线程不可见</li></ul><h3 id="JMM的设计原则"><a href="#JMM的设计原则" class="headerlink" title="JMM的设计原则"></a>JMM的设计原则</h3><ul><li><p>可见性：主存，每个线程的本地内存，本地内存有一个共享变量的拷贝</p></li><li><p>原子性：加锁</p></li><li><p>禁止指令重排保证内存可见性，主要是靠插入内存屏蔽</p><ul><li><p>Load Load</p></li><li><p>Stroe Store</p></li><li><p>Ls</p></li><li><p>SL</p></li></ul></li></ul><h3 id="内存空间分配"><a href="#内存空间分配" class="headerlink" title="内存空间分配"></a>内存空间分配</h3><p>对象优先分配再新生代，元空间</p><p>大对象直接分配在老年代</p><p>长期存活的对象进入老年代</p><h3 id="2-volatile实现可见性"><a href="#2-volatile实现可见性" class="headerlink" title="2.volatile实现可见性"></a><strong>2.volatile实现可见性</strong></h3><ul><li><p><strong>volatile关键字</strong></p></li><li><ul><li>能够保证volatile变量的可见性</li><li>不能保证volatile变量复合操作的原子性</li></ul></li></ul><p><strong>volatile如何实现内存可见性：</strong></p><p>深入来说：通过加入<strong>内存屏障</strong>和<strong>禁止重排序优化</strong>来实现的</p><ul><li>对volatile变量执行写操作时，会在写操作后加入一条store屏障指令</li><li>对volatile变量执行读操作时，会在读操作前加入一条load屏障指令</li></ul><p><strong>线程写volatile变量的过程：</strong></p><ol><li>改变线程工作内存中volatile变量副本的值</li><li>将改变后的副本的值从工作内存刷新到主内存</li></ol>]]></content>
+    <content type="html"><![CDATA[<p>[toc]</p><h1 id="进程调度"><a href="#进程调度" class="headerlink" title="进程调度"></a>进程调度</h1><h3 id="概念"><a href="#概念" class="headerlink" title="概念"></a>概念</h3><p>CPU调度程序实现上下文切换，从就绪队列中选出一个进程到CPU中。</p><ul><li>就绪队列保存的是PCB</li><li>就绪队列的组织方式：先进先出、优先队列、链表、树</li></ul><p><code>抢占调度：</code></p><ul><li>非抢占调度：调度仅仅发生在下面两种<ul><li>运行状态切换到<strong>等待状态</strong>（IO）</li><li>进程终止</li></ul></li><li>抢占调度<ul><li>不是非强制</li></ul></li></ul><blockquote><p>非抢占下，一旦某个进程分配到CPU，改进程就回一直使用CPU,直到他终止或者切换到等待状态</p></blockquote><h3 id="调度算法"><a href="#调度算法" class="headerlink" title="调度算法"></a>调度算法</h3><ul><li>先到先服务</li><li>最短作业优先 : <strong>最短下次CPU执行时间</strong><ul><li>对于批处理的长期调度，经常用于长期调度，但是无法再短期调度中实现，也无法获得下次CPU执行的长度，最多只能进行预测</li><li><strong>抢占式的最短作业优先调度</strong>又称为<strong>最短剩余时间优先</strong></li></ul></li></ul><ul><li>优先级调度<ul><li>可能的问题：无穷阻塞或者饥饿，也就是优先级低的进程可能永远无法获得CPU时间</li><li>解决方法：逐步增强等待很长时间的优先级</li></ul></li><li>轮转调度<ul><li>会定义一个较小的时间片，每次分配不会超过一个时间片的时间</li><li>主要针对于分时系统，而且是抢占式的</li><li>会经过多次的上下文切换，使得CPU是等待时间较长，也就是<strong>调度延迟</strong>很大</li></ul></li><li>多级队列调度</li></ul><h3 id="线程调度"><a href="#线程调度" class="headerlink" title="线程调度"></a>线程调度</h3><blockquote><p>在支持线程的操作系统上，内核级线程（不是进程）才是CPU调度的</p><p>用户级线程由线程库管理，内核并不知道，用户线程运行在CPU上，最终映射到内核级线程</p><p>用户级线程和内核级线程的映射可能不是直接的，可能会经过轻量级线程（LWP）</p></blockquote><h3 id="多处理器调度"><a href="#多处理器调度" class="headerlink" title="多处理器调度"></a>多处理器调度</h3><blockquote><p>目的：使得各个CPU负载分配平衡</p></blockquote><p><code>方法：</code></p><ul><li><p>非对称多处理：有一个主要用于调度的CPU，其他处理器仅仅执行代码</p></li><li><p>对称多处理：所有处理器都自我调度（<strong>SMP</strong>）</p></li></ul><p><code>处理器亲和力</code></p><ul><li>大多数系统试图避免将进程从一个处理器转移到另外一个处理器上，而是试图让它固定在一个处理器上运行</li><li>因为进程处理数据时处理器中的缓存不需要进行多次频繁的更新</li></ul><p><code>负载平衡：</code></p><ul><li>在SMP系统中所有CPU上的负载差不多</li><li>方法：<ul><li>推迁移：一个特定任务检查负载</li><li>拉迁移：空闲的处理器主动去拉任务</li></ul></li><li>负载平衡与处理器亲和度是矛盾的</li></ul><h1 id="同步算法"><a href="#同步算法" class="headerlink" title="同步算法"></a>同步算法</h1><h3 id="背景"><a href="#背景" class="headerlink" title="背景"></a>背景</h3><p>多个进程并发访问和操作同一个数据，可能会形成竞争条件。同步算法一个进行一定的进程同步和协调</p><h3 id="临界区"><a href="#临界区" class="headerlink" title="临界区"></a>临界区</h3><p>进程在执行临界区代码时，可能会修改公共变量。临界区只能有一个进程在执行</p><h3 id="互斥锁（自旋锁）"><a href="#互斥锁（自旋锁）" class="headerlink" title="互斥锁（自旋锁）"></a>互斥锁（自旋锁）</h3><ul><li>硬件同步：实际上就是加锁，使用原子指令，是基于硬件的</li><li>软件同步：使用互斥锁工具，实际上互斥锁也是通过硬件来实现的原子操作。互斥锁是硬件的打包工具<ul><li>自旋锁的问题：可能造成大量时间的等待，优点是没有CPU上下文切换</li></ul></li></ul><h3 id="信号量"><a href="#信号量" class="headerlink" title="信号量"></a>信号量</h3><blockquote><p>处理互斥锁外的一个更鲁棒的工具</p></blockquote><p>信号量是一个整形变量S,除了初始化外只能通过<code>wait</code> P和<code>signal</code> V来处理。这两个都是原子操作</p><ul><li><code>wait()</code></li></ul><figure class="highlight java"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//S代表资源的数量</span></span><br><span class="line"><span class="comment">//下面是原子操作，不能中断</span></span><br><span class="line">wait(S){</span><br><span class="line"><span class="keyword">while</span>(S&lt;=<span class="number">0</span>)</span><br><span class="line">;<span class="comment">//忙等待</span></span><br><span class="line">S--;</span><br><span class="line">}</span><br></pre></td></tr></tbody></table></figure><ul><li><code>signal()</code></li></ul><figure class="highlight java"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//不能中断</span></span><br><span class="line">signal(S){</span><br><span class="line">S++;</span><br><span class="line">}</span><br></pre></td></tr></tbody></table></figure><p>==信号量==</p><ul><li>计数信号量，代表资源数量</li><li>二进制信号量，0/1,类似于互斥锁</li></ul><h3 id="信号量的问题"><a href="#信号量的问题" class="headerlink" title="信号量的问题"></a>信号量的问题</h3><ul><li>死锁与饥饿</li></ul><blockquote><p>死锁，两个进程都需要多个资源，但是都各自拿到了一部分，导致两方都阻塞的情况。</p><p>类似于各拿一半，但是都没办法前进</p></blockquote><h3 id="同步经典问题"><a href="#同步经典问题" class="headerlink" title="同步经典问题"></a>同步经典问题</h3><ul><li><p>单个变量的多进程读写问题</p></li><li><p>有界缓存问题</p></li><li><p>哲学家就餐问题</p></li></ul><p>==有界缓存问题==</p><p>  有两个需要设定的信号量</p><ul><li>缓冲区读写资源</li><li>缓冲区数量资源</li></ul><p>但是为了避免死锁，采用3个信号量：</p><p><img src="C:\Users\DELL\AppData\Roaming\Typora\typora-user-images\image-20220222143734525.png" alt="image-20220222143734525"></p><p><img src="C:\Users\DELL\AppData\Roaming\Typora\typora-user-images\image-20220222143710243.png" alt="image-20220222143710243"></p><p>==哲学家问题==</p><blockquote><p>并发控制的重要意义：在多到进程并发情况下如何分配资源，避免死锁和饥饿问题</p></blockquote><p>每个叉子都用一个信号量来表示，因此每个进程需要左右两个资源</p><p><img src="C:\Users\DELL\AppData\Roaming\Typora\typora-user-images\image-20220222145641585.png" alt="image-20220222145641585"></p><blockquote><p>但是单对资源作为信号量，没有办法解决</p></blockquote><h3 id="管程"><a href="#管程" class="headerlink" title="管程"></a>管程</h3><p>java中提供了<code>synchronized</code>来修饰函数，调用方法时需要拥有对象的锁，由此实现了类似于管程机制的同步。</p><h1 id="死锁"><a href="#死锁" class="headerlink" title="死锁"></a>死锁</h1><h3 id="必要条件"><a href="#必要条件" class="headerlink" title="必要条件"></a>必要条件</h3><ul><li><strong>互斥</strong>：资源是内共享的</li><li><strong>占有并等待：</strong> 一个进程占有一个资源，并等待另外一个资源，但是这个资源被其他资源占有</li><li><strong>非抢占：</strong> 资源不能被抢占</li><li><strong>循环等待：</strong> A的资源被B占有，B的资源被C占有。。。。最后一个的资源又被A占有</li></ul><blockquote><p>四个条件同时出现才可能会出现死锁</p></blockquote><h3 id="解决方法："><a href="#解决方法：" class="headerlink" title="解决方法："></a>解决方法：</h3><ul><li>死锁预防：根据必要条件进行预防<ul><li>根据循环等待掉进进行预防：<strong>对所有资源进行完全排序，每个进程按照递增顺序获取资源</strong></li></ul></li><li>死锁避免<ul><li>资源分配图算法</li><li>银行家算法</li></ul></li></ul><blockquote><p>生产者消费者：同步的重要性（加锁或者设置信息量）</p><p>银行家算法：死锁避免</p></blockquote><h3 id="银行家算法"><a href="#银行家算法" class="headerlink" title="银行家算法"></a>银行家算法</h3><p>当一个进程进入系统时，一个先声明需要的每种资源的最大数量，这个数量不应该超过系统资源的总和。当用户申请资源时，会计算分配这些资源后是否仍然处于安全状态，是就分配。</p><ul><li>需要定义几个数据结构：available,max,allocation,need</li><li>定义安全判断算法</li><li>定义资源请求算法</li></ul><h3 id="死锁恢复"><a href="#死锁恢复" class="headerlink" title="死锁恢复"></a>死锁恢复</h3><ul><li>中止一个或者多个进程来打破循环等待</li><li>允许从一个或者多个死锁进程中抢占资源</li></ul>]]></content>
     
     
       
       
     <summary type="html">&lt;p&gt;[toc]&lt;/p&gt;
-&lt;h3 id=&quot;JMM内存模型&quot;&gt;&lt;a href=&quot;#JMM内存模型&quot; class=&quot;headerlink&quot; title=&quot;JMM内存模型&quot;&gt;&lt;/a&gt;JMM内存模型&lt;/h3&gt;&lt;h4 id=&quot;内存结构&quot;&gt;&lt;a href=&quot;#内存结构&quot; class=&quot;hea</summary>
+&lt;h1 id=&quot;进程调度&quot;&gt;&lt;a href=&quot;#进程调度&quot; class=&quot;headerlink&quot; title=&quot;进程调度&quot;&gt;&lt;/a&gt;进程调度&lt;/h1&gt;&lt;h3 id=&quot;概念&quot;&gt;&lt;a href=&quot;#概念&quot; class=&quot;headerlink&quot; title=&quot;</summary>
       
     
     
     
     
-  </entry>
-  
-  <entry>
-    <title></title>
-    <link href="http://example.com/2022/03/27/%E7%BE%8E%E5%9B%A2%E4%B8%80%E9%9D%A2/MySQL/"/>
-    <id>http://example.com/2022/03/27/%E7%BE%8E%E5%9B%A2%E4%B8%80%E9%9D%A2/MySQL/</id>
-    <published>2022-03-27T14:56:59.255Z</published>
-    <updated>2022-03-27T17:52:48.423Z</updated>
-    
-    <content type="html"><![CDATA[<p>[toc]</p><h1 id="设计数据库过程中遇到的问题"><a href="#设计数据库过程中遇到的问题" class="headerlink" title="设计数据库过程中遇到的问题"></a>设计数据库过程中遇到的问题</h1><h3 id="1、我们用来索引的数据结构是B-树，B-树的设计和存储的问题"><a href="#1、我们用来索引的数据结构是B-树，B-树的设计和存储的问题" class="headerlink" title="1、我们用来索引的数据结构是B+树，B+树的设计和存储的问题"></a>1、我们用来索引的数据结构是B+树，B+树的设计和存储的问题</h3><p>第一个难点主要是怎么设计B+树来作索引，为了方便每一个表只有一个按照主键的索引</p><ul><li><p><strong>因为B+树相比于红黑树和B树的优势</strong>我们用的就是B+树来进行索引。</p></li><li><p>B+树有索引结点和叶子节点。索引结点主要就存放键值，叶子节点存放键值，指向记录的指针，一个是指向下一个结点的指针。</p></li></ul><p>​    每一个叶 子节点里面的记录都按照键值排序的，用链表连接起来方便进行区间查询。</p><ul><li>为了方便我们是索引文件和数据文件分开的，</li></ul><h3 id="2、缓冲区的设计"><a href="#2、缓冲区的设计" class="headerlink" title="2、缓冲区的设计"></a>2、缓冲区的设计</h3><p>如果每一次访问记录都要进行打开文件，关闭文件的操作速度会很慢。我就设计了一个缓冲区用来提高读取速度。</p><p>我们将磁盘文件每4KB个字节作为一个页，缓冲区有1000个页，每一次读取都会现在缓冲区里面找数据，如果miss了，会去磁盘文件读取指定记录4KiB的数据到缓冲区，如果缓冲区满了就进行LRU页面替换和clock。这样在去缓冲区读取就hit击中了，下次再读取一个记录就可以直接再缓冲区里面找了。</p><p>总体来说就是我通过buffer类向外通过接口，通过堆buffer的读写实际上相当于对底层文件的读写。</p><h3 id="3、如何支持可变索引"><a href="#3、如何支持可变索引" class="headerlink" title="3、如何支持可变索引"></a>3、如何支持可变索引</h3><p>索引结点不保存键值，索引值，我直接保存指向键值的指针，然后通过指针去找键值再进行比较，这样我就必须要改变B+树中的键值，我只需要改变指针指向的值即可。</p><p>或者删除+插入操作</p><ul><li>存储指针</li><li>键值映射，用一个字典中的索引值来代替原来的值，通过键映射到对应的值</li></ul><h3 id="4、如何变成线程安全的"><a href="#4、如何变成线程安全的" class="headerlink" title="4、如何变成线程安全的"></a>4、如何变成线程安全的</h3><ul><li>B+树加锁吗</li><li>如何加锁：<ul><li>最简单的方法是加表锁，也就是</li></ul></li></ul><h3 id="事务的特征"><a href="#事务的特征" class="headerlink" title="事务的特征"></a>事务的特征</h3><ul><li>原子性</li><li>隔离性</li><li>一致性</li><li>持久性</li></ul><h3 id="事务的隔离级别"><a href="#事务的隔离级别" class="headerlink" title="事务的隔离级别"></a>事务的隔离级别</h3><ul><li>未提交读</li><li>提交读</li><li>可重复读</li><li>序列化</li></ul><blockquote><p>MySQL 通过mvcc机制在解决不可重复读的基础上，解决幻读</p></blockquote><h3 id="并发控制创建的问题"><a href="#并发控制创建的问题" class="headerlink" title="并发控制创建的问题"></a>并发控制创建的问题</h3><ul><li>丢失更新</li><li>脏读</li><li>不可重复读</li><li>幻读</li></ul><h3 id="事务原子性是有什么保证的方法"><a href="#事务原子性是有什么保证的方法" class="headerlink" title="事务原子性是有什么保证的方法"></a>事务原子性是有什么保证的方法</h3><ul><li>采用日志的形式，在磁盘和内存中维护一个undo记录</li><li>保存数据文件的备份，在备份进行操作，如果失败了就不更新回原来的表</li></ul><h3 id="MySQL是如何实现并发的呢"><a href="#MySQL是如何实现并发的呢" class="headerlink" title="MySQL是如何实现并发的呢"></a>MySQL是如何实现并发的呢</h3><ul><li><p>InnoDB使用锁和mvcc机制实现并发控制</p></li><li><p>mvcc是在锁的基础上实现的</p></li><li><p>innoDB支持行级锁</p></li></ul><h3 id="MySQL的锁有哪些"><a href="#MySQL的锁有哪些" class="headerlink" title="MySQL的锁有哪些"></a>MySQL的锁有哪些</h3><p>按照细粒度划分：</p><ul><li>表级锁</li><li>行级锁</li></ul><p>按照功能划分：</p><ul><li>读锁</li><li>写锁</li><li>共享锁</li><li>排他锁</li><li>意向锁</li></ul><h3 id="数据库锁机制"><a href="#数据库锁机制" class="headerlink" title="数据库锁机制"></a>数据库锁机制</h3><ul><li><p>乐观锁：实现方式是利用版本号，在更新的同时也更新版本号</p></li><li><p>悲观锁</p><ul><li><p>行级锁</p><ul><li>共享只读锁</li><li>排他读写锁</li><li>意向锁</li></ul></li><li><p>表级锁</p><ul><li><p>共享只读锁</p></li><li><p>排他读写锁</p></li><li><p>意向锁</p></li></ul></li></ul></li></ul><p>一个事务A仅仅让其中一行可读，事务B又申请整个表的写锁，出现行锁和表锁的冲突，因此出现意向锁。</p><p>被意向锁锁住导致B事务没办法给整个表加写锁。</p><h3 id="你的数据库如何支持事务"><a href="#你的数据库如何支持事务" class="headerlink" title="你的数据库如何支持事务"></a>你的数据库如何支持事务</h3><ul><li>事务的基本要求ACID</li><li>MySQL是通过加锁实现隔离性，加行锁（叶子节点） 加表锁 整个B+树加锁  需要父节点加锁-&gt;子节点加锁-&gt;判断父节点是否分离等，解锁</li><li>保证其他特性通过日志来实现， redo log   undo log 保证事务原子性</li></ul><h3 id="MySQL如何实现ACID"><a href="#MySQL如何实现ACID" class="headerlink" title="MySQL如何实现ACID"></a>MySQL如何实现ACID</h3><p>除了隔离性是通过加锁和mvcc机制来实现，其他都通过日志来实现</p><p><strong>持久性：</strong> redo log来实现事务的持久性，比如服务突然挂机，脏页还没写回，重启以后通过redo log 保持持久性</p><p><strong>原子性:</strong> undo log </p><p><strong>隔离性：</strong> 加锁 mvcc多版本并发控制</p><p><strong>一致性：</strong> 实现其他三个特性的基础上，在应用层需要加判断的，用户恶意操作会导致不一致</p><h3 id="MVCC是什么-同时用到锁和log-回滚指针指向undo-log"><a href="#MVCC是什么-同时用到锁和log-回滚指针指向undo-log" class="headerlink" title="MVCC是什么  同时用到锁和log  (回滚指针指向undo log)"></a>MVCC是什么  同时用到锁和log  (回滚指针指向undo log)</h3><p>1、MVCC是什么</p><p>InnoDB的多版本并发控制，优势是<strong>读不加锁，读写不冲突，读写分离</strong>，并发控制优势很大</p><p>2、解决什么问题</p><ul><li>脏读</li><li>不可重复读</li><li>幻读</li><li>不能解决丢失更新的问题</li></ul><p>3、原理是什么</p><p>MVCC实现由：  <strong>3个隐式字段</strong>，<strong>undo日志</strong> ，<strong>Read View</strong> 三部分组成</p><p>1、mvcc会在每一行后面加上<strong>隐藏字段</strong>，表示创建时间和删除时间，创建时间实际上是版本号，<strong>事务的id，回滚指针</strong></p><p>2、每一次执行一个新的事务版本号会增加</p><p>3、undo log保证事务原子性</p><p>4、读视图是用来保证可见性的，</p><ul><li>可重复读中，事务开始时创建一个视图，后面的操作都用一个视图，读到版本号等于当前版本号或者早于当前版本号的数据</li><li>读提交时，每个语句执行都会创造一个视图，每次都是读到版本号最新的数据行</li></ul><p><strong>4、使用的隔离级别</strong></p><p>仅仅在可重复读和提交读的隔离性下工作   <strong>都是通过版本号来操作的</strong></p><p><strong>提交读</strong> 就是读取最新版本号的数据行   </p><p><strong>可重复读：</strong> 查找版本号早于或者等于当前版本号的数据行</p><blockquote><p>在可重复读的基础上没有完全解决幻读的问题，还需要 RR上加上间隙锁</p></blockquote><p>所以引发了 <strong>当前读</strong> 和 <strong>快照读</strong></p><p><strong>当前读</strong> 会加锁，保证读取的最新的版本  </p><p><strong>快照读</strong> 性能考虑，但是读到的不一定是最新的  selete不加锁就是</p><h3 id="ArrayList和LinkedList的实现"><a href="#ArrayList和LinkedList的实现" class="headerlink" title="ArrayList和LinkedList的实现"></a>ArrayList和LinkedList的实现</h3><p>ArrayList和LinkedList都是实现List接口</p><p>ArrayList底层是根据动态数组实现的，所以他添加删除的效率比较低，查找效率比较高</p><p>LinkedList底层根据双向链表实现</p><h3 id="MyISAM和InnoDB的区别"><a href="#MyISAM和InnoDB的区别" class="headerlink" title="MyISAM和InnoDB的区别"></a>MyISAM和InnoDB的区别</h3><ul><li>InnoDB支持事务，MySIAM不支持事务</li><li>InnoDB支持行级锁</li><li>InnoDB支持外键索引</li><li>InnoDB不支持全文索引  FULLTEXT类型的索引</li><li>InnoDB没有区分索引文件和数据文件</li></ul>]]></content>
-    
-    
-      
-      
-    <summary type="html">&lt;p&gt;[toc]&lt;/p&gt;
-&lt;h1 id=&quot;设计数据库过程中遇到的问题&quot;&gt;&lt;a href=&quot;#设计数据库过程中遇到的问题&quot; class=&quot;headerlink&quot; title=&quot;设计数据库过程中遇到的问题&quot;&gt;&lt;/a&gt;设计数据库过程中遇到的问题&lt;/h1&gt;&lt;h3 id=&quot;1、我们用来索引</summary>
-      
-    
-    
-    
+    <category term="操作系统" scheme="http://example.com/tags/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F/"/>
     
   </entry>
   
@@ -116,34 +63,11 @@
   </entry>
   
   <entry>
-    <title>操作系统概念_2</title>
-    <link href="http://example.com/2022/03/21/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F%E6%A6%82%E5%BF%B5_2/"/>
-    <id>http://example.com/2022/03/21/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F%E6%A6%82%E5%BF%B5_2/</id>
-    <published>2022-03-21T15:00:00.000Z</published>
-    <updated>2022-04-06T17:06:37.593Z</updated>
-    
-    <content type="html"><![CDATA[<p>[toc]</p><h1 id="进程调度"><a href="#进程调度" class="headerlink" title="进程调度"></a>进程调度</h1><h3 id="概念"><a href="#概念" class="headerlink" title="概念"></a>概念</h3><p>CPU调度程序实现上下文切换，从就绪队列中选出一个进程到CPU中。</p><ul><li>就绪队列保存的是PCB</li><li>就绪队列的组织方式：先进先出、优先队列、链表、树</li></ul><p><code>抢占调度：</code></p><ul><li>非抢占调度：调度仅仅发生在下面两种<ul><li>运行状态切换到<strong>等待状态</strong>（IO）</li><li>进程终止</li></ul></li><li>抢占调度<ul><li>不是非强制</li></ul></li></ul><blockquote><p>非抢占下，一旦某个进程分配到CPU，改进程就回一直使用CPU,直到他终止或者切换到等待状态</p></blockquote><h3 id="调度算法"><a href="#调度算法" class="headerlink" title="调度算法"></a>调度算法</h3><ul><li>先到先服务</li><li>最短作业优先 : <strong>最短下次CPU执行时间</strong><ul><li>对于批处理的长期调度，经常用于长期调度，但是无法再短期调度中实现，也无法获得下次CPU执行的长度，最多只能进行预测</li><li><strong>抢占式的最短作业优先调度</strong>又称为<strong>最短剩余时间优先</strong></li></ul></li></ul><ul><li>优先级调度<ul><li>可能的问题：无穷阻塞或者饥饿，也就是优先级低的进程可能永远无法获得CPU时间</li><li>解决方法：逐步增强等待很长时间的优先级</li></ul></li><li>轮转调度<ul><li>会定义一个较小的时间片，每次分配不会超过一个时间片的时间</li><li>主要针对于分时系统，而且是抢占式的</li><li>会经过多次的上下文切换，使得CPU是等待时间较长，也就是<strong>调度延迟</strong>很大</li></ul></li><li>多级队列调度</li></ul><h3 id="线程调度"><a href="#线程调度" class="headerlink" title="线程调度"></a>线程调度</h3><blockquote><p>在支持线程的操作系统上，内核级线程（不是进程）才是CPU调度的</p><p>用户级线程由线程库管理，内核并不知道，用户线程运行在CPU上，最终映射到内核级线程</p><p>用户级线程和内核级线程的映射可能不是直接的，可能会经过轻量级线程（LWP）</p></blockquote><h3 id="多处理器调度"><a href="#多处理器调度" class="headerlink" title="多处理器调度"></a>多处理器调度</h3><blockquote><p>目的：使得各个CPU负载分配平衡</p></blockquote><p><code>方法：</code></p><ul><li><p>非对称多处理：有一个主要用于调度的CPU，其他处理器仅仅执行代码</p></li><li><p>对称多处理：所有处理器都自我调度（<strong>SMP</strong>）</p></li></ul><p><code>处理器亲和力</code></p><ul><li>大多数系统试图避免将进程从一个处理器转移到另外一个处理器上，而是试图让它固定在一个处理器上运行</li><li>因为进程处理数据时处理器中的缓存不需要进行多次频繁的更新</li></ul><p><code>负载平衡：</code></p><ul><li>在SMP系统中所有CPU上的负载差不多</li><li>方法：<ul><li>推迁移：一个特定任务检查负载</li><li>拉迁移：空闲的处理器主动去拉任务</li></ul></li><li>负载平衡与处理器亲和度是矛盾的</li></ul><h1 id="同步算法"><a href="#同步算法" class="headerlink" title="同步算法"></a>同步算法</h1><h3 id="背景"><a href="#背景" class="headerlink" title="背景"></a>背景</h3><p>多个进程并发访问和操作同一个数据，可能会形成竞争条件。同步算法一个进行一定的进程同步和协调</p><h3 id="临界区"><a href="#临界区" class="headerlink" title="临界区"></a>临界区</h3><p>进程在执行临界区代码时，可能会修改公共变量。临界区只能有一个进程在执行</p><h3 id="互斥锁（自旋锁）"><a href="#互斥锁（自旋锁）" class="headerlink" title="互斥锁（自旋锁）"></a>互斥锁（自旋锁）</h3><ul><li>硬件同步：实际上就是加锁，使用原子指令，是基于硬件的</li><li>软件同步：使用互斥锁工具，实际上互斥锁也是通过硬件来实现的原子操作。互斥锁是硬件的打包工具<ul><li>自旋锁的问题：可能造成大量时间的等待，优点是没有CPU上下文切换</li></ul></li></ul><h3 id="信号量"><a href="#信号量" class="headerlink" title="信号量"></a>信号量</h3><blockquote><p>处理互斥锁外的一个更鲁棒的工具</p></blockquote><p>信号量是一个整形变量S,除了初始化外只能通过<code>wait</code> P和<code>signal</code> V来处理。这两个都是原子操作</p><ul><li><code>wait()</code></li></ul><figure class="highlight java"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//S代表资源的数量</span></span><br><span class="line"><span class="comment">//下面是原子操作，不能中断</span></span><br><span class="line">wait(S){</span><br><span class="line"><span class="keyword">while</span>(S&lt;=<span class="number">0</span>)</span><br><span class="line">;<span class="comment">//忙等待</span></span><br><span class="line">S--;</span><br><span class="line">}</span><br></pre></td></tr></tbody></table></figure><ul><li><code>signal()</code></li></ul><figure class="highlight java"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//不能中断</span></span><br><span class="line">signal(S){</span><br><span class="line">S++;</span><br><span class="line">}</span><br></pre></td></tr></tbody></table></figure><p>==信号量==</p><ul><li>计数信号量，代表资源数量</li><li>二进制信号量，0/1,类似于互斥锁</li></ul><h3 id="信号量的问题"><a href="#信号量的问题" class="headerlink" title="信号量的问题"></a>信号量的问题</h3><ul><li>死锁与饥饿</li></ul><blockquote><p>死锁，两个进程都需要多个资源，但是都各自拿到了一部分，导致两方都阻塞的情况。</p><p>类似于各拿一半，但是都没办法前进</p></blockquote><h3 id="同步经典问题"><a href="#同步经典问题" class="headerlink" title="同步经典问题"></a>同步经典问题</h3><ul><li><p>单个变量的多进程读写问题</p></li><li><p>有界缓存问题</p></li><li><p>哲学家就餐问题</p></li></ul><p>==有界缓存问题==</p><p>  有两个需要设定的信号量</p><ul><li>缓冲区读写资源</li><li>缓冲区数量资源</li></ul><p>但是为了避免死锁，采用3个信号量：</p><p><img src="C:\Users\DELL\AppData\Roaming\Typora\typora-user-images\image-20220222143734525.png" alt="image-20220222143734525"></p><p><img src="C:\Users\DELL\AppData\Roaming\Typora\typora-user-images\image-20220222143710243.png" alt="image-20220222143710243"></p><p>==哲学家问题==</p><blockquote><p>并发控制的重要意义：在多到进程并发情况下如何分配资源，避免死锁和饥饿问题</p></blockquote><p>每个叉子都用一个信号量来表示，因此每个进程需要左右两个资源</p><p><img src="C:\Users\DELL\AppData\Roaming\Typora\typora-user-images\image-20220222145641585.png" alt="image-20220222145641585"></p><blockquote><p>但是单对资源作为信号量，没有办法解决</p></blockquote><h3 id="管程"><a href="#管程" class="headerlink" title="管程"></a>管程</h3><p>java中提供了<code>synchronized</code>来修饰函数，调用方法时需要拥有对象的锁，由此实现了类似于管程机制的同步。</p><h1 id="死锁"><a href="#死锁" class="headerlink" title="死锁"></a>死锁</h1><h3 id="必要条件"><a href="#必要条件" class="headerlink" title="必要条件"></a>必要条件</h3><ul><li><strong>互斥</strong>：资源是内共享的</li><li><strong>占有并等待：</strong> 一个进程占有一个资源，并等待另外一个资源，但是这个资源被其他资源占有</li><li><strong>非抢占：</strong> 资源不能被抢占</li><li><strong>循环等待：</strong> A的资源被B占有，B的资源被C占有。。。。最后一个的资源又被A占有</li></ul><blockquote><p>四个条件同时出现才可能会出现死锁</p></blockquote><h3 id="解决方法："><a href="#解决方法：" class="headerlink" title="解决方法："></a>解决方法：</h3><ul><li>死锁预防：根据必要条件进行预防<ul><li>根据循环等待掉进进行预防：<strong>对所有资源进行完全排序，每个进程按照递增顺序获取资源</strong></li></ul></li><li>死锁避免<ul><li>资源分配图算法</li><li>银行家算法</li></ul></li></ul><blockquote><p>生产者消费者：同步的重要性（加锁或者设置信息量）</p><p>银行家算法：死锁避免</p></blockquote><h3 id="银行家算法"><a href="#银行家算法" class="headerlink" title="银行家算法"></a>银行家算法</h3><p>当一个进程进入系统时，一个先声明需要的每种资源的最大数量，这个数量不应该超过系统资源的总和。当用户申请资源时，会计算分配这些资源后是否仍然处于安全状态，是就分配。</p><ul><li>需要定义几个数据结构：available,max,allocation,need</li><li>定义安全判断算法</li><li>定义资源请求算法</li></ul><h3 id="死锁恢复"><a href="#死锁恢复" class="headerlink" title="死锁恢复"></a>死锁恢复</h3><ul><li>中止一个或者多个进程来打破循环等待</li><li>允许从一个或者多个死锁进程中抢占资源</li></ul>]]></content>
-    
-    
-      
-      
-    <summary type="html">&lt;p&gt;[toc]&lt;/p&gt;
-&lt;h1 id=&quot;进程调度&quot;&gt;&lt;a href=&quot;#进程调度&quot; class=&quot;headerlink&quot; title=&quot;进程调度&quot;&gt;&lt;/a&gt;进程调度&lt;/h1&gt;&lt;h3 id=&quot;概念&quot;&gt;&lt;a href=&quot;#概念&quot; class=&quot;headerlink&quot; title=&quot;</summary>
-      
-    
-    
-    
-    
-    <category term="操作系统" scheme="http://example.com/tags/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F/"/>
-    
-  </entry>
-  
-  <entry>
     <title>MySQL</title>
     <link href="http://example.com/2022/03/21/MySQL/"/>
     <id>http://example.com/2022/03/21/MySQL/</id>
     <published>2022-03-20T16:00:00.000Z</published>
-    <updated>2022-04-06T17:13:35.731Z</updated>
+    <updated>2022-04-06T17:14:55.607Z</updated>
     
     <content type="html"><![CDATA[<h1 id="设计数据库过程中遇到的问题"><a href="#设计数据库过程中遇到的问题" class="headerlink" title="设计数据库过程中遇到的问题"></a>设计数据库过程中遇到的问题</h1><h3 id="1、我们用来索引的数据结构是B-树，B-树的设计和存储的问题"><a href="#1、我们用来索引的数据结构是B-树，B-树的设计和存储的问题" class="headerlink" title="1、我们用来索引的数据结构是B+树，B+树的设计和存储的问题"></a>1、我们用来索引的数据结构是B+树，B+树的设计和存储的问题</h3><p>第一个难点主要是怎么设计B+树来作索引，为了方便每一个表只有一个按照主键的索引</p><ul><li><p><strong>因为B+树相比于红黑树和B树的优势</strong>我们用的就是B+树来进行索引。</p></li><li><p>B+树有索引结点和叶子节点。索引结点主要就存放键值，叶子节点存放键值，指向记录的指针，一个是指向下一个结点的指针。</p></li></ul><p>​    每一个叶 子节点里面的记录都按照键值排序的，用链表连接起来方便进行区间查询。</p><ul><li>为了方便我们是索引文件和数据文件分开的，</li></ul><h3 id="2、缓冲区的设计"><a href="#2、缓冲区的设计" class="headerlink" title="2、缓冲区的设计"></a>2、缓冲区的设计</h3><p>如果每一次访问记录都要进行打开文件，关闭文件的操作速度会很慢。我就设计了一个缓冲区用来提高读取速度。</p><p>我们将磁盘文件每4KB个字节作为一个页，缓冲区有1000个页，每一次读取都会现在缓冲区里面找数据，如果miss了，会去磁盘文件读取指定记录4KiB的数据到缓冲区，如果缓冲区满了就进行LRU页面替换和clock。这样在去缓冲区读取就hit击中了，下次再读取一个记录就可以直接再缓冲区里面找了。</p><p>总体来说就是我通过buffer类向外通过接口，通过堆buffer的读写实际上相当于对底层文件的读写。</p><h3 id="3、如何支持可变索引"><a href="#3、如何支持可变索引" class="headerlink" title="3、如何支持可变索引"></a>3、如何支持可变索引</h3><p>索引结点不保存键值，索引值，我直接保存指向键值的指针，然后通过指针去找键值再进行比较，这样我就必须要改变B+树中的键值，我只需要改变指针指向的值即可。</p><p>或者删除+插入操作</p><ul><li>存储指针</li><li>键值映射，用一个字典中的索引值来代替原来的值，通过键映射到对应的值</li></ul><h3 id="4、如何变成线程安全的"><a href="#4、如何变成线程安全的" class="headerlink" title="4、如何变成线程安全的"></a>4、如何变成线程安全的</h3><ul><li>B+树加锁吗</li><li></li></ul><h3 id="事务的特征"><a href="#事务的特征" class="headerlink" title="事务的特征"></a>事务的特征</h3><ul><li>原子性</li><li>隔离性</li><li>一致性</li><li>持久性</li></ul><h3 id="事务的隔离级别"><a href="#事务的隔离级别" class="headerlink" title="事务的隔离级别"></a>事务的隔离级别</h3><ul><li>未提交读</li><li>提交读</li><li>可重复读</li><li>序列化</li></ul><blockquote><p>MySQL 通过mvcc机制在解决不可重复读的基础上，解决幻读</p></blockquote><h3 id="并发控制创建的问题"><a href="#并发控制创建的问题" class="headerlink" title="并发控制创建的问题"></a>并发控制创建的问题</h3><ul><li>丢失更新</li><li>脏读</li><li>不可重复读</li><li>幻读</li></ul><h3 id="事务原子性是有什么保证的方法"><a href="#事务原子性是有什么保证的方法" class="headerlink" title="事务原子性是有什么保证的方法"></a>事务原子性是有什么保证的方法</h3><ul><li>采用日志的形式，在磁盘和内存中维护一个undo记录</li><li>保存数据文件的备份，在备份进行操作，如果失败了就不更新回原来的表</li></ul><h3 id="MySQL是如何实现并发的呢"><a href="#MySQL是如何实现并发的呢" class="headerlink" title="MySQL是如何实现并发的呢"></a>MySQL是如何实现并发的呢</h3><ul><li><p>InnoDB使用锁和mvcc机制实现并发控制</p></li><li><p>mvcc是在锁的基础上实现的</p></li><li><p>innoDB支持行级锁</p></li></ul><h3 id="MySQL的锁有哪些"><a href="#MySQL的锁有哪些" class="headerlink" title="MySQL的锁有哪些"></a>MySQL的锁有哪些</h3><p>按照细粒度划分：</p><ul><li>表级锁</li><li>行级锁</li></ul><p>按照功能划分：</p><ul><li>读锁</li><li>写锁</li><li>共享锁</li><li>排他锁</li><li>意向锁</li></ul><h3 id="数据库锁机制"><a href="#数据库锁机制" class="headerlink" title="数据库锁机制"></a>数据库锁机制</h3><ul><li><p>乐观锁：实现方式是利用版本号，在更新的同时也更新版本号</p></li><li><p>悲观锁</p><ul><li><p>行级锁</p><ul><li>共享只读锁</li><li>排他读写锁</li><li>意向锁</li></ul></li><li><p>表级锁</p><ul><li><p>共享只读锁</p></li><li><p>排他读写锁</p></li><li><p>意向锁</p></li></ul></li></ul></li></ul><p>一个事务A仅仅让其中一行可读，事务B又申请整个表的写锁，出现行锁和表锁的冲突，因此出现意向锁。</p><p>被意向锁锁住导致B事务没办法给整个表加写锁。</p><h3 id="你的数据库如何支持事务"><a href="#你的数据库如何支持事务" class="headerlink" title="你的数据库如何支持事务"></a>你的数据库如何支持事务</h3><ul><li>事务的基本要求ACID</li><li>MySQL是通过加锁实现隔离性，加行锁（叶子节点） 加表锁 整个B+树加锁  需要父节点加锁-&gt;子节点加锁-&gt;判断父节点是否分离等，解锁</li><li>保证其他特性通过日志来实现， redo log   undo log 保证事务原子性</li></ul><h3 id="MySQL如何实现ACID"><a href="#MySQL如何实现ACID" class="headerlink" title="MySQL如何实现ACID"></a>MySQL如何实现ACID</h3><p>除了隔离性是通过加锁和mvcc机制来实现，其他都通过日志来实现</p><p><strong>持久性：</strong> redo log来实现事务的持久性，比如服务突然挂机，脏页还没写回，重启以后通过redo log 保持持久性</p><p><strong>原子性:</strong> undo log </p><p><strong>隔离性：</strong> 加锁 mvcc多版本并发控制</p><p><strong>一致性：</strong> 实现其他三个特性的基础上，在应用层需要加判断的，用户恶意操作会导致不一致</p><h3 id="MVCC是什么-同时用到锁和log-回滚指针指向undo-log"><a href="#MVCC是什么-同时用到锁和log-回滚指针指向undo-log" class="headerlink" title="MVCC是什么  同时用到锁和log  (回滚指针指向undo log)"></a>MVCC是什么  同时用到锁和log  (回滚指针指向undo log)</h3><p>1、MVCC是什么</p><p>InnoDB的多版本并发控制，优势是<strong>读不加锁，读写不冲突，读写分离</strong>，并发控制优势很大</p><p>2、解决什么问题</p><ul><li>脏读</li><li>不可重复读</li><li>幻读</li><li>不能解决丢失更新的问题</li></ul><p>3、原理是什么</p><p>MVCC实现由：  <strong>3个隐式字段</strong>，<strong>undo日志</strong> ，<strong>Read View</strong> 三部分组成</p><p>1、mvcc会在每一行后面加上<strong>隐藏字段</strong>，表示创建时间和删除时间，创建时间实际上是版本号，<strong>事务的id，回滚指针</strong></p><p>2、每一次执行一个新的事务版本号会增加</p><p>3、undo log保证事务原子性</p><p>4、读视图是用来保证可见性的，</p><ul><li>可重复读中，事务开始时创建一个视图，后面的操作都用一个视图，读到版本号等于当前版本号或者早于当前版本号的数据</li><li>读提交时，每个语句执行都会创造一个视图，每次都是读到版本号最新的数据行</li></ul><p><strong>4、使用的隔离级别</strong></p><p>仅仅在可重复读和提交读的隔离性下工作   <strong>都是通过版本号来操作的</strong></p><p><strong>提交读</strong> 就是读取最新版本号的数据行   </p><p><strong>可重复读：</strong> 查找版本号早于或者等于当前版本号的数据行</p><blockquote><p>在可重复读的基础上没有完全解决幻读的问题，还需要 RR上加上间隙锁</p></blockquote><p>所以引发了 <strong>当前读</strong> 和 <strong>快照读</strong></p><p><strong>当前读</strong> 会加锁，保证读取的最新的版本  </p><p><strong>快照读</strong> 性能考虑，但是读到的不一定是最新的  selete不加锁就是</p><h3 id="ArrayList和LinkedList的实现"><a href="#ArrayList和LinkedList的实现" class="headerlink" title="ArrayList和LinkedList的实现"></a>ArrayList和LinkedList的实现</h3><p>ArrayList和LinkedList都是实现List接口</p><p>ArrayList底层是根据动态数组实现的，所以他添加删除的效率比较低，查找效率比较高</p><p>LinkedList底层根据双向链表实现</p><h3 id="MyISAM和InnoDB的区别"><a href="#MyISAM和InnoDB的区别" class="headerlink" title="MyISAM和InnoDB的区别"></a>MyISAM和InnoDB的区别</h3><ul><li>InnoDB支持事务，MySIAM不支持事务</li><li>InnoDB支持行级锁</li><li>InnoDB支持外键索引</li><li>InnoDB不支持全文索引  FULLTEXT类型的索引</li><li>InnoDB没有区分索引文件和数据文件</li></ul><h3 id="JUC线程池"><a href="#JUC线程池" class="headerlink" title="JUC线程池"></a>JUC线程池</h3><p>1、用来干嘛？</p><p>采用池化的实现来管理过多的线程，可以提高乡响应速度等。主要的类有<strong>ThreadPoolExecutor</strong></p><p>2、运行机制？</p><ul><li>自身状态管理</li><li>任务管理：充当生产者的作用，判断任务提交后是否申请线程或者放入任务缓冲队列。</li><li>线程管理：分配的线程会进行任务的执行，执行完再去取新的任务，直到获取不到任务被回收</li></ul><h4 id="自身状态管理"><a href="#自身状态管理" class="headerlink" title="自身状态管理"></a>自身状态管理</h4><p>同时维护两个变量</p><ul><li>运行状态：running shoutdown stop tidying terminiated  5个状态</li><li>线程数量</li></ul><h4 id="任务管理"><a href="#任务管理" class="headerlink" title="任务管理"></a>任务管理</h4><p>是线程池的主要入口，主要作用是</p><ul><li>检测当前线程池的状态</li><li>后序步骤：直接分配线程，还是进入任务缓冲队列，还是直接拒接</li></ul><p>不同的任务缓冲队列会有不同的任务存取策略，</p><h4 id="线程管理"><a href="#线程管理" class="headerlink" title="线程管理"></a>线程管理</h4><p>为了实现线程管理，线程池内部设计Worker线程，实现AQS框架实现独占锁，线程管理的任务：</p><ul><li><p>长时间不运行的线程回收</p></li><li><p>采用哈希表找到对线程的引用，通过哈希表实现对线程的管理</p></li><li><p>调用runWorker()方法执行任务，runWorker（）循环通过getTask()方法获得任务</p></li></ul><h4 id="任务执行"><a href="#任务执行" class="headerlink" title="任务执行"></a>任务执行</h4><p>线程池的工作线程通过Woker类实现，在ReentrantLock锁的保证下，把Woker实例插入到HashSet后，并启动Woker中的线程。 从Woker类的构造方法实现可以发现: 线程工厂在创建线程thread时，将Woker实例本身this作为参数传入，当执行start方法启动线程thread时，本质是执行了Worker的runWorker方法。 firstTask执行完成之后，通过getTask方法从阻塞队列中获取等待的任务，如果队列中没有任务，getTask方法会被阻塞并挂起，不会占用cpu资源；</p><h3 id="InnoDB的索引类型有哪些"><a href="#InnoDB的索引类型有哪些" class="headerlink" title="InnoDB的索引类型有哪些"></a>InnoDB的索引类型有哪些</h3><ul><li>B+树索引：主索引+辅助索引</li><li>Hash索引</li><li>全文索引：使用倒排索引实现</li></ul>]]></content>
     
@@ -184,11 +108,34 @@
   </entry>
   
   <entry>
+    <title>线程池</title>
+    <link href="http://example.com/2022/03/19/%E7%BE%8E%E5%9B%A2%E4%B8%80%E9%9D%A2/%E7%BA%BF%E7%A8%8B%E6%B1%A0/"/>
+    <id>http://example.com/2022/03/19/%E7%BE%8E%E5%9B%A2%E4%B8%80%E9%9D%A2/%E7%BA%BF%E7%A8%8B%E6%B1%A0/</id>
+    <published>2022-03-19T15:20:00.000Z</published>
+    <updated>2022-04-06T17:18:22.999Z</updated>
+    
+    <content type="html"><![CDATA[<p><img src="https://gitee.com/mymengchuang/blog_img/raw/master/images/202203300146169.png" alt="线程池"></p>]]></content>
+    
+    
+      
+      
+    <summary type="html">&lt;p&gt;&lt;img src=&quot;https://gitee.com/mymengchuang/blog_img/raw/master/images/202203300146169.png&quot; alt=&quot;线程池&quot;&gt;&lt;/p&gt;
+</summary>
+      
+    
+    
+    
+    
+    <category term="线程池,JVM,Java" scheme="http://example.com/tags/%E7%BA%BF%E7%A8%8B%E6%B1%A0-JVM-Java/"/>
+    
+  </entry>
+  
+  <entry>
     <title>JVM内存模型</title>
     <link href="http://example.com/2022/03/18/JVM/"/>
     <id>http://example.com/2022/03/18/JVM/</id>
     <published>2022-03-17T16:00:02.000Z</published>
-    <updated>2022-04-06T17:10:55.113Z</updated>
+    <updated>2022-04-06T17:14:55.604Z</updated>
     
     <content type="html"><![CDATA[<p>[toc]</p><p>[toc]</p><h3 id="JMM内存模型"><a href="#JMM内存模型" class="headerlink" title="JMM内存模型"></a>JMM内存模型</h3><h4 id="内存结构"><a href="#内存结构" class="headerlink" title="内存结构"></a>内存结构</h4><ul><li>线程可见性</li><li>线程不可见</li></ul><h3 id="JMM的设计原则"><a href="#JMM的设计原则" class="headerlink" title="JMM的设计原则"></a>JMM的设计原则</h3><ul><li><p>可见性：主存，每个线程的本地内存，本地内存有一个共享变量的拷贝</p></li><li><p>原子性：加锁</p></li><li><p>禁止指令重排保证内存可见性，主要是靠插入内存屏蔽</p><ul><li><p>Load Load</p></li><li><p>Stroe Store</p></li><li><p>Ls</p></li><li><p>SL</p></li></ul></li></ul><h3 id="内存空间分配"><a href="#内存空间分配" class="headerlink" title="内存空间分配"></a>内存空间分配</h3><p>对象优先分配再新生代，元空间</p><p>大对象直接分配在老年代</p><p>长期存活的对象进入老年代</p><h3 id="2-volatile实现可见性"><a href="#2-volatile实现可见性" class="headerlink" title="2.volatile实现可见性"></a><strong>2.volatile实现可见性</strong></h3><ul><li><p><strong>volatile关键字</strong></p></li><li><ul><li>能够保证volatile变量的可见性</li><li>不能保证volatile变量复合操作的原子性</li></ul></li></ul><p><strong>volatile如何实现内存可见性：</strong></p><p>深入来说：通过加入<strong>内存屏障</strong>和<strong>禁止重排序优化</strong>来实现的</p><ul><li>对volatile变量执行写操作时，会在写操作后加入一条store屏障指令</li><li>对volatile变量执行读操作时，会在读操作前加入一条load屏障指令</li></ul><p><strong>线程写volatile变量的过程：</strong></p><ol><li>改变线程工作内存中volatile变量副本的值</li><li>将改变后的副本的值从工作内存刷新到主内存</li></ol>]]></content>
     
@@ -212,7 +159,7 @@
     <link href="http://example.com/2022/03/13/%E8%8B%B1%E6%96%87%E8%83%8C%E8%AF%B5%E5%AD%A6%E4%B9%A0/"/>
     <id>http://example.com/2022/03/13/%E8%8B%B1%E6%96%87%E8%83%8C%E8%AF%B5%E5%AD%A6%E4%B9%A0/</id>
     <published>2022-03-13T15:38:10.563Z</published>
-    <updated>2022-03-14T13:31:09.690Z</updated>
+    <updated>2022-04-06T17:14:55.617Z</updated>
     
     <content type="html"><![CDATA[<p>[toc]</p><h1 id="英语背诵学习，主要是应对面试要紧"><a href="#英语背诵学习，主要是应对面试要紧" class="headerlink" title="英语背诵学习，主要是应对面试要紧"></a>英语背诵学习，主要是应对面试要紧</h1><h3 id="用英语说一下人工智能，机器学习，深度学习的区别"><a href="#用英语说一下人工智能，机器学习，深度学习的区别" class="headerlink" title="用英语说一下人工智能，机器学习，深度学习的区别"></a>用英语说一下人工智能，机器学习，深度学习的区别</h3><p>人工智能就是研究如何使计算机去做过去只有人才能做的智能工作。</p><p>机器学习是人工智能领域中的一个子集，也是其核心。机器学习过程与人类学习的过程相似，也需要预先对大量的学习资料进行学习来得到模型。当有新的样例时，通过模型对新的样例进行判断，输出结果，从而实现进行预测的功能。</p><p>深度学习是基于人工神经网络发展而成，是机器学习的子集。传统机器学习大部分算法需要人类自己寻找特征，而深度学习可以自动从大量数据中生成特征。</p><p>总而言之，在我看来，人工智能包含了机器学习，机器学习包含了深度学习。</p><p>Artificial intelligence is to study how to make computers do the intelligent work that only talents could do in the past.</p><p>Machine learning is a subset of artificial intelligence. The process of machine learning is similar to that of human learning. It also needs to learn a large number of learning materials in advance to get the model. When there is a new sample, judge the new sample through the model and output the results, so as to realize the function of prediction.</p><p>Deep learning is developed based on artificial neural network and is a subset of machine learning. Deep learning is a popular machine learning method. Most traditional machine learning algorithms need human beings to find features, while deep learning can automatically generate features from a large amount of data.</p><p>In a word, in my opinion, artificial intelligence includes machine learning, and machine learning includes deep learning.</p><h3 id="自我介绍"><a href="#自我介绍" class="headerlink" title="自我介绍"></a>自我介绍</h3><p>Good monoring, I am greatly honored to attend this interview.</p><p>My name is Zhuang Xianwei 21years old. I am now study in Zhejiang University.</p><p>I am open-minded, easy-going and enthusiastic. I am always willing to explore new things and often try my best to do everythings. In addition, I am easily cooperate with others.</p><p>During my college years, I made great progess in acadamic development. Due to this hard work, I acquired a lot of knowledge of computer science and recevice many scholarship. </p><p><strong>【基本信息（10秒）】+【获奖及其他（10秒）】+【科研经历（20秒）】+【研究兴趣（20秒）】</strong></p><h3 id="用英文回答一个问题，甚至是你最喜欢哪门课，用英文介绍一下这门课程内容，以及你喜欢的理由，"><a href="#用英文回答一个问题，甚至是你最喜欢哪门课，用英文介绍一下这门课程内容，以及你喜欢的理由，" class="headerlink" title="用英文回答一个问题，甚至是你最喜欢哪门课，用英文介绍一下这门课程内容，以及你喜欢的理由，"></a>用英文回答一个问题，甚至是你最喜欢哪门课，用英文介绍一下这门课程内容，以及你喜欢的理由，</h3><h3 id="问题二：你为什么要报我们学校，选择xx专业？"><a href="#问题二：你为什么要报我们学校，选择xx专业？" class="headerlink" title="问题二：你为什么要报我们学校，选择xx专业？"></a><strong>问题二：你为什么要报我们学校，选择xx专业？</strong></h3><p><strong>【研究兴趣】+【对该院系的向往】+【已经获得保研资格】+【未来研究和该院系的重合之处】</strong></p><h3 id="问题三：你今后的目标是什么，读博做科研，还是工作？"><a href="#问题三：你今后的目标是什么，读博做科研，还是工作？" class="headerlink" title="问题三：你今后的目标是什么，读博做科研，还是工作？"></a><strong>问题三：你今后的目标是什么，读博做科研，还是工作？</strong></h3><h3 id="问题四：如果你被录取，具体你从事做哪一方向的研究？谈谈你对这一领域的认识。"><a href="#问题四：如果你被录取，具体你从事做哪一方向的研究？谈谈你对这一领域的认识。" class="headerlink" title="问题四：如果你被录取，具体你从事做哪一方向的研究？谈谈你对这一领域的认识。"></a><strong>问题四：如果你被录取，具体你从事做哪一方向的研究？谈谈你对这一领域的认识。</strong></h3><p>5.你在日常的学习生活中的优缺点？</p><p>6.该专业在国外的研究进展，你是否有所了解？你是否涉猎相关期刊与著作？</p><p>7.你读过哪些专业方面的书籍或文献，请举例说明作者的观点以及你的想法。</p><p>8.谈谈你已经发表的论文，或者本科毕业论文的选题与思路？</p><p>我的想法，</p>]]></content>
     
@@ -272,6 +219,29 @@
     
     
     <category term="编译" scheme="http://example.com/tags/%E7%BC%96%E8%AF%91/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>MySQL</title>
+    <link href="http://example.com/2022/03/01/%E7%BE%8E%E5%9B%A2%E4%B8%80%E9%9D%A2/MySQL/"/>
+    <id>http://example.com/2022/03/01/%E7%BE%8E%E5%9B%A2%E4%B8%80%E9%9D%A2/MySQL/</id>
+    <published>2022-02-28T17:00:00.000Z</published>
+    <updated>2022-04-06T17:19:08.269Z</updated>
+    
+    <content type="html"><![CDATA[<p>[toc]</p><h1 id="设计数据库过程中遇到的问题"><a href="#设计数据库过程中遇到的问题" class="headerlink" title="设计数据库过程中遇到的问题"></a>设计数据库过程中遇到的问题</h1><h3 id="1、我们用来索引的数据结构是B-树，B-树的设计和存储的问题"><a href="#1、我们用来索引的数据结构是B-树，B-树的设计和存储的问题" class="headerlink" title="1、我们用来索引的数据结构是B+树，B+树的设计和存储的问题"></a>1、我们用来索引的数据结构是B+树，B+树的设计和存储的问题</h3><p>第一个难点主要是怎么设计B+树来作索引，为了方便每一个表只有一个按照主键的索引</p><ul><li><p><strong>因为B+树相比于红黑树和B树的优势</strong>我们用的就是B+树来进行索引。</p></li><li><p>B+树有索引结点和叶子节点。索引结点主要就存放键值，叶子节点存放键值，指向记录的指针，一个是指向下一个结点的指针。</p></li></ul><p>​    每一个叶 子节点里面的记录都按照键值排序的，用链表连接起来方便进行区间查询。</p><ul><li>为了方便我们是索引文件和数据文件分开的，</li></ul><h3 id="2、缓冲区的设计"><a href="#2、缓冲区的设计" class="headerlink" title="2、缓冲区的设计"></a>2、缓冲区的设计</h3><p>如果每一次访问记录都要进行打开文件，关闭文件的操作速度会很慢。我就设计了一个缓冲区用来提高读取速度。</p><p>我们将磁盘文件每4KB个字节作为一个页，缓冲区有1000个页，每一次读取都会现在缓冲区里面找数据，如果miss了，会去磁盘文件读取指定记录4KiB的数据到缓冲区，如果缓冲区满了就进行LRU页面替换和clock。这样在去缓冲区读取就hit击中了，下次再读取一个记录就可以直接再缓冲区里面找了。</p><p>总体来说就是我通过buffer类向外通过接口，通过堆buffer的读写实际上相当于对底层文件的读写。</p><h3 id="3、如何支持可变索引"><a href="#3、如何支持可变索引" class="headerlink" title="3、如何支持可变索引"></a>3、如何支持可变索引</h3><p>索引结点不保存键值，索引值，我直接保存指向键值的指针，然后通过指针去找键值再进行比较，这样我就必须要改变B+树中的键值，我只需要改变指针指向的值即可。</p><p>或者删除+插入操作</p><ul><li>存储指针</li><li>键值映射，用一个字典中的索引值来代替原来的值，通过键映射到对应的值</li></ul><h3 id="4、如何变成线程安全的"><a href="#4、如何变成线程安全的" class="headerlink" title="4、如何变成线程安全的"></a>4、如何变成线程安全的</h3><ul><li>B+树加锁吗</li><li>如何加锁：<ul><li>最简单的方法是加表锁，也就是</li></ul></li></ul><h3 id="事务的特征"><a href="#事务的特征" class="headerlink" title="事务的特征"></a>事务的特征</h3><ul><li>原子性</li><li>隔离性</li><li>一致性</li><li>持久性</li></ul><h3 id="事务的隔离级别"><a href="#事务的隔离级别" class="headerlink" title="事务的隔离级别"></a>事务的隔离级别</h3><ul><li>未提交读</li><li>提交读</li><li>可重复读</li><li>序列化</li></ul><blockquote><p>MySQL 通过mvcc机制在解决不可重复读的基础上，解决幻读</p></blockquote><h3 id="并发控制创建的问题"><a href="#并发控制创建的问题" class="headerlink" title="并发控制创建的问题"></a>并发控制创建的问题</h3><ul><li>丢失更新</li><li>脏读</li><li>不可重复读</li><li>幻读</li></ul><h3 id="事务原子性是有什么保证的方法"><a href="#事务原子性是有什么保证的方法" class="headerlink" title="事务原子性是有什么保证的方法"></a>事务原子性是有什么保证的方法</h3><ul><li>采用日志的形式，在磁盘和内存中维护一个undo记录</li><li>保存数据文件的备份，在备份进行操作，如果失败了就不更新回原来的表</li></ul><h3 id="MySQL是如何实现并发的呢"><a href="#MySQL是如何实现并发的呢" class="headerlink" title="MySQL是如何实现并发的呢"></a>MySQL是如何实现并发的呢</h3><ul><li><p>InnoDB使用锁和mvcc机制实现并发控制</p></li><li><p>mvcc是在锁的基础上实现的</p></li><li><p>innoDB支持行级锁</p></li></ul><h3 id="MySQL的锁有哪些"><a href="#MySQL的锁有哪些" class="headerlink" title="MySQL的锁有哪些"></a>MySQL的锁有哪些</h3><p>按照细粒度划分：</p><ul><li>表级锁</li><li>行级锁</li></ul><p>按照功能划分：</p><ul><li>读锁</li><li>写锁</li><li>共享锁</li><li>排他锁</li><li>意向锁</li></ul><h3 id="数据库锁机制"><a href="#数据库锁机制" class="headerlink" title="数据库锁机制"></a>数据库锁机制</h3><ul><li><p>乐观锁：实现方式是利用版本号，在更新的同时也更新版本号</p></li><li><p>悲观锁</p><ul><li><p>行级锁</p><ul><li>共享只读锁</li><li>排他读写锁</li><li>意向锁</li></ul></li><li><p>表级锁</p><ul><li><p>共享只读锁</p></li><li><p>排他读写锁</p></li><li><p>意向锁</p></li></ul></li></ul></li></ul><p>一个事务A仅仅让其中一行可读，事务B又申请整个表的写锁，出现行锁和表锁的冲突，因此出现意向锁。</p><p>被意向锁锁住导致B事务没办法给整个表加写锁。</p><h3 id="你的数据库如何支持事务"><a href="#你的数据库如何支持事务" class="headerlink" title="你的数据库如何支持事务"></a>你的数据库如何支持事务</h3><ul><li>事务的基本要求ACID</li><li>MySQL是通过加锁实现隔离性，加行锁（叶子节点） 加表锁 整个B+树加锁  需要父节点加锁-&gt;子节点加锁-&gt;判断父节点是否分离等，解锁</li><li>保证其他特性通过日志来实现， redo log   undo log 保证事务原子性</li></ul><h3 id="MySQL如何实现ACID"><a href="#MySQL如何实现ACID" class="headerlink" title="MySQL如何实现ACID"></a>MySQL如何实现ACID</h3><p>除了隔离性是通过加锁和mvcc机制来实现，其他都通过日志来实现</p><p><strong>持久性：</strong> redo log来实现事务的持久性，比如服务突然挂机，脏页还没写回，重启以后通过redo log 保持持久性</p><p><strong>原子性:</strong> undo log </p><p><strong>隔离性：</strong> 加锁 mvcc多版本并发控制</p><p><strong>一致性：</strong> 实现其他三个特性的基础上，在应用层需要加判断的，用户恶意操作会导致不一致</p><h3 id="MVCC是什么-同时用到锁和log-回滚指针指向undo-log"><a href="#MVCC是什么-同时用到锁和log-回滚指针指向undo-log" class="headerlink" title="MVCC是什么  同时用到锁和log  (回滚指针指向undo log)"></a>MVCC是什么  同时用到锁和log  (回滚指针指向undo log)</h3><p>1、MVCC是什么</p><p>InnoDB的多版本并发控制，优势是<strong>读不加锁，读写不冲突，读写分离</strong>，并发控制优势很大</p><p>2、解决什么问题</p><ul><li>脏读</li><li>不可重复读</li><li>幻读</li><li>不能解决丢失更新的问题</li></ul><p>3、原理是什么</p><p>MVCC实现由：  <strong>3个隐式字段</strong>，<strong>undo日志</strong> ，<strong>Read View</strong> 三部分组成</p><p>1、mvcc会在每一行后面加上<strong>隐藏字段</strong>，表示创建时间和删除时间，创建时间实际上是版本号，<strong>事务的id，回滚指针</strong></p><p>2、每一次执行一个新的事务版本号会增加</p><p>3、undo log保证事务原子性</p><p>4、读视图是用来保证可见性的，</p><ul><li>可重复读中，事务开始时创建一个视图，后面的操作都用一个视图，读到版本号等于当前版本号或者早于当前版本号的数据</li><li>读提交时，每个语句执行都会创造一个视图，每次都是读到版本号最新的数据行</li></ul><p><strong>4、使用的隔离级别</strong></p><p>仅仅在可重复读和提交读的隔离性下工作   <strong>都是通过版本号来操作的</strong></p><p><strong>提交读</strong> 就是读取最新版本号的数据行   </p><p><strong>可重复读：</strong> 查找版本号早于或者等于当前版本号的数据行</p><blockquote><p>在可重复读的基础上没有完全解决幻读的问题，还需要 RR上加上间隙锁</p></blockquote><p>所以引发了 <strong>当前读</strong> 和 <strong>快照读</strong></p><p><strong>当前读</strong> 会加锁，保证读取的最新的版本  </p><p><strong>快照读</strong> 性能考虑，但是读到的不一定是最新的  selete不加锁就是</p><h3 id="ArrayList和LinkedList的实现"><a href="#ArrayList和LinkedList的实现" class="headerlink" title="ArrayList和LinkedList的实现"></a>ArrayList和LinkedList的实现</h3><p>ArrayList和LinkedList都是实现List接口</p><p>ArrayList底层是根据动态数组实现的，所以他添加删除的效率比较低，查找效率比较高</p><p>LinkedList底层根据双向链表实现</p><h3 id="MyISAM和InnoDB的区别"><a href="#MyISAM和InnoDB的区别" class="headerlink" title="MyISAM和InnoDB的区别"></a>MyISAM和InnoDB的区别</h3><ul><li>InnoDB支持事务，MySIAM不支持事务</li><li>InnoDB支持行级锁</li><li>InnoDB支持外键索引</li><li>InnoDB不支持全文索引  FULLTEXT类型的索引</li><li>InnoDB没有区分索引文件和数据文件</li></ul>]]></content>
+    
+    
+      
+      
+    <summary type="html">&lt;p&gt;[toc]&lt;/p&gt;
+&lt;h1 id=&quot;设计数据库过程中遇到的问题&quot;&gt;&lt;a href=&quot;#设计数据库过程中遇到的问题&quot; class=&quot;headerlink&quot; title=&quot;设计数据库过程中遇到的问题&quot;&gt;&lt;/a&gt;设计数据库过程中遇到的问题&lt;/h1&gt;&lt;h3 id=&quot;1、我们用来索引</summary>
+      
+    
+    
+    
+    
+    <category term="MySQL,数据库" scheme="http://example.com/tags/MySQL-%E6%95%B0%E6%8D%AE%E5%BA%93/"/>
     
   </entry>
   
@@ -468,6 +438,50 @@
     
     
     <category term="Summary" scheme="http://example.com/tags/Summary/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>面经1</title>
+    <link href="http://example.com/2022/02/04/%E9%9D%A2%E8%AF%95%E6%95%B4%E7%90%86/"/>
+    <id>http://example.com/2022/02/04/%E9%9D%A2%E8%AF%95%E6%95%B4%E7%90%86/</id>
+    <published>2022-02-03T16:00:00.000Z</published>
+    <updated>2022-04-06T17:14:55.620Z</updated>
+    
+    <content type="html"><![CDATA[<h1 id="一面"><a href="#一面" class="headerlink" title="一面:"></a><strong>一面:</strong></h1><p>HashMap和ConcurrentHashMap，说一下扩容过程，有什么区别。<br>Java的泛型如何实现？泛型擦除是什么？<br>java的类加载为什么要使用双亲委派机制？<br>挖项目，问数据库表和字段的设计（有点紧张，说得很磕巴）。<br>说一下MySQL事务隔离级别，默认的级别是什么？是否解决了幻读？如何解决？MVCC如何实现？<br>MySQL主从复制了解吗，如果让你设计，你会如何实现？（直说没了解，想了半天也没有想出来如何设计，面试官不断引导，奈何本人不争气）<br>说一下https和http区别，说一下握手过程（这里说得比较详细，从非对称加密开始讲起。。）。<br>time_wait是什么？如何解决？（结合项目中实际遇到的问题，也说得很详细）<br>Spring如何解决循环依赖？（没遇到过，没有了解）<br><a href="https://www.nowcoder.com/jump/super-jump/word?word=%E7%AE%97%E6%B3%95%E9%A2%98">算法题</a>:第一题是lc983，根据前序和中序序列<a href="https://www.nowcoder.com/jump/super-jump/word?word=%E9%87%8D%E5%BB%BA%E4%BA%8C%E5%8F%89%E6%A0%91">重建二叉树</a>。</p><h1 id="二面"><a href="#二面" class="headerlink" title="二面:"></a><strong>二面:</strong></h1><p>了解Flink吗？用过什么算子？（说了一下Flink架构，还有常见的几个算子）<br>了解JVM吗？说一说G1GC的过程，和CMS的区别。<br>了解Linux网络模型吗？（ 没答上来，只说了个epoll）<br>了解微服务吗？组件有什么？（我说不了解，但他还是追问，我就说了SpringCloud的那些组件）<br>了解k8s吗？了解云原生吗？（我说我了解docker，他说docker只是个容器。我说云原生没有很确切的概念，他说没错，看来你看过相关的。。）<br>了解AQS吗？（讲了一下AQS的源码，比较满意）<br>了解java内存模型吗？说说volatile底层原理。（讲了一下JMM，内存读写屏障）<br>项目中遇到什么问题？如何解决？（说了一些技术细节）<br><a href="https://www.nowcoder.com/jump/super-jump/word?word=%E7%AE%97%E6%B3%95%E9%A2%98">算法题</a>:<a href="https://www.nowcoder.com/jump/super-jump/word?word=%E6%9C%80%E9%95%BF%E5%9B%9E%E6%96%87%E5%AD%90%E4%B8%B2">最长回文子串</a>，求x的算术平方根，验证一个树是否为另一个的子树。</p><p>反问环节：有什么建议？（让我别紧张，大家都是这么过来的，多面几次就好了，听到这话我以为凉了，然后让我等通知，后续有面试的话会通知我。洗了把脸准备出门，出门5分钟就被通知马上三面，有点懵逼）</p>]]></content>
+    
+    
+      
+      
+    <summary type="html">&lt;h1 id=&quot;一面&quot;&gt;&lt;a href=&quot;#一面&quot; class=&quot;headerlink&quot; title=&quot;一面:&quot;&gt;&lt;/a&gt;&lt;strong&gt;一面:&lt;/strong&gt;&lt;/h1&gt;&lt;p&gt;HashMap和ConcurrentHashMap，说一下扩容过程，有什么区别。&lt;br&gt;Java的泛型</summary>
+      
+    
+    
+    
+    
+    <category term="面经" scheme="http://example.com/tags/%E9%9D%A2%E7%BB%8F/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>单调栈</title>
+    <link href="http://example.com/2022/01/26/%E5%8D%95%E8%B0%83%E6%A0%88/"/>
+    <id>http://example.com/2022/01/26/%E5%8D%95%E8%B0%83%E6%A0%88/</id>
+    <published>2022-01-26T02:00:00.000Z</published>
+    <updated>2022-04-06T17:14:55.615Z</updated>
+    
+    <content type="html"><![CDATA[<h3 id="剑指-Offer-II-038-每日温度"><a href="#剑指-Offer-II-038-每日温度" class="headerlink" title="剑指 Offer II 038. 每日温度"></a>剑指 Offer II 038. 每日温度</h3><p>请根据每日 气温 列表 temperatures ，重新生成一个列表，要求其对应位置的输出为：要想观测到更高的气温，至少需要等待的天数。如果气温在这之后都不会升高,用0表示</p><figure class="highlight java"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> </span>{</span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="function">vector&lt;<span class="keyword">int</span>&gt; <span class="title">dailyTemperatures</span><span class="params">(vector&lt;<span class="keyword">int</span>&gt;&amp; temperatures)</span> </span>{</span><br><span class="line">        vector&lt;<span class="keyword">int</span>&gt; res;</span><br><span class="line">        <span class="comment">// reverse(temperatures.begin(),temperatures.end());</span></span><br><span class="line">        <span class="comment">//递减栈得到top的右边最大值</span></span><br><span class="line">        <span class="comment">//递减栈得到入栈</span></span><br><span class="line"></span><br><span class="line">        <span class="keyword">return</span> res;</span><br><span class="line">    }</span><br><span class="line">};</span><br></pre></td></tr></tbody></table></figure>]]></content>
+    
+    
+      
+      
+    <summary type="html">&lt;h3 id=&quot;剑指-Offer-II-038-每日温度&quot;&gt;&lt;a href=&quot;#剑指-Offer-II-038-每日温度&quot; class=&quot;headerlink&quot; title=&quot;剑指 Offer II 038. 每日温度&quot;&gt;&lt;/a&gt;剑指 Offer II 038. 每日温度&lt;/h3</summary>
+      
+    
+    
+    
+    
+    <category term="算法" scheme="http://example.com/tags/%E7%AE%97%E6%B3%95/"/>
     
   </entry>
   
