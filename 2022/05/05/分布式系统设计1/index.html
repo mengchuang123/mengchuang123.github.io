@@ -1,0 +1,445 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <title>MIT6.824 | 绘梨衣</title>
+
+  <!-- keywords -->
+  
+
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="[toc] Lab1 MapReduce的实现参考设计思路： MapReduce 课程网站 参考代码 参考思路2 参考思路3 参考思路4 RPC远程调用简介RPC是远程调用过程，是一种计算机网络协议，允许一个计算机的程序调用另外一个地址空间的函数。 RPC是一种典型的server&#x2F;client形式，通过 发送请求和接受回应  远程函数调用与挑战 Call ID映射。我们怎么告诉远程机器我们要调用M">
+<meta property="og:type" content="article">
+<meta property="og:title" content="MIT6.824">
+<meta property="og:url" content="http://example.com/2022/05/05/%E5%88%86%E5%B8%83%E5%BC%8F%E7%B3%BB%E7%BB%9F%E8%AE%BE%E8%AE%A11/index.html">
+<meta property="og:site_name" content="绘梨衣">
+<meta property="og:description" content="[toc] Lab1 MapReduce的实现参考设计思路： MapReduce 课程网站 参考代码 参考思路2 参考思路3 参考思路4 RPC远程调用简介RPC是远程调用过程，是一种计算机网络协议，允许一个计算机的程序调用另外一个地址空间的函数。 RPC是一种典型的server&#x2F;client形式，通过 发送请求和接受回应  远程函数调用与挑战 Call ID映射。我们怎么告诉远程机器我们要调用M">
+<meta property="og:locale" content="en_US">
+<meta property="og:image" content="https://gitee.com/mymengchuang/blog_img/raw/master/images/202205070049339.jpeg">
+<meta property="og:image" content="https://gitee.com/mymengchuang/blog_img/raw/master/images/202205081735294.png">
+<meta property="og:image" content="https://gitee.com/mymengchuang/blog_img/raw/master/images/202205081749161.png">
+<meta property="og:image" content="https://gitee.com/mymengchuang/blog_img/raw/master/images/202205081750159.png">
+<meta property="og:image" content="https://gitee.com/mymengchuang/blog_img/raw/master/images/202205081752232.png">
+<meta property="article:published_time" content="2022-05-05T02:00:00.000Z">
+<meta property="article:modified_time" content="2022-11-21T12:59:53.913Z">
+<meta property="article:author" content="绘梨衣">
+<meta property="article:tag" content="分布式">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://gitee.com/mymengchuang/blog_img/raw/master/images/202205070049339.jpeg">
+  
+  
+    <link rel="icon" href="/img/favicon.ico">
+  
+  
+<link rel="stylesheet" href="/css/style.css">
+
+  
+  
+
+  
+<script src="//cdn.bootcss.com/require.js/2.3.2/require.min.js"></script>
+
+  
+<script src="//cdn.bootcss.com/jquery/3.1.1/jquery.min.js"></script>
+
+
+  
+<meta name="generator" content="Hexo 5.4.0">
+<style>.github-emoji { position: relative; display: inline-block; width: 1.2em; min-height: 1.2em; overflow: hidden; vertical-align: top; color: transparent; }  .github-emoji > span { position: relative; z-index: 10; }  .github-emoji img, .github-emoji .fancybox { margin: 0 !important; padding: 0 !important; border: none !important; outline: none !important; text-decoration: none !important; user-select: none !important; cursor: auto !important; }  .github-emoji img { height: 1.2em !important; width: 1.2em !important; position: absolute !important; left: 50% !important; top: 50% !important; transform: translate(-50%, -50%) !important; user-select: none !important; cursor: auto !important; } .github-emoji-fallback { color: inherit; } .github-emoji-fallback img { opacity: 0 !important; }</style>
+<link rel="alternate" href="/atom.xml" title="绘梨衣" type="application/atom+xml">
+</head>
+<body>
+  <div id="container">
+    <div id="particles-js"></div>
+    <div class="left-col">
+    <div class="overlay"></div>
+<div class="intrude-less">
+	<header id="header" class="inner">
+		<a href="/" class="profilepic">
+			
+				<img lazy-src="/img/touxiang2.jpg" class="js-avatar">
+			
+		</a>
+
+		<hgroup>
+			<h1 class="header-author"><a href="/">绘梨衣</a></h1>
+		</hgroup>
+
+		
+
+		<div class="switch-area">
+			<div class="switch-wrap">
+				<section class="switch-part switch-part1">
+					<nav class="header-menu">
+						<ul>
+						
+							<li><a href="/">Home</a></li>
+				        
+							<li><a href="/archives">Archives</a></li>
+				        
+						</ul>
+					</nav>
+					<nav class="half-header-menu">
+						<a class="hide">Home</a>
+						<a>Tags</a>
+						<a>Links</a>
+						<a>About</a>
+					</nav>
+					<nav class="header-nav">
+						<div class="social">
+							
+								<a class="github" target="_blank" href="#" title="github">github</a>
+					        
+								<a class="mail" target="_blank" href="#" title="mail">mail</a>
+					        
+								<a class="rss" target="_blank" href="/atom.xml" title="rss">rss</a>
+					        
+								<a class="zhihu" target="_blank" href="#" title="zhihu">zhihu</a>
+					        
+						</div>
+						<!-- music -->
+						
+					</nav>
+				</section>
+				
+				
+				<section class="switch-part switch-part2">
+					<div class="widget tagcloud" id="js-tagcloud">
+						<a href="/tags/JVM/" style="font-size: 10px;">JVM</a> <a href="/tags/Java/" style="font-size: 10px;">Java</a> <a href="/tags/Leetcode/" style="font-size: 15px;">Leetcode</a> <a href="/tags/MySQL-%E6%95%B0%E6%8D%AE%E5%BA%93/" style="font-size: 11.67px;">MySQL,数据库</a> <a href="/tags/Summary/" style="font-size: 16.67px;">Summary</a> <a href="/tags/%E4%BF%A1%E6%81%AF%E8%AE%BA/" style="font-size: 10px;">信息论</a> <a href="/tags/%E5%88%86%E5%B8%83%E5%BC%8F/" style="font-size: 10px;">分布式</a> <a href="/tags/%E5%88%86%E5%B8%83%E5%BC%8Flab2/" style="font-size: 10px;">分布式lab2</a> <a href="/tags/%E5%8A%A8%E6%80%81%E8%A7%84%E5%88%92/" style="font-size: 10px;">动态规划</a> <a href="/tags/%E5%9B%BE%E8%AE%BA/" style="font-size: 10px;">图论</a> <a href="/tags/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F/" style="font-size: 18.33px;">操作系统</a> <a href="/tags/%E6%95%B0%E6%8D%AE%E5%BA%93/" style="font-size: 10px;">数据库</a> <a href="/tags/%E6%9C%BA%E8%AF%95/" style="font-size: 10px;">机试</a> <a href="/tags/%E6%B0%B4%E5%A1%98%E9%87%87%E6%A0%B7/" style="font-size: 10px;">水塘采样</a> <a href="/tags/%E7%AE%97%E6%B3%95/" style="font-size: 20px;">算法</a> <a href="/tags/%E7%AE%97%E6%B3%95%E4%B8%8E%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/" style="font-size: 10px;">算法与数据结构</a> <a href="/tags/%E7%BA%BF%E7%A8%8B%E6%B1%A0-JVM-Java/" style="font-size: 10px;">线程池,JVM,Java</a> <a href="/tags/%E7%BC%96%E8%AF%91/" style="font-size: 10px;">编译</a> <a href="/tags/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BB%84%E6%88%90/" style="font-size: 11.67px;">计算机组成</a> <a href="/tags/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/" style="font-size: 18.33px;">计算机网络</a> <a href="/tags/%E8%AE%B8%E6%84%BF/" style="font-size: 10px;">许愿</a> <a href="/tags/%E9%9D%A2%E7%BB%8F/" style="font-size: 10px;">面经</a> <a href="/tags/%E9%9D%A2%E8%AF%95/" style="font-size: 13.33px;">面试</a> <a href="/tags/%E9%AB%98%E9%A2%91%E9%A2%98/" style="font-size: 10px;">高频题</a>
+					</div>
+				</section>
+				
+				
+				
+				<section class="switch-part switch-part3">
+					<div id="js-friends">
+					
+			          <a target="_blank" class="main-nav-link switch-friends-link" href="https://github.com/mengchuang123/">github</a>
+			        
+			        </div>
+				</section>
+				
+
+				
+				
+				<section class="switch-part switch-part4">
+				
+					<div id="js-aboutme">My study log.</div>
+				</section>
+				
+			</div>
+		</div>
+	</header>				
+</div>
+    </div>
+    <div class="mid-col">
+      <nav id="mobile-nav">
+  	<div class="overlay">
+  		<div class="slider-trigger"></div>
+  		<h1 class="header-author js-mobile-header hide"></h1>
+  	</div>
+	<div class="intrude-less">
+		<header id="header" class="inner">
+			<div class="profilepic">
+				<img lazy-src="/img/touxiang2.jpg" class="js-avatar">
+			</div>
+			<hgroup>
+			  <h1 class="header-author"></h1>
+			</hgroup>
+			
+			<nav class="header-menu">
+				<ul>
+				
+					<li><a href="/">Home</a></li>
+		        
+					<li><a href="/archives">Archives</a></li>
+		        
+		        <div class="clearfix"></div>
+				</ul>
+			</nav>
+			<nav class="header-nav">
+				<div class="social">
+					
+						<a class="github" target="_blank" href="#" title="github">github</a>
+			        
+						<a class="mail" target="_blank" href="#" title="mail">mail</a>
+			        
+						<a class="rss" target="_blank" href="/atom.xml" title="rss">rss</a>
+			        
+						<a class="zhihu" target="_blank" href="#" title="zhihu">zhihu</a>
+			        
+				</div>
+			</nav>
+		</header>				
+	</div>
+</nav>
+      <div class="body-wrap"><article id="post-分布式系统设计1" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2022/05/05/%E5%88%86%E5%B8%83%E5%BC%8F%E7%B3%BB%E7%BB%9F%E8%AE%BE%E8%AE%A11/" class="article-date">
+  	<time datetime="2022-05-05T02:00:00.000Z" itemprop="datePublished">2022-05-05</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      MIT6.824
+      
+    </h1>
+  
+
+      </header>
+      
+      <div class="article-info article-info-post">
+        
+	<div class="article-tag tagcloud">
+		<ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E5%88%86%E5%B8%83%E5%BC%8F/" rel="tag">分布式</a></li></ul>
+	</div>
+
+        
+
+        
+        <div class="clearfix"></div>
+      </div>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <!--Table of Contents begin-->
+        <!-- 
+          <div id="toc" class="toc-article">
+            <strong class="toc-title">目录</strong>
+            <a class="js-toggle-toc" href="javascript:void(0)"></a>
+            <div class="toc-content">
+              <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#Lab1-MapReduce%E7%9A%84%E5%AE%9E%E7%8E%B0"><span class="toc-text">Lab1 MapReduce的实现</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#RPC%E8%BF%9C%E7%A8%8B%E8%B0%83%E7%94%A8"><span class="toc-text">RPC远程调用</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%AE%80%E4%BB%8B"><span class="toc-text">简介</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E8%BF%9C%E7%A8%8B%E5%87%BD%E6%95%B0%E8%B0%83%E7%94%A8%E4%B8%8E%E6%8C%91%E6%88%98"><span class="toc-text">远程函数调用与挑战</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%B5%81%E7%A8%8B"><span class="toc-text">流程</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#ASIO%E5%BA%93"><span class="toc-text">ASIO库</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%90%8C%E6%AD%A5%E5%92%8C%E5%BC%82%E6%AD%A5"><span class="toc-text">同步和异步</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#TinyRPC%E7%9A%84%E5%AE%9E%E7%8E%B0"><span class="toc-text">TinyRPC的实现</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#MapReduce%E7%AE%80%E5%8D%95%E5%AE%9E%E7%8E%B0"><span class="toc-text">MapReduce简单实现</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%80%BB%E4%BD%93%E6%A1%86%E6%9E%B6"><span class="toc-text">总体框架</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Map%E5%92%8CReduce%E6%93%8D%E4%BD%9C"><span class="toc-text">Map和Reduce操作</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%85%B7%E4%BD%93%E5%AE%9E%E7%8E%B0"><span class="toc-text">具体实现</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%AF%B9%E8%B1%A1%E8%AE%BE%E8%AE%A1"><span class="toc-text">对象设计</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%B7%AE%E9%94%99%E5%A4%84%E7%90%86"><span class="toc-text">差错处理</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%B9%B6%E5%8F%91%E6%8E%A7%E5%88%B6"><span class="toc-text">并发控制</span></a></li></ol></li></ol></li></ol>
+            </div>
+          </div>
+         -->
+          <!-- Table of Contents -->
+        
+          <div id="toc" class="toc-article">
+            <strong class="toc-title">目录</strong>
+            <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#Lab1-MapReduce%E7%9A%84%E5%AE%9E%E7%8E%B0"><span class="toc-text">Lab1 MapReduce的实现</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#RPC%E8%BF%9C%E7%A8%8B%E8%B0%83%E7%94%A8"><span class="toc-text">RPC远程调用</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%AE%80%E4%BB%8B"><span class="toc-text">简介</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E8%BF%9C%E7%A8%8B%E5%87%BD%E6%95%B0%E8%B0%83%E7%94%A8%E4%B8%8E%E6%8C%91%E6%88%98"><span class="toc-text">远程函数调用与挑战</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%B5%81%E7%A8%8B"><span class="toc-text">流程</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#ASIO%E5%BA%93"><span class="toc-text">ASIO库</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%90%8C%E6%AD%A5%E5%92%8C%E5%BC%82%E6%AD%A5"><span class="toc-text">同步和异步</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#TinyRPC%E7%9A%84%E5%AE%9E%E7%8E%B0"><span class="toc-text">TinyRPC的实现</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#MapReduce%E7%AE%80%E5%8D%95%E5%AE%9E%E7%8E%B0"><span class="toc-text">MapReduce简单实现</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%80%BB%E4%BD%93%E6%A1%86%E6%9E%B6"><span class="toc-text">总体框架</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Map%E5%92%8CReduce%E6%93%8D%E4%BD%9C"><span class="toc-text">Map和Reduce操作</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%85%B7%E4%BD%93%E5%AE%9E%E7%8E%B0"><span class="toc-text">具体实现</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%AF%B9%E8%B1%A1%E8%AE%BE%E8%AE%A1"><span class="toc-text">对象设计</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%B7%AE%E9%94%99%E5%A4%84%E7%90%86"><span class="toc-text">差错处理</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%B9%B6%E5%8F%91%E6%8E%A7%E5%88%B6"><span class="toc-text">并发控制</span></a></li></ol></li></ol></li></ol>
+          </div>
+        
+        <!--Table of Contents end -->
+        
+
+
+
+
+        <p>[toc]</p>
+<h1 id="Lab1-MapReduce的实现"><a href="#Lab1-MapReduce的实现" class="headerlink" title="Lab1 MapReduce的实现"></a>Lab1 MapReduce的实现</h1><p>参考设计思路： <a target="_blank" rel="noopener" href="https://blog.csdn.net/u014680339/article/details/105246656">MapReduce</a></p>
+<p><a target="_blank" rel="noopener" href="http://nil.csail.mit.edu/6.824/2020/schedule.html">课程网站</a></p>
+<p><a target="_blank" rel="noopener" href="https://github.com/nercoeus/MIT-6.824-2020-Distributed-Systems">参考代码</a></p>
+<p>参考思路<a target="_blank" rel="noopener" href="https://cxybb.com/article/weixin_44520881/109641515">2</a></p>
+<p>参考思路<a target="_blank" rel="noopener" href="https://codeantenna.com/a/XZ6rlG9smn">3</a></p>
+<p>参考思路<a target="_blank" rel="noopener" href="https://juejin.cn/post/6865679367398227981">4</a></p>
+<h2 id="RPC远程调用"><a href="#RPC远程调用" class="headerlink" title="RPC远程调用"></a>RPC远程调用</h2><h3 id="简介"><a href="#简介" class="headerlink" title="简介"></a>简介</h3><p>RPC是远程调用过程，是一种计算机网络协议，允许一个计算机的程序调用另外一个地址空间的函数。</p>
+<p>RPC是一种典型的server/client形式，通过 <strong>发送请求和接受回应</strong></p>
+<p><img src="https://gitee.com/mymengchuang/blog_img/raw/master/images/202205070049339.jpeg" alt="preview"></p>
+<h3 id="远程函数调用与挑战"><a href="#远程函数调用与挑战" class="headerlink" title="远程函数调用与挑战"></a>远程函数调用与挑战</h3><ul>
+<li><p><strong>Call ID映射</strong>。我们怎么告诉远程机器我们要调用Multiply，而不是Add或者FooBar呢？在本地调用中，函数体是直接通过函数指针来指定的，我们调用Multiply，编译器就自动帮我们调用它相应的函数指针。但是在远程调用中，函数指针是不行的，因为两个进程的地址空间是完全不一样的。所以，在RPC中，所有的函数都必须有自己的一个ID。这个ID在所有进程中都是唯一确定的。客户端在做远程过程调用时，必须附上这个ID。然后我们还需要在客户端和服务端分别维护一个 {函数 &lt;–&gt; Call ID} 的对应表。两者的表不一定需要完全相同，但相同的函数对应的Call ID必须相同。当客户端需要进行远程调用时，它就查一下这个表，找出相应的Call ID，然后把它传给服务端，服务端也通过查表，来确定客户端需要调用的函数，然后执行相应函数的代码。</p>
+</li>
+<li><p><strong>序列化和反序列化</strong>。客户端怎么把参数值传给远程的函数呢？在本地调用中，我们只需要把参数压到栈里，然后让函数自己去栈里读就行。但是在远程过程调用时，客户端跟服务端是不同的进程，不能通过内存来传递参数。甚至有时候<a target="_blank" rel="noopener" href="https://www.zhihu.com/search?q=%E5%AE%A2%E6%88%B7%E7%AB%AF&amp;search_source=Entity&amp;hybrid_search_source=Entity&amp;hybrid_search_extra=%7B%22sourceType%22:%22answer%22,%22sourceId%22:221638079%7D">客户端</a>和服务端使用的都不是同一种语言（比如服务端用C++，客户端用Java或者Python）。这时候就需要客户端把参数先转成一个字节流，传给服务端后，再把字节流转成自己能读取的格式。这个过程叫序列化和反序列化。同理，从服务端返回的值也需要序列化反序列化的过程。</p>
+</li>
+<li><p><strong>网络传输</strong>。远程调用往往用在网络上，客户端和服务端是通过网络连接的。所有的数据都需要通过网络传输，因此就需要有一个网络传输层。网络传输层需要把Call ID和序列化后的参数字节流传给服务端，然后再把序列化后的调用结果传回客户端。只要能完成这两者的，都可以作为传输层使用。因此，它所使用的协议其实是不限的，能完成传输就行。尽管大部分RPC框架都使用TCP协议，但其实UDP也可以，而gRPC干脆就用了HTTP2。Java的Netty也属于这层的东西。</p>
+</li>
+</ul>
+<h3 id="流程"><a href="#流程" class="headerlink" title="流程"></a>流程</h3><figure class="highlight c++"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// Client端 </span></span><br><span class="line"><span class="comment">//    int l_times_r = Call(ServerAddr, Multiply, lvalue, rvalue)</span></span><br><span class="line"><span class="number">1.</span> 将这个调用映射为Call ID。这里假设用最简单的字符串当Call ID的方法</span><br><span class="line"><span class="number">2.</span> 将Call ID，lvalue和rvalue序列化。可以直接将它们的值以二进制形式打包</span><br><span class="line"><span class="number">3.</span> 把<span class="number">2</span>中得到的数据包发送给ServerAddr，这需要使用网络传输层</span><br><span class="line"><span class="number">4.</span> 等待服务器返回结果</span><br><span class="line"><span class="number">5.</span> 如果服务器调用成功，那么就将结果反序列化，并赋给l_times_r</span><br><span class="line"></span><br><span class="line"><span class="comment">// Server端</span></span><br><span class="line"><span class="number">1.</span> 在本地维护一个Call ID到函数指针的映射call_id_map，可以用std::map&lt;std::string, std::function&lt;&gt;&gt;</span><br><span class="line"><span class="number">2.</span> 等待请求</span><br><span class="line"><span class="number">3.</span> 得到一个请求后，将其数据包反序列化，得到Call ID</span><br><span class="line"><span class="number">4.</span> 通过在call_id_map中查找，得到相应的函数指针</span><br><span class="line"><span class="number">5.</span> 将lvalue和rvalue反序列化后，在本地调用Multiply函数，得到结果</span><br><span class="line"><span class="number">6.</span> 将结果序列化后通过网络返回给Client</span><br><span class="line"></span><br></pre></td></tr></tbody></table></figure>
+
+
+
+<p>参考：</p>
+<p><a target="_blank" rel="noopener" href="https://segmentfault.com/a/1190000023615287">https://segmentfault.com/a/1190000023615287</a></p>
+<p><a target="_blank" rel="noopener" href="https://www.zhihu.com/question/25536695">https://www.zhihu.com/question/25536695</a></p>
+<p><a target="_blank" rel="noopener" href="https://zhuanlan.zhihu.com/p/139688497">https://zhuanlan.zhihu.com/p/139688497</a></p>
+<p><a target="_blank" rel="noopener" href="https://leeshengis.com/archives/12230">https://leeshengis.com/archives/12230</a></p>
+<p><a target="_blank" rel="noopener" href="https://zhuanlan.zhihu.com/p/364199504">https://zhuanlan.zhihu.com/p/364199504</a></p>
+<p><a target="_blank" rel="noopener" href="https://blog.51cto.com/yuzhou1su/5106806">https://blog.51cto.com/yuzhou1su/5106806</a></p>
+<h2 id="ASIO库"><a href="#ASIO库" class="headerlink" title="ASIO库"></a>ASIO库</h2><h3 id="同步和异步"><a href="#同步和异步" class="headerlink" title="同步和异步"></a>同步和异步</h3><p>如果使用同步模式，因为是阻塞模式，所以服务器客户端往往使用多线程</p>
+<p>编程前尽早决定使用同步还是异步模式</p>
+<p>异步模式调试更困难</p>
+<ul>
+<li>同步多线程</li>
+<li>异步单线程</li>
+</ul>
+<h3 id="TinyRPC的实现"><a href="#TinyRPC的实现" class="headerlink" title="TinyRPC的实现"></a>TinyRPC的实现</h3><p><code>any</code>的妙用</p>
+<blockquote>
+<p>编译命令：g++ any.cpp -std=c++17</p>
+</blockquote>
+<figure class="highlight cpp"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br></pre></td><td class="code"><pre><span class="line"> <span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;iostream&gt;</span></span></span><br><span class="line"> <span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;string&gt;</span></span></span><br><span class="line"> <span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;vector&gt;</span></span></span><br><span class="line"> <span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;any&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> std;</span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">A</span>{</span></span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="keyword">int</span> x;</span><br><span class="line">    <span class="keyword">int</span> y;</span><br><span class="line">    <span class="function"><span class="keyword">void</span> <span class="title">func</span><span class="params">()</span></span>{</span><br><span class="line">        cout &lt;&lt; <span class="string">"hello"</span> &lt;&lt; endl;</span><br><span class="line">    }</span><br><span class="line">    <span class="built_in">A</span>(){</span><br><span class="line">        x = <span class="number">10</span>;</span><br><span class="line">        y = <span class="number">11</span>;</span><br><span class="line">    }</span><br><span class="line"></span><br><span class="line">};</span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">(<span class="keyword">void</span>)</span></span>{</span><br><span class="line">    vector&lt;std::any&gt; list;</span><br><span class="line">    A a;</span><br><span class="line">    list.<span class="built_in">push_back</span>(a);</span><br><span class="line">    </span><br><span class="line"></span><br><span class="line">    <span class="keyword">auto</span> ptr = any_cast&lt;A&gt;(&amp;(list[<span class="number">0</span>]));</span><br><span class="line">    cout &lt;&lt; ptr-&gt;x &lt;&lt; endl;</span><br><span class="line">    ptr-&gt;<span class="built_in">func</span>();</span><br><span class="line"></span><br><span class="line">}</span><br></pre></td></tr></tbody></table></figure>
+
+
+
+<p><strong>参考：</strong></p>
+<p><a target="_blank" rel="noopener" href="https://blog.csdn.net/tycoon1988/article/details/45268229">https://blog.csdn.net/tycoon1988/article/details/45268229</a></p>
+<p><a target="_blank" rel="noopener" href="https://blog.csdn.net/weixin_36888577/article/details/89766459">https://blog.csdn.net/weixin_36888577/article/details/89766459</a></p>
+<p><a target="_blank" rel="noopener" href="https://blog.csdn.net/u014630623/article/details/106049993?spm=1001.2101.3001.6650.9&amp;utm_medium=distribute.pc_relevant.none-task-blog-2~default~BlogCommendFromBaidu~Rate-9-106049993-blog-45268229.pc_relevant_antiscanv2&amp;depth_1-utm_source=distribute.pc_relevant.none-task-blog-2~default~BlogCommendFromBaidu~Rate-9-106049993-blog-45268229.pc_relevant_antiscanv2&amp;utm_relevant_index=13">https://blog.csdn.net/u014630623/article/details/106049993?spm=1001.2101.3001.6650.9&amp;utm_medium=distribute.pc_relevant.none-task-blog-2%7Edefault%7EBlogCommendFromBaidu%7ERate-9-106049993-blog-45268229.pc_relevant_antiscanv2&amp;depth_1-utm_source=distribute.pc_relevant.none-task-blog-2%7Edefault%7EBlogCommendFromBaidu%7ERate-9-106049993-blog-45268229.pc_relevant_antiscanv2&amp;utm_relevant_index=13</a></p>
+<p><a target="_blank" rel="noopener" href="https://wizardforcel.gitbooks.io/the-boost-cpp-libraries/content/11.html">https://wizardforcel.gitbooks.io/the-boost-cpp-libraries/content/11.html</a></p>
+<p><a target="_blank" rel="noopener" href="https://blog.csdn.net/u014630623/article/details/106049993?spm=1001.2101.3001.6650.9&amp;utm_medium=distribute.pc_relevant.none-task-blog-2~default~BlogCommendFromBaidu~Rate-9-106049993-blog-45268229.pc_relevant_antiscanv2&amp;depth_1-utm_source=distribute.pc_relevant.none-task-blog-2~default~BlogCommendFromBaidu~Rate-9-106049993-blog-45268229.pc_relevant_antiscanv2&amp;utm_relevant_index=13">https://blog.csdn.net/u014630623/article/details/106049993?spm=1001.2101.3001.6650.9&amp;utm_medium=distribute.pc_relevant.none-task-blog-2%7Edefault%7EBlogCommendFromBaidu%7ERate-9-106049993-blog-45268229.pc_relevant_antiscanv2&amp;depth_1-utm_source=distribute.pc_relevant.none-task-blog-2%7Edefault%7EBlogCommendFromBaidu%7ERate-9-106049993-blog-45268229.pc_relevant_antiscanv2&amp;utm_relevant_index=13</a></p>
+<p><a target="_blank" rel="noopener" href="https://docs.oracle.com/cd/E24847_01/html/819-7061/auth-2.html">https://docs.oracle.com/cd/E24847_01/html/819-7061/auth-2.html</a></p>
+<h2 id="MapReduce简单实现"><a href="#MapReduce简单实现" class="headerlink" title="MapReduce简单实现"></a>MapReduce简单实现</h2><h3 id="总体框架"><a href="#总体框架" class="headerlink" title="总体框架"></a>总体框架</h3><p><img src="https://gitee.com/mymengchuang/blog_img/raw/master/images/202205081735294.png" alt="image-20220508173538994"></p>
+<hr>
+<ul>
+<li><strong>master-worker框架</strong></li>
+</ul>
+<p>1、存在进行任务分配，任务调度，差错管理的master进程和机器；</p>
+<p>2、具体task由worker进行处理，worker进行循环<code>getTask()</code>使得分布式机器科研进行复用 <strong>思路借鉴与线程池的线程复用技术</strong></p>
+<p>3、通过远程调用分配任务，同时每一个worker程序完成任务以后，返回<code>done</code>信号，同时返回中间文件地址和命名信息</p>
+<hr>
+<ul>
+<li><strong>map-reduce框架</strong></li>
+</ul>
+<p>1、将大的处理任务和处理文件划分为M个<code>split</code>任务 交给worker处理</p>
+<p>2、采用映射是思想，将每一个<code>split</code>文件中的<code>ihash(key)%nReduce</code> 划分为<code>R</code>个输出文件，使得不同小文件中同一个键值最后被同一个<code>reduce</code> worker处理</p>
+<p>3、<strong>map</strong>操作按照键值进行<strong>快速排序</strong>，处理成为R个中间文件; <strong>reduce</strong> 操作进行<strong>归并排序</strong></p>
+<p>4、哈希算法：<strong>FNV哈希算法</strong>获取key值的32位的一个hash值</p>
+<hr>
+<ul>
+<li><strong>差错处理</strong></li>
+</ul>
+<p>1、master每次分配一个任务以后，开启一个线程进行任务计时，如果超时没有受到<code>Done</code>信号，就重新将任务加入待分配的队列中，重新分配给其他机器进行处理</p>
+<p>2、出错处理中的文件命名技巧，先保存在为系统的临时文件，临时文件是原子名字的，可以避免crash的机器文件对后续造成影响，最后处理完成再将临时文件保存为中间文件。</p>
+<hr>
+<h3 id="Map和Reduce操作"><a href="#Map和Reduce操作" class="headerlink" title="Map和Reduce操作"></a>Map和Reduce操作</h3><p><img src="https://gitee.com/mymengchuang/blog_img/raw/master/images/202205081749161.png" alt="image-20220508174929084"></p>
+<ul>
+<li><strong>map操作及其shuffle和排序过程</strong></li>
+</ul>
+<p><img src="https://gitee.com/mymengchuang/blog_img/raw/master/images/202205081750159.png" alt="image-20220508175021120"></p>
+<ul>
+<li><strong>reduce操作及归并排序过程</strong></li>
+</ul>
+<p><img src="https://gitee.com/mymengchuang/blog_img/raw/master/images/202205081752232.png" alt="image-20220508175214120"></p>
+<h2 id="具体实现"><a href="#具体实现" class="headerlink" title="具体实现"></a>具体实现</h2><h3 id="对象设计"><a href="#对象设计" class="headerlink" title="对象设计"></a><strong>对象设计</strong></h3><ul>
+<li><strong>master</strong></li>
+</ul>
+<p><strong>结构设计如下</strong></p>
+<figure class="highlight go"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">type</span> Master <span class="keyword">struct</span> {</span><br><span class="line">	MapList         list.List <span class="comment">//maplist存放的是string也就是文件名，通过map映射获得number</span></span><br><span class="line">	MapDoneList     list.List <span class="comment">//存放序号</span></span><br><span class="line">	ReduceList      list.List <span class="comment">//初始化1-nreduce</span></span><br><span class="line">	ReduceDoneList  list.List <span class="comment">//初始化为空</span></span><br><span class="line">	nReduce         <span class="keyword">int</span></span><br><span class="line">	Filename2Number <span class="keyword">map</span>[<span class="keyword">string</span>]<span class="keyword">int</span></span><br><span class="line">	Number2Filename []<span class="keyword">string</span></span><br><span class="line">	<span class="comment">//锁，用与修改同步</span></span><br><span class="line">	lock sync.Mutex</span><br><span class="line">	<span class="comment">//中间文件信息 IntermediateFile[nReduce] -&gt;list</span></span><br><span class="line">    <span class="comment">//给每一个Reduce task保存中间临时文件</span></span><br><span class="line">	IntermediateFile []list.List</span><br><span class="line">    </span><br><span class="line">}</span><br></pre></td></tr></tbody></table></figure>
+
+<p><strong>方法设计如下</strong></p>
+<p>​    - <strong>RPC远程调用获取任务</strong></p>
+<figure class="highlight go"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 远程调用 worker理解rpc以后，调用Master.getTask()获取任务</span></span><br><span class="line"><span class="function"><span class="keyword">func</span> <span class="params">(m *Master)</span> <span class="title">Gettask</span><span class="params">(args *GetTaskArgs, reply *AllocateTaskReply)</span> <span class="title">error</span></span></span><br><span class="line"></span><br><span class="line">---------------------------------------------------------------------------</span><br><span class="line"><span class="comment">// worker获取任务远程调用时传递常数 worker-&gt;master传递的参数</span></span><br><span class="line"><span class="keyword">type</span> GetTaskArgs <span class="keyword">struct</span> {</span><br><span class="line">	Ready <span class="keyword">int</span> <span class="comment">//表示准备获取任务开始工作，worker一切正常</span></span><br><span class="line">}</span><br><span class="line"></span><br><span class="line"><span class="comment">//master传递给worker任务的参数</span></span><br><span class="line"><span class="comment">//包括任务类map=0,reduce=1，文件位置</span></span><br><span class="line"><span class="comment">//MapNumber or reduceNumber Number</span></span><br><span class="line"><span class="comment">//ReduceTotal 总reduce任务数</span></span><br><span class="line"><span class="keyword">type</span> AllocateTaskReply <span class="keyword">struct</span> {</span><br><span class="line">	TaskType         <span class="keyword">int</span> <span class="comment">//0 代表map 1代表reduce</span></span><br><span class="line">	Number           <span class="keyword">int</span> <span class="comment">// 任务序号</span></span><br><span class="line">	ReduceTotal      <span class="keyword">int</span> <span class="comment">//总的任务数，用来计算hash()</span></span><br><span class="line">	Filename         <span class="keyword">string</span></span><br><span class="line">	IntermediateFile []<span class="keyword">string</span> <span class="comment">//Reduce 第rth的中间文件列表</span></span><br><span class="line">}</span><br><span class="line"></span><br></pre></td></tr></tbody></table></figure>
+
+<p>​    - <strong>RPC远程调用Map task done</strong></p>
+<figure class="highlight go"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// main/mrmaster.go calls Done() periodically to find out</span></span><br><span class="line"><span class="comment">// 完成map任务获得worker回传的中间文件信息</span></span><br><span class="line"><span class="function"><span class="keyword">func</span> <span class="params">(m *Master)</span> <span class="title">MapDone</span><span class="params">(args *SendMapTaskDoneArgs, reply *MapTaskDoneReply)</span></span> </span><br><span class="line"></span><br><span class="line">---------------------------------------------------------------------------</span><br><span class="line"><span class="comment">// map worker完成任务以后发送完成的文件路径和文件名以及是否成功1信息给master</span></span><br><span class="line"><span class="keyword">type</span> SendMapTaskDoneArgs <span class="keyword">struct</span> {</span><br><span class="line">	Done             <span class="keyword">int</span>      <span class="comment">//表示准备获取任务开始工作，worker一切正常</span></span><br><span class="line">	Number           <span class="keyword">int</span>      <span class="comment">//map任务的序号</span></span><br><span class="line">	IntermediateFile []<span class="keyword">string</span> <span class="comment">//任务reduce rth的文件名，没有的话就默认“”</span></span><br><span class="line">}</span><br><span class="line"></span><br><span class="line"><span class="comment">//master传递给worker任务的参数</span></span><br><span class="line"><span class="comment">//包括任务类map=0,reduce=1，文件位置</span></span><br><span class="line"><span class="comment">//MapNumber or reduceNumber Number</span></span><br><span class="line"><span class="comment">//ReduceTotal 总reduce任务数</span></span><br><span class="line"><span class="keyword">type</span> MapTaskDoneReply <span class="keyword">struct</span> {</span><br><span class="line">	TaskReplyAck <span class="keyword">int</span> <span class="comment">// ack=1代表当前任务传递传递完成 ack=0代表任务出错</span></span><br><span class="line">}</span><br><span class="line"></span><br></pre></td></tr></tbody></table></figure>
+
+<p>​    - <strong>RPC远程调用Reduce task done</strong></p>
+<figure class="highlight go"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 完成reduce任务获得worker回传的中间文件信息</span></span><br><span class="line"><span class="function"><span class="keyword">func</span> <span class="params">(m *Master)</span> <span class="title">ReduceDone</span><span class="params">(args *SendReduceTaskDoneArgs, reply *ReduceTaskDoneReply)</span> <span class="title">error</span></span></span><br><span class="line"></span><br><span class="line">---------------------------------------------------------------------------</span><br><span class="line"><span class="comment">// map worker完成任务以后发送完成的文件路径和文件名以及是否成功1信息给master</span></span><br><span class="line"><span class="keyword">type</span> SendReduceTaskDoneArgs <span class="keyword">struct</span> {</span><br><span class="line">	Done   <span class="keyword">int</span> <span class="comment">//表示准备获取任务开始工作，worker一切正常</span></span><br><span class="line">	Number <span class="keyword">int</span> <span class="comment">//reduce任务的序号</span></span><br><span class="line">}</span><br><span class="line"></span><br><span class="line"><span class="comment">//master传递给worker任务的参数</span></span><br><span class="line"><span class="comment">//包括任务类map=0,reduce=1，文件位置</span></span><br><span class="line"><span class="comment">//MapNumber or reduceNumber Number</span></span><br><span class="line"><span class="comment">//ReduceTotal 总reduce任务数</span></span><br><span class="line"><span class="keyword">type</span> ReduceTaskDoneReply <span class="keyword">struct</span> {</span><br><span class="line">	TaskReplyAck <span class="keyword">int</span> <span class="comment">// ack=1代表当前任务传递传递完成 ack=0代表任务出错</span></span><br><span class="line">}</span><br></pre></td></tr></tbody></table></figure>
+
+
+
+<ul>
+<li><strong>worker</strong></li>
+</ul>
+<figure class="highlight go"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">Worker</span><span class="params">(mapf <span class="keyword">func</span>(<span class="keyword">string</span>, <span class="keyword">string</span>)</span> []<span class="title">KeyValue</span>,<span class="title">reducef</span> <span class="title">func</span><span class="params">(<span class="keyword">string</span>, []<span class="keyword">string</span>)</span> <span class="title">string</span>)</span></span><br></pre></td></tr></tbody></table></figure>
+
+<p>Worker函数思路</p>
+<p>1： 开一个无限循环</p>
+<p>2： 循环中，首先获得一个任务（GetTask函数，代码在master.go中）</p>
+<p>3: 判断任务类型，对于map任务，调用mapf函数（mr/worker.go中的MapTask函数），判断任务是否完成（mr/worker.go中的TaskCompare，调用master中的taskCompare函数)。</p>
+<p>4: 完成任务,采用远程调用回传<code>Done</code>处理</p>
+<p>5: 继续<code>getTask()</code>知道<code>getTask()</code>回传的<code>TaskType</code>类型判断所有任务都完成了</p>
+<h3 id="差错处理"><a href="#差错处理" class="headerlink" title="差错处理"></a>差错处理</h3><p>采用go中的计时器，每次分配一个任务以后，新开一个协程进行处理，通过及时触发来实现10s以后是否再<code>Done</code>列表中找到任务，判断任务是否被完成，如果没有就加入就绪列表，重新等待分配</p>
+<figure class="highlight go"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// master调配任务以后，开启计时器，判断任务在10s内是否进入Done列表中，如果没有需要重新嗲调配</span></span><br><span class="line"><span class="comment">//</span></span><br><span class="line"><span class="function"><span class="keyword">func</span> <span class="params">(m *Master)</span> <span class="title">CrashCheckandRecovery</span><span class="params">(TaskType <span class="keyword">int</span>, Number <span class="keyword">int</span>)</span></span> {</span><br><span class="line">	<span class="comment">//创建定时器，每隔1秒后，定时器就会给channel发送一个事件(当前时间)</span></span><br><span class="line">	ticker := time.NewTicker(time.Second * <span class="number">10</span>)</span><br><span class="line">	<span class="keyword">go</span> <span class="function"><span class="keyword">func</span><span class="params">()</span></span> {</span><br><span class="line">		&lt;-ticker.C</span><br><span class="line">        <span class="comment">//这里进行判断和处理</span></span><br><span class="line">    }()</span><br></pre></td></tr></tbody></table></figure>
+
+<h3 id="并发控制"><a href="#并发控制" class="headerlink" title="并发控制"></a>并发控制</h3><p>需要对master对象中的值进行并发保护</p>
+<figure class="highlight go"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">m.lock.Lock()</span><br><span class="line">....</span><br><span class="line">m.lock.Unlock()</span><br></pre></td></tr></tbody></table></figure>
+
+
+
+
+
+<p>数据库系统设计</p>
+<p><a target="_blank" rel="noopener" href="https://www.yuque.com/yingchengjun/pcp6qx/kue938">https://www.yuque.com/yingchengjun/pcp6qx/kue938</a></p>
+<p><a target="_blank" rel="noopener" href="https://git.zju.edu.cn/zjucsdb/minisql">https://git.zju.edu.cn/zjucsdb/minisql</a></p>
+<figure class="highlight c++"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">Add</span><span class="params">(<span class="keyword">int</span> a, <span class="keyword">int</span> b)</span> </span>{</span><br><span class="line">   <span class="keyword">int</span> out = a + b;</span><br><span class="line">   <span class="keyword">return</span> out;</span><br><span class="line">}</span><br><span class="line"> </span><br><span class="line"><span class="keyword">int</span> a_value = <span class="number">10</span>;</span><br><span class="line"><span class="keyword">int</span> b_value = <span class="number">20</span>;</span><br><span class="line"><span class="keyword">int</span> a_add_b = <span class="built_in">Add</span>(a_value, b_value);</span><br></pre></td></tr></tbody></table></figure>
+
+<figure class="highlight python"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> SimpleXMLRPCServer <span class="keyword">import</span> SimpleXMLRPCServer    </span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">fun_add</span>(<span class="params">a,b</span>):</span> </span><br><span class="line">    totle = a + b  </span><br><span class="line">    <span class="keyword">return</span> totle </span><br><span class="line"><span class="keyword">if</span> __name__ == <span class="string">'__main__'</span>: </span><br><span class="line">    s = SimpleXMLRPCServer((<span class="string">'0.0.0.0'</span>, <span class="number">8080</span>))   <span class="comment">#开启xmlrpcserver </span></span><br><span class="line">    s.register_function(fun_add)                <span class="comment">#注册函数fun_add </span></span><br><span class="line">    <span class="built_in">print</span> <span class="string">"server is online..."</span> </span><br><span class="line">    s.serve_forever()                           <span class="comment">#开启循环等待 </span></span><br></pre></td></tr></tbody></table></figure>
+
+<figure class="highlight python"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> xmlrpclib <span class="keyword">import</span> ServerProxy            <span class="comment">#导入xmlrpclib的包 </span></span><br><span class="line">s = ServerProxy(<span class="string">"http://172.171.5.205:8080"</span>) <span class="comment">#定义xmlrpc客户端 </span></span><br><span class="line"><span class="built_in">print</span> s.fun_add(<span class="number">2</span>,<span class="number">3</span>)   </span><br></pre></td></tr></tbody></table></figure>
+
+
+      
+    </div>
+    
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/2022/05/17/tinyKV/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">&lt;</strong>
+      <div class="article-nav-title">
+        
+          (no title)
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2022/05/05/%E5%88%86%E5%B8%83%E5%BC%8F%E7%B3%BB%E7%BB%9F%E8%AE%BE%E8%AE%A12/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">MIT6.824</div>
+      <strong class="article-nav-caption">&gt;</strong>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+
+
+
+
+
+</div>
+      <footer id="footer">
+  <div class="outer">
+    <div id="footer-info">
+      <div class="footer-left">
+        &copy; 2022 绘梨衣
+      </div>
+        <div class="footer-right">
+          <a href="http://hexo.io/" target="_blank">Hexo</a>  Theme <a href="https://github.com/preccrep/hexo-theme-jelly" target="_blank">Jelly</a>
+        </div>
+    </div>
+  </div>
+</footer>
+    </div>
+    
+  
+<link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+
+
+
+<script>
+	var yiliaConfig = {
+		fancybox: true,
+		mathjax: false,
+		animate: true,
+		isHome: false,
+		isPost: true,
+		isArchive: false,
+		isTag: false,
+		isCategory: false,
+		open_in_new: false
+	}
+</script>
+
+<script src="/js/main.js"></script>
+
+
+
+
+  </div>
+</body>
+</html>

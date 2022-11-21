@@ -1,0 +1,477 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <title>绘梨衣</title>
+
+  <!-- keywords -->
+  
+
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="整理： https:&#x2F;&#x2F;www.zhihu.com&#x2F;question&#x2F;63624626&#x2F;answer&#x2F;1470322834 https:&#x2F;&#x2F;www.zhihu.com&#x2F;question&#x2F;327277064&#x2F;answer&#x2F;712000428 [toc] 1、你做很多深度学习方面的东西，为什么要来做分布式系统和数据库系统关键点：打消顾虑  我有没有相关的经历 没有经验和充分的了解 喜新厌旧  我做过的">
+<meta property="og:type" content="article">
+<meta property="og:title" content="绘梨衣">
+<meta property="og:url" content="http://example.com/2022/05/30/%E5%A4%8F%E4%BB%A4%E8%90%A5%E9%9D%A2%E8%AF%95/%E9%9D%A2%E8%AF%95%E9%97%AE%E9%A2%98%E9%A2%84%E6%B5%8B+%E8%8B%B1%E6%96%87/index.html">
+<meta property="og:site_name" content="绘梨衣">
+<meta property="og:description" content="整理： https:&#x2F;&#x2F;www.zhihu.com&#x2F;question&#x2F;63624626&#x2F;answer&#x2F;1470322834 https:&#x2F;&#x2F;www.zhihu.com&#x2F;question&#x2F;327277064&#x2F;answer&#x2F;712000428 [toc] 1、你做很多深度学习方面的东西，为什么要来做分布式系统和数据库系统关键点：打消顾虑  我有没有相关的经历 没有经验和充分的了解 喜新厌旧  我做过的">
+<meta property="og:locale" content="en_US">
+<meta property="article:published_time" content="2022-05-30T10:35:06.381Z">
+<meta property="article:modified_time" content="2022-11-21T12:59:53.932Z">
+<meta property="article:author" content="绘梨衣">
+<meta name="twitter:card" content="summary">
+  
+  
+    <link rel="icon" href="/img/favicon.ico">
+  
+  
+<link rel="stylesheet" href="/css/style.css">
+
+  
+  
+
+  
+<script src="//cdn.bootcss.com/require.js/2.3.2/require.min.js"></script>
+
+  
+<script src="//cdn.bootcss.com/jquery/3.1.1/jquery.min.js"></script>
+
+
+  
+<meta name="generator" content="Hexo 5.4.0">
+<style>.github-emoji { position: relative; display: inline-block; width: 1.2em; min-height: 1.2em; overflow: hidden; vertical-align: top; color: transparent; }  .github-emoji > span { position: relative; z-index: 10; }  .github-emoji img, .github-emoji .fancybox { margin: 0 !important; padding: 0 !important; border: none !important; outline: none !important; text-decoration: none !important; user-select: none !important; cursor: auto !important; }  .github-emoji img { height: 1.2em !important; width: 1.2em !important; position: absolute !important; left: 50% !important; top: 50% !important; transform: translate(-50%, -50%) !important; user-select: none !important; cursor: auto !important; } .github-emoji-fallback { color: inherit; } .github-emoji-fallback img { opacity: 0 !important; }</style>
+<link rel="alternate" href="/atom.xml" title="绘梨衣" type="application/atom+xml">
+</head>
+<body>
+  <div id="container">
+    <div id="particles-js"></div>
+    <div class="left-col">
+    <div class="overlay"></div>
+<div class="intrude-less">
+	<header id="header" class="inner">
+		<a href="/" class="profilepic">
+			
+				<img lazy-src="/img/touxiang2.jpg" class="js-avatar">
+			
+		</a>
+
+		<hgroup>
+			<h1 class="header-author"><a href="/">绘梨衣</a></h1>
+		</hgroup>
+
+		
+
+		<div class="switch-area">
+			<div class="switch-wrap">
+				<section class="switch-part switch-part1">
+					<nav class="header-menu">
+						<ul>
+						
+							<li><a href="/">Home</a></li>
+				        
+							<li><a href="/archives">Archives</a></li>
+				        
+						</ul>
+					</nav>
+					<nav class="half-header-menu">
+						<a class="hide">Home</a>
+						<a>Tags</a>
+						<a>Links</a>
+						<a>About</a>
+					</nav>
+					<nav class="header-nav">
+						<div class="social">
+							
+								<a class="github" target="_blank" href="#" title="github">github</a>
+					        
+								<a class="mail" target="_blank" href="#" title="mail">mail</a>
+					        
+								<a class="rss" target="_blank" href="/atom.xml" title="rss">rss</a>
+					        
+								<a class="zhihu" target="_blank" href="#" title="zhihu">zhihu</a>
+					        
+						</div>
+						<!-- music -->
+						
+					</nav>
+				</section>
+				
+				
+				<section class="switch-part switch-part2">
+					<div class="widget tagcloud" id="js-tagcloud">
+						<a href="/tags/JVM/" style="font-size: 10px;">JVM</a> <a href="/tags/Java/" style="font-size: 10px;">Java</a> <a href="/tags/Leetcode/" style="font-size: 15px;">Leetcode</a> <a href="/tags/MySQL-%E6%95%B0%E6%8D%AE%E5%BA%93/" style="font-size: 11.67px;">MySQL,数据库</a> <a href="/tags/Summary/" style="font-size: 16.67px;">Summary</a> <a href="/tags/%E4%BF%A1%E6%81%AF%E8%AE%BA/" style="font-size: 10px;">信息论</a> <a href="/tags/%E5%88%86%E5%B8%83%E5%BC%8F/" style="font-size: 10px;">分布式</a> <a href="/tags/%E5%88%86%E5%B8%83%E5%BC%8Flab2/" style="font-size: 10px;">分布式lab2</a> <a href="/tags/%E5%8A%A8%E6%80%81%E8%A7%84%E5%88%92/" style="font-size: 10px;">动态规划</a> <a href="/tags/%E5%9B%BE%E8%AE%BA/" style="font-size: 10px;">图论</a> <a href="/tags/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F/" style="font-size: 18.33px;">操作系统</a> <a href="/tags/%E6%95%B0%E6%8D%AE%E5%BA%93/" style="font-size: 10px;">数据库</a> <a href="/tags/%E6%9C%BA%E8%AF%95/" style="font-size: 10px;">机试</a> <a href="/tags/%E6%B0%B4%E5%A1%98%E9%87%87%E6%A0%B7/" style="font-size: 10px;">水塘采样</a> <a href="/tags/%E7%AE%97%E6%B3%95/" style="font-size: 20px;">算法</a> <a href="/tags/%E7%AE%97%E6%B3%95%E4%B8%8E%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/" style="font-size: 10px;">算法与数据结构</a> <a href="/tags/%E7%BA%BF%E7%A8%8B%E6%B1%A0-JVM-Java/" style="font-size: 10px;">线程池,JVM,Java</a> <a href="/tags/%E7%BC%96%E8%AF%91/" style="font-size: 10px;">编译</a> <a href="/tags/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BB%84%E6%88%90/" style="font-size: 11.67px;">计算机组成</a> <a href="/tags/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/" style="font-size: 18.33px;">计算机网络</a> <a href="/tags/%E8%AE%B8%E6%84%BF/" style="font-size: 10px;">许愿</a> <a href="/tags/%E9%9D%A2%E7%BB%8F/" style="font-size: 10px;">面经</a> <a href="/tags/%E9%9D%A2%E8%AF%95/" style="font-size: 13.33px;">面试</a> <a href="/tags/%E9%AB%98%E9%A2%91%E9%A2%98/" style="font-size: 10px;">高频题</a>
+					</div>
+				</section>
+				
+				
+				
+				<section class="switch-part switch-part3">
+					<div id="js-friends">
+					
+			          <a target="_blank" class="main-nav-link switch-friends-link" href="https://github.com/mengchuang123/">github</a>
+			        
+			        </div>
+				</section>
+				
+
+				
+				
+				<section class="switch-part switch-part4">
+				
+					<div id="js-aboutme">My study log.</div>
+				</section>
+				
+			</div>
+		</div>
+	</header>				
+</div>
+    </div>
+    <div class="mid-col">
+      <nav id="mobile-nav">
+  	<div class="overlay">
+  		<div class="slider-trigger"></div>
+  		<h1 class="header-author js-mobile-header hide"></h1>
+  	</div>
+	<div class="intrude-less">
+		<header id="header" class="inner">
+			<div class="profilepic">
+				<img lazy-src="/img/touxiang2.jpg" class="js-avatar">
+			</div>
+			<hgroup>
+			  <h1 class="header-author"></h1>
+			</hgroup>
+			
+			<nav class="header-menu">
+				<ul>
+				
+					<li><a href="/">Home</a></li>
+		        
+					<li><a href="/archives">Archives</a></li>
+		        
+		        <div class="clearfix"></div>
+				</ul>
+			</nav>
+			<nav class="header-nav">
+				<div class="social">
+					
+						<a class="github" target="_blank" href="#" title="github">github</a>
+			        
+						<a class="mail" target="_blank" href="#" title="mail">mail</a>
+			        
+						<a class="rss" target="_blank" href="/atom.xml" title="rss">rss</a>
+			        
+						<a class="zhihu" target="_blank" href="#" title="zhihu">zhihu</a>
+			        
+				</div>
+			</nav>
+		</header>				
+	</div>
+</nav>
+      <div class="body-wrap"><article id="post-夏令营面试/面试问题预测+英文" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2022/05/30/%E5%A4%8F%E4%BB%A4%E8%90%A5%E9%9D%A2%E8%AF%95/%E9%9D%A2%E8%AF%95%E9%97%AE%E9%A2%98%E9%A2%84%E6%B5%8B+%E8%8B%B1%E6%96%87/" class="article-date">
+  	<time datetime="2022-05-30T10:35:06.381Z" itemprop="datePublished">2022-05-30</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <!--Table of Contents begin-->
+        <!--  -->
+          <!-- Table of Contents -->
+        
+        <!--Table of Contents end -->
+        
+
+
+
+
+        <p>整理：</p>
+<p><a target="_blank" rel="noopener" href="https://www.zhihu.com/question/63624626/answer/1470322834">https://www.zhihu.com/question/63624626/answer/1470322834</a></p>
+<p><a target="_blank" rel="noopener" href="https://www.zhihu.com/question/327277064/answer/712000428">https://www.zhihu.com/question/327277064/answer/712000428</a></p>
+<p>[toc]</p>
+<h1 id="1、你做很多深度学习方面的东西，为什么要来做分布式系统和数据库系统"><a href="#1、你做很多深度学习方面的东西，为什么要来做分布式系统和数据库系统" class="headerlink" title="1、你做很多深度学习方面的东西，为什么要来做分布式系统和数据库系统"></a>1、你做很多深度学习方面的东西，为什么要来做分布式系统和数据库系统</h1><p>关键点：打消顾虑</p>
+<ul>
+<li>我有没有相关的经历</li>
+<li>没有经验和充分的了解</li>
+<li>喜新厌旧</li>
+</ul>
+<p>我做过的一些跟系统设计相关的项目比如miniSQL小型数据库的设计，微处理器的设计都让我对系统设计都浓厚的兴趣，我大三的时候开始接触分布式系统相关的内容，我发现我是很感兴趣的，这也驱动了我后续去阅读更多论文，亲自动手实现一些设计，比如MapReduce,Raft算法等等。 然后我之前是有一些深度学习相关的经历的，但并不是说我不喜欢深度学习，他更多的是一种经历，他带给我一种看待问题的新的思路，比如说我遇到了一个问题，遇到一个设计参数，或者一个优化的问题，我就会考虑能不能设置优化的目标，从数据的角度来解决，因为我之前这样做过。</p>
+<h1 id="2、自我介绍-及其英文版-一定会用到的"><a href="#2、自我介绍-及其英文版-一定会用到的" class="headerlink" title="2、自我介绍 及其英文版  一定会用到的"></a>2、自我介绍 及其英文版  一定会用到的</h1><p>各位老师好，我叫庄先炜，来自浙江大学信息与电子工程学院。我是卓越班的成员在我们学院。</p>
+<p>在过去的三年了，我努力学习，取得了一些奖学金。我同样参加了一些竞赛，获得了一些奖励。例如，美国大学生数学建模竞赛一等奖。我几乎每天都会在线测评网站上做编程练习。</p>
+<p>在过去两年里，我做过一些关于深度学习在医学图像分割方面的科研。同时我以第四作者发表了一篇SCI论文，以第一作者投稿了一篇会议论文。</p>
+<p>除此之外，我也做了和系统设计相关的项目，例如MiniSQL的设计以及一些分布式项目。这些项目都让我激起了我对系统设计，尤其是分布式系统设计的兴趣。我希望在研究生阶段可以攻读这个方向。我将会静下心来， spare no effort to do research of my major.</p>
+<p>Thank you very much for your time and attention!</p>
+<p>I also participated in several <a target="_blank" rel="noopener" href="https://www.zhihu.com/search?q=competitions&amp;search_source=Entity&amp;hybrid_search_source=Entity&amp;hybrid_search_extra=%7B%22sourceType%22:%22answer%22,%22sourceId%22:818782277%7D">competitions</a> and won some prizes.</p>
+<p>Good afternoon dear teachers. It is my honor to be here for this interview. My name is 庄先炜.And I am going to graduate from College of Information Science and Electronic Engineering, Zhejiang University.And I am a member of the excellence class at my college. </p>
+<p>In the past three years, I have studied hard and won some scholarships. I also participated in some competitions and got some rewards. For example, the first prize of the American College Students Mathematical Contest in Modeling.</p>
+<p>And I do programming exercises almost every day on the online judge website.</p>
+<p>In the past two years, I did some research on the application of deep learning in medical image segmentation. At the same time, I also published a SCI paper as the fourth author and submitted a conference paper as the first author.</p>
+<p>Besides, I have also done projects related to system design, such as MiniSQL designeand some distributed projects. </p>
+<p>These projects all sparked my interest in system design, especially distributed systems design. I would like to pursue this direction at the postgraduate level.</p>
+<p>I will spare no effort to do research of this major.</p>
+<p>第一篇文章是关于U-net模型结合多模态医学图像做图像分割的研究。文章的任务是多模态图像分割。主要的思路是采用图像加权来处理多模态数据。同时不同模态图像的权重是可以被训练的。考虑到图像分割的区域病灶较小，而且集中在某一个部位，研究还引入注意力机制来提高分割性能。这个是我第一次做深度学习相关的科研项目，给了我许多启发和经验。</p>
+<p>第二篇文章是采用半监督学习的方式来做小样本医学图像分割。在我们的数据集中，无标签数据占了90%以上，文章的目的是充分利用这些无标签数据提高分割精度。研究的思路是引入一个重建任务作为分割任务的正则项，使得任务变成一个半监督的任务。</p>
+<p>我尝试做自己做这个研究，写了一篇文章。学长帮我修改了这篇文章。这个经历让我对计算机视觉的科学研究有了更深的认识。</p>
+<p>The first article is about the research of U-net model combining multi-modal medical image to do image segmentation. The task of this paper is multimodal image segmentation. The main idea is to use image weighting to process multi-modal data. At the same time, the weights of different modal images can be trained. Considering that the focus of image segmentation issmall and concentrated in a certain region, attention mechanism is introduced to improve the segmentation performance. This is my first time to do a research project related to deep learning, which has given me a lot of inspiration and experience.</p>
+<p>The second article is to use semi-supervised learning to do small sample medical image segmentation. In our dataset, unlabeled data accounts for more than 90%, and the purpose of this article is to make full use of these unlabeled data to improve segmentation accuracy. The idea of the research is to introduce a reconstruction task as a regular term for thesegmentation task, making the task a semi-supervised task.</p>
+<p>I tried doing this research myself and wrote an article. The senior helped me revise this article. This experience gave me a deeper understanding of scientific research in computer vision.</p>
+<p>参考版本:</p>
+<p>Actually,it is my second time to be here.The first timeIcame here is for the summer camp.(这句可有可无，根据自己的情况选择)Iwas attracted by the outstanding<br>teachers,the good environment and the freedom of the academic atmosphere here.(At that time),Itold myself that i should strive with all my minds to get an offer from<br>here.LuckilyI was awarded as an excellent camper in the summer camp.<br>When i was a sophomorei began to do some research on—(你做的实验关于哪方面的)<br>The first experiment i have learnedis—(比如PCR，学习的第一个实验，可以换成接触的第一门课程之类的.)At that timei have made some mistakesand i felt depressed about it . However every time i got good resultsit gave me a strong sense of achievement and i really love it.Finallyicando—(前面提到的你做的实验)on myown.<br>On top of that i have also learned how to—(cultivate cells isolate and purify plasmids and transformation)除了上面讲的实验，我还学习了哪些实验技术，这里可以加一些你会的试验方法之类的.To improve myselfi have participated the project in myuniversity(这里是在学校参加的大创，也可以写参加的一些基金项目。)As a team leaderi have learned to<br>write proiect application make the cooperation effectiveAnd one vear ater we got the<br>first prize.<br>Besides these experience in scientific research. am also a number of the radio station in my collegeand ilike—(如reading换成你自己的兴趣爱好)<br>All of these experiments made me interestedin—(如theinnateimmunity换成你自己感兴趣的方向)And i hope i can learn more about itthus i came herebecause i do believe that—(学校)could provide me the best platform. That is all.Thank you for your listening.</p>
+<h1 id="3-你最喜欢的哪门专业课"><a href="#3-你最喜欢的哪门专业课" class="headerlink" title="3.你最喜欢的哪门专业课"></a>3.你最喜欢的哪门专业课</h1><h1 id="4-你的兴趣爱好"><a href="#4-你的兴趣爱好" class="headerlink" title="4.你的兴趣爱好"></a>4.你的兴趣爱好</h1><h1 id="5-什么是人工智能和机器学习的区别"><a href="#5-什么是人工智能和机器学习的区别" class="headerlink" title="5.什么是人工智能和机器学习的区别"></a>5.什么是人工智能和机器学习的区别</h1><h1 id="6-介绍你的论文"><a href="#6-介绍你的论文" class="headerlink" title="6.介绍你的论文"></a>6.介绍你的论文</h1><h1 id="7-体系结构和计算机组成的区别"><a href="#7-体系结构和计算机组成的区别" class="headerlink" title="7.体系结构和计算机组成的区别"></a>7.体系结构和计算机组成的区别</h1><p>体系结构是抽象的，计算机组成是具体的实现，包括硬件实现等。</p>
+<p>体系结构是程序员眼中的计算机，可能包括指令集、数据类型、寻址方式等</p>
+<p>一个计算机是否支持乘法指令是体系结构的问题，用什么硬件实现乘法指令是组成的问题。</p>
+<p>concrete and abstract</p>
+<p>The architecture is abstract, and the computer composition is the concrete realization, including hardware realization and so on.</p>
+<p>Architecture is the computer in the eyes of programmers, which may include instruction set, data type, addressing mode, etc. Whether a computer supports multiplication instructions is a problem of architecture, and what hardware is used to implement multiplication instructions is a problem of composition.</p>
+<p><strong>1、什么是48题？</strong></p>
+<p>学姐准备英语口试的时候，整理了<strong>六大类topic，48个小问题</strong>，以应对口语面试的<strong>所有非专业问题</strong>。</p>
+<p>-—————-</p>
+<p>一、Postgraduate</p>
+<p>1、为什么你选择我们的学校，继续学习？</p>
+<p>Why do you choose to study at our school/ institute?</p>
+<p>2、为什么选择新闻传播专业？（xxx专业）为什么你要换专业？（针对跨专业）</p>
+<p>Why did you choose Journalism and Communication study as your major? Why do you change your major?</p>
+<p>3、为什么考研的原因？</p>
+<p>Would you please give me some reasons for taking postgraduate exams?</p>
+<p>4、你为什么选择考研，而不是找工作？</p>
+<p>Why do you want to go to graduate school instead of finding a job?</p>
+<p>5、如果你录取了我们学校，你希望在这里收获什么？</p>
+<p>What do you expect to achieve during your study if you are enrolled into this institute?</p>
+<p>6、对于接下来研究生学习的规划。</p>
+<p>What is your plan in the postgraduate study?</p>
+<p>7、如果有一个出国留学的机会给你，你会怎么做？</p>
+<p>If there were an opportunity of studying abroad, what would you do?</p>
+<p>8、毕业后的职业规划？</p>
+<p>Do you have a career plan in 5 years?</p>
+<p>9、如果你这次考研失败了，近期你有什么打算？</p>
+<p>If you failed this time what will you do in the near future?</p>
+<p>10、华科和复旦的区别是什么（对于本科好的同学，很有可能问到）</p>
+<p>Tell me the difference between Huake and Fudan?</p>
+<p>二、Education &amp; School</p>
+<p>11、聊聊你的本科专业。</p>
+<p>Tell me something about your major.</p>
+<p>12、聊聊你本科的大学？大学期间获得哪些证书？</p>
+<p>Tell something about your university. What qualifications have you obtain?</p>
+<p>13、你最喜欢哪门课程？为什么呢？</p>
+<p>What is your favorite subject and why?</p>
+<p>14、你觉得英语重要么？为什么？</p>
+<p>Do you think English is important for your future plans?</p>
+<p>15、校园生活中你认为最有成就感的事？</p>
+<p>What has been your greatest success/ accomplishment in campus life?</p>
+<p>16、在你看来，大学生活和高中生活有哪些不同？</p>
+<p>What are the differences between middle school and university life?</p>
+<p>17、教育如何改革以适应未来的挑战？</p>
+<p>How can education be reformed to meet the future challenges?</p>
+<p>18、过去的5年里，在你的专业领域里你认为最重要的变化是什么？</p>
+<p>What do you think have been the most important changes in your study field over the past 5 years?</p>
+<p>19、你认为你现在所学的课程和现代社会实际关联度高吗？为什么？</p>
+<p>Do you think the subjects you are studying today are relevant to present-day society? Why?</p>
+<p>三、Hometown&amp; Cities</p>
+<p>20、能否介绍一下你的故乡</p>
+<p>Tell something about hometown.</p>
+<p>21、在你家乡气候怎么样？</p>
+<p>How would you compare the climate in your hometown with other cities?</p>
+<p>22、你家乡的人怎么样？</p>
+<p>What are the people like in your hometown?</p>
+<p>23、你最喜欢家乡的哪些地点？</p>
+<p>What places in your hometown do you like best?</p>
+<p>24、在你的家乡，有什么地方是你不喜欢的？</p>
+<p>Is there anything you dislike about it in your hometown?</p>
+<p>25、你的家乡和香港比较的话，区别有哪些？</p>
+<p>What is the difference between your hometown and Hong Kong?</p>
+<p>26、介绍一下家乡的历史？</p>
+<p>Can you describe the history of your hometown?</p>
+<p>27、你去过哪里旅游？最喜欢哪个景点？</p>
+<p>Where have you been travelling to? Which place interested you most?</p>
+<p>28、你觉得中国人现在变富裕了吗？</p>
+<p>Whether Chinese people are very rich now?</p>
+<p>四、Family&amp; Family Members</p>
+<p>29、你能描述一下你的家庭吗？</p>
+<p>Can you tell me something about your family?</p>
+<p>30、你的家庭对于你来说是否重要呢？</p>
+<p>Is family very important to you?</p>
+<p>31、你和家人通常周末会做什么？/你和家人们喜欢一起做什么事情？</p>
+<p>What does your family usually do for the weekend? / what do you and your family like to do together?</p>
+<p>32、你喜欢经常和父母谈心吗？</p>
+<p>Do you like to talk with your parents?</p>
+<p>33、你是如何与你的父母相处？/ 当你空闲时喜欢和家人待在一起还是喜欢和朋友待在一起？</p>
+<p>How are you getting on with your parents? / do you prefer to spend time with your family or with your friends?</p>
+<p>34、描述一下你的父亲/母亲。</p>
+<p>Describe your father/ mother.</p>
+<p>五、Spare time &amp; Hobbies</p>
+<p>35、你空闲时间喜欢做些什么？</p>
+<p>What do you like to do in your spare time? How do you arrange your spare time?</p>
+<p>36、你的兴趣爱好是什么？</p>
+<p>Could you tell me about a hobby or an interest that you have?</p>
+<p>37、音乐</p>
+<p>What kind of music do you like? Why?</p>
+<p>38、你认为音乐给我们的生活带来什么影响？</p>
+<p>What role do you think music play in our life?</p>
+<p>39、电影</p>
+<p>Do you like watching movie? Talk about a movie you like/ you have watched recently?</p>
+<p>40、电视剧</p>
+<p>Talk about a TV series you like.</p>
+<p>41、 书籍</p>
+<p>Talk about a book you like.</p>
+<p>42、游戏</p>
+<p>What is advantages and disadvantages for watching computer games?</p>
+<p>六、Yourself</p>
+<p>43、优点</p>
+<p>Your strengths</p>
+<p>44、缺点</p>
+<p>Your weaknesses</p>
+<p>45、你从社团经历中学到了什么？</p>
+<p>What have you learned from your club experience?</p>
+<p>46、性格</p>
+<p>What kind of character do you think you have?</p>
+<p>47、你从实习经历中学到了什么？</p>
+<p>What have you learned from your internship experience?</p>
+<p>48、你从科研/竞赛经历中学到了什么？</p>
+<p>What have you learned from your research experience/competition experience?</p>
+<p>就像这样</p>
+<p><em><strong>*考研复试英语*</strong></em><em><strong>*面试*</strong></em><em><strong>*问题有哪些？*</strong></em></p>
+<p><em><strong>*<br>*</strong></em>  作者：川农东子</p>
+<p>简介：专注于分享考研精品干货的宝藏博主</p>
+<p>微博/知乎：川农东子</p>
+<p>微信：考研资料圈</p>
+<h1 id="一、postgraduate"><a href="#一、postgraduate" class="headerlink" title="一、postgraduate"></a><strong>一、postgraduate</strong></h1><h2 id="1-、你为什么选择我们的学校？"><a href="#1-、你为什么选择我们的学校？" class="headerlink" title="1****、你为什么选择我们的学校？"></a><strong>1****、你为什么选择我们的学校？</strong></h2><p>Why do you choose to study at our school?</p>
+<p><strong>注</strong>：这一个问题是常见问题，需要</p>
+<h2 id="2-、你为什么选择XX专业？"><a href="#2-、你为什么选择XX专业？" class="headerlink" title="2****、你为什么选择XX专业？"></a><strong>2****、你为什么选择XX专业？</strong></h2><p>①Why did you choose XX as your major?</p>
+<p>②Why do you change your major?</p>
+<p><strong>注</strong>：这类问题一般主要针对跨专业（xxx 专业）为什么你要换专业？</p>
+<h2 id="3-、你为什么考研的原因？"><a href="#3-、你为什么考研的原因？" class="headerlink" title="3****、你为什么考研的原因？"></a><strong>3****、你为什么考研的原因？</strong></h2><p>Would you please give me some reasons for taking postgraduate exams?</p>
+<h2 id="4-、你为什么选择考研，而不是找工作？"><a href="#4-、你为什么选择考研，而不是找工作？" class="headerlink" title="4****、你为什么选择考研，而不是找工作？"></a><strong>4****、你为什么选择考研，而不是找工作？</strong></h2><p>Why do you want to go to graduate school instead of finding a job?</p>
+<h2 id="5-、如果你录取了我们学校，你希望在这里收获什么？"><a href="#5-、如果你录取了我们学校，你希望在这里收获什么？" class="headerlink" title="5****、如果你录取了我们学校，你希望在这里收获什么？"></a><strong>5****、如果你录取了我们学校，你希望在这里收获什么？</strong></h2><p>What do you expect to achieve during your study if you are enrolled into this</p>
+<p>institute?</p>
+<h2 id="6-、对于接下来研究生学习的规划。"><a href="#6-、对于接下来研究生学习的规划。" class="headerlink" title="6****、对于接下来研究生学习的规划。"></a><strong>6****、对于接下来研究生学习的规划。</strong></h2><p>What is your plan in the postgraduate study?</p>
+<h2 id="7-、如果有一个出国留学的机会给你，你会怎么做？"><a href="#7-、如果有一个出国留学的机会给你，你会怎么做？" class="headerlink" title="7****、如果有一个出国留学的机会给你，你会怎么做？"></a><strong>7****、如果有一个出国留学的机会给你，你会怎么做？</strong></h2><p>If there were an opportunity of studying abroad, what would you do?</p>
+<h2 id="8-、毕业后的职业规划？"><a href="#8-、毕业后的职业规划？" class="headerlink" title="8****、毕业后的职业规划？"></a><strong>8****、毕业后的职业规划？</strong></h2><p>Do you have a career plan in graduate?</p>
+<h2 id="9-、如果你这次考研失败了，未来你会有什么打算？"><a href="#9-、如果你这次考研失败了，未来你会有什么打算？" class="headerlink" title="9****、如果你这次考研失败了，未来你会有什么打算？"></a><strong>9****、如果你这次考研失败了，未来你会有什么打算？</strong></h2><p>If you failed this time what will you do in the  future?</p>
+<h2 id="10、A和B-的区别是什么？"><a href="#10、A和B-的区别是什么？" class="headerlink" title="10、A和B****的区别是什么？"></a><strong>10<strong><strong>、</strong></strong>A<strong><strong>和</strong></strong>B****的区别是什么？</strong></h2><p>Tell me the difference between A and B?</p>
+<p><strong>注</strong>：这里A和B指的是学校，对于本科好的同学，很有可能问到？</p>
+<h1 id="二、-Education-amp-School"><a href="#二、-Education-amp-School" class="headerlink" title="二、 Education &amp; School"></a><strong>二、 Education &amp; School</strong></h1><h2 id="11-、谈谈一下你的专业。"><a href="#11-、谈谈一下你的专业。" class="headerlink" title="11****、谈谈一下你的专业。"></a><strong>11****、谈谈一下你的专业。</strong></h2><p>Tell me something about your major.</p>
+<h2 id="12-、谈谈你的大学？"><a href="#12-、谈谈你的大学？" class="headerlink" title="12****、谈谈你的大学？"></a><strong>12****、谈谈你的大学？</strong></h2><p>Tell something about your university.</p>
+<h2 id="13-、大学期间获得哪些证书？"><a href="#13-、大学期间获得哪些证书？" class="headerlink" title="13****、大学期间获得哪些证书？"></a><strong>13****、大学期间获得哪些证书？</strong></h2><p>What qualifications have you obtain?</p>
+<h2 id="14-、你最喜欢哪门课程？为什么呢？"><a href="#14-、你最喜欢哪门课程？为什么呢？" class="headerlink" title="14****、你最喜欢哪门课程？为什么呢？"></a><strong>14****、你最喜欢哪门课程？为什么呢？</strong></h2><p>What is your favorite subject and why?</p>
+<h2 id="15-、你觉得英语重要么？为什么？"><a href="#15-、你觉得英语重要么？为什么？" class="headerlink" title="15****、你觉得英语重要么？为什么？"></a><strong>15****、你觉得英语重要么？为什么？</strong></h2><p>Do you think English is important for your future plans?</p>
+<h2 id="16-、校园生活中你认为最有成就感的事？"><a href="#16-、校园生活中你认为最有成就感的事？" class="headerlink" title="16****、校园生活中你认为最有成就感的事？"></a><strong>16****、校园生活中你认为最有成就感的事？</strong></h2><p>What has been your greatest success/ accomplishment in campus life?</p>
+<h2 id="17-、在你看来，大学生活和高中生活有哪些不同？"><a href="#17-、在你看来，大学生活和高中生活有哪些不同？" class="headerlink" title="17****、在你看来，大学生活和高中生活有哪些不同？"></a><strong>17****、在你看来，大学生活和高中生活有哪些不同？</strong></h2><p>What are the differences between middle school and university life?</p>
+<h2 id="18-、教育如何改革以适应未来的挑战？"><a href="#18-、教育如何改革以适应未来的挑战？" class="headerlink" title="18****、教育如何改革以适应未来的挑战？"></a><strong>18****、教育如何改革以适应未来的挑战？</strong></h2><p>How can education be reformed to meet the future challenges?</p>
+<h2 id="19、过去的4-年里，在你的专业领域里你认为最重要的变化是什么？"><a href="#19、过去的4-年里，在你的专业领域里你认为最重要的变化是什么？" class="headerlink" title="19、过去的4 年里，在你的专业领域里你认为最重要的变化是什么？"></a><strong>19<strong><strong>、过去的</strong></strong>4</strong> <strong>年里，在你的专业领域里你认为最重要的变化是什么？</strong></h2><p>What do you think have been the most important changes in your study field over the past 4 years?</p>
+<h2 id="20-、你认为你现在所学的课程和现代社会实际关联度高吗？为什么？"><a href="#20-、你认为你现在所学的课程和现代社会实际关联度高吗？为什么？" class="headerlink" title="20****、你认为你现在所学的课程和现代社会实际关联度高吗？为什么？"></a><strong>20****、你认为你现在所学的课程和现代社会实际关联度高吗？为什么？</strong></h2><p>Do you think the subjects you are studying today are relevant to present-day society?Why?</p>
+<h1 id="三、-Hometown"><a href="#三、-Hometown" class="headerlink" title="三、 Hometown"></a><strong>三、 Hometown</strong></h1><h2 id="21-、能否介绍一下你的故乡"><a href="#21-、能否介绍一下你的故乡" class="headerlink" title="21****、能否介绍一下你的故乡"></a><strong>21****、能否介绍一下你的故乡</strong></h2><p>Tell something about hometown.</p>
+<h2 id="22-、在你家乡气候怎么样？"><a href="#22-、在你家乡气候怎么样？" class="headerlink" title="22****、在你家乡气候怎么样？"></a><strong>22****、在你家乡气候怎么样？</strong></h2><p>How would you compare the climate in your hometown with other cities?</p>
+<h2 id="23-、你家乡的人怎么样？"><a href="#23-、你家乡的人怎么样？" class="headerlink" title="23****、你家乡的人怎么样？"></a><strong>23****、你家乡的人怎么样？</strong></h2><p>What are the people like in your hometown?</p>
+<h2 id="24-、你最喜欢家乡的哪些地点？"><a href="#24-、你最喜欢家乡的哪些地点？" class="headerlink" title="24****、你最喜欢家乡的哪些地点？"></a><strong>24****、你最喜欢家乡的哪些地点？</strong></h2><p>What places in your hometown do you like best?</p>
+<h2 id="25-、在你的家乡，有什么地方是你不喜欢的？"><a href="#25-、在你的家乡，有什么地方是你不喜欢的？" class="headerlink" title="25****、在你的家乡，有什么地方是你不喜欢的？"></a><strong>25****、在你的家乡，有什么地方是你不喜欢的？</strong></h2><p>Is there anything you dislike about it in your hometown?</p>
+<h2 id="26-、你的家乡和香港比较的话，区别有哪些？"><a href="#26-、你的家乡和香港比较的话，区别有哪些？" class="headerlink" title="26****、你的家乡和香港比较的话，区别有哪些？"></a><strong>26****、你的家乡和香港比较的话，区别有哪些？</strong></h2><p>What is the difference between your hometown and Hong Kong?</p>
+<h2 id="27-、介绍一下家乡的历史？"><a href="#27-、介绍一下家乡的历史？" class="headerlink" title="27****、介绍一下家乡的历史？"></a><strong>27****、介绍一下家乡的历史？</strong></h2><p>Can you describe the history of your hometown?</p>
+<h2 id="28-、你去过哪里旅游？"><a href="#28-、你去过哪里旅游？" class="headerlink" title="28****、你去过哪里旅游？"></a><strong>28****、你去过哪里旅游？</strong></h2><p>Where have you been travelling to? </p>
+<h2 id="29-、最喜欢哪个景点？"><a href="#29-、最喜欢哪个景点？" class="headerlink" title="29****、最喜欢哪个景点？"></a><strong>29****、最喜欢哪个景点？</strong></h2><p>Which place interested you most?</p>
+<h2 id="30、你觉得中国人现在变富裕了吗？"><a href="#30、你觉得中国人现在变富裕了吗？" class="headerlink" title="30、你觉得中国人现在变富裕了吗？"></a><strong>30、你觉得中国人现在变富裕了吗？</strong></h2><p>Whether Chinese people are very rich now?</p>
+<h1 id="四、Family"><a href="#四、Family" class="headerlink" title="四、Family"></a><strong>四、Family</strong></h1><h2 id="31-、你能描述一下你的家庭吗？"><a href="#31-、你能描述一下你的家庭吗？" class="headerlink" title="31****、你能描述一下你的家庭吗？"></a><strong>31****、你能描述一下你的家庭吗？</strong></h2><p>Can you tell me something about your family?</p>
+<h2 id="32-、你的家庭对于你来说是否重要呢？"><a href="#32-、你的家庭对于你来说是否重要呢？" class="headerlink" title="32****、你的家庭对于你来说是否重要呢？"></a><strong>32****、你的家庭对于你来说是否重要呢？</strong></h2><p>Is family very important to you?</p>
+<h2 id="33-、你和家人通常周末会做什么？-你和家人们喜欢一起做什么事情？"><a href="#33-、你和家人通常周末会做什么？-你和家人们喜欢一起做什么事情？" class="headerlink" title="33**、你和家人通常周末会做什么？/**你和家人们喜欢一起做什么事情？"></a><strong>33**<strong>、你和家人通常周末会做什么？</strong></strong>/**<strong>你和家人们喜欢一起做什么事情？</strong></h2><p>①What does your family usually do for the weekend? </p>
+<p>② what do you and your family like to do together?</p>
+<h2 id="34-、你喜欢经常和父母谈心吗？"><a href="#34-、你喜欢经常和父母谈心吗？" class="headerlink" title="34****、你喜欢经常和父母谈心吗？"></a><strong>34****、你喜欢经常和父母谈心吗？</strong></h2><p>Do you like to talk with your parents?</p>
+<h2 id="35-、你是如何与你的父母相处？-当你空闲时喜欢和家人待在一起还是喜欢和朋友待在一起？"><a href="#35-、你是如何与你的父母相处？-当你空闲时喜欢和家人待在一起还是喜欢和朋友待在一起？" class="headerlink" title="35**、你是如何与你的父母相处？/** 当你空闲时喜欢和家人待在一起还是喜欢和朋友待在一起？"></a><strong>35**<strong>、你是如何与你的父母相处？</strong></strong>/** <strong>当你空闲时喜欢和家人待在一起还是喜欢和朋友待在一起？</strong></h2><p>How are you getting on with your parents? / do you prefer to spend time with your family or with your friends?</p>
+<h2 id="36-、描述一下你的父亲-母亲。"><a href="#36-、描述一下你的父亲-母亲。" class="headerlink" title="36**、描述一下你的父亲/**母亲。"></a><strong>36**<strong>、描述一下你的父亲</strong></strong>/**<strong>母亲。</strong></h2><p>Describe your father/ mother.</p>
+<h1 id="五、Hobbies"><a href="#五、Hobbies" class="headerlink" title="五、Hobbies"></a><strong>五、Hobbies</strong></h1><h2 id="37-、你空闲时间喜欢做些什么？"><a href="#37-、你空闲时间喜欢做些什么？" class="headerlink" title="37****、你空闲时间喜欢做些什么？"></a><strong>37****、你空闲时间喜欢做些什么？</strong></h2><p>What do you like to do in your spare time? How do you arrange your spare time?</p>
+<h2 id="38-、你的兴趣爱好是什么？"><a href="#38-、你的兴趣爱好是什么？" class="headerlink" title="38****、你的兴趣爱好是什么？"></a><strong>38****、你的兴趣爱好是什么？</strong></h2><p>Could you tell me about a hobby or an interest that you have?</p>
+<h2 id="39-、你喜欢的音乐类别？"><a href="#39-、你喜欢的音乐类别？" class="headerlink" title="39****、你喜欢的音乐类别？"></a><strong>39****、你喜欢的音乐类别？</strong></h2><p>What kind of music do you like? Why?</p>
+<h2 id="40-、你认为音乐给我们的生活带来什么影响？"><a href="#40-、你认为音乐给我们的生活带来什么影响？" class="headerlink" title="40****、你认为音乐给我们的生活带来什么影响？"></a><strong>40****、你认为音乐给我们的生活带来什么影响？</strong></h2><p>What role do you think music play in our life?</p>
+<h2 id="41-、你喜欢的电影？-最近看的电影是？"><a href="#41-、你喜欢的电影？-最近看的电影是？" class="headerlink" title="41**、你喜欢的电影？/**最近看的电影是？"></a><strong>41**<strong>、你喜欢的电影？</strong></strong>/**<strong>最近看的电影是？</strong></h2><p>Do you like watching movie? Talk about a movie you like/ you have watched</p>
+<p>recently?</p>
+<h2 id="42-、谈论一下你喜欢的电视剧"><a href="#42-、谈论一下你喜欢的电视剧" class="headerlink" title="42****、谈论一下你喜欢的电视剧"></a><strong>42****、谈论一下你喜欢的电视剧</strong></h2><p>Talk about a TV series you like.</p>
+<h2 id="43-、谈论一下你喜欢的书籍"><a href="#43-、谈论一下你喜欢的书籍" class="headerlink" title="43****、谈论一下你喜欢的书籍"></a><strong>43****、谈论一下你喜欢的书籍</strong></h2><p>Talk about a book you like.</p>
+<h2 id="44-、电脑游戏有什么好处和缺点？"><a href="#44-、电脑游戏有什么好处和缺点？" class="headerlink" title="44****、电脑游戏有什么好处和缺点？"></a><strong>44****、电脑游戏有什么好处和缺点？</strong></h2><p>What is advantages and disadvantages for watching computer games?</p>
+<h1 id="六、-Yourself"><a href="#六、-Yourself" class="headerlink" title="六、 Yourself"></a><strong>六、 Yourself</strong></h1><h2 id="45-、你的优点"><a href="#45-、你的优点" class="headerlink" title="45****、你的优点"></a><strong>45****、你的优点</strong></h2><p>Your strengths</p>
+<h2 id="46-、你的缺点"><a href="#46-、你的缺点" class="headerlink" title="46****、你的缺点"></a><strong>46****、你的缺点</strong></h2><p>Your weaknesses</p>
+<h2 id="47-、你从社团经历中学到了什么？"><a href="#47-、你从社团经历中学到了什么？" class="headerlink" title="47****、你从社团经历中学到了什么？"></a><strong>47****、你从社团经历中学到了什么？</strong></h2><p>What have you learned from your club experience?</p>
+<h2 id="48-、你认为你有什么样的性格？"><a href="#48-、你认为你有什么样的性格？" class="headerlink" title="48****、你认为你有什么样的性格？"></a><strong>48****、你认为你有什么样的性格？</strong></h2><p>What kind of character do you think you have?</p>
+<h2 id="49-、你从实习经历中学到了什么？"><a href="#49-、你从实习经历中学到了什么？" class="headerlink" title="49****、你从实习经历中学到了什么？"></a><strong>49****、你从实习经历中学到了什么？</strong></h2><p>What have you learned from your internship experience?</p>
+<h2 id="50-、你从科研-竞赛经历中学到了什么？"><a href="#50-、你从科研-竞赛经历中学到了什么？" class="headerlink" title="50**、你从科研/**竞赛经历中学到了什么？"></a><strong>50**<strong>、你从科研</strong></strong>/**<strong>竞赛经历中学到了什么？</strong></h2><p>What have you learned from your research experience/competition experience?</p>
+<p><a target="_blank" rel="noopener" href="https://blog.csdn.net/qq_40394960/article/details/105875114">https://blog.csdn.net/qq_40394960/article/details/105875114</a></p>
+
+      
+    </div>
+    
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/2022/05/31/%E5%A4%8F%E4%BB%A4%E8%90%A5%E9%9D%A2%E8%AF%95/%E5%A4%8F%E4%BB%A4%E8%90%A5%E5%87%86%E5%A4%87%E7%BB%8F%E9%AA%8C/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">&lt;</strong>
+      <div class="article-nav-title">
+        
+          (no title)
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2022/05/17/tinyKV/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title"></div>
+      <strong class="article-nav-caption">&gt;</strong>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+
+
+
+
+
+</div>
+      <footer id="footer">
+  <div class="outer">
+    <div id="footer-info">
+      <div class="footer-left">
+        &copy; 2022 绘梨衣
+      </div>
+        <div class="footer-right">
+          <a href="http://hexo.io/" target="_blank">Hexo</a>  Theme <a href="https://github.com/preccrep/hexo-theme-jelly" target="_blank">Jelly</a>
+        </div>
+    </div>
+  </div>
+</footer>
+    </div>
+    
+  
+<link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+
+
+
+<script>
+	var yiliaConfig = {
+		fancybox: true,
+		mathjax: false,
+		animate: true,
+		isHome: false,
+		isPost: true,
+		isArchive: false,
+		isTag: false,
+		isCategory: false,
+		open_in_new: false
+	}
+</script>
+
+<script src="/js/main.js"></script>
+
+
+
+
+  </div>
+</body>
+</html>

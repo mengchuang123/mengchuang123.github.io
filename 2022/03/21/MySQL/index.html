@@ -17,7 +17,7 @@
 <meta property="og:description" content="设计数据库过程中遇到的问题1、我们用来索引的数据结构是B+树，B+树的设计和存储的问题第一个难点主要是怎么设计B+树来作索引，为了方便每一个表只有一个按照主键的索引  因为B+树相比于红黑树和B树的优势我们用的就是B+树来进行索引。  B+树有索引结点和叶子节点。索引结点主要就存放键值，叶子节点存放键值，指向记录的指针，一个是指向下一个结点的指针。   ​    每一个叶 子节点里面的记录都按照键">
 <meta property="og:locale" content="en_US">
 <meta property="article:published_time" content="2022-03-20T16:00:00.000Z">
-<meta property="article:modified_time" content="2022-04-06T17:14:55.607Z">
+<meta property="article:modified_time" content="2022-06-01T03:18:09.505Z">
 <meta property="article:author" content="绘梨衣">
 <meta property="article:tag" content="MySQL,数据库">
 <meta name="twitter:card" content="summary">
@@ -100,7 +100,7 @@
 				
 				<section class="switch-part switch-part2">
 					<div class="widget tagcloud" id="js-tagcloud">
-						<a href="/tags/JVM/" style="font-size: 10px;">JVM</a> <a href="/tags/Java/" style="font-size: 10px;">Java</a> <a href="/tags/Leetcode/" style="font-size: 14px;">Leetcode</a> <a href="/tags/MySQL-%E6%95%B0%E6%8D%AE%E5%BA%93/" style="font-size: 12px;">MySQL,数据库</a> <a href="/tags/Summary/" style="font-size: 16px;">Summary</a> <a href="/tags/%E4%BF%A1%E6%81%AF%E8%AE%BA/" style="font-size: 10px;">信息论</a> <a href="/tags/%E5%8A%A8%E6%80%81%E8%A7%84%E5%88%92/" style="font-size: 10px;">动态规划</a> <a href="/tags/%E5%9B%BE%E8%AE%BA/" style="font-size: 10px;">图论</a> <a href="/tags/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F/" style="font-size: 18px;">操作系统</a> <a href="/tags/%E6%95%B0%E6%8D%AE%E5%BA%93/" style="font-size: 10px;">数据库</a> <a href="/tags/%E6%B0%B4%E5%A1%98%E9%87%87%E6%A0%B7/" style="font-size: 10px;">水塘采样</a> <a href="/tags/%E7%AE%97%E6%B3%95/" style="font-size: 20px;">算法</a> <a href="/tags/%E7%BA%BF%E7%A8%8B%E6%B1%A0-JVM-Java/" style="font-size: 10px;">线程池,JVM,Java</a> <a href="/tags/%E7%BC%96%E8%AF%91/" style="font-size: 10px;">编译</a> <a href="/tags/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BB%84%E6%88%90/" style="font-size: 12px;">计算机组成</a> <a href="/tags/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/" style="font-size: 18px;">计算机网络</a> <a href="/tags/%E8%AE%B8%E6%84%BF/" style="font-size: 10px;">许愿</a> <a href="/tags/%E9%9D%A2%E7%BB%8F/" style="font-size: 10px;">面经</a> <a href="/tags/%E9%9D%A2%E8%AF%95/" style="font-size: 10px;">面试</a> <a href="/tags/%E9%AB%98%E9%A2%91%E9%A2%98/" style="font-size: 10px;">高频题</a>
+						<a href="/tags/JVM/" style="font-size: 10px;">JVM</a> <a href="/tags/Java/" style="font-size: 10px;">Java</a> <a href="/tags/Leetcode/" style="font-size: 15px;">Leetcode</a> <a href="/tags/MySQL-%E6%95%B0%E6%8D%AE%E5%BA%93/" style="font-size: 11.67px;">MySQL,数据库</a> <a href="/tags/Summary/" style="font-size: 16.67px;">Summary</a> <a href="/tags/%E4%BF%A1%E6%81%AF%E8%AE%BA/" style="font-size: 10px;">信息论</a> <a href="/tags/%E5%88%86%E5%B8%83%E5%BC%8F/" style="font-size: 10px;">分布式</a> <a href="/tags/%E5%88%86%E5%B8%83%E5%BC%8Flab2/" style="font-size: 10px;">分布式lab2</a> <a href="/tags/%E5%8A%A8%E6%80%81%E8%A7%84%E5%88%92/" style="font-size: 10px;">动态规划</a> <a href="/tags/%E5%9B%BE%E8%AE%BA/" style="font-size: 10px;">图论</a> <a href="/tags/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F/" style="font-size: 18.33px;">操作系统</a> <a href="/tags/%E6%95%B0%E6%8D%AE%E5%BA%93/" style="font-size: 10px;">数据库</a> <a href="/tags/%E6%9C%BA%E8%AF%95/" style="font-size: 10px;">机试</a> <a href="/tags/%E6%B0%B4%E5%A1%98%E9%87%87%E6%A0%B7/" style="font-size: 10px;">水塘采样</a> <a href="/tags/%E7%AE%97%E6%B3%95/" style="font-size: 20px;">算法</a> <a href="/tags/%E7%AE%97%E6%B3%95%E4%B8%8E%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/" style="font-size: 10px;">算法与数据结构</a> <a href="/tags/%E7%BA%BF%E7%A8%8B%E6%B1%A0-JVM-Java/" style="font-size: 10px;">线程池,JVM,Java</a> <a href="/tags/%E7%BC%96%E8%AF%91/" style="font-size: 10px;">编译</a> <a href="/tags/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BB%84%E6%88%90/" style="font-size: 11.67px;">计算机组成</a> <a href="/tags/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/" style="font-size: 18.33px;">计算机网络</a> <a href="/tags/%E8%AE%B8%E6%84%BF/" style="font-size: 10px;">许愿</a> <a href="/tags/%E9%9D%A2%E7%BB%8F/" style="font-size: 10px;">面经</a> <a href="/tags/%E9%9D%A2%E8%AF%95/" style="font-size: 13.33px;">面试</a> <a href="/tags/%E9%AB%98%E9%A2%91%E9%A2%98/" style="font-size: 10px;">高频题</a>
 					</div>
 				</section>
 				
@@ -339,6 +339,11 @@
 <p><strong>一致性：</strong> 实现其他三个特性的基础上，在应用层需要加判断的，用户恶意操作会导致不一致</p>
 <h3 id="MVCC是什么-同时用到锁和log-回滚指针指向undo-log"><a href="#MVCC是什么-同时用到锁和log-回滚指针指向undo-log" class="headerlink" title="MVCC是什么  同时用到锁和log  (回滚指针指向undo log)"></a>MVCC是什么  同时用到锁和log  (回滚指针指向undo log)</h3><p>1、MVCC是什么</p>
 <p>InnoDB的多版本并发控制，优势是<strong>读不加锁，读写不冲突，读写分离</strong>，并发控制优势很大</p>
+<p>MVCC是指多版本并发控制。MVCC是在并发访问数据库时，通过对数据进行多版本控制，避免因写锁而导致读操作的堵塞，从而很好的优化并发堵塞问题。解决并发问题的通用方案有：</p>
+<p>（1）对并发访问的数据添加一把排它锁，添加锁之后，其他的读和写操作都需等待锁释放后才能访问。</p>
+<p>（2）添加一把共享锁，读读操作不需要等待锁的释放，读写和写写操作需要等待锁的释放。</p>
+<p>（3）通过对并发数据进行快照备份，从而达到无锁数据的并发访问。</p>
+<p>通俗的讲就是MVCC通过对数据进行多版本保存，根据比较版本号来控制数据是否展示，从而达到读取数据时无需加锁就可以实现事务的隔离性。</p>
 <p>2、解决什么问题</p>
 <ul>
 <li>脏读</li>
