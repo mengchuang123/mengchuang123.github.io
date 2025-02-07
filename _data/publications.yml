@@ -1,64 +1,67 @@
 main:
   - title: "UniCoTT: A Unified Framework for Structural Chain-of-Thought Distillation"
-      authors: <strong>Xianwei Zhuang*</strong>, Zhihong Zhu*, Zhichang Wang*, Xuxin Cheng, Yuexian Zou
-      conference_short: ICLR
-      conference: International Conference on Learning Representations <strong>(ICLR)</strong>, 2025.
-      pdf: https://openreview.net/forum?id=3baOKeI2EU
-      code: https://openreview.net/forum?id=3baOKeI2EU
-      notes: ICLR 2025 Accept
-      image: ./assets/img/pub-3.png
+    authors: <strong>Xianwei Zhuang*</strong>, Zhihong Zhu*, Zhichang Wang*, Xuxin Cheng, Yuexian Zou
+    conference_short: ICLR
+    conference: International Conference on Learning Representations <strong>(ICLR)</strong>, 2025.
+    pdf: https://openreview.net/forum?id=3baOKeI2EU
+    code: https://openreview.net/forum?id=3baOKeI2EU
+    notes: ICLR 2025 Accept
+    image: ./assets/img/pub-3.png
 
   - title: "KDProR: A Knowledge-Decoupling Probabilistic Framework for Video-Text Retrieval"
-      authors: <strong>Xianwei Zhuang*</strong>, Hongxiang Li*, Xuxin Cheng, Zhihong Zhu, Yuxin Xie, Yuexian Zou
-      conference_short: ECCV
-      conference: European Conference on Computer Vision <strong>(ECCV)</strong>, 2024.
-      pdf: https://link.springer.com/chapter/10.1007/978-3-031-72754-2_18
-      code: https://github.com/mengchuang123/KDProR
-      notes: ECCV 2024 Accept
-      image: ./assets/img/pub-4.png
+    authors: <strong>Xianwei Zhuang*</strong>, Hongxiang Li*, Xuxin Cheng, Zhihong Zhu, Yuxin Xie, Yuexian Zou
+    conference_short: ECCV
+    conference: European Conference on Computer Vision <strong>(ECCV)</strong>, 2024.
+    pdf: https://link.springer.com/chapter/10.1007/978-3-031-72754-2_18
+    code: https://github.com/mengchuang123/KDProR
+    notes: ECCV 2024 Accept
+    image: ./assets/img/pub-4.png
 
   - title: "Game on Tree: Visual Hallucination Mitigation via Coarse-to-Fine View Tree and Game Theory"
-      authors: <strong>Xianwei Zhuang</strong>, Zhihong Zhu, Zhanpeng Chen, Yuxin Xie, Liming Liang, Yuexian Zou
-      conference_short: EMNLP
-      conference:  Empirical Methods in Natural Language Processing <strong>(EMNLP)</strong>, 2024.
-      pdf: https://aclanthology.org/2024.emnlp-main.998/
-      code:  https://github.com/mengchuang123/GTHM
-      notes: EMNLP 2024 Accept
-      image: ./assets/img/pub-9.png
+    authors: <strong>Xianwei Zhuang</strong>, Zhihong Zhu, Zhanpeng Chen, Yuxin Xie, Liming Liang, Yuexian Zou
+    conference_short: EMNLP
+    conference:  Empirical Methods in Natural Language Processing <strong>(EMNLP)</strong>, 2024.
+    pdf: https://aclanthology.org/2024.emnlp-main.998/
+    code:  https://github.com/mengchuang123/GTHM
+    notes: EMNLP 2024 Accept
+    image: ./assets/img/pub-9.png
 
   - title: "Towards Explainable Joint Models via Information Theory for Multiple Intent Detection and Slot Filling"
-      authors: <strong>Xianwei Zhuang</strong>, Xuxin Cheng, Yuexian Zou
-      conference_short: AAAI
-      conference: Annual AAAI Conference on Artificial Intelligence <strong>(AAAI)</strong>, 2024.
-      pdf: https://ojs.aaai.org/index.php/AAAI/article/view/29953
-      bibtex: https://ojs.aaai.org/index.php/AAAI/article/view/29953
-      notes: AAAI 2024 Accept
-      image: ./assets/img/pub-5.png
+    authors: <strong>Xianwei Zhuang</strong>, Xuxin Cheng, Yuexian Zou
+    conference_short: AAAI
+    conference: Annual AAAI Conference on Artificial Intelligence <strong>(AAAI)</strong>, 2024.
+    pdf: https://ojs.aaai.org/index.php/AAAI/article/view/29953
+    bibtex: https://ojs.aaai.org/index.php/AAAI/article/view/29953
+    notes: AAAI 2024 Accept
+    image: ./assets/img/pub-5.png
 
   - title: " PCAD: Towards ASR-Robust Spoken Language Understanding via Prototype Calibration and Asymmetric Decoupling"
-      authors: <strong>Xianwei Zhuang</strong>, Xuxin Cheng, Liming Liang, Yuxin Xie, Zhichang Wang, Zhiqi Huang, Yuexian Zou
-      conference_short: ACL
-      conference: Annual Meeting of the Association for Computational Linguistics <strong>(ACL)</strong>, 2024.
-      pdf: https://aclanthology.org/2024.acl-long.286/#
-      bibtex: https://aclanthology.org/2024.acl-long.286/#
-      notes: ACL 2024 Accept
-      image: ./assets/img/pub-6.png
+    authors: <strong>Xianwei Zhuang</strong>, Xuxin Cheng, Liming Liang, Yuxin Xie, Zhichang Wang, Zhiqi Huang, Yuexian Zou
+    conference_short: ACL
+    conference: Annual Meeting of the Association for Computational Linguistics <strong>(ACL)</strong>, 2024.
+    pdf: https://aclanthology.org/2024.acl-long.286/#
+    bibtex: https://aclanthology.org/2024.acl-long.286/#
+    notes: ACL 2024 Accept
+    image: ./assets/img/pub-6.png
 
 
   - title: "Towards Multimodal-augmented Pre-trained Language Models via Self-balanced Expectation-Maximization Iteration"
-      authors: <strong>Xianwei Zhuang</strong>, Xuxin Cheng, Zhihong Zhu, Zhanpeng Chen, Hongxiang Li, Yuexian Zou
-      conference_short: ACM MM
-      conference: ACM International Conference on Multimedia <strong>(ACM MM)</strong>, 2024.
-      pdf: https://dl.acm.org/doi/10.1145/3664647.3681388
-      bibtex: https://dl.acm.org/doi/10.1145/3664647.3681388
-      notes: ACM MM 2024 Accept
-      image: ./assets/img/pub-7.png
+    authors: <strong>Xianwei Zhuang</strong>, Xuxin Cheng, Zhihong Zhu, Zhanpeng Chen, Hongxiang Li, Yuexian Zou
+    conference_short: ACM MM
+    conference: ACM International Conference on Multimedia <strong>(ACM MM)</strong>, 2024.
+    pdf: https://dl.acm.org/doi/10.1145/3664647.3681388
+    bibtex: https://dl.acm.org/doi/10.1145/3664647.3681388
+    notes: ACM MM 2024 Accept
+    image: ./assets/img/pub-7.png
 
   - title: "SemiGMMPoint: Semi-supervised Point Cloud Segmentation based on Gaussian Mixture Models"
-      authors: <strong>Xianwei Zhuang</strong>, Hualiang Wang, Xiaoxuan He, Siming Fu, Haoji Hu
-      conference_short: Pattern Recognition
-      conference: Journal of Pattern Recognition <strong>(Pattern Recognition)</strong>, 2023.
-      pdf: https://www.sciencedirect.com/science/article/pii/S0031320324007969
-      code: https://github.com/jojodidli/SemiGMMPoint
-      bibtex: https://www.sciencedirect.com/science/article/pii/S0031320324007969
-      image: ./assets/img/pub-8.png
+    authors: <strong>Xianwei Zhuang</strong>, Hualiang Wang, Xiaoxuan He, Siming Fu, Haoji Hu
+    conference_short: Pattern Recognition
+    conference: Journal of Pattern Recognition <strong>(Pattern Recognition)</strong>, 2024.
+    pdf: https://www.sciencedirect.com/science/article/pii/S0031320324007969
+    code: https://github.com/jojodidli/SemiGMMPoint
+    bibtex: https://www.sciencedirect.com/science/article/pii/S0031320324007969
+    notes: The work was done from 2022 to 2023.
+    image: ./assets/img/pub-8.png
+
+    
