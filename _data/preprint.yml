@@ -1,0 +1,24 @@
+main:
+
+  - title: "VARGPT: Unified Understanding and Generation in a Visual Autoregressive Multimodal Large Language Model"
+    authors:  <strong>Xianwei Zhuang*</strong>, Yuxin Xie*, Yufan Deng*, Liming Liang, Jinghan Ru, Yuguo Yin, Yuexian Zou,
+    conference_short: Preprint
+    conference: Preprint arXiv <strong>(Preprint)</strong>, 2025.
+    pdf: https://arxiv.org/abs/2501.12327
+    code: https://github.com/VARGPT-family/VARGPT
+    page: https://vargpt-1.github.io/
+    model: https://huggingface.co/VARGPT-family/VARGPT_LLaVA-v1
+    bibtex: https://vargpt-1.github.io/
+    image: ./assets/img/pub-1.png
+    notes: Welcome to continue following
+
+  - title: "VASparse: Towards Efficient Visual Hallucination Mitigation for Large Vision-Language Model via Visual-Aware Sparsification"
+    authors: <strong>Xianwei Zhuang</strong>, Zhihong Zhu, Yuxin Xie, Liming Liang, Yuexian Zou
+    conference_short: Preprint
+    conference: Preprint arXiv <strong>(Preprint)</strong>, 2024.
+    pdf: https://arxiv.org/abs/2501.06553
+    code: https://github.com/mengchuang123/VASparse-github
+    notes: Preprint
+    bibtex: https://github.com/mengchuang123/VASparse-github
+    image: ./assets/img/pub-2.png
+
