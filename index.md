@@ -11,9 +11,10 @@ I am a second year graduate student majoring in computer science at Peking Unive
 - **Multimodal Large Language Model:** Unified model, Visual (image and video) Understanding and Generation
 - **Large Language Model:** Long Context, SFT, RLHF, Reasoning
 
+{% include_relative _includes/services.md %}
+
+
 ## News
-
-
 
 The exploration of unified understanding and generation has been released
 
@@ -27,5 +28,4 @@ The exploration of unified understanding and generation has been released
 
 {% include_relative _includes/publications.md %}
 
-{% include_relative _includes/services.md %}
 
