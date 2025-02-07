@@ -1,6 +1,4 @@
 main:
-
-
   - title: "UniCoTT: A Unified Framework for Structural Chain-of-Thought Distillation"
     authors: <strong>Xianwei Zhuang*</strong>, Zhihong Zhu*, Zhichang Wang*, Xuxin Cheng, Yuexian Zou
     conference_short: ICLR
@@ -11,7 +9,7 @@ main:
     image: ./assets/img/pub-3.png
 
   - title: "KDProR: A Knowledge-Decoupling Probabilistic Framework for Video-Text Retrieval"
-      authors: <strong>Xianwei Zhuang*</strong>, Hongxiang Li*, Xuxin Cheng, Zhihong Zhu, Yuxin Xie & Yuexian Zou
+      authors: <strong>Xianwei Zhuang*</strong>, Hongxiang Li*, Xuxin Cheng, Zhihong Zhu, Yuxin Xie, Yuexian Zou
       conference_short: ECCV
       conference: European Conference on Computer Vision <strong>(ECCV)</strong>, 2024.
       pdf: https://link.springer.com/chapter/10.1007/978-3-031-72754-2_18
