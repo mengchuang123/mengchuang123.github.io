@@ -1,4 +1,14 @@
 main:
+  - title: "VASparse: Towards Efficient Visual Hallucination Mitigation for Large Vision-Language Model via Visual-Aware Sparsification"
+    authors: <strong>Xianwei Zhuang</strong>, Zhihong Zhu, Yuxin Xie, Liming Liang, Yuexian Zou
+    conference_short: CVPR
+    conference: Computer Vision and Pattern Recognition Conference <strong>(CVPR)</strong>, 2025.
+    pdf: https://arxiv.org/abs/2501.06553
+    code: https://github.com/mengchuang123/VASparse-github
+    notes: CVPR 2025 Accept
+    bibtex: https://github.com/mengchuang123/VASparse-github
+    image: ./assets/img/pub-2.png
+
   - title: "UniCoTT: A Unified Framework for Structural Chain-of-Thought Distillation"
     authors: <strong>Xianwei Zhuang*</strong>, Zhihong Zhu*, Zhichang Wang*, Xuxin Cheng, Yuexian Zou
     conference_short: ICLR
