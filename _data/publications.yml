@@ -55,14 +55,14 @@ main:
     image: ./assets/img/pub-6.png
 
 
-  # - title: "Towards Multimodal-augmented Pre-trained Language Models via Self-balanced Expectation-Maximization Iteration"
-  #   authors: <strong>Xianwei Zhuang</strong>, Xuxin Cheng, Zhihong Zhu, Zhanpeng Chen, Hongxiang Li, Yuexian Zou
-  #   conference_short: ACM MM
-  #   conference: ACM International Conference on Multimedia <strong>(ACM MM)</strong>, 2024.
-  #   pdf: https://dl.acm.org/doi/10.1145/3664647.3681388
-  #   bibtex: https://dl.acm.org/doi/10.1145/3664647.3681388
-  #   notes: ACM MM 2024 Accept
-  #   image: ./assets/img/pub-7.png
+  - title: "Towards Multimodal-augmented Pre-trained Language Models via Self-balanced Expectation-Maximization Iteration"
+    authors: <strong>Xianwei Zhuang</strong>, Xuxin Cheng, Zhihong Zhu, Zhanpeng Chen, Hongxiang Li, Yuexian Zou
+    conference_short: ACM MM
+    conference: ACM International Conference on Multimedia <strong>(ACM MM)</strong>, 2024.
+    pdf: https://dl.acm.org/doi/10.1145/3664647.3681388
+    bibtex: https://dl.acm.org/doi/10.1145/3664647.3681388
+    notes: ACM MM 2024 Accept
+    image: ./assets/img/pub-7.png
 
   - title: "SemiGMMPoint: Semi-supervised Point Cloud Segmentation based on Gaussian Mixture Models"
     authors: <strong>Xianwei Zhuang</strong>, Hualiang Wang, Xiaoxuan He, Siming Fu, Haoji Hu
