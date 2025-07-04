@@ -1,15 +1,54 @@
 main:
 
+  - title: "VARGPT-RL: Improve Visual Autoregressive Large Unified Model via Unified Group Relative Policy Optimization"
+    authors:  <strong>Xianwei Zhuang*</strong>, et al.
+    conference_short: Working in Progress
+    code: https://github.com/VARGPT-family
+    page: https://vargpt1-1.github.io/
+    model: https://huggingface.co/VARGPT-family/VARGPT-v1.1
+    bibtex: https://vargpt1-1.github.io/
+    image: ./assets/img/pub-vargpt-rl.png
+    notes: Unified GRPO for Unified Model VARGPT
+    
+  - title: "VARGPT-v1.1: Improve Visual Autoregressive Large Unified Model via Iterative Instruction Tuning and Reinforcement Learning"
+    authors:  <strong>Xianwei Zhuang*</strong>, Yuxin Xie*, Yufan Deng*, Liming Liang, Jinghan Ru, Yuguo Yin, Yuexian Zou,
+    conference_short: Preprint
+    conference: Preprint arXiv (Preprint), 2025.
+    pdf: https://arxiv.org/pdf/2504.02949
+    code: https://github.com/VARGPT-family
+    page: https://vargpt1-1.github.io/
+    model: https://huggingface.co/VARGPT-family/VARGPT-v1.1
+    bibtex: https://vargpt1-1.github.io/
+    image: ./assets/img/pub-vargpt-v1-1.png
+    notes: Iterative SFT and DPO for VARGPT
+    
   - title: "VARGPT: Unified Understanding and Generation in a Visual Autoregressive Multimodal Large Language Model"
     authors:  <strong>Xianwei Zhuang*</strong>, Yuxin Xie*, Yufan Deng*, Liming Liang, Jinghan Ru, Yuguo Yin, Yuexian Zou,
     conference_short: Preprint
-    conference: Preprint arXiv <strong>(Preprint)</strong>, 2025.
+    conference: Preprint arXiv (Preprint), 2025.
     pdf: https://arxiv.org/abs/2501.12327
     code: https://github.com/VARGPT-family/VARGPT
     page: https://vargpt-1.github.io/
     model: https://huggingface.co/VARGPT-family/VARGPT_LLaVA-v1
     bibtex: https://vargpt-1.github.io/
     image: ./assets/img/pub-1.png
-    notes: Welcome to continue following
+    notes: Pre- and Post-training Visual Autoregressive Unified VLM
 
+  - title: "VASparse: Towards Efficient Visual Hallucination Mitigation for Large Vision-Language Model via Visual-Aware Sparsification"
+    authors: <strong>Xianwei Zhuang</strong>, Zhihong Zhu, Yuxin Xie, Liming Liang, Yuexian Zou
+    conference_short: CVPR
+    conference: Computer Vision and Pattern Recognition Conference <strong>(CVPR)</strong>, 2025.
+    pdf: https://arxiv.org/abs/2501.06553
+    code: https://github.com/mengchuang123/VASparse-github
+    notes: CVPR 2025 Accept
+    bibtex: https://github.com/mengchuang123/VASparse-github
+    image: ./assets/img/pub-2.png
 
+  - title: "Game on Tree: Visual Hallucination Mitigation via Coarse-to-Fine View Tree and Game Theory"
+    authors: <strong>Xianwei Zhuang</strong>, Zhihong Zhu, Zhanpeng Chen, Yuxin Xie, Liming Liang, Yuexian Zou
+    conference_short: EMNLP
+    conference:  Empirical Methods in Natural Language Processing <strong>(EMNLP)</strong>, 2024.
+    pdf: https://aclanthology.org/2024.emnlp-main.998/
+    code:  https://github.com/mengchuang123/GTHM
+    notes: EMNLP 2024 Accept
+    image: ./assets/img/pub-9.png
