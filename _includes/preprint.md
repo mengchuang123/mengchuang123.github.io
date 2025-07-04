@@ -1,4 +1,4 @@
-<h2 id="publications" style="margin: 2px 0px -15px;">Preprint</h2>
+<h2 id="publications" style="margin: 2px 0px -15px;">Publications: VLM/Unified Model Pre-/Post-training, RLHF, Hallucination</h2>
 
 <div class="publications">
 <ol class="bibliography">
