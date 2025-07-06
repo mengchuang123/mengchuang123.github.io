@@ -4,7 +4,7 @@ layout: homepage
 
 ## About Me
 
-I am a second year graduate student majoring in computer science at Peking University, mainly focusing on foundational large model, including the **pre/post-training and RLHF of large vision models (VLM) and long-context of large language models (LLM)**.
+I am a second year graduate student majoring in computer science at Peking University, mainly focusing on foundational large model, including the **pre/post-training and RLHF of large vision models (VLM)**.
 
 ## Research Interests
 
