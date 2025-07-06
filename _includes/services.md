@@ -22,8 +22,9 @@
 
 <h4 style="margin:0 10px 0;">Some honors</h4>
 
-<ul style="margin:0 0 20px;">
-  <li>Received the National Scholarship at Peking University in 2024</li>
-  <li>Received Zhejiang Province Outstanding Graduate and Zhejiang University First Class Scholarship at Zhejiang University</li>
+<div style="margin:0 0 20px;">
+  
+- Received the **National Scholarship** at Peking University in 2024
+- Received **Zhejiang Province Outstanding Graduate** and **Zhejiang University First Class Scholarship** at Zhejiang University
 
-</ul>
+</div>
