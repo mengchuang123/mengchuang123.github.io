@@ -1,8 +1,9 @@
 main:
 
   - title: "Qwen3-VL: Technical Report"
-    authors:  <strongQwen Team</strong>.
+    authors:  <strong> Qwen Team</strong>.
     conference_short: Technical Report
+    pdf: https://arxiv.org/pdf/2511.21631
     code: https://github.com/QwenLM/Qwen3-VL
     page: https://chat.qwen.ai/
     model: https://huggingface.co/Qwen
