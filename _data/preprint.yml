@@ -7,7 +7,7 @@ main:
     page: https://chat.qwen.ai/
     model: https://huggingface.co/Qwen
     bibtex: https://huggingface.co/Qwen
-    image: ./assets/img/qwen3-vl.jpg
+    image: ./assets/img/qwen3-vl.png
     notes: Qwen3-VL
     
   - title: "VARGPT-RL: Improve Visual Autoregressive Large Unified Model via Unified Group Relative Policy Optimization"
