@@ -1,5 +1,15 @@
 main:
 
+  - title: "Qwen3-VL: Technical Report"
+    authors:  <strongQwen Team</strong>.
+    conference_short: Technical Report
+    code: https://github.com/QwenLM/Qwen3-VL
+    page: https://chat.qwen.ai/
+    model: https://huggingface.co/Qwen
+    bibtex: https://huggingface.co/Qwen
+    image: ./assets/img/qwen3-vl.jpg
+    notes: Qwen3-VL
+    
   - title: "VARGPT-RL: Improve Visual Autoregressive Large Unified Model via Unified Group Relative Policy Optimization"
     authors:  <strong>Xianwei Zhuang*</strong>, et al.
     conference_short: Working in Progress
