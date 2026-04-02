@@ -13,7 +13,7 @@
 
 
   
-- **Qwen Team, Foundation Model, Tongyi**:  Core contributor in the 0-to-1 development of [Qwen VLo](https://qwenlm.github.io/blog/qwen-vlo/), participating in data synthesis, coding, pre/post-training, and RL. Contributor of [Qwen3-VL](https://arxiv.org/pdf/2511.21631).
+- **Qwen Team, Foundation Model, Tongyi**:  Core contributor in the 0-to-1 development of [Qwen VLo](https://qwenlm.github.io/blog/qwen-vlo/), participating in data synthesis, coding, pre/post-training, and RL, [Qwen3-VL](https://arxiv.org/pdf/2511.21631), building [Qwen3.6](https://qwen.ai/blog?id=qwen3.6) including webdev and coding.
 - **ByteDance**: Focus on studying long context of LLM and long-term memory of [Doubao](https://www.doubao.com/chat/)
 
 
