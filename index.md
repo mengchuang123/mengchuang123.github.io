@@ -16,6 +16,7 @@ I am a second year graduate student majoring in computer science at Peking Unive
 
 
 ## News
+- **[Apr. 2026]** Our **Qwen3.6** is published, see [Qwen3.6](https://qwen.ai/blog?id=qwen3.6).
 - **[Oct. 2025]** Our **Qwen3-VL** preview version can available for you to experience at [Qwen3-VL]([https://qwenlm.github.io/blog/qwen-vlo/](https://arxiv.org/pdf/2511.21631)).
 - **[Jun. 2025]** Our **QwenVLo** preview version can available for you to experience at [QwenVLo](https://qwenlm.github.io/blog/qwen-vlo/).
 - **[Apr. 2025]** Open source training code and models of **VARGPT-v1.1** at [github](https://github.com/VARGPT-family/VARGPT-v1.1) and [Huggingface](https://huggingface.co/VARGPT-family). **Total GitHub stars exceed ~600**.
