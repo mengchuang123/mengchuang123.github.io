@@ -4,6 +4,7 @@ main:
     authors:  <strong> Qwen Team</strong>.
     conference_short: Report
     pdf: https://arxiv.org/pdf/2606.26300v1
+    image: ./assets/img/agentic_coding.png
     notes: Long Horizon
 
   - title: "Qwen3-VL: Technical Report"
