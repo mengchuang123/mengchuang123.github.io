@@ -1,5 +1,11 @@
 main:
 
+  - title: "The Verification Horizon: No Silver Bullet for Coding Agent Rewards"
+    authors:  <strong> Qwen Team</strong>.
+    conference_short: Report
+    pdf: https://arxiv.org/pdf/2606.26300v1
+    notes: Long Horizon
+
   - title: "Qwen3-VL: Technical Report"
     authors:  <strong> Qwen Team</strong>.
     conference_short: Technical Report
