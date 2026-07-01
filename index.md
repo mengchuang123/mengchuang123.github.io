@@ -4,11 +4,11 @@ layout: homepage
 
 ## About Me
 
-I am a second year graduate student majoring in computer science at Peking University, mainly focusing on foundational large model, including the **pre/post-training and RLHF of large vision models (VLM)**.
+I am a second year graduate student majoring in computer science at Peking University, mainly focusing on foundational large model, including the **pre/post-training and rl of LLM and VLM, agentic coding, webdev**.
 
 ## Research Interests
 
-- **Agentic coding, Long Horizon, Webdev:** , Coding and Webdev, SFT, RL <span style="color:red">** [[Qwen3.7](https://qwen.ai/blog?id=qwen3.7), [Qwen3.6](https://qwen.ai/blog?id=qwen3.6)**</span>
+- **Agentic coding, Long Horizon, Webdev:** , Coding and Webdev, SFT, RL <span style="color:red">** [[Qwen3.7](https://qwen.ai/blog?id=qwen3.7), [Qwen3.6](https://qwen.ai/blog?id=qwen3.6)]**</span>
 - **Multimodel Large Language Model:** Multimodal Understanding and Generation <span style="color:red">** [[Qwen3-VL](https://arxiv.org/pdf/2511.21631), [QwenVLo](https://qwenlm.github.io/blog/qwen-vlo), [VARGPT](https://github.com/VARGPT-family)]**</span>
 
   
@@ -16,6 +16,7 @@ I am a second year graduate student majoring in computer science at Peking Unive
 
 
 ## News
+- **[may. 2026]** Our **Qwen3.7** is published, see [Qwen3.7](https://qwen.ai/blog?id=qwen3.7).
 - **[Apr. 2026]** Our **Qwen3.6** is published, see [Qwen3.6](https://qwen.ai/blog?id=qwen3.6).
 - **[Oct. 2025]** Our **Qwen3-VL** preview version can available for you to experience at [Qwen3-VL]([https://qwenlm.github.io/blog/qwen-vlo/](https://arxiv.org/pdf/2511.21631)).
 - **[Jun. 2025]** Our **QwenVLo** preview version can available for you to experience at [QwenVLo](https://qwenlm.github.io/blog/qwen-vlo/).
