@@ -8,8 +8,8 @@ I am a second year graduate student majoring in computer science at Peking Unive
 
 ## Research Interests
 
-- **Multimodal Large Language Model:** Multimodal Understanding and Generation, Coding and Webdev, SFT, RLHF, Reasoning <span style="color:red">** [[Qwen3.6](https://qwen.ai/blog?id=qwen3.6), [Qwen3-VL](https://arxiv.org/pdf/2511.21631), [QwenVLo](https://qwenlm.github.io/blog/qwen-vlo), [VARGPT](https://github.com/VARGPT-family)]**</span>
-- **Large Language Model:** Long Context <span style="color:red"></span>
+- **Agentic coding, Long Horizon, Webdev:** , Coding and Webdev, SFT, RL <span style="color:red">** [[Qwen3.7](https://qwen.ai/blog?id=qwen3.7), [Qwen3.6](https://qwen.ai/blog?id=qwen3.6)**</span>
+- **Multimodel Large Language Model:** Multimodal Understanding and Generation <span style="color:red">** [[Qwen3-VL](https://arxiv.org/pdf/2511.21631), [QwenVLo](https://qwenlm.github.io/blog/qwen-vlo), [VARGPT](https://github.com/VARGPT-family)]**</span>
 
   
 {% include_relative _includes/services.md %}
